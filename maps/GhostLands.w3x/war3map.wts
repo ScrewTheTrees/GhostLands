@@ -1,0 +1,181 @@
+﻿STRING 1
+{
+Player 1
+}
+
+STRING 2
+{
+Force 1
+}
+
+STRING 3
+{
+GhostLands
+}
+
+STRING 4
+{
+-
+}
+
+STRING 5
+{
+Amazing
+}
+
+STRING 6
+{
+ScrewTheTrees
+}
+
+STRING 7
+{
+Player 2
+}
+
+STRING 8
+{
+Player 3
+}
+
+STRING 9
+{
+Player 4
+}
+
+STRING 10
+{
+Player 13
+}
+
+STRING 11
+{
+Player 14
+}
+
+STRING 12
+{
+Player 15
+}
+
+STRING 13
+{
+Player 16
+}
+
+STRING 14
+{
+Force 2
+}
+
+STRING 15
+// Destructibles: B000 (Pathing Blocker Horizontal (Ground)), Name (Name)
+{
+Pathing Blocker Horizontal (Ground)
+}
+
+STRING 16
+// Destructibles: B001 (Pathing Blocker Vertical(Ground)), Name (Name)
+{
+Pathing Blocker Vertical(Ground)
+}
+
+STRING 17
+{
+Player 5
+}
+
+STRING 18
+{
+Player 6
+}
+
+STRING 19
+{
+Player 7
+}
+
+STRING 20
+{
+Player 8
+}
+
+STRING 21
+{
+Player 9
+}
+
+STRING 22
+{
+Player 10
+}
+
+STRING 23
+{
+Player 11
+}
+
+STRING 24
+{
+Player 12
+}
+
+STRING 25
+{
+Event 1
+}
+
+STRING 26
+{
+Event 2
+}
+
+STRING 27
+{
+Force 1 Army
+}
+
+STRING 28
+{
+Force 1 Extra
+}
+
+STRING 29
+{
+Force 2 Army
+}
+
+STRING 30
+{
+Force 2 Extra
+}
+
+STRING 31
+{
+Force 3
+}
+
+STRING 32
+// Units: H000 (Grand General), Propernames (Proper Names)
+{
+Grand General
+}
+
+STRING 33
+// Units: H000 (Grand General), Name (Name)
+{
+Grand General
+}
+
+STRING 34
+// Units: H000 (Grand General), Ubertip (Tooltip - Extended)
+{
+Warrior Hero.
+}
+
+STRING 35
+// Units: H000 (Grand General), Hotkey (Hotkey)
+{
+G
+}
+
