@@ -55,12 +55,23 @@ export class ActionQueue extends Entity {
     }
 
     public enableQueue(queue: Queue) {
-        if (this.allQueues.indexOf(queue) <= 0) {
+        if (this.allQueues.indexOf(queue) < 0) {
             Logger.LogVerbose("Queue is missing, adding");
             this.allQueues.push(queue);
             return;
         }
         Logger.LogVerbose("Queue is present.");
+    }
+
+    public disableQueue(queue: Queue) {
+        let index = this.allQueues.indexOf(queue);
+        queue.isFinished = true;
+        if (index >= 0) {
+            Logger.LogVerbose("Queue is present, splicing");
+            this.allQueues.splice(index, 1);
+            return;
+        }
+        Logger.LogVerbose("Queue is not present, no action required.");
     }
 
     /*
@@ -82,6 +93,14 @@ export class ActionQueue extends Entity {
      */
     public static enableQueue(queue: Queue) {
         return this.getInstance().enableQueue(queue);
+    }
+
+    /**
+     * Great if a queue has lost its purpose or needs replacing.
+     * @param queue the queue to disable,
+     */
+    public static disableQueue(queue: Queue) {
+        return this.getInstance().disableQueue(queue);
     }
 
     /**

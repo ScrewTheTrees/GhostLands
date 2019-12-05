@@ -51,6 +51,10 @@ export class Point {
         return loc;
     }
 
+    public isAlignedWith(point: Point): boolean {
+        return (this.x == point.x || this.y == point.y);
+    }
+
     public static fromLocation(inputLoc: location) {
         return new Point(GetLocationX(inputLoc), GetLocationY(inputLoc));
     }
@@ -67,6 +71,10 @@ export class Point {
 
     public static fromRectCenter(input: rect) {
         return new Point(GetRectCenterX(input), GetRectCenterY(input));
+    }
+
+    public static copy(input: Point): Point {
+        return new Point(input.x, input.y);
     }
 
     distanceToLine(lineStart: Point, lineEnd: Point) {
@@ -102,5 +110,9 @@ export class Point {
 
     public toString(): string {
         return "point {x:" + this.x + ", y:" + this.y + " }";
+    }
+
+    public equals(point: Point) {
+        return point.x == this.x && point.y == this.y;
     }
 }

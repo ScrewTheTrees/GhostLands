@@ -1,7 +1,6 @@
 [Misc]
 AgiDefenseBase=0.0
 AgiDefenseBonus=0.1
-HeroFactorXP=
 IntManaBonus=5.0
 MaxHeroLevel=10000
 MaxUnitSpeed=522.0

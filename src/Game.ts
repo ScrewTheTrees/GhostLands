@@ -3,6 +3,7 @@ import {StartGameDiag} from "./GameScripts/StartGame/StartGameDiag";
 import {PlayerUnitBuilder} from "./GameScripts/StartGame/PlayerUnitBuilder";
 import {Rectifier} from "./GameScripts/RectControl/Rectifier";
 import {AIManager} from "./GameScripts/AI/AIManager";
+import {PathManager} from "./GameScripts/AI/PathManager";
 
 export class Game {
     constructor() {
@@ -13,5 +14,6 @@ export class Game {
         StartGameDiag.getInstance().runDiagnosis();
         PlayerUnitBuilder.getInstance().execute();
         AIManager.getInstance();
+        PathManager.getInstance();
     }
 }

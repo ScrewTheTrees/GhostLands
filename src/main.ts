@@ -1,4 +1,4 @@
-import {Game} from "./war3map/Game";
+import {Game} from "./Game";
 
 let gg_trg_Start: trigger;
 let gameInstance: Game;
@@ -18,4 +18,8 @@ function NewMain() {
 }
 
 
-ceres.addHook("main::after", NewMain);
+_G.__oldMain = _G.main;
+_G.main = () => {
+    _G.__oldMain();
+    NewMain();
+};

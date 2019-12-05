@@ -54,4 +54,18 @@ export class Rectifier {
 
         return rects;
     }
+
+    public getWaypoints() {
+        let rects: NamedRect[] = [];
+        this.rects.forEach((value) => {
+            let segment = new Segment(ShitEx.separateNumbers(value.name));
+            if (segment.header == "path"
+                && segment.subtitle == "waypoint") {
+                //We are in!
+                rects.push(value);
+            }
+        });
+
+        return rects;
+    }
 }
