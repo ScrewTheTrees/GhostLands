@@ -264,6 +264,8 @@ gg_rct_force2spawner2 = nil
 gg_rct_path3waypoint18 = nil
 gg_rct_path9waypoint14 = nil
 gg_rct_path12waypoint16 = nil
+gg_rct_path1waypoint23 = nil
+gg_rct_path2waypoint22 = nil
 function InitGlobals()
 end
 
@@ -271,8 +273,8 @@ function CreateRegions()
     local we
     gg_rct_force1spawner1 = Rect(-28224.0, 27712.0, -28096.0, 27840.0)
     gg_rct_force2spawner1 = Rect(28096.0, -28672.0, 28224.0, -28544.0)
-    gg_rct_force1gathering = Rect(-25952.0, 24928.0, -25024.0, 26144.0)
-    gg_rct_force2gathering = Rect(20704.0, -23232.0, 22208.0, -21856.0)
+    gg_rct_force1gathering = Rect(-26240.0, 25472.0, -25440.0, 26304.0)
+    gg_rct_force2gathering = Rect(21888.0, -25664.0, 23072.0, -24512.0)
     gg_rct_path1waypoint1 = Rect(-24704.0, 24288.0, -24448.0, 24544.0)
     gg_rct_path1waypoint2 = Rect(-24064.0, 23520.0, -23808.0, 23808.0)
     gg_rct_path1waypoint3 = Rect(-23360.0, 22784.0, -23040.0, 23104.0)
@@ -534,6 +536,8 @@ function CreateRegions()
     gg_rct_path3waypoint18 = Rect(96.0, -640.0, 416.0, -320.0)
     gg_rct_path9waypoint14 = Rect(-10144.0, 13152.0, -9888.0, 13408.0)
     gg_rct_path12waypoint16 = Rect(9632.0, -10304.0, 9888.0, -10048.0)
+    gg_rct_path1waypoint23 = Rect(-25600.0, 25408.0, -25344.0, 25664.0)
+    gg_rct_path2waypoint22 = Rect(22752.0, -24832.0, 23072.0, -24512.0)
 end
 
 function Trig_Untitled_Trigger_001_Actions()

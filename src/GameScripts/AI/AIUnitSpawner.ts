@@ -15,7 +15,7 @@ export class AIUnitSpawner extends Entity {
     private readonly forceId: number;
     private readonly gathering: rect;
     public spawnTimer: number = 1;
-    public waveTimer: number = 60;
+    public waveTimer: number = 120;
 
     public spawnTimeScale: number = 1;
     public currentSpawnTime: number = 0;
@@ -50,7 +50,7 @@ export class AIUnitSpawner extends Entity {
             let recruit = new RecruitContainer(u, queue);
             this.sendRecruitToGathering(recruit);
         }
-        if (this.unitsInGather.length >= 12) {
+        if (this.currentWaveTime >= this.waveTimer) {
             this.currentWaveTime -= this.waveTimer;
 
             while (this.unitsInGather.length > 0) {
@@ -100,6 +100,6 @@ export class AIUnitSpawner extends Entity {
 
     private updateTimeScale() {
         let units = CountLivingPlayerUnitsOfTypeId(FourCC("h001"), this.forceData.aiPlayer);
-        this.spawnTimeScale = 1 / (0.10 + (0.05 * ((units / 2) * (units / 2))));
+        this.spawnTimeScale = 1 / (0.025 + (0.15 * ((units / 2) * (units / 2))));
     }
 }

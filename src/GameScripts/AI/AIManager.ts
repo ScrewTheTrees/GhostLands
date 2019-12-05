@@ -5,6 +5,7 @@ import {PlayerManager} from "../PlayerManager";
 import {Rectifier} from "../RectControl/Rectifier";
 import {Point} from "../../TreeLib/Utility/Point";
 import {AIUnitSpawner} from "./AIUnitSpawner";
+import {Delay} from "../../TreeLib/Utility/Delay";
 
 export class AIManager extends Entity {
     private static instance: AIManager;
@@ -30,6 +31,9 @@ export class AIManager extends Entity {
         this.force2Data = new AIForceData(this.getSpawnPoints(2), playerManager.team2Player, playerManager.team2PlayerArmy, playerManager.team2PlayerExtra);
         this.force1Spawner = new AIUnitSpawner(this.force1Data, 1);
         this.force2Spawner = new AIUnitSpawner(this.force2Data, 2);
+        Delay.addDelay(() => {
+            this.force2Spawner.currentWaveTime = 0;
+        }, this.force2Spawner.waveTimer / 2);
     }
 
     step(): void {
