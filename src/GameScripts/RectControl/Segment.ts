@@ -1,17 +1,17 @@
 export class Segment {
-    public readonly header: string;
-    public readonly headerIndex: number;
-    public readonly subtitle: string;
-    public readonly subtitleIndex: number;
-    public readonly note: string;
-    public readonly noteIndex: number;
+    public readonly segment1: string;
+    public readonly segment1Index: number;
+    public readonly segment2: string;
+    public readonly segment2Index: number;
+    public readonly segment3: string;
+    public readonly segment3Index: number;
 
     constructor(segments: string[]) {
-        this.header = segments[0].replace("gg_rct_", "")  || "";
-        this.headerIndex = tonumber(segments[1]) || 0;
-        this.subtitle = segments[2] || "";
-        this.subtitleIndex = tonumber(segments[1]) || 0;
-        this.note = segments[3] || "";
-        this.noteIndex = tonumber(segments[4]) || 0;
+        this.segment1 = segments[0].replace("gg_rct_", "") || "";
+        this.segment1Index = tonumber(segments[1]) || 0;
+        this.segment2 = segments[2] || "";
+        this.segment2Index = tonumber(segments[3]) || 0;
+        this.segment3 = segments[4] || "";
+        this.segment3Index = tonumber(segments[5]) || 0;
     }
 }

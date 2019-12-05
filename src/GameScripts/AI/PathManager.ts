@@ -24,7 +24,7 @@ export class PathManager {
     constructor() {
         this.pathfinder = new Pathfinder();
 
-        let rects = Rectifier.getInstance().getWaypoints();
+        let rects = Rectifier.getInstance().getPathWaypoints();
         for (let i = 0; i < rects.length; i++) {
             let node = new Node(Point.fromRectCenter(rects[i].value));
             this.pathfinder.addNodeWithNeighborsInRange(node, 1500);

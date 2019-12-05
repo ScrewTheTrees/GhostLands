@@ -6,6 +6,7 @@ import {Rectifier} from "../RectControl/Rectifier";
 import {Point} from "../../TreeLib/Utility/Point";
 import {AIUnitSpawner} from "./AIUnitSpawner";
 import {Delay} from "../../TreeLib/Utility/Delay";
+import {Forces} from "../Enums/Forces";
 
 export class AIManager extends Entity {
     private static instance: AIManager;
@@ -27,8 +28,8 @@ export class AIManager extends Entity {
     constructor() {
         super();
         let playerManager = PlayerManager.getInstance();
-        this.force1Data = new AIForceData(this.getSpawnPoints(1), playerManager.team1Player, playerManager.team1PlayerArmy, playerManager.team1PlayerExtra);
-        this.force2Data = new AIForceData(this.getSpawnPoints(2), playerManager.team2Player, playerManager.team2PlayerArmy, playerManager.team2PlayerExtra);
+        this.force1Data = new AIForceData(this.getSpawnPoints(1), playerManager.team1Player, playerManager.team1PlayerArmy, playerManager.team1PlayerExtra, Forces.FORCE_1);
+        this.force2Data = new AIForceData(this.getSpawnPoints(2), playerManager.team2Player, playerManager.team2PlayerArmy, playerManager.team2PlayerExtra, Forces.FORCE_2);
         this.force1Spawner = new AIUnitSpawner(this.force1Data, 1);
         this.force2Spawner = new AIUnitSpawner(this.force2Data, 2);
         Delay.addDelay(() => {
