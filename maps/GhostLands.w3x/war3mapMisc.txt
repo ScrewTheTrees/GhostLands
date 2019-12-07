@@ -2,7 +2,13 @@
 AgiDefenseBase=0.0
 AgiDefenseBonus=0.1
 CallForHelp=1000.0
+DefendDeflection=1
 DefenseArmor=0.01
+DrainGivesBonusLife=1
+DrainGivesBonusMana=1
+DrainTransfersLife=1
+DrainTransfersMana=1
+DrainUsesEtheralBonus=1
 IntManaBonus=5.0
 MaxHeroLevel=10000
 MaxUnitSpeed=522.0

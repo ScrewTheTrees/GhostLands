@@ -4,16 +4,18 @@ import {PlayerUnitBuilder} from "./GameScripts/StartGame/PlayerUnitBuilder";
 import {Rectifier} from "./GameScripts/RectControl/Rectifier";
 import {AIManager} from "./GameScripts/AI/AIManager";
 import {PathManager} from "./GameScripts/AI/PathManager";
+import {Occupations} from "./GameScripts/GameState/Occupations";
 
 export class Game {
     constructor() {
         Logger.doLogVerbose = false;
-        Logger.doLogDebug = true;
+        Logger.doLogDebug = false;
 
         Rectifier.getInstance();
         StartGameDiag.getInstance().runDiagnosis();
         PlayerUnitBuilder.getInstance().execute();
         AIManager.getInstance();
         PathManager.getInstance();
+        Occupations.getInstance();
     }
 }

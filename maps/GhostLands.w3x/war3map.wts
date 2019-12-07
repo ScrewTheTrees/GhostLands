@@ -179,3 +179,15 @@ STRING 35
 G
 }
 
+STRING 36
+// Abilities: A000 (Defend), EditorSuffix (Editor Suffix)
+{
+(Footman)
+}
+
+STRING 37
+// Abilities: A001 (Frenzy), EditorSuffix (Editor Suffix)
+{
+(Archer)
+}
+

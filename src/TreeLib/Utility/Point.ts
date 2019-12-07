@@ -77,6 +77,10 @@ export class Point {
         return new Point(input.x, input.y);
     }
 
+    public copy(): Point {
+        return Point.copy(this);
+    }
+
     distanceToLine(lineStart: Point, lineEnd: Point) {
         let A = this.x - lineStart.x;
         let B = this.y - lineStart.y;

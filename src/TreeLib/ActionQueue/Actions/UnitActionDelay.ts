@@ -8,7 +8,6 @@ import {Delay} from "../../Utility/Delay";
 export class UnitActionDelay implements UnitAction {
     isFinished: boolean = false;
     private timer: number = 0;
-    private updateTimer: number = 5;
     private delay: number;
 
     constructor(delay: number) {
@@ -18,7 +17,6 @@ export class UnitActionDelay implements UnitAction {
 
     update(target: unit, timeStep: number, queue: UnitQueue): void {
         this.timer += timeStep;
-        this.updateTimer += timeStep;
 
         Delay.addDelay(() => {
             this.isFinished = true;
@@ -26,7 +24,7 @@ export class UnitActionDelay implements UnitAction {
     }
 
     init(target: unit, queue: UnitQueue): void {
-
+        this.timer = 0;
     }
 
 }

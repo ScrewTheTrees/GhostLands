@@ -4,6 +4,8 @@ import {Forces} from "../Enums/Forces";
 
 export class Occupations {
     private static instance: Occupations;
+    public FORCE_2_OUTPOST_3: Occupant = new Occupant(Forces.FORCE_2, "force2outpost3", "outpost3guard");
+
     public CITY_1: Occupant = new Occupant(Forces.FORCE_HOSTILE, "city1", "city1guard");
     public CITY_2: Occupant = new Occupant(Forces.FORCE_HOSTILE, "city2", "city2guard");
     public CITY_3: Occupant = new Occupant(Forces.FORCE_HOSTILE, "city3", "city3guard");
@@ -13,8 +15,20 @@ export class Occupations {
     public FORCE_2_BASE: Occupant = new Occupant(Forces.FORCE_2, "force2base", "base2guard");
     public FORCE_1_OUTPOST_1: Occupant = new Occupant(Forces.FORCE_1, "force1outpost1", "outpost1guard");
     public FORCE_1_OUTPOST_2: Occupant = new Occupant(Forces.FORCE_1, "force1outpost2", "outpost2guard");
-    public FORCE_2_OUTPOST_1: Occupant = new Occupant(Forces.FORCE_2, "force2outpost3", "outpost3guard");
-    public FORCE_2_OUTPOST_2: Occupant = new Occupant(Forces.FORCE_2, "force2outpost4", "outpost4guard");
+    public FORCE_2_OUTPOST_4: Occupant = new Occupant(Forces.FORCE_2, "force2outpost4", "outpost4guard");
+    private allOccupants: Occupant[] = [
+        this.FORCE_1_BASE,
+        this.FORCE_2_BASE,
+        this.FORCE_1_OUTPOST_1,
+        this.FORCE_1_OUTPOST_2,
+        this.FORCE_2_OUTPOST_3,
+        this.FORCE_2_OUTPOST_4,
+        this.CITY_1,
+        this.CITY_2,
+        this.CITY_3,
+        this.CITY_4,
+        this.CITY_5,
+    ];
 
     public static getInstance() {
         if (this.instance == null) {
@@ -22,5 +36,9 @@ export class Occupations {
             Hooks.set("Occupations", this.instance);
         }
         return this.instance;
+    }
+
+    public getAllOccupants(): Occupant[] {
+        return this.allOccupants;
     }
 }

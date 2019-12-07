@@ -16,6 +16,10 @@ export class Occupant {
         this.owner = owner;
         this.primaryRect = Rectifier.getInstance().getRectByWEName(rectName);
         let posts = Rectifier.getInstance().getRectsStartsWithWEName(postPrefix);
+        this.generateGuardPosts(posts);
+    }
+
+    private generateGuardPosts(posts: NamedRect[]) {
         for (let i = 0; i < posts.length; i++) {
             let theRect = posts[i];
             let segments = new Segment(ShitEx.separateNumbers(theRect.name));

@@ -45,7 +45,6 @@ gg_rct_base1guard9ranged = nil
 gg_rct_base1guard10ranged = nil
 gg_rct_base1guard11ranged = nil
 gg_rct_base1guard12ranged = nil
-gg_trg_Untitled_Trigger_001 = nil
 gg_rct_path1waypoint4 = nil
 gg_rct_path1waypoint7 = nil
 gg_rct_path1waypoint8 = nil
@@ -257,36 +256,189 @@ gg_rct_path11waypoint14 = nil
 gg_rct_path11waypoint15 = nil
 gg_rct_path11waypoint16 = nil
 gg_rct_path11waypoint17 = nil
-gg_rct_force1spawner2 = nil
-gg_rct_force1spawner3 = nil
-gg_rct_force2spawner3 = nil
-gg_rct_force2spawner2 = nil
 gg_rct_path3waypoint18 = nil
 gg_rct_path9waypoint14 = nil
 gg_rct_path12waypoint16 = nil
 gg_rct_path1waypoint23 = nil
 gg_rct_path2waypoint22 = nil
+gg_rct_path6waypoint25 = nil
+gg_rct_path5waypoint34 = nil
+gg_rct_path7waypoint21 = nil
+gg_rct_path8waypoint22 = nil
+gg_rct_base2guard1melee = nil
+gg_rct_base2guard2melee = nil
+gg_rct_base2guard3melee = nil
+gg_rct_base2guard4melee = nil
+gg_rct_base2guard5melee = nil
+gg_rct_base2guard6melee = nil
+gg_rct_base2guard7ranged = nil
+gg_rct_base2guard8ranged = nil
+gg_rct_base2guard9ranged = nil
+gg_rct_base2guard10ranged = nil
+gg_rct_base2guard11ranged = nil
+gg_rct_base2guard12ranged = nil
+gg_rct_path9waypoint15 = nil
+gg_rct_path9waypoint16 = nil
+gg_rct_path9waypoint17 = nil
+gg_rct_path13waypoint1 = nil
+gg_rct_path13waypoint2 = nil
+gg_rct_path13waypoint3 = nil
+gg_rct_path13waypoint4 = nil
+gg_rct_path13waypoint5 = nil
+gg_rct_path13waypoint6 = nil
+gg_rct_path13waypoint7 = nil
+gg_rct_path13waypoint8 = nil
+gg_rct_path13waypoint9 = nil
+gg_rct_path13waypoint10 = nil
+gg_rct_path13waypoint11 = nil
+gg_rct_path13waypoint12 = nil
+gg_rct_path13waypoint13 = nil
+gg_rct_path13waypoint14 = nil
+gg_rct_path13waypoint15 = nil
+gg_rct_path13waypoint16 = nil
+gg_rct_path13waypoint17 = nil
+gg_rct_path13waypoint18 = nil
+gg_rct_path13waypoint19 = nil
+gg_rct_path13waypoint20 = nil
+gg_rct_path13waypoint21 = nil
+gg_rct_path13waypoint22 = nil
+gg_rct_path13waypoint23 = nil
+gg_rct_path13waypoint24 = nil
+gg_rct_path13waypoint25 = nil
+gg_rct_path13waypoint26 = nil
+gg_rct_path13waypoint27 = nil
+gg_rct_path13waypoint28 = nil
+gg_rct_path13waypoint29 = nil
+gg_rct_path13waypoint30 = nil
+gg_rct_path13waypoint31 = nil
+gg_rct_path13waypoint32 = nil
+gg_rct_path13waypoint33 = nil
+gg_rct_path13waypoint34 = nil
+gg_rct_path13waypoint35 = nil
+gg_rct_path13waypoint36 = nil
+gg_rct_path13waypoint37 = nil
+gg_rct_path14waypoint1 = nil
+gg_rct_path14waypoint2 = nil
+gg_rct_path14waypoint3 = nil
+gg_rct_path14waypoint4 = nil
+gg_rct_path14waypoint5 = nil
+gg_rct_path14waypoint6 = nil
+gg_rct_path14waypoint7 = nil
+gg_rct_path14waypoint8 = nil
+gg_rct_path14waypoint9 = nil
+gg_rct_path14waypoint10 = nil
+gg_rct_path14waypoint11 = nil
+gg_rct_path14waypoint12 = nil
+gg_rct_path14waypoint13 = nil
+gg_rct_path14waypoint14 = nil
+gg_rct_path14waypoint15 = nil
+gg_rct_path14waypoint16 = nil
+gg_rct_path14waypoint17 = nil
+gg_rct_path14waypoint18 = nil
+gg_rct_path14waypoint19 = nil
+gg_rct_path14waypoint20 = nil
+gg_rct_path14waypoint21 = nil
+gg_rct_path14waypoint22 = nil
+gg_rct_path14waypoint23 = nil
+gg_rct_path14waypoint24 = nil
+gg_rct_path14waypoint25 = nil
+gg_rct_path14waypoint26 = nil
+gg_rct_path14waypoint27 = nil
+gg_rct_path14waypoint28 = nil
+gg_rct_path15waypoint1 = nil
+gg_rct_path15waypoint2 = nil
+gg_rct_path15waypoint3 = nil
+gg_rct_path15waypoint4 = nil
+gg_rct_path15waypoint5 = nil
+gg_rct_path15waypoint6 = nil
+gg_rct_path15waypoint7 = nil
+gg_rct_path15waypoint8 = nil
+gg_rct_path15waypoint9 = nil
+gg_rct_path15waypoint10 = nil
+gg_rct_path15waypoint11 = nil
+gg_rct_path15waypoint12 = nil
+gg_rct_path15waypoint13 = nil
+gg_rct_path15waypoint14 = nil
+gg_rct_path15waypoint15 = nil
+gg_rct_path15waypoint16 = nil
+gg_rct_path15waypoint17 = nil
+gg_rct_path15waypoint18 = nil
+gg_rct_path15waypoint19 = nil
+gg_rct_path15waypoint20 = nil
+gg_rct_path15waypoint21 = nil
+gg_rct_path15waypoint22 = nil
+gg_rct_path15waypoint23 = nil
+gg_rct_path15waypoint24 = nil
+gg_rct_path15waypoint25 = nil
+gg_rct_path15waypoint26 = nil
+gg_rct_path15waypoint27 = nil
+gg_rct_path15waypoint28 = nil
+gg_rct_path15waypoint29 = nil
+gg_rct_path15waypoint30 = nil
+gg_rct_path16waypoint1 = nil
+gg_rct_path16waypoint2 = nil
+gg_rct_path16waypoint3 = nil
+gg_rct_path16waypoint4 = nil
+gg_rct_path16waypoint5 = nil
+gg_rct_path16waypoint6 = nil
+gg_rct_path16waypoint7 = nil
+gg_rct_path16waypoint8 = nil
+gg_rct_path16waypoint9 = nil
+gg_rct_path16waypoint10 = nil
+gg_rct_path16waypoint11 = nil
+gg_rct_path16waypoint12 = nil
+gg_rct_path16waypoint13 = nil
+gg_rct_path16waypoint14 = nil
+gg_rct_path16waypoint15 = nil
+gg_rct_path16waypoint16 = nil
+gg_rct_path16waypoint17 = nil
+gg_rct_path16waypoint18 = nil
+gg_rct_path16waypoint19 = nil
+gg_rct_path16waypoint20 = nil
+gg_rct_path16waypoint21 = nil
+gg_rct_path16waypoint22 = nil
+gg_rct_path16waypoint23 = nil
+gg_rct_path16waypoint24 = nil
+gg_rct_path16waypoint25 = nil
+gg_rct_path16waypoint26 = nil
+gg_rct_path1waypoint24 = nil
+gg_rct_path1waypoint25 = nil
+gg_rct_path1waypoint26 = nil
+gg_rct_path1waypoint27 = nil
+gg_rct_path1waypoint28 = nil
+gg_rct_path1waypoint29 = nil
+gg_rct_path2waypoint23 = nil
+gg_rct_path2waypoint24 = nil
+gg_rct_path2waypoint25 = nil
+gg_rct_path2waypoint26 = nil
+gg_rct_path2waypoint27 = nil
+gg_rct_path2waypoint28 = nil
+gg_rct_force1spawner2 = nil
+gg_rct_force1spawner3 = nil
+gg_trg_Untitled_Trigger_001 = nil
+gg_rct_force2spawner2 = nil
+gg_rct_force2spawner3 = nil
 function InitGlobals()
 end
 
 function CreateRegions()
     local we
-    gg_rct_force1spawner1 = Rect(-28224.0, 27712.0, -28096.0, 27840.0)
-    gg_rct_force2spawner1 = Rect(28096.0, -28672.0, 28224.0, -28544.0)
-    gg_rct_force1gathering = Rect(-26240.0, 25472.0, -25440.0, 26304.0)
-    gg_rct_force2gathering = Rect(21888.0, -25664.0, 23072.0, -24512.0)
+    gg_rct_force1spawner1 = Rect(-29920.0, 29536.0, -29792.0, 29664.0)
+    gg_rct_force2spawner1 = Rect(29760.0, -30176.0, 29888.0, -30048.0)
+    gg_rct_force1gathering = Rect(-26560.0, 22880.0, -24960.0, 24512.0)
+    gg_rct_force2gathering = Rect(22816.0, -24320.0, 24288.0, -22688.0)
     gg_rct_path1waypoint1 = Rect(-24704.0, 24288.0, -24448.0, 24544.0)
     gg_rct_path1waypoint2 = Rect(-24064.0, 23520.0, -23808.0, 23808.0)
     gg_rct_path1waypoint3 = Rect(-23360.0, 22784.0, -23040.0, 23104.0)
     gg_rct_path1waypoint5 = Rect(-22016.0, 21696.0, -21696.0, 22016.0)
     gg_rct_path1waypoint6 = Rect(-21280.0, 21152.0, -20960.0, 21472.0)
-    gg_rct_city1 = Rect(-10272.0, 12992.0, -9568.0, 13728.0)
+    gg_rct_city1 = Rect(-10496.0, 12800.0, -9440.0, 13856.0)
     gg_rct_city2 = Rect(9248.0, -10688.0, 10304.0, -9536.0)
     gg_rct_city3 = Rect(-96.0, -928.0, 672.0, -32.0)
-    gg_rct_city4 = Rect(-28224.0, -28032.0, -25216.0, -24928.0)
+    gg_rct_city4 = Rect(-27136.0, -27104.0, -25696.0, -25536.0)
     gg_rct_city5 = Rect(25312.0, 25376.0, 28320.0, 28480.0)
-    gg_rct_force1base = Rect(-28032.0, 26272.0, -26464.0, 27680.0)
-    gg_rct_force2base = Rect(26144.0, -28480.0, 27712.0, -27072.0)
+    gg_rct_force1base = Rect(-27296.0, 28288.0, -26176.0, 28736.0)
+    gg_rct_force2base = Rect(27136.0, -27136.0, 29184.0, -26080.0)
     gg_rct_path2waypoint1 = Rect(25536.0, -26432.0, 25856.0, -26112.0)
     gg_rct_path2waypoint2 = Rect(24928.0, -25696.0, 25248.0, -25376.0)
     gg_rct_path2waypoint3 = Rect(24256.0, -24928.0, 24576.0, -24608.0)
@@ -302,22 +454,22 @@ function CreateRegions()
     gg_rct_path4waypoint3 = Rect(7328.0, -8544.0, 7648.0, -8224.0)
     gg_rct_path4waypoint4 = Rect(6400.0, -7872.0, 6720.0, -7552.0)
     gg_rct_path4waypoint5 = Rect(5440.0, -7840.0, 5760.0, -7520.0)
-    gg_rct_force1outpost1 = Rect(-21216.0, 3968.0, -19968.0, 5152.0)
+    gg_rct_force1outpost1 = Rect(-21120.0, 4192.0, -19872.0, 5376.0)
     gg_rct_force1outpost2 = Rect(3072.0, 20352.0, 4800.0, 22240.0)
-    gg_rct_force2outpost3 = Rect(-2816.0, -23616.0, -1152.0, -22016.0)
+    gg_rct_force2outpost3 = Rect(-2432.0, -23456.0, -768.0, -21856.0)
     gg_rct_force2outpost4 = Rect(21664.0, -1696.0, 23648.0, 64.0)
-    gg_rct_base1guard1melee = Rect(-25632.0, 23840.0, -25472.0, 24000.0)
-    gg_rct_base1guard2melee = Rect(-25312.0, 23840.0, -25152.0, 24000.0)
-    gg_rct_base1guard3melee = Rect(-24736.0, 24064.0, -24576.0, 24224.0)
-    gg_rct_base1guard4melee = Rect(-24416.0, 24352.0, -24256.0, 24512.0)
-    gg_rct_base1guard5melee = Rect(-23584.0, 25536.0, -23424.0, 25696.0)
-    gg_rct_base1guard6melee = Rect(-23584.0, 26016.0, -23424.0, 26176.0)
-    gg_rct_base1guard7ranged = Rect(-25696.0, 24160.0, -25536.0, 24320.0)
-    gg_rct_base1guard8ranged = Rect(-25312.0, 24160.0, -25152.0, 24320.0)
-    gg_rct_base1guard9ranged = Rect(-24928.0, 24352.0, -24768.0, 24512.0)
-    gg_rct_base1guard10ranged = Rect(-24672.0, 24640.0, -24512.0, 24800.0)
-    gg_rct_base1guard11ranged = Rect(-23904.0, 25536.0, -23744.0, 25696.0)
-    gg_rct_base1guard12ranged = Rect(-23936.0, 25952.0, -23776.0, 26112.0)
+    gg_rct_base1guard1melee = Rect(-26112.0, 25440.0, -25952.0, 25600.0)
+    gg_rct_base1guard2melee = Rect(-25952.0, 25280.0, -25792.0, 25440.0)
+    gg_rct_base1guard3melee = Rect(-25792.0, 25120.0, -25632.0, 25280.0)
+    gg_rct_base1guard4melee = Rect(-25408.0, 25824.0, -25248.0, 25984.0)
+    gg_rct_base1guard5melee = Rect(-25568.0, 25984.0, -25408.0, 26144.0)
+    gg_rct_base1guard6melee = Rect(-25728.0, 26144.0, -25568.0, 26304.0)
+    gg_rct_base1guard7ranged = Rect(-26432.0, 25152.0, -26272.0, 25312.0)
+    gg_rct_base1guard8ranged = Rect(-26432.0, 25536.0, -26272.0, 25696.0)
+    gg_rct_base1guard9ranged = Rect(-26432.0, 25344.0, -26272.0, 25504.0)
+    gg_rct_base1guard10ranged = Rect(-25728.0, 26528.0, -25568.0, 26688.0)
+    gg_rct_base1guard11ranged = Rect(-25920.0, 26528.0, -25760.0, 26688.0)
+    gg_rct_base1guard12ranged = Rect(-25536.0, 26528.0, -25376.0, 26688.0)
     gg_rct_path1waypoint4 = Rect(-22784.0, 22272.0, -22464.0, 22592.0)
     gg_rct_path1waypoint7 = Rect(-20512.0, 20608.0, -20192.0, 20928.0)
     gg_rct_path1waypoint8 = Rect(-19712.0, 20256.0, -19392.0, 20576.0)
@@ -358,7 +510,7 @@ function CreateRegions()
     gg_rct_path4waypoint12 = Rect(-32.0, -4416.0, 288.0, -4096.0)
     gg_rct_path4waypoint13 = Rect(-32.0, -3328.0, 288.0, -3008.0)
     gg_rct_path4waypoint14 = Rect(-160.0, -2208.0, 160.0, -1888.0)
-    gg_rct_path4waypoint15 = Rect(-160.0, -1216.0, 160.0, -896.0)
+    gg_rct_path4waypoint15 = Rect(-64.0, -1344.0, 256.0, -1024.0)
     gg_rct_path3waypoint6 = Rect(-6912.0, 8896.0, -6592.0, 9216.0)
     gg_rct_path3waypoint7 = Rect(-6368.0, 8000.0, -6048.0, 8320.0)
     gg_rct_path3waypoint8 = Rect(-5952.0, 7072.0, -5632.0, 7392.0)
@@ -370,7 +522,7 @@ function CreateRegions()
     gg_rct_path3waypoint14 = Rect(-2272.0, 2016.0, -1952.0, 2336.0)
     gg_rct_path3waypoint15 = Rect(-1632.0, 1248.0, -1312.0, 1568.0)
     gg_rct_path3waypoint16 = Rect(-960.0, 640.0, -640.0, 960.0)
-    gg_rct_path3waypoint17 = Rect(-288.0, -64.0, 32.0, 256.0)
+    gg_rct_path3waypoint17 = Rect(-320.0, 32.0, 0.0, 352.0)
     gg_rct_path5waypoint1 = Rect(-24352.0, 25408.0, -24096.0, 25664.0)
     gg_rct_path5waypoint2 = Rect(-23712.0, 25728.0, -23456.0, 25984.0)
     gg_rct_path5waypoint3 = Rect(-23136.0, 25792.0, -22880.0, 26048.0)
@@ -403,7 +555,7 @@ function CreateRegions()
     gg_rct_path5waypoint30 = Rect(1248.0, 23232.0, 1504.0, 23488.0)
     gg_rct_path5waypoint31 = Rect(1952.0, 22496.0, 2208.0, 22752.0)
     gg_rct_path5waypoint32 = Rect(2784.0, 21920.0, 3040.0, 22176.0)
-    gg_rct_path6waypoint1 = Rect(-25504.0, 23936.0, -25248.0, 24192.0)
+    gg_rct_path6waypoint1 = Rect(-25440.0, 23872.0, -25184.0, 24128.0)
     gg_rct_path6waypoint2 = Rect(-25312.0, 23040.0, -25056.0, 23296.0)
     gg_rct_path6waypoint3 = Rect(-25152.0, 22176.0, -24896.0, 22432.0)
     gg_rct_path6waypoint4 = Rect(-25088.0, 21216.0, -24832.0, 21472.0)
@@ -466,21 +618,21 @@ function CreateRegions()
     gg_rct_path8waypoint17 = Rect(2528.0, -22880.0, 2784.0, -22624.0)
     gg_rct_path8waypoint18 = Rect(1472.0, -22880.0, 1728.0, -22624.0)
     gg_rct_path8waypoint19 = Rect(384.0, -22816.0, 640.0, -22560.0)
-    gg_rct_path8waypoint20 = Rect(-640.0, -22816.0, -384.0, -22560.0)
-    gg_rct_path8waypoint21 = Rect(-1632.0, -22816.0, -1376.0, -22560.0)
+    gg_rct_path8waypoint20 = Rect(-512.0, -23008.0, -256.0, -22752.0)
+    gg_rct_path8waypoint21 = Rect(-1504.0, -22912.0, -1248.0, -22656.0)
     gg_rct_path9waypoint1 = Rect(-20224.0, 4640.0, -19968.0, 4896.0)
-    gg_rct_path9waypoint2 = Rect(-19584.0, 5184.0, -19328.0, 5440.0)
-    gg_rct_path9waypoint3 = Rect(-18816.0, 5792.0, -18560.0, 6048.0)
-    gg_rct_path9waypoint4 = Rect(-17952.0, 6336.0, -17696.0, 6592.0)
-    gg_rct_path9waypoint5 = Rect(-17120.0, 7008.0, -16864.0, 7264.0)
-    gg_rct_path9waypoint6 = Rect(-16224.0, 7744.0, -15968.0, 8000.0)
-    gg_rct_path9waypoint7 = Rect(-15488.0, 8448.0, -15232.0, 8704.0)
-    gg_rct_path9waypoint8 = Rect(-14688.0, 9248.0, -14432.0, 9504.0)
-    gg_rct_path9waypoint9 = Rect(-13824.0, 9984.0, -13568.0, 10240.0)
-    gg_rct_path9waypoint10 = Rect(-13056.0, 10752.0, -12800.0, 11008.0)
-    gg_rct_path9waypoint11 = Rect(-12256.0, 11424.0, -12000.0, 11680.0)
-    gg_rct_path9waypoint12 = Rect(-11488.0, 12096.0, -11232.0, 12352.0)
-    gg_rct_path9waypoint13 = Rect(-10752.0, 12768.0, -10496.0, 13024.0)
+    gg_rct_path9waypoint2 = Rect(-19680.0, 5152.0, -19424.0, 5408.0)
+    gg_rct_path9waypoint3 = Rect(-19200.0, 5536.0, -18944.0, 5792.0)
+    gg_rct_path9waypoint4 = Rect(-18592.0, 5888.0, -18336.0, 6144.0)
+    gg_rct_path9waypoint5 = Rect(-18016.0, 6304.0, -17760.0, 6560.0)
+    gg_rct_path9waypoint6 = Rect(-17440.0, 6720.0, -17184.0, 6976.0)
+    gg_rct_path9waypoint7 = Rect(-16896.0, 7200.0, -16640.0, 7456.0)
+    gg_rct_path9waypoint8 = Rect(-16288.0, 7680.0, -16032.0, 7936.0)
+    gg_rct_path9waypoint9 = Rect(-15712.0, 8256.0, -15456.0, 8512.0)
+    gg_rct_path9waypoint10 = Rect(-15104.0, 8864.0, -14848.0, 9120.0)
+    gg_rct_path9waypoint11 = Rect(-14496.0, 9472.0, -14240.0, 9728.0)
+    gg_rct_path9waypoint12 = Rect(-13760.0, 10016.0, -13504.0, 10272.0)
+    gg_rct_path9waypoint13 = Rect(-13024.0, 10720.0, -12768.0, 10976.0)
     gg_rct_path10waypoint1 = Rect(-9664.0, 13632.0, -9408.0, 13888.0)
     gg_rct_path10waypoint2 = Rect(-8832.0, 14240.0, -8576.0, 14496.0)
     gg_rct_path10waypoint3 = Rect(-7872.0, 14848.0, -7616.0, 15104.0)
@@ -516,8 +668,8 @@ function CreateRegions()
     gg_rct_path12waypoint11 = Rect(1216.0, -18880.0, 1472.0, -18624.0)
     gg_rct_path12waypoint12 = Rect(448.0, -19744.0, 704.0, -19488.0)
     gg_rct_path12waypoint13 = Rect(-160.0, -20864.0, 96.0, -20608.0)
-    gg_rct_path12waypoint14 = Rect(-928.0, -21632.0, -672.0, -21376.0)
-    gg_rct_path12waypoint15 = Rect(-1504.0, -22176.0, -1248.0, -21920.0)
+    gg_rct_path12waypoint14 = Rect(-768.0, -21472.0, -512.0, -21216.0)
+    gg_rct_path12waypoint15 = Rect(-1344.0, -22112.0, -1088.0, -21856.0)
     gg_rct_path11waypoint7 = Rect(14240.0, -6848.0, 14496.0, -6592.0)
     gg_rct_path11waypoint8 = Rect(15168.0, -6304.0, 15424.0, -6048.0)
     gg_rct_path11waypoint9 = Rect(16096.0, -5600.0, 16352.0, -5344.0)
@@ -529,15 +681,167 @@ function CreateRegions()
     gg_rct_path11waypoint15 = Rect(20672.0, -1856.0, 20928.0, -1600.0)
     gg_rct_path11waypoint16 = Rect(21472.0, -1280.0, 21728.0, -1024.0)
     gg_rct_path11waypoint17 = Rect(22080.0, -928.0, 22336.0, -672.0)
-    gg_rct_force1spawner2 = Rect(3808.0, 22624.0, 3936.0, 22752.0)
-    gg_rct_force1spawner3 = Rect(-21856.0, 4992.0, -21728.0, 5120.0)
-    gg_rct_force2spawner3 = Rect(-2016.0, -24448.0, -1888.0, -24320.0)
-    gg_rct_force2spawner2 = Rect(23968.0, -1344.0, 24096.0, -1216.0)
     gg_rct_path3waypoint18 = Rect(96.0, -640.0, 416.0, -320.0)
-    gg_rct_path9waypoint14 = Rect(-10144.0, 13152.0, -9888.0, 13408.0)
+    gg_rct_path9waypoint14 = Rect(-12352.0, 11296.0, -12096.0, 11552.0)
     gg_rct_path12waypoint16 = Rect(9632.0, -10304.0, 9888.0, -10048.0)
-    gg_rct_path1waypoint23 = Rect(-25600.0, 25408.0, -25344.0, 25664.0)
-    gg_rct_path2waypoint22 = Rect(22752.0, -24832.0, 23072.0, -24512.0)
+    gg_rct_path1waypoint23 = Rect(-25600.0, 25440.0, -25344.0, 25696.0)
+    gg_rct_path2waypoint22 = Rect(23616.0, -23488.0, 23936.0, -23168.0)
+    gg_rct_path6waypoint25 = Rect(-20736.0, 4192.0, -20480.0, 4448.0)
+    gg_rct_path5waypoint34 = Rect(4384.0, 21088.0, 4640.0, 21344.0)
+    gg_rct_path7waypoint21 = Rect(22784.0, -608.0, 23040.0, -352.0)
+    gg_rct_path8waypoint22 = Rect(-2304.0, -22944.0, -2048.0, -22688.0)
+    gg_rct_base2guard1melee = Rect(21632.0, -20672.0, 21792.0, -20512.0)
+    gg_rct_base2guard2melee = Rect(21056.0, -20672.0, 21216.0, -20512.0)
+    gg_rct_base2guard3melee = Rect(20544.0, -20928.0, 20704.0, -20768.0)
+    gg_rct_base2guard4melee = Rect(20096.0, -21344.0, 20256.0, -21184.0)
+    gg_rct_base2guard5melee = Rect(20000.0, -22336.0, 20160.0, -22176.0)
+    gg_rct_base2guard6melee = Rect(20000.0, -22848.0, 20160.0, -22688.0)
+    gg_rct_base2guard7ranged = Rect(21632.0, -20896.0, 21792.0, -20736.0)
+    gg_rct_base2guard8ranged = Rect(21056.0, -20928.0, 21216.0, -20768.0)
+    gg_rct_base2guard9ranged = Rect(20704.0, -21152.0, 20864.0, -20992.0)
+    gg_rct_base2guard10ranged = Rect(20256.0, -21568.0, 20416.0, -21408.0)
+    gg_rct_base2guard11ranged = Rect(20192.0, -22368.0, 20352.0, -22208.0)
+    gg_rct_base2guard12ranged = Rect(20192.0, -22848.0, 20352.0, -22688.0)
+    gg_rct_path9waypoint15 = Rect(-11648.0, 11968.0, -11392.0, 12224.0)
+    gg_rct_path9waypoint16 = Rect(-10784.0, 12576.0, -10528.0, 12832.0)
+    gg_rct_path9waypoint17 = Rect(-10240.0, 13120.0, -9984.0, 13376.0)
+    gg_rct_path13waypoint1 = Rect(-20896.0, 3520.0, -20640.0, 3776.0)
+    gg_rct_path13waypoint2 = Rect(-20896.0, 2720.0, -20640.0, 2976.0)
+    gg_rct_path13waypoint3 = Rect(-20704.0, 1664.0, -20448.0, 1920.0)
+    gg_rct_path13waypoint4 = Rect(-20352.0, 672.0, -20096.0, 928.0)
+    gg_rct_path13waypoint5 = Rect(-19808.0, -64.0, -19552.0, 192.0)
+    gg_rct_path13waypoint6 = Rect(-19040.0, -640.0, -18784.0, -384.0)
+    gg_rct_path13waypoint7 = Rect(-18496.0, -1504.0, -18240.0, -1248.0)
+    gg_rct_path13waypoint8 = Rect(-18464.0, -2400.0, -18208.0, -2144.0)
+    gg_rct_path13waypoint9 = Rect(-18528.0, -3424.0, -18272.0, -3168.0)
+    gg_rct_path13waypoint10 = Rect(-18784.0, -4448.0, -18528.0, -4192.0)
+    gg_rct_path13waypoint11 = Rect(-19232.0, -5312.0, -18976.0, -5056.0)
+    gg_rct_path13waypoint12 = Rect(-19616.0, -6080.0, -19360.0, -5824.0)
+    gg_rct_path13waypoint13 = Rect(-20128.0, -6880.0, -19872.0, -6624.0)
+    gg_rct_path13waypoint14 = Rect(-20672.0, -7648.0, -20416.0, -7392.0)
+    gg_rct_path13waypoint15 = Rect(-21216.0, -8416.0, -20960.0, -8160.0)
+    gg_rct_path13waypoint16 = Rect(-21824.0, -9088.0, -21568.0, -8832.0)
+    gg_rct_path13waypoint17 = Rect(-22496.0, -9728.0, -22240.0, -9472.0)
+    gg_rct_path13waypoint18 = Rect(-23008.0, -10400.0, -22752.0, -10144.0)
+    gg_rct_path13waypoint19 = Rect(-23296.0, -11328.0, -23040.0, -11072.0)
+    gg_rct_path13waypoint20 = Rect(-23680.0, -12160.0, -23424.0, -11904.0)
+    gg_rct_path13waypoint21 = Rect(-24096.0, -12896.0, -23840.0, -12640.0)
+    gg_rct_path13waypoint22 = Rect(-24384.0, -13696.0, -24128.0, -13440.0)
+    gg_rct_path13waypoint23 = Rect(-24544.0, -14656.0, -24288.0, -14400.0)
+    gg_rct_path13waypoint24 = Rect(-24640.0, -15648.0, -24384.0, -15392.0)
+    gg_rct_path13waypoint25 = Rect(-24704.0, -16640.0, -24448.0, -16384.0)
+    gg_rct_path13waypoint26 = Rect(-24768.0, -17600.0, -24512.0, -17344.0)
+    gg_rct_path13waypoint27 = Rect(-24928.0, -18528.0, -24672.0, -18272.0)
+    gg_rct_path13waypoint28 = Rect(-25280.0, -19296.0, -25024.0, -19040.0)
+    gg_rct_path13waypoint29 = Rect(-25440.0, -20192.0, -25184.0, -19936.0)
+    gg_rct_path13waypoint30 = Rect(-25504.0, -21120.0, -25248.0, -20864.0)
+    gg_rct_path13waypoint31 = Rect(-25856.0, -22080.0, -25600.0, -21824.0)
+    gg_rct_path13waypoint32 = Rect(-26048.0, -22976.0, -25792.0, -22720.0)
+    gg_rct_path13waypoint33 = Rect(-26272.0, -23840.0, -26016.0, -23584.0)
+    gg_rct_path13waypoint34 = Rect(-26432.0, -24672.0, -26176.0, -24416.0)
+    gg_rct_path13waypoint35 = Rect(-26752.0, -25504.0, -26496.0, -25248.0)
+    gg_rct_path13waypoint36 = Rect(-27040.0, -26304.0, -26784.0, -26048.0)
+    gg_rct_path13waypoint37 = Rect(-27264.0, -26944.0, -27008.0, -26688.0)
+    gg_rct_path14waypoint1 = Rect(5152.0, 20992.0, 5408.0, 21248.0)
+    gg_rct_path14waypoint2 = Rect(5984.0, 20768.0, 6240.0, 21024.0)
+    gg_rct_path14waypoint3 = Rect(6848.0, 20512.0, 7104.0, 20768.0)
+    gg_rct_path14waypoint4 = Rect(7712.0, 20352.0, 7968.0, 20608.0)
+    gg_rct_path14waypoint5 = Rect(8544.0, 20064.0, 8800.0, 20320.0)
+    gg_rct_path14waypoint6 = Rect(9408.0, 19936.0, 9664.0, 20192.0)
+    gg_rct_path14waypoint7 = Rect(10240.0, 19520.0, 10496.0, 19776.0)
+    gg_rct_path14waypoint8 = Rect(11072.0, 19200.0, 11328.0, 19456.0)
+    gg_rct_path14waypoint9 = Rect(11872.0, 18656.0, 12128.0, 18912.0)
+    gg_rct_path14waypoint10 = Rect(12704.0, 18144.0, 12960.0, 18400.0)
+    gg_rct_path14waypoint11 = Rect(13312.0, 18464.0, 13568.0, 18752.0)
+    gg_rct_path14waypoint12 = Rect(13696.0, 19264.0, 13952.0, 19520.0)
+    gg_rct_path14waypoint13 = Rect(14336.0, 19904.0, 14592.0, 20160.0)
+    gg_rct_path14waypoint14 = Rect(14976.0, 20480.0, 15232.0, 20736.0)
+    gg_rct_path14waypoint15 = Rect(15776.0, 21056.0, 16032.0, 21312.0)
+    gg_rct_path14waypoint16 = Rect(16608.0, 21600.0, 16864.0, 21856.0)
+    gg_rct_path14waypoint17 = Rect(17376.0, 22112.0, 17632.0, 22368.0)
+    gg_rct_path14waypoint18 = Rect(18272.0, 22432.0, 18528.0, 22688.0)
+    gg_rct_path14waypoint19 = Rect(19200.0, 22720.0, 19456.0, 22976.0)
+    gg_rct_path14waypoint20 = Rect(20160.0, 22976.0, 20416.0, 23232.0)
+    gg_rct_path14waypoint21 = Rect(21088.0, 23136.0, 21344.0, 23392.0)
+    gg_rct_path14waypoint22 = Rect(21984.0, 23552.0, 22240.0, 23808.0)
+    gg_rct_path14waypoint23 = Rect(22880.0, 23936.0, 23136.0, 24192.0)
+    gg_rct_path14waypoint24 = Rect(23808.0, 24384.0, 24064.0, 24640.0)
+    gg_rct_path14waypoint25 = Rect(24768.0, 24800.0, 25024.0, 25056.0)
+    gg_rct_path14waypoint26 = Rect(25504.0, 25248.0, 25760.0, 25504.0)
+    gg_rct_path14waypoint27 = Rect(25696.0, 26112.0, 25952.0, 26368.0)
+    gg_rct_path14waypoint28 = Rect(26272.0, 26752.0, 26528.0, 27008.0)
+    gg_rct_path15waypoint1 = Rect(-3168.0, -23168.0, -2912.0, -22912.0)
+    gg_rct_path15waypoint2 = Rect(-4160.0, -23040.0, -3904.0, -22784.0)
+    gg_rct_path15waypoint3 = Rect(-5088.0, -22848.0, -4832.0, -22592.0)
+    gg_rct_path15waypoint4 = Rect(-5984.0, -22432.0, -5728.0, -22176.0)
+    gg_rct_path15waypoint5 = Rect(-6816.0, -21920.0, -6560.0, -21664.0)
+    gg_rct_path15waypoint6 = Rect(-7680.0, -21344.0, -7424.0, -21088.0)
+    gg_rct_path15waypoint7 = Rect(-8640.0, -21184.0, -8384.0, -20928.0)
+    gg_rct_path15waypoint8 = Rect(-9632.0, -21024.0, -9376.0, -20768.0)
+    gg_rct_path15waypoint9 = Rect(-10496.0, -21120.0, -10240.0, -20864.0)
+    gg_rct_path15waypoint10 = Rect(-11360.0, -21344.0, -11104.0, -21088.0)
+    gg_rct_path15waypoint11 = Rect(-12160.0, -21760.0, -11904.0, -21504.0)
+    gg_rct_path15waypoint12 = Rect(-12832.0, -22272.0, -12576.0, -22016.0)
+    gg_rct_path15waypoint13 = Rect(-13632.0, -22784.0, -13376.0, -22528.0)
+    gg_rct_path15waypoint14 = Rect(-14304.0, -23328.0, -14048.0, -23072.0)
+    gg_rct_path15waypoint15 = Rect(-14944.0, -23936.0, -14688.0, -23680.0)
+    gg_rct_path15waypoint16 = Rect(-15648.0, -24448.0, -15392.0, -24192.0)
+    gg_rct_path15waypoint17 = Rect(-16288.0, -25024.0, -16032.0, -24768.0)
+    gg_rct_path15waypoint18 = Rect(-16864.0, -25696.0, -16608.0, -25440.0)
+    gg_rct_path15waypoint19 = Rect(-17472.0, -26336.0, -17216.0, -26080.0)
+    gg_rct_path15waypoint20 = Rect(-18336.0, -26848.0, -18080.0, -26592.0)
+    gg_rct_path15waypoint21 = Rect(-19296.0, -27072.0, -19040.0, -26816.0)
+    gg_rct_path15waypoint22 = Rect(-20224.0, -27104.0, -19968.0, -26848.0)
+    gg_rct_path15waypoint23 = Rect(-21024.0, -27136.0, -20768.0, -26880.0)
+    gg_rct_path15waypoint24 = Rect(-21824.0, -27072.0, -21568.0, -26816.0)
+    gg_rct_path15waypoint25 = Rect(-22720.0, -27072.0, -22464.0, -26816.0)
+    gg_rct_path15waypoint26 = Rect(-23552.0, -26944.0, -23296.0, -26688.0)
+    gg_rct_path15waypoint27 = Rect(-24416.0, -26880.0, -24160.0, -26624.0)
+    gg_rct_path15waypoint28 = Rect(-25312.0, -26816.0, -25056.0, -26560.0)
+    gg_rct_path15waypoint29 = Rect(-26176.0, -26912.0, -25920.0, -26656.0)
+    gg_rct_path15waypoint30 = Rect(-26944.0, -27008.0, -26688.0, -26752.0)
+    gg_rct_path16waypoint1 = Rect(23328.0, -32.0, 23584.0, 224.0)
+    gg_rct_path16waypoint2 = Rect(23936.0, 640.0, 24192.0, 896.0)
+    gg_rct_path16waypoint3 = Rect(24608.0, 1376.0, 24864.0, 1632.0)
+    gg_rct_path16waypoint4 = Rect(24992.0, 2240.0, 25248.0, 2496.0)
+    gg_rct_path16waypoint5 = Rect(24960.0, 3200.0, 25216.0, 3456.0)
+    gg_rct_path16waypoint6 = Rect(24768.0, 4256.0, 25024.0, 4512.0)
+    gg_rct_path16waypoint7 = Rect(24544.0, 5312.0, 24800.0, 5568.0)
+    gg_rct_path16waypoint8 = Rect(24256.0, 6400.0, 24512.0, 6656.0)
+    gg_rct_path16waypoint9 = Rect(24128.0, 7488.0, 24384.0, 7744.0)
+    gg_rct_path16waypoint10 = Rect(23872.0, 8640.0, 24128.0, 8896.0)
+    gg_rct_path16waypoint11 = Rect(23616.0, 9760.0, 23872.0, 10016.0)
+    gg_rct_path16waypoint12 = Rect(23456.0, 10880.0, 23712.0, 11136.0)
+    gg_rct_path16waypoint13 = Rect(23360.0, 12032.0, 23616.0, 12288.0)
+    gg_rct_path16waypoint14 = Rect(23392.0, 13216.0, 23648.0, 13472.0)
+    gg_rct_path16waypoint15 = Rect(23456.0, 14272.0, 23712.0, 14528.0)
+    gg_rct_path16waypoint16 = Rect(23616.0, 15392.0, 23872.0, 15648.0)
+    gg_rct_path16waypoint17 = Rect(23872.0, 16608.0, 24128.0, 16864.0)
+    gg_rct_path16waypoint18 = Rect(24288.0, 17792.0, 24544.0, 18048.0)
+    gg_rct_path16waypoint19 = Rect(24544.0, 18880.0, 24800.0, 19136.0)
+    gg_rct_path16waypoint20 = Rect(24864.0, 20192.0, 25120.0, 20448.0)
+    gg_rct_path16waypoint21 = Rect(25120.0, 21440.0, 25376.0, 21696.0)
+    gg_rct_path16waypoint22 = Rect(25440.0, 22496.0, 25696.0, 22752.0)
+    gg_rct_path16waypoint23 = Rect(25728.0, 23424.0, 25984.0, 23680.0)
+    gg_rct_path16waypoint24 = Rect(25856.0, 24352.0, 26112.0, 24608.0)
+    gg_rct_path16waypoint25 = Rect(26112.0, 25152.0, 26368.0, 25408.0)
+    gg_rct_path16waypoint26 = Rect(26336.0, 25792.0, 26592.0, 26048.0)
+    gg_rct_path1waypoint24 = Rect(-26560.0, 26112.0, -26304.0, 26368.0)
+    gg_rct_path1waypoint25 = Rect(-27296.0, 26496.0, -27040.0, 26752.0)
+    gg_rct_path1waypoint26 = Rect(-27840.0, 27072.0, -27584.0, 27328.0)
+    gg_rct_path1waypoint27 = Rect(-28384.0, 27584.0, -28128.0, 27840.0)
+    gg_rct_path1waypoint28 = Rect(-28768.0, 28256.0, -28512.0, 28512.0)
+    gg_rct_path1waypoint29 = Rect(-29440.0, 28928.0, -29184.0, 29184.0)
+    gg_rct_path2waypoint23 = Rect(26144.0, -27040.0, 26464.0, -26720.0)
+    gg_rct_path2waypoint24 = Rect(26784.0, -27648.0, 27104.0, -27328.0)
+    gg_rct_path2waypoint25 = Rect(27424.0, -28352.0, 27744.0, -28032.0)
+    gg_rct_path2waypoint26 = Rect(28032.0, -28928.0, 28352.0, -28608.0)
+    gg_rct_path2waypoint27 = Rect(28640.0, -29568.0, 28960.0, -29248.0)
+    gg_rct_path2waypoint28 = Rect(29280.0, -30016.0, 29600.0, -29696.0)
+    gg_rct_force1spawner2 = Rect(-28800.0, 29568.0, -28672.0, 29696.0)
+    gg_rct_force1spawner3 = Rect(-29920.0, 28544.0, -29792.0, 28672.0)
+    gg_rct_force2spawner2 = Rect(29760.0, -29632.0, 29888.0, -29504.0)
+    gg_rct_force2spawner3 = Rect(29088.0, -30176.0, 29216.0, -30048.0)
 end
 
 function Trig_Untitled_Trigger_001_Actions()
@@ -1408,10 +1712,10 @@ end
 
 function main()
     SetCameraBounds(-29952.0 + GetCameraMargin(CAMERA_MARGIN_LEFT), -30208.0 + GetCameraMargin(CAMERA_MARGIN_BOTTOM), 29952.0 - GetCameraMargin(CAMERA_MARGIN_RIGHT), 29696.0 - GetCameraMargin(CAMERA_MARGIN_TOP), -29952.0 + GetCameraMargin(CAMERA_MARGIN_LEFT), 29696.0 - GetCameraMargin(CAMERA_MARGIN_TOP), 29952.0 - GetCameraMargin(CAMERA_MARGIN_RIGHT), -30208.0 + GetCameraMargin(CAMERA_MARGIN_BOTTOM))
-    SetDayNightModels("Environment\\DNC\\DNCLordaeron\\DNCLordaeronTerrain\\DNCLordaeronTerrain.mdl", "Environment\\DNC\\DNCLordaeron\\DNCLordaeronUnit\\DNCLordaeronUnit.mdl")
+    SetDayNightModels("Environment\\DNC\\DNCDalaran\\DNCDalaranTerrain\\DNCDalaranTerrain.mdl", "Environment\\DNC\\DNCDalaran\\DNCDalaranUnit\\DNCDalaranUnit.mdl")
     NewSoundEnvironment("Default")
-    SetAmbientDaySound("LordaeronFallDay")
-    SetAmbientNightSound("LordaeronFallNight")
+    SetAmbientDaySound("DalaranDay")
+    SetAmbientNightSound("DalaranNight")
     SetMapMusic("Music", true, 0)
     CreateRegions()
     InitBlizzard()
@@ -1425,30 +1729,30 @@ function config()
     SetPlayers(24)
     SetTeams(24)
     SetGamePlacement(MAP_PLACEMENT_TEAMS_TOGETHER)
-    DefineStartLocation(0, -27456.0, 26816.0)
-    DefineStartLocation(1, -27008.0, 26816.0)
-    DefineStartLocation(2, -26560.0, 26816.0)
-    DefineStartLocation(3, -26112.0, 26816.0)
-    DefineStartLocation(4, -27456.0, 26368.0)
-    DefineStartLocation(5, -27008.0, 26368.0)
-    DefineStartLocation(6, -26560.0, 26368.0)
-    DefineStartLocation(7, -26112.0, 26368.0)
-    DefineStartLocation(8, 26048.0, -27456.0)
-    DefineStartLocation(9, 26496.0, -27456.0)
-    DefineStartLocation(10, 26944.0, -27456.0)
-    DefineStartLocation(11, 27392.0, -27456.0)
-    DefineStartLocation(12, 26048.0, -27904.0)
-    DefineStartLocation(13, 26496.0, -27904.0)
-    DefineStartLocation(14, 26944.0, -27904.0)
-    DefineStartLocation(15, 27392.0, -27904.0)
-    DefineStartLocation(16, 2944.0, 2112.0)
-    DefineStartLocation(17, 2944.0, 1408.0)
-    DefineStartLocation(18, -28480.0, 28096.0)
-    DefineStartLocation(19, -27840.0, 28096.0)
-    DefineStartLocation(20, -28480.0, 27456.0)
-    DefineStartLocation(21, 28608.0, -29120.0)
-    DefineStartLocation(22, 28608.0, -28544.0)
-    DefineStartLocation(23, 28032.0, -29120.0)
+    DefineStartLocation(0, -28672.0, 25088.0)
+    DefineStartLocation(1, -28224.0, 25088.0)
+    DefineStartLocation(2, -27776.0, 25088.0)
+    DefineStartLocation(3, -27328.0, 25088.0)
+    DefineStartLocation(4, -28672.0, 24640.0)
+    DefineStartLocation(5, -28224.0, 24640.0)
+    DefineStartLocation(6, -27776.0, 24640.0)
+    DefineStartLocation(7, -27328.0, 24640.0)
+    DefineStartLocation(8, 25472.0, -27968.0)
+    DefineStartLocation(9, 25920.0, -27968.0)
+    DefineStartLocation(10, 26368.0, -27968.0)
+    DefineStartLocation(11, 26816.0, -27968.0)
+    DefineStartLocation(12, 25472.0, -28416.0)
+    DefineStartLocation(13, 25920.0, -28416.0)
+    DefineStartLocation(14, 26368.0, -28416.0)
+    DefineStartLocation(15, 26816.0, -28416.0)
+    DefineStartLocation(16, 1216.0, 128.0)
+    DefineStartLocation(17, 1216.0, -576.0)
+    DefineStartLocation(18, -27328.0, 27904.0)
+    DefineStartLocation(19, -26880.0, 27904.0)
+    DefineStartLocation(20, -26432.0, 27904.0)
+    DefineStartLocation(21, 28928.0, -27904.0)
+    DefineStartLocation(22, 29376.0, -27904.0)
+    DefineStartLocation(23, 28480.0, -27904.0)
     InitCustomPlayerSlots()
     InitCustomTeams()
     InitAllyPriorities()
