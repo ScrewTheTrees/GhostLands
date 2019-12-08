@@ -72,7 +72,7 @@ export class Pathfinder {
             points.push(Point.copy(node.point));
         }
 
-        return new PathfindResult(points, finalNode == endNode);
+        return new PathfindResult(points, finalNode == endNode, startNode.point, endNode.point, finalNode.point);
     }
 
     public getNodeNumber(current: Node, target: Node) {

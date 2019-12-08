@@ -2,7 +2,6 @@ import {Entity} from "../../TreeLib/Entity";
 import {AIForceData} from "./AIForceData";
 import {Rectifier} from "../RectControl/Rectifier";
 import {Point} from "../../TreeLib/Utility/Point";
-import {Units} from "../Enums/Units";
 import {RecruitContainer} from "./RecruitContainer";
 import {ActionQueue} from "../../TreeLib/ActionQueue/ActionQueue";
 import {PathManager} from "./PathManager";
@@ -14,19 +13,20 @@ import {Occupant} from "../GameState/Occupant";
 import {GetGuardTypeFromUnit, GuardType} from "../Enums/GuardType";
 import {Guard} from "../GameState/Guard";
 import {NamedRect} from "../RectControl/NamedRect";
+import {Units} from "../Enums/Units";
+import {DummyCaster} from "../../TreeLib/DummyCasting/DummyCaster";
 
 export class AIUnitSpawner extends Entity {
     public forceData: AIForceData;
     public forceId: number;
     public gathering: NamedRect;
-    public spawnTimer: number = 1;
-    public waveTimer: number = 240;
+    public spawnTimer: number = 60;
+    public waveTimer: number = 60;
+
+    public currentSpawnTime: number = 10;
+    public currentWaveTime: number = 5;
 
     public spawnTimeScale: number = 1;
-    public currentSpawnTime: number = 0;
-    public currentWaveTime: number = 120;
-
-    public paused = false;
 
     public pathManager: PathManager = PathManager.getInstance();
 
@@ -37,61 +37,60 @@ export class AIUnitSpawner extends Entity {
         this.forceData = forceData;
         this.forceId = forceId;
         this.gathering = Rectifier.getInstance().getRectsByForceOfType(forceId, "gathering")[0];
+
+        this._timerDelay = 1;
+
+        Delay.addDelay(() => {
+            let soldiers = Math.min(Occupations.getInstance().getNeededGuardsByForce(this.forceData.force, GuardType.MELEE), 20);
+            let archers = Math.min(Occupations.getInstance().getNeededGuardsByForce(this.forceData.force, GuardType.RANGED), 20);
+            for (let i = 0; i < soldiers; i++) {
+                let u = this.executeUnitSpawn(Units.SOLDIER).recruit;
+                DummyCaster.castImmediately(FourCC("A002"), "berserk", u);
+
+            }
+            for (let i = 0; i < archers; i++) {
+                let u = this.executeUnitSpawn(Units.ARCHER).recruit;
+                DummyCaster.castImmediately(FourCC("A002"), "berserk", u);
+            }
+            this.replenishTroopsInAllCities();
+        }, 0.02)
     }
 
     step() {
-        this.updateTimeScale();
-
         this.currentSpawnTime += this._timerDelay * this.spawnTimeScale;
         this.currentWaveTime += this._timerDelay;
-        if (this.currentSpawnTime >= this.spawnTimer && !this.paused) {
+        if (this.currentSpawnTime >= this.spawnTimer) {
             this.currentSpawnTime -= this.spawnTimer;
-
-            let spawnPoint = this.forceData.getRandomSpawnPoint();
-
-            let u = CreateUnit(this.forceData.aiPlayer, Units.SOLDIER, spawnPoint.x, spawnPoint.y, GetRandomReal(0, 360));
-            let u2 = CreateUnit(this.forceData.aiPlayer, Units.ARCHER, spawnPoint.x, spawnPoint.y, GetRandomReal(0, 360));
-            SetUnitCreepGuard(u, false);
-            RemoveGuardPosition(u);
-            SetUnitCreepGuard(u2, false);
-            RemoveGuardPosition(u2);
-
-            let queue = new UnitQueue(u);
-            let queue2 = new UnitQueue(u2);
-            let recruit = new RecruitContainer(u, queue);
-            let recruit2 = new RecruitContainer(u2, queue2);
-            this.unitsInGather.push(recruit);
-            this.unitsInGather.push(recruit2);
-            this.sendRecruitToRect(recruit, this.gathering.value, 0);
-            this.sendRecruitToRect(recruit2, this.gathering.value, 0);
+            for (let i = 0; i < 5; i++) {
+                if (this.countUnitOfGuardType(GuardType.MELEE) < 5) {
+                    this.executeUnitSpawn(Units.SOLDIER);
+                }
+                if (this.countUnitOfGuardType(GuardType.RANGED) < 5) {
+                    this.executeUnitSpawn(Units.ARCHER);
+                }
+            }
         }
         if (this.currentWaveTime >= this.waveTimer) {
             this.currentWaveTime -= this.waveTimer;
 
             this.replenishTroopsInAllCities();
-
-            while (this.unitsInGather.length > 0) {
-                let container = this.unitsInGather.pop();
-                let delay = 0;
-                if (container) {
-                    if (GetGuardTypeFromUnit(container.recruit) == GuardType.RANGED) {
-                        delay = 5;
-                    }
-                }
-
-                Delay.addDelay(() => {
-                    if (container) {
-                        this.sendRecruitToRect(container, _G.gg_rct_city3, 5);
-                    }
-                }, delay);
-
-            }
-
-            this.paused = true;
-            Delay.addDelay(() => {
-                this.paused = false;
-            }, this.waveTimer * 0.5)
         }
+    }
+
+    public executeUnitSpawn(unitType: number) {
+        let spawnPoint = this.forceData.getRandomSpawnPoint();
+
+        let u = CreateUnit(this.forceData.aiPlayer, unitType, spawnPoint.x, spawnPoint.y, spawnPoint.directionTo(new Point(0, 0)));
+        SetUnitCreepGuard(u, false);
+        RemoveGuardPosition(u);
+
+        let queue = new UnitQueue(u);
+        let recruit = new RecruitContainer(u, queue);
+        this.unitsInGather.push(recruit);
+
+        this.sendRecruitToRect(recruit, this.gathering.value, 0);
+
+        return recruit;
     }
 
     public replenishTroopsInAllCities() {
@@ -125,7 +124,19 @@ export class AIUnitSpawner extends Entity {
                 return u;
             }
         }
+
         return null;
+    }
+
+    private countUnitOfGuardType(guardType: GuardType): number {
+        let num = 0;
+        for (let i = 0; i < this.unitsInGather.length; i++) {
+            let u = this.unitsInGather[i];
+            if (GetGuardTypeFromUnit(u.recruit) == guardType) {
+                num += 1;
+            }
+        }
+        return num;
     }
 
     public sendRecruitToRect(recruit: RecruitContainer, rct: rect, delay?: number) {
@@ -149,11 +160,5 @@ export class AIUnitSpawner extends Entity {
             ActionQueue.enableQueue(queue);
 
         }, delay);
-    }
-
-    public updateTimeScale() {
-        let units = CountLivingPlayerUnitsOfTypeId(FourCC("h001"), this.forceData.aiPlayer)
-            + CountLivingPlayerUnitsOfTypeId(FourCC("h002"), this.forceData.aiPlayer);
-        this.spawnTimeScale = 5 / (1 + units);
     }
 }

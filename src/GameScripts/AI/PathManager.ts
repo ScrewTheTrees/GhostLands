@@ -7,6 +7,7 @@ import {UnitActionWaypoint} from "../../TreeLib/ActionQueue/Actions/UnitActionWa
 import {WaypointOrders} from "../../TreeLib/ActionQueue/Actions/WaypointOrders";
 import {UnitAction} from "../../TreeLib/ActionQueue/Actions/UnitAction";
 import {Forces} from "../Enums/Forces";
+import {Logger} from "../../TreeLib/Logger";
 
 export class PathManager {
     private static instance: PathManager;
@@ -40,14 +41,24 @@ export class PathManager {
             node.cost = 0.5; //Bandits doesnt like roads
             this.banditPreference.addNodeWithNeighborsInRange(node, 1500);
         }
+
+        this.banditPreference.nodes.forEach((node) => {
+            if (node.neighbors.length <= 1) {
+                Logger.warning("One or fewer nodes at: ", node.point.toString(), "....................................");
+            }
+        });
     }
 
     public createAttackPath(start: Point, end: Point, force: Forces): UnitAction[] {
         let path = this.getPathfinderForForce(force).findPath(start, end);
-        let actions = [];
+        let actions: UnitAction[] = [];
         let newPath = path.path;
-        let randomLen = GetRandomInt(64, 256);
-        let randomAng = GetRandomReal(0, 360);
+        let randomLen = GetRandomInt(32, 256);
+        let randomAng = GetRandomReal(1, 359);
+
+        if (!path.reachedTheEnd) {
+            Logger.warning("Couldnt reach node: ", path.endNode.toString());
+        }
 
         for (let i = 0; i < newPath.length; i++) {
             let value = newPath[i].polarProject(randomLen, randomAng);

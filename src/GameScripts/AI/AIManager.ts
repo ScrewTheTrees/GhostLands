@@ -24,11 +24,12 @@ export class AIManager extends Entity {
 
     public force1Data: AIForceData;
     public force2Data: AIForceData;
-    public banditNorthData: AIForceData;
-    public banditSouthData: AIForceData;
 
     private force1Spawner: AIUnitSpawner;
     private force2Spawner: AIUnitSpawner;
+
+    public banditNorthData: AIForceData;
+    public banditSouthData: AIForceData;
     private banditNorthSpawner: AIBanditSpawner;
     private banditSouthSpawner: AIBanditSpawner;
 

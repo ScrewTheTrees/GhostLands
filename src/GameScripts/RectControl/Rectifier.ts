@@ -35,7 +35,7 @@ export class Rectifier {
                 return named;
             }
         }
-        return new NamedRect("anonymous", Rect(-32, -32, 32, 32));
+        return new NamedRect("Error", Rect(-32, -32, 32, 32));
     }
 
     public getRectsStartsWithWEName(name: string): NamedRect[] {

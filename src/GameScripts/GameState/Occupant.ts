@@ -15,11 +15,11 @@ export class Occupant {
     constructor(owner: Forces, rectName: string, postPrefix: string) {
         this.owner = owner;
         this.primaryRect = Rectifier.getInstance().getRectByWEName(rectName);
-        let posts = Rectifier.getInstance().getRectsStartsWithWEName(postPrefix);
-        this.generateGuardPosts(posts);
+        this.addGuardPostsByPrefix(postPrefix);
     }
 
-    private generateGuardPosts(posts: NamedRect[]) {
+    public addGuardPostsByPrefix(postPrefix: string) {
+        let posts = Rectifier.getInstance().getRectsStartsWithWEName(postPrefix);
         for (let i = 0; i < posts.length; i++) {
             let theRect = posts[i];
             let segments = new Segment(ShitEx.separateNumbers(theRect.name));

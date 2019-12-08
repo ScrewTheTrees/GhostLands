@@ -1,6 +1,7 @@
 import {Hooks} from "../../TreeLib/Hooks";
 import {Occupant} from "./Occupant";
 import {Forces} from "../Enums/Forces";
+import {GuardType} from "../Enums/GuardType";
 
 export class Occupations {
     private static instance: Occupations;
@@ -16,6 +17,7 @@ export class Occupations {
     public FORCE_1_OUTPOST_1: Occupant = new Occupant(Forces.FORCE_1, "force1outpost1", "outpost1guard");
     public FORCE_1_OUTPOST_2: Occupant = new Occupant(Forces.FORCE_1, "force1outpost2", "outpost2guard");
     public FORCE_2_OUTPOST_4: Occupant = new Occupant(Forces.FORCE_2, "force2outpost4", "outpost4guard");
+
     private allOccupants: Occupant[] = [
         this.FORCE_1_BASE,
         this.FORCE_2_BASE,
@@ -40,5 +42,22 @@ export class Occupations {
 
     public getAllOccupants(): Occupant[] {
         return this.allOccupants;
+    }
+
+    public getNeededGuardsByForce(force: Forces, guardType: GuardType): number {
+        let occu = this.getAllOccupants();
+        let count = 0;
+        for (let i = 0; i < occu.length; i++) {
+            let occupant = occu[i];
+            if (occupant.owner == force) {
+                for (let j = 0; j < occupant.guardPosts.length; j++) {
+                    let post = occupant.guardPosts[j];
+                    if (post.postType == guardType) {
+                        count += 1;
+                    }
+                }
+            }
+        }
+        return count;
     }
 }
