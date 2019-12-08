@@ -6,11 +6,11 @@ export class Occupations {
     private static instance: Occupations;
     public FORCE_2_OUTPOST_3: Occupant = new Occupant(Forces.FORCE_2, "force2outpost3", "outpost3guard");
 
-    public CITY_1: Occupant = new Occupant(Forces.FORCE_HOSTILE, "city1", "city1guard");
-    public CITY_2: Occupant = new Occupant(Forces.FORCE_HOSTILE, "city2", "city2guard");
-    public CITY_3: Occupant = new Occupant(Forces.FORCE_HOSTILE, "city3", "city3guard");
-    public CITY_4: Occupant = new Occupant(Forces.FORCE_HOSTILE, "city4", "city4guard");
-    public CITY_5: Occupant = new Occupant(Forces.FORCE_HOSTILE, "city5", "city5guard");
+    public CITY_1: Occupant = new Occupant(Forces.FORCE_BANDIT, "city1", "city1guard");
+    public CITY_2: Occupant = new Occupant(Forces.FORCE_BANDIT, "city2", "city2guard");
+    public CITY_3: Occupant = new Occupant(Forces.FORCE_BANDIT, "city3", "city3guard");
+    public CITY_4: Occupant = new Occupant(Forces.FORCE_BANDIT, "city4", "city4guard");
+    public CITY_5: Occupant = new Occupant(Forces.FORCE_BANDIT, "city5", "city5guard");
     public FORCE_1_BASE: Occupant = new Occupant(Forces.FORCE_1, "force1base", "base1guard");
     public FORCE_2_BASE: Occupant = new Occupant(Forces.FORCE_2, "force2base", "base2guard");
     public FORCE_1_OUTPOST_1: Occupant = new Occupant(Forces.FORCE_1, "force1outpost1", "outpost1guard");

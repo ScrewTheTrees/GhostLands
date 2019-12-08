@@ -13,11 +13,12 @@ import {Occupations} from "../GameState/Occupations";
 import {Occupant} from "../GameState/Occupant";
 import {GetGuardTypeFromUnit, GuardType} from "../Enums/GuardType";
 import {Guard} from "../GameState/Guard";
+import {NamedRect} from "../RectControl/NamedRect";
 
 export class AIUnitSpawner extends Entity {
-    private readonly forceData: AIForceData;
-    private readonly forceId: number;
-    private readonly gathering: rect;
+    public forceData: AIForceData;
+    public forceId: number;
+    public gathering: NamedRect;
     public spawnTimer: number = 1;
     public waveTimer: number = 240;
 
@@ -27,7 +28,7 @@ export class AIUnitSpawner extends Entity {
 
     public paused = false;
 
-    private pathManager: PathManager = PathManager.getInstance();
+    public pathManager: PathManager = PathManager.getInstance();
 
     public unitsInGather: RecruitContainer[] = [];
 
@@ -35,7 +36,7 @@ export class AIUnitSpawner extends Entity {
         super();
         this.forceData = forceData;
         this.forceId = forceId;
-        this.gathering = Rectifier.getInstance().getRectsByForceOfType(forceId, "gathering")[0].value;
+        this.gathering = Rectifier.getInstance().getRectsByForceOfType(forceId, "gathering")[0];
     }
 
     step() {
@@ -61,8 +62,8 @@ export class AIUnitSpawner extends Entity {
             let recruit2 = new RecruitContainer(u2, queue2);
             this.unitsInGather.push(recruit);
             this.unitsInGather.push(recruit2);
-            this.sendRecruitToRect(recruit, this.gathering, 0);
-            this.sendRecruitToRect(recruit2, this.gathering, 0);
+            this.sendRecruitToRect(recruit, this.gathering.value, 0);
+            this.sendRecruitToRect(recruit2, this.gathering.value, 0);
         }
         if (this.currentWaveTime >= this.waveTimer) {
             this.currentWaveTime -= this.waveTimer;
@@ -89,7 +90,7 @@ export class AIUnitSpawner extends Entity {
             this.paused = true;
             Delay.addDelay(() => {
                 this.paused = false;
-            }, this.waveTimer * 0.9)
+            }, this.waveTimer * 0.5)
         }
     }
 
@@ -127,11 +128,11 @@ export class AIUnitSpawner extends Entity {
         return null;
     }
 
-    private sendRecruitToRect(recruit: RecruitContainer, rct: rect, delay?: number) {
+    public sendRecruitToRect(recruit: RecruitContainer, rct: rect, delay?: number) {
         return this.sendRecruitToPoint(recruit, Point.fromLocationClean(GetRandomLocInRect(rct)), delay);
     }
 
-    private sendRecruitToPoint(recruit: RecruitContainer, point: Point, delay: number = 5) {
+    public sendRecruitToPoint(recruit: RecruitContainer, point: Point, delay: number = 5) {
         point = point.copy();
         let path = this.pathManager.createAttackPath(Point.fromWidget(recruit.recruit), point, this.forceData.force);
         //Prepare
@@ -146,10 +147,11 @@ export class AIUnitSpawner extends Entity {
             }));
 
             ActionQueue.enableQueue(queue);
+
         }, delay);
     }
 
-    private updateTimeScale() {
+    public updateTimeScale() {
         let units = CountLivingPlayerUnitsOfTypeId(FourCC("h001"), this.forceData.aiPlayer)
             + CountLivingPlayerUnitsOfTypeId(FourCC("h002"), this.forceData.aiPlayer);
         this.spawnTimeScale = 5 / (1 + units);

@@ -10,9 +10,8 @@ import {Forces} from "../Enums/Forces";
 
 export class PathManager {
     private static instance: PathManager;
-    public force1Pathfinder: Pathfinder;
-    public force2Pathfinder: Pathfinder;
-    public neutralHostilePathfinder: Pathfinder;
+    public forceGeneralPaths: Pathfinder;
+    public banditPreference: Pathfinder;
 
     public static getInstance() {
         if (this.instance == null) {
@@ -23,16 +22,23 @@ export class PathManager {
     }
 
     constructor() {
-        this.force1Pathfinder = new Pathfinder();
-        this.force2Pathfinder = new Pathfinder();
-        this.neutralHostilePathfinder = new Pathfinder();
+        this.forceGeneralPaths = new Pathfinder();
+        this.banditPreference = new Pathfinder();
 
-        let rects = Rectifier.getInstance().getPathWaypoints();
-        for (let i = 0; i < rects.length; i++) {
-            let node = new Node(Point.fromRectCenter(rects[i].value));
-            this.force1Pathfinder.addNodeWithNeighborsInRange(node, 1500);
-            this.force2Pathfinder.addNodeWithNeighborsInRange(node, 1500);
-            this.neutralHostilePathfinder.addNodeWithNeighborsInRange(node, 1500);
+        let basicPath = Rectifier.getInstance().getBySegmentNames("path", "waypoint");
+        let forestPath = Rectifier.getInstance().getBySegmentNames("forestpath", "waypoint");
+
+        for (let i = 0; i < basicPath.length; i++) {
+            let node = new Node(Point.fromRectCenter(basicPath[i].value));
+            this.forceGeneralPaths.addNodeWithNeighborsInRange(node, 1500);
+
+            let node2 = new Node(Point.fromRectCenter(basicPath[i].value));
+            this.banditPreference.addNodeWithNeighborsInRange(node2, 1500);
+        }
+        for (let j = 0; j < forestPath.length; j++) {
+            let node = new Node(Point.fromRectCenter(forestPath[j].value));
+            node.cost = 0.5; //Bandits doesnt like roads
+            this.banditPreference.addNodeWithNeighborsInRange(node, 1500);
         }
     }
 
@@ -53,12 +59,11 @@ export class PathManager {
 
     public getPathfinderForForce(force: Forces): Pathfinder {
         switch (force) {
-            case Forces.FORCE_1:
-                return this.force1Pathfinder;
-            case Forces.FORCE_2:
-                return this.force2Pathfinder;
-            case Forces.FORCE_HOSTILE:
-                return this.neutralHostilePathfinder;
+            case Forces.FORCE_BANDIT:
+                return this.banditPreference;
+
+            default:
+                return this.forceGeneralPaths;
 
         }
     }

@@ -26,7 +26,7 @@ export class PlayerManager {
     public team2PlayerArmy: player = Players.EMERALD;
     public team2PlayerExtra: player = Players.PEANUT;
 
-    public event1Player: player = Players.WHEAT;
+    public bandit: player = Players.WHEAT;
     public event2Player: player = Players.PEACH;
 
     public playerLeavesTrigger: trigger = CreateTrigger();

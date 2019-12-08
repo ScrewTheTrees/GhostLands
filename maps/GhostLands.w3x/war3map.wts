@@ -120,11 +120,6 @@ STRING 24
 Player 12
 }
 
-STRING 25
-{
-Event 1
-}
-
 STRING 26
 {
 Event 2
@@ -189,5 +184,10 @@ STRING 37
 // Abilities: A001 (Frenzy), EditorSuffix (Editor Suffix)
 {
 (Archer)
+}
+
+STRING 38
+{
+Bandits
 }
 

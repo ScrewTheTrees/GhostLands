@@ -1,5 +1,5 @@
 export enum Forces {
     FORCE_1,
     FORCE_2,
-    FORCE_HOSTILE
+    FORCE_BANDIT
 }

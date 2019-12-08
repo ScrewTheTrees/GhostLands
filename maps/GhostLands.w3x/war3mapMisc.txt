@@ -1,6 +1,7 @@
 [Misc]
 AgiDefenseBase=0.0
 AgiDefenseBonus=0.1
+BoneDecayTime=30.0
 CallForHelp=1000.0
 DefendDeflection=1
 DefenseArmor=0.01
