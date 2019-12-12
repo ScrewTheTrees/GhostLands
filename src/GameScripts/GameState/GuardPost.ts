@@ -1,13 +1,13 @@
 import {Point} from "../../TreeLib/Utility/Point";
-import {GuardType} from "../Enums/GuardType";
+import {UnitClass} from "../Enums/UnitClass";
 import {Guard} from "./Guard";
 
 export class GuardPost {
     public point: Point;
-    public postType: GuardType;
+    public postType: UnitClass;
     public occupied: Guard | undefined;
 
-    constructor(point: Point, postType: GuardType) {
+    constructor(point: Point, postType: UnitClass) {
         this.point = point;
         this.postType = postType;
     }

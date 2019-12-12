@@ -4,7 +4,7 @@ import {Rectifier} from "../RectControl/Rectifier";
 import {NamedRect} from "../RectControl/NamedRect";
 import {Segment} from "../RectControl/Segment";
 import {ShitEx} from "../../TreeLib/ShitEx";
-import {GetGuardTypeFromString, GuardType} from "../Enums/GuardType";
+import {GetUnitClassFromString, UnitClass} from "../Enums/UnitClass";
 import {Point} from "../../TreeLib/Utility/Point";
 
 export class Occupant {
@@ -23,7 +23,7 @@ export class Occupant {
         for (let i = 0; i < posts.length; i++) {
             let theRect = posts[i];
             let segments = new Segment(ShitEx.separateNumbers(theRect.name));
-            let type: GuardType = GetGuardTypeFromString(segments.segment3);
+            let type: UnitClass = GetUnitClassFromString(segments.segment3);
             this.guardPosts.push(new GuardPost(Point.fromRectCenter(theRect.value), type));
         }
     }

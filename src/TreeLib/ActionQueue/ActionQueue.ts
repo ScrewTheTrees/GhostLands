@@ -28,7 +28,7 @@ export class ActionQueue extends Entity {
     }
 
     private allQueues: Queue[] = [];
-    public _timerDelay: number = 0.1;
+    public _timerDelay: number = 0.2;
 
     constructor() {
         super();
@@ -67,7 +67,7 @@ export class ActionQueue extends Entity {
         let index = this.allQueues.indexOf(queue);
         queue.isFinished = true;
         if (index >= 0) {
-            Logger.LogVerbose("Queue is present, splicing");
+            Logger.verbose("Queue is present, splicing");
             this.allQueues.splice(index, 1);
             return;
         }

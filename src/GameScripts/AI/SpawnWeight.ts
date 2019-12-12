@@ -1,0 +1,46 @@
+export class SpawnWeight<T> {
+    private list: T[] = [];
+
+    constructor(type: T) {
+        for (let i = 0; i < 100; i++) {
+            this.list.push(type);
+        }
+    }
+
+    public remove(type: T, amount: number = -1) {
+        for (let i = 0; i < this.list.length; i++) {
+            if (type == this.list[i]) {
+                this.list.splice(i, 1);
+                i -= 1;
+                amount -= 1;
+                if (amount == 0) {
+                    return;
+                }
+            }
+        }
+    }
+
+    public add(type: T, amount: number) {
+        for (let i = 0; i < amount; i++) {
+            this.list.push(type);
+        }
+    }
+
+    public countEntries(type: T): number {
+        let count = 0;
+        for (let i = 0; i < this.list.length; i++) {
+            if (type == this.list[i]) {
+                count += 1;
+            }
+        }
+        return count;
+    }
+
+    public getChanceOf(type: T): number {
+        return this.countEntries(type) / this.list.length;
+    }
+
+    public getRandom(): T {
+        return this.list[GetRandomInt(0, this.list.length - 1)];
+    }
+}

@@ -1,11 +1,10 @@
 import {Hooks} from "../../TreeLib/Hooks";
 import {Occupant} from "./Occupant";
 import {Forces} from "../Enums/Forces";
-import {GuardType} from "../Enums/GuardType";
+import {UnitClass} from "../Enums/UnitClass";
 
 export class Occupations {
     private static instance: Occupations;
-    public FORCE_2_OUTPOST_3: Occupant = new Occupant(Forces.FORCE_2, "force2outpost3", "outpost3guard");
 
     public CITY_1: Occupant = new Occupant(Forces.FORCE_BANDIT, "city1", "city1guard");
     public CITY_2: Occupant = new Occupant(Forces.FORCE_BANDIT, "city2", "city2guard");
@@ -14,17 +13,19 @@ export class Occupations {
     public CITY_5: Occupant = new Occupant(Forces.FORCE_BANDIT, "city5", "city5guard");
     public FORCE_1_BASE: Occupant = new Occupant(Forces.FORCE_1, "force1base", "base1guard");
     public FORCE_2_BASE: Occupant = new Occupant(Forces.FORCE_2, "force2base", "base2guard");
-    public FORCE_1_OUTPOST_1: Occupant = new Occupant(Forces.FORCE_1, "force1outpost1", "outpost1guard");
+    /*public FORCE_1_OUTPOST_1: Occupant = new Occupant(Forces.FORCE_1, "force1outpost1", "outpost1guard");
     public FORCE_1_OUTPOST_2: Occupant = new Occupant(Forces.FORCE_1, "force1outpost2", "outpost2guard");
+    public FORCE_2_OUTPOST_3: Occupant = new Occupant(Forces.FORCE_2, "force2outpost3", "outpost3guard");
     public FORCE_2_OUTPOST_4: Occupant = new Occupant(Forces.FORCE_2, "force2outpost4", "outpost4guard");
+*/
 
     private allOccupants: Occupant[] = [
         this.FORCE_1_BASE,
         this.FORCE_2_BASE,
-        this.FORCE_1_OUTPOST_1,
+        /*this.FORCE_1_OUTPOST_1,
         this.FORCE_1_OUTPOST_2,
         this.FORCE_2_OUTPOST_3,
-        this.FORCE_2_OUTPOST_4,
+        this.FORCE_2_OUTPOST_4,*/
         this.CITY_1,
         this.CITY_2,
         this.CITY_3,
@@ -44,7 +45,7 @@ export class Occupations {
         return this.allOccupants;
     }
 
-    public getNeededGuardsByForce(force: Forces, guardType: GuardType): number {
+    public getNeededGuardsByForce(force: Forces, guardType: UnitClass): number {
         let occu = this.getAllOccupants();
         let count = 0;
         for (let i = 0; i < occu.length; i++) {
@@ -60,4 +61,17 @@ export class Occupations {
         }
         return count;
     }
+
+    public getTownsOwnedBy(force: Forces): Occupant[] {
+        let allOccus = this.getAllOccupants();
+        let result: Occupant[] = [];
+        for (let i = 0; i < allOccus.length; i++) {
+            let value = allOccus[i];
+            if (value.owner == force) {
+                result.push(value);
+            }
+        }
+        return result;
+    }
+
 }

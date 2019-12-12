@@ -1,5 +1,4 @@
 import {Hooks} from "../../TreeLib/Hooks";
-import {Entity} from "../../TreeLib/Entity";
 import {AIForceData} from "./AIForceData";
 import {PlayerManager} from "../PlayerManager";
 import {Rectifier} from "../RectControl/Rectifier";
@@ -7,11 +6,11 @@ import {Point} from "../../TreeLib/Utility/Point";
 import {AIUnitSpawner} from "./AIUnitSpawner";
 import {Forces} from "../Enums/Forces";
 import {AIBanditSpawner} from "./Bandits/AIBanditSpawner";
-import {Players} from "../../TreeLib/Structs/Players";
 import {BanditCamp} from "./Bandits/BanditCamp";
 import {Segment} from "../RectControl/Segment";
+import {Logger} from "../../TreeLib/Logger";
 
-export class AIManager extends Entity {
+export class AIManager {
     private static instance: AIManager;
 
     public static getInstance() {
@@ -24,17 +23,15 @@ export class AIManager extends Entity {
 
     public force1Data: AIForceData;
     public force2Data: AIForceData;
-
-    private force1Spawner: AIUnitSpawner;
-    private force2Spawner: AIUnitSpawner;
+    public force1Spawner: AIUnitSpawner;
+    public force2Spawner: AIUnitSpawner;
 
     public banditNorthData: AIForceData;
     public banditSouthData: AIForceData;
-    private banditNorthSpawner: AIBanditSpawner;
-    private banditSouthSpawner: AIBanditSpawner;
+    public banditNorthSpawner: AIBanditSpawner;
+    public banditSouthSpawner: AIBanditSpawner;
 
     constructor() {
-        super();
         let playerManager = PlayerManager.getInstance();
         this.force1Data = new AIForceData(this.getSpawnPoints(1), playerManager.team1Player, playerManager.team1PlayerArmy, playerManager.team1PlayerExtra, Forces.FORCE_1);
         this.force2Data = new AIForceData(this.getSpawnPoints(2), playerManager.team2Player, playerManager.team2PlayerArmy, playerManager.team2PlayerExtra, Forces.FORCE_2);
@@ -48,7 +45,24 @@ export class AIManager extends Entity {
         this.banditSouthSpawner = new AIBanditSpawner(this.banditSouthData, BanditCamp.CAMP_SOUTH);
     }
 
-    step(): void {
+    public performAIReinforcements() {
+        Logger.warning("Ai Wave.");
+        this.force1Spawner.performUnitRevival();
+        this.force2Spawner.performUnitRevival();
+        this.banditNorthSpawner.performUnitRevival();
+        this.banditSouthSpawner.performUnitRevival();
+    }
+
+    public performAIRelocation() {
+        Logger.warning("Force Relocate.");
+        this.force1Spawner.replenishTroopsInAllCities();
+        this.force2Spawner.replenishTroopsInAllCities();
+    }
+
+    public performBanditRelocation() {
+        Logger.warning("Bandit Relocate.");
+        this.banditNorthSpawner.replenishTroopsInAllCities();
+        this.banditSouthSpawner.replenishTroopsInAllCities();
     }
 
 

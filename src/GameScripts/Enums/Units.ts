@@ -1,4 +1,4 @@
-import {GuardType} from "./GuardType";
+import {UnitClass} from "./UnitClass";
 
 export enum Units {
     GRAND_GENERAL = FourCC("H000"),

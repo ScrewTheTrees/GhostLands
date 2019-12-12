@@ -16,9 +16,15 @@ switch (operation) {
     case "build":
 
         const tsLua = ".\\target\\tstl_output.lua";
+        const tsLuaMap = ".\\target\\tstl_output.lua.map";
+        let doSourceMap = true;
 
         if (!fs.existsSync(tsLua)) {
             return console.error(`Could not find "${tsLua}"`);
+        }
+        if (!fs.existsSync(tsLuaMap)) {
+            doSourceMap = false;
+            console.warn(`Could not find "${tsLuaMap}" No map Trace back to source.`);
         }
 
         console.log(`Building "${cwd}\\maps\\${config.mapFolder}"...`);
@@ -33,6 +39,11 @@ switch (operation) {
                 }
 
                 try {
+                    if (doSourceMap === true) {
+                        const tsLuaMapContents = fs.readFileSync(tsLuaMap);
+                        fs.appendFileSync(mapLua, tsLuaMapContents);
+                    }
+
                     const tsLuaContents = fs.readFileSync(tsLua);
                     fs.appendFileSync(mapLua, tsLuaContents);
                 } catch (err) {
