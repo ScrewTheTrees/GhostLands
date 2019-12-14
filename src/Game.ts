@@ -6,7 +6,7 @@ import {GlobalGameManager} from "./GameScripts/GameState/GlobalGameManager";
 export class Game {
     constructor() {
         Logger.doLogVerbose = false;
-        Logger.doLogDebug = false;
+        Logger.doLogDebug = true;
 
         StartGameDiag.getInstance().runDiagnosis();
         PlayerUnitBuilder.getInstance().execute();

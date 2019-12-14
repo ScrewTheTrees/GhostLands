@@ -2,17 +2,17 @@ import {Occupations} from "../Occupations";
 import {Forces} from "../../Enums/Forces";
 import {WarData} from "./WarData";
 import {Logger} from "../../../TreeLib/Logger";
-import {Optional} from "../../../TreeLib/Utility/Optional";
 import {Warzone, Warzones} from "./Warzones";
 import {Entity} from "../../../TreeLib/Entity";
 import {Occupant} from "../Occupant";
 import {ChooseOne} from "../../../TreeLib/Misc";
 import {Army} from "./Army";
+import {AIManager} from "../../AI/AIManager";
 
 export class War extends Entity {
     public deadLock: boolean = false;
     public state: WarState = WarState.SETUP;
-    public targets: Optional<WarContainer>;
+    public targets: WarContainer | null = null;
 
     public isFinished: boolean = false;
 
@@ -23,17 +23,24 @@ export class War extends Entity {
         this.targets = this.resolveTargets();
         this._timerDelay = 1;
 
-        if (this.targets.isPresent()) {
+        if (this.targets != null) {
             print("There is targets!");
-            let targets = this.targets.get();
+            let targets = this.targets;
             let t1 = targets.targets.force1.force1gather.getCenter();
             let t2 = targets.targets.force2.force2gather.getCenter();
-            CreateUnit(Player(0), FourCC("hpea"), t1.x, t1.y, 0);
-            CreateUnit(Player(1), FourCC("hpea"), t2.x, t2.y, 0);
 
-            if (this.deadLock) {
+            let mgr = AIManager.getInstance();
+
+            if (this.deadLock && targets.selectedBattlefield != null) {
                 print("There is a deadlock, det finns bara krig.");
+                targets.armies.force1 = new Army(mgr.force1Data, targets.selectedBattlefield.force1gather);
+                targets.armies.force2 = new Army(mgr.force2Data, targets.selectedBattlefield.force2gather);
+            } else {
+                print("This is not a deadlock, single side conquer war.");
+                targets.armies.force1 = new Army(mgr.force1Data, targets.targets.force1.force1gather);
+                targets.armies.force2 = new Army(mgr.force2Data, targets.targets.force2.force2gather);
             }
+
         }
     }
 
@@ -47,8 +54,8 @@ export class War extends Entity {
         this.isFinished = true;
     }
 
-    private resolveTargets(): Optional<WarContainer> {
-        let container: Optional<WarContainer> = new Optional<WarContainer>(null);
+    private resolveTargets(): WarContainer | null {
+        let container: WarContainer | null = null;
 
         let f1 = WarData.getInstance().force1EarlyTargets.pop();
         let f2 = WarData.getInstance().force2EarlyTargets.pop();
@@ -64,41 +71,45 @@ export class War extends Entity {
             let f1zone = warzones.getWarzoneByForceAndCity(Forces.FORCE_1, f1);
             let f2zone = warzones.getWarzoneByForceAndCity(Forces.FORCE_2, f2);
 
-            container.set(new WarContainer(new WarTargets(f1zone, f2zone)));
+            container = new WarContainer(new WarTargets(f1zone, f2zone));
         } else if (f1 != undefined || f2 != undefined) {
             Logger.critical("f1 and f2 are not both undefined or both defined, something went horribly horribly wrong, please refer to War.ts");
             this.endWar();
         } else if ((force1.length == 1 || force2.length == 1) && !(force1.length == 1 && force2.length == 1)) {
-            container.set(this.getFinalWarzone(force1));
+            container = this.getFinalWarzone(force1);
         } else if (f1bandits.length > 0 || f2bandits.length > 0) {
-            print(`Prioritise bandits, force1: ${f1bandits.length}  and force2: ${f2bandits.length}`);
-            let zones = this.getContestedWarzones();
-
-            if (f1bandits.length > 0) zones.targets.force1 = f1bandits[GetRandomInt(0, f1bandits.length - 1)];
-            if (f2bandits.length > 0) zones.targets.force2 = f2bandits[GetRandomInt(0, f2bandits.length - 1)];
-
-            if (!(f1bandits.length > 0 && f2bandits.length > 0)) {
-                print(`Not both players can fight the bandits, so it will be a war instead.`);
-                if (f1bandits.length == 0) zones.selectedBattlefield.set(zones.targets.force1);
-                else zones.selectedBattlefield.set(zones.targets.force2);
-                this.deadLock = true;
-            }
-            container.set(zones);
+            container = this.getBanditWarzones(f1bandits, f2bandits);
         } else {
             print(`Generic war.`);
-            container.set(this.getContestedWarzones());
-            container.get().selectedBattlefield = ChooseOne(container.get().targets.force1, container.get().targets.force2)
+            container = this.getContestedWarzones();
+            container.selectedBattlefield = ChooseOne(container.targets.force1, container.targets.force2)
         }
 
-        if (container.isPresent() && !container.get().selectedBattlefield.isPresent()) {
+        if (container != null && !container.selectedBattlefield != null) {
             if (GetRandomInt(0, 1) == 0) {
-                container.get().selectedBattlefield = new Optional<Warzone>(container.get().targets.force1);
+                container.selectedBattlefield = container.targets.force1;
             } else {
-                container.get().selectedBattlefield = new Optional<Warzone>(container.get().targets.force2);
+                container.selectedBattlefield = container.targets.force2;
             }
         }
 
         return container;
+    }
+
+    private getBanditWarzones(f1bandits: Warzone[], f2bandits: Warzone[]) {
+        print(`Prioritise bandits, force1: ${f1bandits.length}  and force2: ${f2bandits.length}`);
+        let zones = this.getContestedWarzones();
+
+        if (f1bandits.length > 0) zones.targets.force1 = f1bandits[GetRandomInt(0, f1bandits.length - 1)];
+        if (f2bandits.length > 0) zones.targets.force2 = f2bandits[GetRandomInt(0, f2bandits.length - 1)];
+
+        if (!(f1bandits.length > 0 && f2bandits.length > 0)) {
+            print(`Not both players can fight the bandits, so it will be a war instead.`);
+            if (f1bandits.length == 0) zones.selectedBattlefield = zones.targets.force1;
+            else zones.selectedBattlefield = zones.targets.force2;
+            this.deadLock = true;
+        }
+        return zones;
     }
 
     private getContestedWarzones(): WarContainer {
@@ -118,12 +129,12 @@ export class War extends Entity {
             print(`At player 1.`);
             let zone = Warzones.getInstance().getWarzoneByForceAndCity(Forces.FORCE_2, Occupations.getInstance().FORCE_1_BASE);
             cont.targets.force1 = zone;
-            cont.selectedBattlefield.set(zone);
+            cont.selectedBattlefield = zone;
         } else {
             print(`At player 2.`);
             let zone = Warzones.getInstance().getWarzoneByForceAndCity(Forces.FORCE_1, Occupations.getInstance().FORCE_2_BASE);
             cont.targets.force2 = zone;
-            cont.selectedBattlefield.set(zone);
+            cont.selectedBattlefield = zone;
         }
         return cont;
     }
@@ -131,7 +142,7 @@ export class War extends Entity {
 
 export class WarContainer {
     public targets: WarTargets;
-    public selectedBattlefield: Optional<Warzone> = new Optional<Warzone>(null);
+    public selectedBattlefield: Warzone | null = null;
     public armies: Armies = new Armies();
 
     constructor(targets: WarTargets) {
@@ -145,9 +156,9 @@ export class WarTargets {
 }
 
 export class Armies {
-    public force1: Optional<Army> = new Optional<Army>(null);
-    public force2: Optional<Army> = new Optional<Army>(null);
-    public bandit: Optional<Army> = new Optional<Army>(null);
+    public force1: Army | null = null;
+    public force2: Army | null = null;
+    public bandit: Army | null = null;
 }
 
 export enum WarState {

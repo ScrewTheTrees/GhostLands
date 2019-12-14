@@ -9,18 +9,18 @@ import {Delay} from "../../TreeLib/Utility/Delay";
 import {Occupations} from "../GameState/Occupations";
 import {Occupant} from "../GameState/Occupant";
 import {GetGuardTypeFromUnit, UnitClass} from "../Enums/UnitClass";
-import {Guard} from "../GameState/Guard";
+import {Guard} from "./Guard";
 import {NamedRect} from "../RectControl/NamedRect";
 import {DummyCaster} from "../../TreeLib/DummyCasting/DummyCaster";
 
-export class AIUnitSpawner {
+export class AIGuardSpawner {
     public forceData: AIForceData;
     public forceId: number;
     public gathering: NamedRect;
 
     public pathManager: PathManager = PathManager.getInstance();
     public occupations: Occupations = Occupations.getInstance();
-    public buffer: number = 1;
+    public buffer: number = 2;
 
     public unitsInGather: Guard[] = [];
 
@@ -31,9 +31,13 @@ export class AIUnitSpawner {
     }
 
     public performUnitRevival() {
-        let melee = Math.min(10, this.buffer + this.occupations.getNeededGuardsByForce(this.forceData.force, UnitClass.MELEE) - this.countUnitOfGuardType(UnitClass.MELEE));
-        let ranged = Math.min(10, this.buffer + this.occupations.getNeededGuardsByForce(this.forceData.force, UnitClass.RANGED) - this.countUnitOfGuardType(UnitClass.RANGED));
+        let melee = Math.min(this.forceData.amountOfMelee, this.buffer + this.occupations.getNeededGuardsByForce(this.forceData.force, UnitClass.MELEE) - this.countUnitOfGuardType(UnitClass.MELEE));
+        let ranged = Math.min(this.forceData.amountOfRanged, this.buffer + this.occupations.getNeededGuardsByForce(this.forceData.force, UnitClass.RANGED) - this.countUnitOfGuardType(UnitClass.RANGED));
 
+        this.performRevival(melee, ranged);
+    }
+
+    public performRevival(melee: number, ranged: number) {
         Delay.addDelay(() => {
             DummyCaster.castImmediately(FourCC("A002"), "berserk", this.makeMeleeGuard().guard);
             DummyCaster.castImmediately(FourCC("A002"), "berserk", this.makeMeleeGuard().guard);
@@ -85,7 +89,7 @@ export class AIUnitSpawner {
                 let unit = this.popUnitByGuardType(guard.postType);
                 if (unit != null) {
                     ActionQueue.getInstance().disableQueue(unit.currentQueue);
-                    guard.occupied = new Guard(unit.guard, this.forceData.force, unit.currentQueue);
+                    guard.occupied = unit;
                     this.sendRecruitToPoint(guard.occupied, guard.point);
                 }
             }

@@ -4,10 +4,14 @@ import {Forces} from "../Enums/Forces";
 import {UnitClass} from "../Enums/UnitClass";
 import {Point} from "../../TreeLib/Utility/Point";
 import {Units} from "../Enums/Units";
-import {Logger} from "../../TreeLib/Logger";
 import {PlayerManager} from "../PlayerManager";
+import {Logger} from "../../TreeLib/Logger";
+import {Entity} from "../../TreeLib/Entity";
+import {DamageDetectionSystem} from "../../TreeLib/DDS/DamageDetectionSystem";
+import {HitCallback} from "../../TreeLib/DDS/HitCallback";
+import {DDSFilterTargetUnitTypes} from "../../TreeLib/DDS/Filters/DDSFilterTargetUnitTypes";
 
-export class Occupations {
+export class Occupations extends Entity {
     private static instance: Occupations;
 
     public CITY_1: Occupant = new Occupant(Forces.FORCE_BANDIT, "city1", "city1guard");
@@ -37,9 +41,8 @@ export class Occupations {
         this.CITY_5,
     ];
 
-    //TODO: Replace print with Debug.Log();
-
     private onOccupantDie: trigger = CreateTrigger();
+    private callToAid: HitCallback;
 
     public static getInstance() {
         if (this.instance == null) {
@@ -50,10 +53,30 @@ export class Occupations {
     }
 
     constructor() {
+        super();
         for (let i = 0; i < GetBJMaxPlayers(); i++) {
             TriggerRegisterPlayerUnitEvent(this.onOccupantDie, Player(i), EVENT_PLAYER_UNIT_DEATH, null);
         }
         TriggerAddAction(this.onOccupantDie, () => this.onHallUnitDie(GetDyingUnit(), GetKillingUnit()));
+
+        this.callToAid = DamageDetectionSystem.getInstance().registerAfterDamageCalculation((hitObject) => {
+            let occupation = this.getOccupationByHall(hitObject.targetUnit);
+            if (occupation != null) {
+                for (let i = 0; i < occupation.guardPosts.length; i++) {
+                    let post = occupation.guardPosts[i];
+                    if (post.occupied != undefined && !post.occupied.currentQueue.isPaused) {
+                        let loc = Point.fromWidget(hitObject.targetUnit);
+                        post.occupied.currentQueue.isPaused = true;
+                        IssuePointOrder(post.occupied.guard, "attack", loc.x, loc.y);
+                    }
+                }
+            }
+        });
+        this.callToAid.addFilter(new DDSFilterTargetUnitTypes(Units.HALL_FORCE_1, Units.HALL_FORCE_2, Units.HALL_FORCE_BANDITS));
+    }
+
+    step() {
+        //TODO:
     }
 
     public getHallPlayerByForce(force: Forces): player {
@@ -80,7 +103,7 @@ export class Occupations {
             if (occupant.owner == force) {
                 for (let j = 0; j < occupant.guardPosts.length; j++) {
                     let post = occupant.guardPosts[j];
-                    if (post.postType == guardType) {
+                    if (post.postType == guardType && post.needNewGuard()) {
                         count += 1;
                     }
                 }
@@ -99,6 +122,16 @@ export class Occupations {
             }
         }
         return result;
+    }
+
+    getOccupationByHall(hall: unit): Occupant | null {
+        for (let i = 0; i < this.allOccupants.length; i++) {
+            let occu = this.allOccupants[i];
+            if (occu.keepUnit != null && occu.keepUnit == hall) {
+                return occu;
+            }
+        }
+        return null;
     }
 
     getHallByForce(force: Forces): number {
@@ -134,7 +167,7 @@ export class Occupations {
     private onHallUnitDie(dyingUnit: unit, killingUnit: unit) {
         for (let i = 0; i < this.allOccupants.length; i++) {
             let value = this.allOccupants[i];
-            if (value.keepUnit.isPresent() && value.keepUnit.get() == dyingUnit) {
+            if (value.keepUnit != null && value.keepUnit == dyingUnit) {
                 let newForce = this.getForceByPlayer(GetOwningPlayer(killingUnit));
                 let newPlayer = this.getHallPlayerByForce(newForce);
                 let newUnitType = this.getHallByForce(newForce);
@@ -142,12 +175,12 @@ export class Occupations {
                 let building = CreateUnit(newPlayer, newUnitType, where.x, where.y, bj_UNIT_FACING);
                 SetWidgetLife(building, 50);
 
-                value.keepUnit.set(building);
+                value.keepUnit = building;
                 value.owner = newForce;
 
-                //TODO: Send all guards on their way... after a delay.
+                //TODO: Send all guards on a sucide protection mission.
 
-                print("Finished starting a new town hall.");
+                Logger.generic("Finished starting a new town hall.");
                 return;
             }
         }

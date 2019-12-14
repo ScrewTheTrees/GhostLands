@@ -3,7 +3,7 @@ import {AIForceData} from "./AIForceData";
 import {PlayerManager} from "../PlayerManager";
 import {Rectifier} from "../RectControl/Rectifier";
 import {Point} from "../../TreeLib/Utility/Point";
-import {AIUnitSpawner} from "./AIUnitSpawner";
+import {AIGuardSpawner} from "./AIGuardSpawner";
 import {Forces} from "../Enums/Forces";
 import {AIBanditSpawner} from "./Bandits/AIBanditSpawner";
 import {BanditCamp} from "./Bandits/BanditCamp";
@@ -23,8 +23,8 @@ export class AIManager {
 
     public force1Data: AIForceData;
     public force2Data: AIForceData;
-    public force1Spawner: AIUnitSpawner;
-    public force2Spawner: AIUnitSpawner;
+    public force1Spawner: AIGuardSpawner;
+    public force2Spawner: AIGuardSpawner;
 
     public banditNorthData: AIForceData;
     public banditSouthData: AIForceData;
@@ -37,13 +37,16 @@ export class AIManager {
 
         this.force1Data = new AIForceData(this.getSpawnPoints(1), playerManager.team1Player, playerManager.team1PlayerArmy, playerManager.team1PlayerExtra, Forces.FORCE_1);
         this.force2Data = new AIForceData(this.getSpawnPoints(2), playerManager.team2Player, playerManager.team2PlayerArmy, playerManager.team2PlayerExtra, Forces.FORCE_2);
-        this.force1Spawner = new AIUnitSpawner(this.force1Data, 1);
-        this.force2Spawner = new AIUnitSpawner(this.force2Data, 2);
+        this.force1Spawner = new AIGuardSpawner(this.force1Data, 1);
+        this.force2Spawner = new AIGuardSpawner(this.force2Data, 2);
 
         this.banditNorthData = new AIForceData(this.getBanditSpawn(BanditCamp.CAMP_NORTH), b, b, b, Forces.FORCE_BANDIT);
         this.banditSouthData = new AIForceData(this.getBanditSpawn(BanditCamp.CAMP_SOUTH), b, b, b, Forces.FORCE_BANDIT);
         this.banditNorthSpawner = new AIBanditSpawner(this.banditNorthData, BanditCamp.CAMP_NORTH);
         this.banditSouthSpawner = new AIBanditSpawner(this.banditSouthData, BanditCamp.CAMP_SOUTH);
+
+        this.banditNorthData.amountOfRanged += 5;
+        this.banditSouthData.amountOfRanged += 5;
     }
 
     public performAIReinforcements() {

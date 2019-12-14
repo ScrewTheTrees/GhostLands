@@ -50,7 +50,7 @@ export class ActionQueue extends Entity {
     public createUnitQueue(target: unit, ...actions: UnitAction[]): UnitQueue {
         let unitQueue = new UnitQueue(target, ...actions);
         this.allQueues.push(unitQueue);
-        Logger.LogDebug("Created UnitQueue, total: ", this.allQueues.length);
+        Logger.verbose("Created UnitQueue, total: ", this.allQueues.length);
         return unitQueue;
     }
 

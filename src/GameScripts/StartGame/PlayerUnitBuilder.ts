@@ -30,8 +30,7 @@ export class PlayerUnitBuilder {
         for (let i = 0; i < occupants.length; i++) {
             let occu = occupants[i];
             let loc = occu.primaryRect.getCenter();
-            let u = CreateUnit(this.occupations.getHallPlayerByForce(occu.owner), this.occupations.getHallByForce(occu.owner), loc.x, loc.y, bj_UNIT_FACING);
-            occu.keepUnit.set(u);
+            occu.keepUnit = CreateUnit(this.occupations.getHallPlayerByForce(occu.owner), this.occupations.getHallByForce(occu.owner), loc.x, loc.y, bj_UNIT_FACING);
         }
     }
 }

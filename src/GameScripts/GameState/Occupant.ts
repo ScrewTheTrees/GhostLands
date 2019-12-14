@@ -6,13 +6,12 @@ import {Segment} from "../RectControl/Segment";
 import {ShitEx} from "../../TreeLib/ShitEx";
 import {GetUnitClassFromString, UnitClass} from "../Enums/UnitClass";
 import {Point} from "../../TreeLib/Utility/Point";
-import {Optional} from "../../TreeLib/Utility/Optional";
 
 export class Occupant {
     public owner: Forces;
     public primaryRect: NamedRect;
     public guardPosts: GuardPost[] = [];
-    public keepUnit: Optional<unit> = new Optional<unit>();
+    public keepUnit: unit | null = null;
 
     constructor(owner: Forces, rectName: string, postPrefix: string) {
         this.owner = owner;

@@ -25,4 +25,9 @@ export class ArmySoldier {
         }
         this._currentQueue = value;
     }
+
+
+    public isDead(): boolean {
+        return IsUnitDeadBJ(this.soldier);
+    }
 }

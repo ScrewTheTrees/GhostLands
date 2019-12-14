@@ -13,6 +13,9 @@ export class AIForceData {
     public meleeUnits = new SpawnWeight<number>(Units.SOLDIER);
     public rangedUnits = new SpawnWeight<number>(Units.ARCHER);
 
+    public amountOfMelee: number = 20;
+    public amountOfRanged: number = 7;
+
     constructor(spawnLocations: Point[], aiPlayer: player, aiPlayerArmy: player, aiPlayerExtra: player, force: Forces) {
         this.spawnLocations = spawnLocations;
         this.aiPlayer = aiPlayer;

@@ -9,9 +9,13 @@ export class Pathfinder {
     private frontier = new PriorityQueue<Node>();
 
     public findPath(from: Point, to: Point): PathfindResult {
-        //Setup
         let startNode = this.getNodeClosestTo(from);
         let endNode = this.getNodeClosestTo(to);
+        return this.findPathByNodes(startNode, endNode, from, to);
+    }
+
+    public findPathByNodes(startNode: Node, endNode: Node, from: Point, to: Point): PathfindResult {
+        //Setup
         this.frontier.clear();
         this.resetNodes();
 
@@ -58,12 +62,12 @@ export class Pathfinder {
             iterateNode = iterateNode.cameFrom;
         }
 
-        Logger.generic("startNode", startNode.point.toString());
-        Logger.generic("finalNode", finalNode.point.toString());
-        Logger.generic("endNode", endNode.point.toString());
-        Logger.generic("highestPrios", highest);
-        Logger.generic("opCount", opCount);
-        Logger.generic("compileNodes ", compileNodes.length);
+        Logger.verbose("startNode", startNode.point.toString());
+        Logger.verbose("finalNode", finalNode.point.toString());
+        Logger.verbose("endNode", endNode.point.toString());
+        Logger.verbose("highestPrios", highest);
+        Logger.verbose("opCount", opCount);
+        Logger.verbose("compileNodes ", compileNodes.length);
 
         //Reverse Path and convert to points.
         let points: Point[] = [];
