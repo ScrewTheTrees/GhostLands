@@ -733,6 +733,38 @@ gg_trg_Untitled_Trigger_001 = nil
 function InitGlobals()
 end
 
+function CreateUnitsForPlayer0()
+    local p = Player(0)
+    local u
+    local unitID
+    local t
+    local life
+    u = CreateUnit(p, FourCC("hmtt"), -28208.7, -25432.4, -50.595)
+    u = CreateUnit(p, FourCC("hmtt"), -28395.7, -25534.2, -43.192)
+    u = CreateUnit(p, FourCC("hmtt"), -28573.9, -25719.6, -34.205)
+    u = CreateUnit(p, FourCC("hmtt"), -28478.4, -25803.8, -33.603)
+    u = CreateUnit(p, FourCC("hmtt"), -28316.1, -25646.5, -42.136)
+    u = CreateUnit(p, FourCC("hmtt"), -28076.2, -25540.7, -51.971)
+    u = CreateUnit(p, FourCC("hmtt"), -27957.9, -25389.8, -59.299)
+    u = CreateUnit(p, FourCC("hmtt"), -28049.5, -25285.6, -58.382)
+    u = CreateUnit(p, FourCC("hmtt"), -28276.0, -25301.3, -51.642)
+    u = CreateUnit(p, FourCC("hmtt"), -28472.0, -25355.4, -45.679)
+    u = CreateUnit(p, FourCC("hmtt"), -28509.7, -25512.3, -41.125)
+    u = CreateUnit(p, FourCC("hmtt"), -28510.4, -25619.3, -38.318)
+end
+
+function CreatePlayerBuildings()
+end
+
+function CreatePlayerUnits()
+    CreateUnitsForPlayer0()
+end
+
+function CreateAllUnits()
+    CreatePlayerBuildings()
+    CreatePlayerUnits()
+end
+
 function CreateRegions()
     local we
     gg_rct_force1spawner1 = Rect(-29952.0, 29568.0, -29824.0, 29696.0)
@@ -2346,6 +2378,7 @@ function main()
     SetAmbientNightSound("DalaranNight")
     SetMapMusic("Music", true, 0)
     CreateRegions()
+    CreateAllUnits()
     InitBlizzard()
     InitGlobals()
     InitCustomTriggers()

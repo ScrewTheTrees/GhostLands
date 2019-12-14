@@ -2,6 +2,10 @@ import {Hooks} from "../../TreeLib/Hooks";
 import {Occupant} from "./Occupant";
 import {Forces} from "../Enums/Forces";
 import {UnitClass} from "../Enums/UnitClass";
+import {Point} from "../../TreeLib/Utility/Point";
+import {Units} from "../Enums/Units";
+import {Logger} from "../../TreeLib/Logger";
+import {PlayerManager} from "../PlayerManager";
 
 export class Occupations {
     private static instance: Occupations;
@@ -33,12 +37,35 @@ export class Occupations {
         this.CITY_5,
     ];
 
+    //TODO: Replace print with Debug.Log();
+
+    private onOccupantDie: trigger = CreateTrigger();
+
     public static getInstance() {
         if (this.instance == null) {
             this.instance = new Occupations();
             Hooks.set("Occupations", this.instance);
         }
         return this.instance;
+    }
+
+    constructor() {
+        for (let i = 0; i < GetBJMaxPlayers(); i++) {
+            TriggerRegisterPlayerUnitEvent(this.onOccupantDie, Player(i), EVENT_PLAYER_UNIT_DEATH, null);
+        }
+        TriggerAddAction(this.onOccupantDie, () => this.onHallUnitDie(GetDyingUnit(), GetKillingUnit()));
+    }
+
+    public getHallPlayerByForce(force: Forces): player {
+        switch (force) {
+            case Forces.FORCE_1:
+                return PlayerManager.getInstance().team1Player;
+            case Forces.FORCE_2:
+                return PlayerManager.getInstance().team2Player;
+            case Forces.FORCE_BANDIT:
+                return PlayerManager.getInstance().bandit; // Both bandits use the same players
+
+        }
     }
 
     public getAllOccupants(): Occupant[] {
@@ -72,6 +99,58 @@ export class Occupations {
             }
         }
         return result;
+    }
+
+    getHallByForce(force: Forces): number {
+        switch (force) {
+            case Forces.FORCE_1:
+                return Units.HALL_FORCE_1;
+            case Forces.FORCE_2:
+                return Units.HALL_FORCE_2;
+            case Forces.FORCE_BANDIT:
+                return Units.HALL_FORCE_BANDITS;
+        }
+    }
+
+    getForceByPlayer(p: player): Forces {
+        let playerManager = PlayerManager.getInstance();
+        if (playerManager.team1MinionsAll.indexOf(p) >= 0
+            || playerManager.team1Player == p
+            || playerManager.team1PlayerArmy == p
+            || playerManager.team1PlayerExtra == p
+        ) {
+            return Forces.FORCE_1;
+        }
+        if (playerManager.team2MinionsAll.indexOf(p) >= 0
+            || playerManager.team2Player == p
+            || playerManager.team2PlayerArmy == p
+            || playerManager.team2PlayerExtra == p
+        ) {
+            return Forces.FORCE_2;
+        }
+        return Forces.FORCE_BANDIT;
+    }
+
+    private onHallUnitDie(dyingUnit: unit, killingUnit: unit) {
+        for (let i = 0; i < this.allOccupants.length; i++) {
+            let value = this.allOccupants[i];
+            if (value.keepUnit.isPresent() && value.keepUnit.get() == dyingUnit) {
+                let newForce = this.getForceByPlayer(GetOwningPlayer(killingUnit));
+                let newPlayer = this.getHallPlayerByForce(newForce);
+                let newUnitType = this.getHallByForce(newForce);
+                let where = Point.fromLocationClean(GetUnitLoc(dyingUnit));
+                let building = CreateUnit(newPlayer, newUnitType, where.x, where.y, bj_UNIT_FACING);
+                SetWidgetLife(building, 50);
+
+                value.keepUnit.set(building);
+                value.owner = newForce;
+
+                //TODO: Send all guards on their way... after a delay.
+
+                print("Finished starting a new town hall.");
+                return;
+            }
+        }
     }
 
 }

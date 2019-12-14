@@ -9,7 +9,6 @@ import {AIBanditSpawner} from "./Bandits/AIBanditSpawner";
 import {BanditCamp} from "./Bandits/BanditCamp";
 import {Segment} from "../RectControl/Segment";
 import {Logger} from "../../TreeLib/Logger";
-import {Units} from "../Enums/Units";
 
 export class AIManager {
     private static instance: AIManager;
@@ -65,48 +64,6 @@ export class AIManager {
         Logger.warning("Bandit Relocate.");
         this.banditNorthSpawner.replenishTroopsInAllCities();
         this.banditSouthSpawner.replenishTroopsInAllCities();
-    }
-
-    public getHallPlayerByForce(force: Forces): player {
-        switch (force) {
-            case Forces.FORCE_1:
-                return this.force1Data.aiPlayer;
-            case Forces.FORCE_2:
-                return this.force2Data.aiPlayer;
-            case Forces.FORCE_BANDIT:
-                return this.banditNorthData.aiPlayer; // Both bandits use the same players
-
-        }
-    }
-
-    getHallByForce(force: Forces): number {
-        switch (force) {
-            case Forces.FORCE_1:
-                return Units.HALL_FORCE_1;
-            case Forces.FORCE_2:
-                return Units.HALL_FORCE_2;
-            case Forces.FORCE_BANDIT:
-                return Units.HALL_FORCE_BANDITS;
-        }
-    }
-
-    getForceByPlayer(p: player): Forces {
-        let playerManager = PlayerManager.getInstance();
-        if (playerManager.team1MinionsAll.indexOf(p) >= 0
-            || playerManager.team1Player == p
-            || playerManager.team1PlayerArmy == p
-            || playerManager.team1PlayerExtra == p
-        ) {
-            return Forces.FORCE_1;
-        }
-        if (playerManager.team2MinionsAll.indexOf(p) >= 0
-            || playerManager.team2Player == p
-            || playerManager.team2PlayerArmy == p
-            || playerManager.team2PlayerExtra == p
-        ) {
-            return Forces.FORCE_2;
-        }
-        return Forces.FORCE_BANDIT;
     }
 
 
