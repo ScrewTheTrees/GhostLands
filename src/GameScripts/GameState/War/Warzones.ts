@@ -8,6 +8,14 @@ import {Logger} from "../../../TreeLib/Logger";
 
 export class Warzones {
     private static instance: Warzones;
+    private occupations: Occupations = Occupations.getInstance();
+    public WARZONE_1: Warzone = new Warzone(1, this.occupations.FORCE_1_BASE, this.occupations.CITY_1);
+    public WARZONE_2: Warzone = new Warzone(2, this.occupations.CITY_2, this.occupations.FORCE_1_BASE);
+    public WARZONE_3: Warzone = new Warzone(3, this.occupations.CITY_1, this.occupations.CITY_3);
+    public WARZONE_4: Warzone = new Warzone(4, this.occupations.CITY_3, this.occupations.CITY_2);
+    public WARZONE_5: Warzone = new Warzone(5, this.occupations.CITY_5, this.occupations.CITY_5);
+    public WARZONE_6: Warzone = new Warzone(6, this.occupations.CITY_4, this.occupations.CITY_4);
+
     public allWarzones: Warzone[] = [
         this.WARZONE_1,
         this.WARZONE_2,
@@ -16,13 +24,6 @@ export class Warzones {
         this.WARZONE_5,
         this.WARZONE_6,
     ];
-    private occupations: Occupations = Occupations.getInstance();
-    public WARZONE_1: Warzone = new Warzone(1, this.occupations.FORCE_1_BASE, this.occupations.CITY_1);
-    public WARZONE_2: Warzone = new Warzone(2, this.occupations.CITY_2, this.occupations.FORCE_1_BASE);
-    public WARZONE_3: Warzone = new Warzone(3, this.occupations.CITY_1, this.occupations.CITY_3);
-    public WARZONE_4: Warzone = new Warzone(4, this.occupations.CITY_3, this.occupations.CITY_2);
-    public WARZONE_5: Warzone = new Warzone(5, this.occupations.CITY_5, this.occupations.CITY_5);
-    public WARZONE_6: Warzone = new Warzone(6, this.occupations.CITY_4, this.occupations.CITY_4);
 
     constructor() {
     }

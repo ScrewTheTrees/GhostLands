@@ -191,3 +191,15 @@ STRING 38
 Bandits
 }
 
+STRING 39
+// Units: e000 (What the fuck), Ubertip (Tooltip - Extended)
+{
+Main base.
+}
+
+STRING 40
+// Units: e000 (What the fuck), Name (Name)
+{
+What the fuck
+}
+

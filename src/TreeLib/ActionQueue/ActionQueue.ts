@@ -41,7 +41,7 @@ export class ActionQueue extends Entity {
                 this.allQueues.splice(i, 1);
                 Logger.LogVerbose("Spliced queue:", this.allQueues.length);
                 i -= 1;
-            } else {
+            } else if (!queue.isPaused) {
                 queue.update(this._timerDelay);
             }
         }
