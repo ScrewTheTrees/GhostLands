@@ -73,4 +73,14 @@ export class Army {
 
         }, 0.5);
     }
+
+    public isArmyDead(): boolean {
+        for (let i = 0; i < this.units.length; i++) {
+            let unit = this.units[i];
+            if (!unit.isDead()) {
+                return false;
+            }
+        }
+        return true;
+    }
 }

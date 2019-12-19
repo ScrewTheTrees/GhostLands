@@ -30,6 +30,7 @@ export class GlobalGameManager extends Entity {
         super();
         this._timerDelay = 0.5;
 
+        this.aiManager.banditNorthSpawner.stockUpAllGuardPointsInstant();
         this.aiManager.performAIReinforcements();
         Delay.addDelay(() => {
             this.aiManager.performAIRelocation();

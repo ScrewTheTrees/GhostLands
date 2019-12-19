@@ -5,14 +5,13 @@ import {Forces} from "../../Enums/Forces";
 export class ArmySoldier {
     public soldier: unit;
     public force: Forces;
+    private _currentQueue: UnitQueue;
 
     constructor(soldier: unit, force: Forces, _currentQueue: UnitQueue) {
         this.soldier = soldier;
         this.force = force;
         this._currentQueue = _currentQueue;
     }
-
-    public _currentQueue: UnitQueue;
 
     get currentQueue(): UnitQueue {
         return this._currentQueue;

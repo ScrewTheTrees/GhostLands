@@ -22,6 +22,18 @@ export class Point {
         return (radians * 180 / Math.PI);
     }
 
+    public getOffsetTo(target: Point): Point {
+        let x = target.x - this.x;
+        let y = target.y - this.y;
+        return new Point(x, y);
+    }
+
+    public addOffset(offset: Point): Point {
+        this.x += offset.x;
+        this.y += offset.y;
+        return this;
+    }
+
     public updateToLocation(inputLoc: location) {
         this.x = GetLocationX(inputLoc);
         this.y = GetLocationY(inputLoc);

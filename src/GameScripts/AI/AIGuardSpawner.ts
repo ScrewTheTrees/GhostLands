@@ -11,7 +11,7 @@ import {Occupant} from "../GameState/Occupant";
 import {GetGuardTypeFromUnit, UnitClass} from "../Enums/UnitClass";
 import {Guard} from "./Guard";
 import {NamedRect} from "../RectControl/NamedRect";
-import {DummyCaster} from "../../TreeLib/DummyCasting/DummyCaster";
+import {Logger} from "../../TreeLib/Logger";
 
 export class AIGuardSpawner {
     public forceData: AIForceData;
@@ -39,23 +39,27 @@ export class AIGuardSpawner {
 
     public performRevival(melee: number, ranged: number) {
         Delay.addDelay(() => {
-            DummyCaster.castImmediately(FourCC("A002"), "berserk", this.makeMeleeGuard().guard);
-            DummyCaster.castImmediately(FourCC("A002"), "berserk", this.makeMeleeGuard().guard);
+            this.executeGuardSpawn(this.getUnitTypeOfUnitClass(UnitClass.MELEE), this.forceData.getRandomSpawnPoint());
+            this.executeGuardSpawn(this.getUnitTypeOfUnitClass(UnitClass.MELEE), this.forceData.getRandomSpawnPoint());
         }, 1, math.ceil(melee / 2));
         Delay.addDelay(() => {
             Delay.addDelay(() => {
-                DummyCaster.castImmediately(FourCC("A002"), "berserk", this.makeRangedGuard().guard);
-                DummyCaster.castImmediately(FourCC("A002"), "berserk", this.makeRangedGuard().guard);
+                this.executeGuardSpawn(this.getUnitTypeOfUnitClass(UnitClass.RANGED), this.forceData.getRandomSpawnPoint());
+                this.executeGuardSpawn(this.getUnitTypeOfUnitClass(UnitClass.RANGED), this.forceData.getRandomSpawnPoint());
             }, 2, math.ceil(ranged / 2));
         }, 3);
     }
 
-    public makeMeleeGuard() {
-        return this.executeGuardSpawn(this.forceData.meleeUnits.getRandom(), this.forceData.getRandomSpawnPoint());
-    }
-
-    public makeRangedGuard() {
-        return this.executeGuardSpawn(this.forceData.rangedUnits.getRandom(), this.forceData.getRandomSpawnPoint());
+    public getUnitTypeOfUnitClass(type: UnitClass) {
+        switch (type) {
+            case UnitClass.MELEE:
+                return this.forceData.meleeUnits.getRandom();
+            case UnitClass.RANGED:
+                return this.forceData.rangedUnits.getRandom();
+            default:
+                Logger.critical(`Trying to fetch unitType of undefined UnitClass: ${type}`);
+                return 0;
+        }
     }
 
     public executeGuardSpawn(unitType: number, spawnPoint: Point): Guard {
@@ -140,5 +144,20 @@ export class AIGuardSpawner {
             ActionQueue.enableQueue(queue);
 
         }, delay);
+    }
+
+
+    public stockUpAllGuardPointsInstant() {
+        let occupations = Occupations.getInstance().getTownsOwnedBy(this.forceData.force);
+        occupations.forEach((occupant) => {
+            occupant.guardPosts.forEach((guardPost) => {
+                if (guardPost.needNewGuard()) {
+                    let pos = guardPost.point;
+                    let unit = CreateUnit(this.forceData.aiPlayer, this.getUnitTypeOfUnitClass(guardPost.postType), pos.x, pos.y, 0);
+                    let queue = ActionQueue.createSimpleGuardPoint(unit, pos);
+                    guardPost.occupied = new Guard(unit, this.forceData.force, queue);
+                }
+            });
+        });
     }
 }
