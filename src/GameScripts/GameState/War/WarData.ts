@@ -6,12 +6,10 @@ import {Rectifier} from "../../RectControl/Rectifier";
 export class WarData {
     private static instance: WarData;
     public force1EarlyTargets = [
-        Occupations.getInstance().CITY_3,
         Occupations.getInstance().CITY_5,
         Occupations.getInstance().CITY_1,
     ];
     public force2EarlyTargets = [
-        Occupations.getInstance().CITY_3,
         Occupations.getInstance().CITY_4,
         Occupations.getInstance().CITY_2,
     ];

@@ -5,6 +5,7 @@
   "description": "Quality package.",
   "scripts": {
     "fullRecompileAndRun": "npm run clean && npm run compileTypescript && npm run compileAndRunMap",
+    "run": "node bin/operations run",
     "fullRecompile": "npm run clean && npm run compileTypescript && npm run compileMap",
     "clean": "rimraf target/*",
     "compileTypescript": "tstl -p tsconfig.json",

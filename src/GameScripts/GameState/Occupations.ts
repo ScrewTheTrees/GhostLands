@@ -10,6 +10,7 @@ import {Entity} from "../../TreeLib/Entity";
 import {DamageDetectionSystem} from "../../TreeLib/DDS/DamageDetectionSystem";
 import {HitCallback} from "../../TreeLib/DDS/HitCallback";
 import {DDSFilterTargetUnitTypes} from "../../TreeLib/DDS/Filters/DDSFilterTargetUnitTypes";
+import {Delay} from "../../TreeLib/Utility/Delay";
 
 export class Occupations extends Entity {
     private static instance: Occupations;
@@ -68,6 +69,11 @@ export class Occupations extends Entity {
                         let loc = Point.fromWidget(hitObject.targetUnit);
                         post.occupied.currentQueue.isPaused = true;
                         IssuePointOrder(post.occupied.guard, "attack", loc.x, loc.y);
+                        Delay.addDelay(() => {
+                            if (post.occupied) {
+                                post.occupied.currentQueue.isPaused = false;
+                            }
+                        }, 30);
                     }
                 }
             }

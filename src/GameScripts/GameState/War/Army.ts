@@ -51,13 +51,19 @@ export class Army {
         return armySoldier;
     }
 
+    public sendAllSoldiersToGathering() {
+        this.units.forEach((unit) => {
+            this.sendSoldierToGathering(unit);
+        });
+    }
+
     public sendSoldierToGathering(recruit: ArmySoldier) {
         return this.sendSoldierToPoint(recruit, this.gathering.getRandomPoint());
     }
 
     public sendSoldierToPoint(armySoldier: ArmySoldier, point: Point) {
         point = point.copy();
-        let path = this.pathManager.createAttackPath(Point.fromWidget(armySoldier.soldier), point, this.forceData.force);
+        let path = this.pathManager.createPath(Point.fromWidget(armySoldier.soldier), point, this.forceData.force);
         //Prepare
         armySoldier.currentQueue = new UnitQueue(armySoldier.soldier, path[0]);
         ActionQueue.enableQueue(armySoldier.currentQueue);

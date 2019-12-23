@@ -38,16 +38,20 @@ export class AIGuardSpawner {
     }
 
     public performRevival(melee: number, ranged: number) {
-        Delay.addDelay(() => {
-            this.executeGuardSpawn(this.getUnitTypeOfUnitClass(UnitClass.MELEE), this.forceData.getRandomSpawnPoint());
-            this.executeGuardSpawn(this.getUnitTypeOfUnitClass(UnitClass.MELEE), this.forceData.getRandomSpawnPoint());
-        }, 1, math.ceil(melee / 2));
-        Delay.addDelay(() => {
+        if (melee > 0) {
             Delay.addDelay(() => {
-                this.executeGuardSpawn(this.getUnitTypeOfUnitClass(UnitClass.RANGED), this.forceData.getRandomSpawnPoint());
-                this.executeGuardSpawn(this.getUnitTypeOfUnitClass(UnitClass.RANGED), this.forceData.getRandomSpawnPoint());
-            }, 2, math.ceil(ranged / 2));
-        }, 3);
+                this.executeGuardSpawn(this.getUnitTypeOfUnitClass(UnitClass.MELEE), this.forceData.getRandomSpawnPoint());
+                this.executeGuardSpawn(this.getUnitTypeOfUnitClass(UnitClass.MELEE), this.forceData.getRandomSpawnPoint());
+            }, 1, math.ceil(melee / 2));
+        }
+        if (ranged > 0) {
+            Delay.addDelay(() => {
+                Delay.addDelay(() => {
+                    this.executeGuardSpawn(this.getUnitTypeOfUnitClass(UnitClass.RANGED), this.forceData.getRandomSpawnPoint());
+                    this.executeGuardSpawn(this.getUnitTypeOfUnitClass(UnitClass.RANGED), this.forceData.getRandomSpawnPoint());
+                }, 2, math.ceil(ranged / 2));
+            }, 3);
+        }
     }
 
     public getUnitTypeOfUnitClass(type: UnitClass) {
@@ -129,7 +133,7 @@ export class AIGuardSpawner {
 
     public sendRecruitToPoint(recruit: Guard, point: Point, delay: number = 5) {
         point = point.copy();
-        let path = this.pathManager.createAttackPath(Point.fromWidget(recruit.guard), point, this.forceData.force);
+        let path = this.pathManager.createPath(Point.fromWidget(recruit.guard), point, this.forceData.force);
         //Prepare
         recruit.currentQueue = new UnitQueue(recruit.guard, path[0]);
         ActionQueue.enableQueue(recruit.currentQueue);

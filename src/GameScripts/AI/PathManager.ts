@@ -49,7 +49,7 @@ export class PathManager {
         });
     }
 
-    public createAttackPath(start: Point, end: Point, force: Forces): UnitAction[] {
+    public createPath(start: Point, end: Point, force: Forces, type = WaypointOrders.attack): UnitAction[] {
         let path = this.getPathfinderForForce(force).findPath(start, end);
         let actions: UnitAction[] = [];
         let newPath = path.path;
@@ -62,7 +62,7 @@ export class PathManager {
 
         for (let i = 0; i < newPath.length; i++) {
             let value = newPath[i].polarProject(randomLen, randomAng);
-            actions.push(new UnitActionWaypoint(value, WaypointOrders.attack, 128));
+            actions.push(new UnitActionWaypoint(value, type, 128));
         }
 
         return actions;

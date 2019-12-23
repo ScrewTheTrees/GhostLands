@@ -37,7 +37,8 @@ export class TargetResolver {
         } else {
             print(`Generic war.`);
             container = TargetResolver.getContestedWarzones();
-            container.selectedBattlefield = ChooseOne(container.targets.force1, container.targets.force2)
+            container.selectedBattlefield = ChooseOne(container.targets.force1, container.targets.force2);
+            container.deadLock = true;
         }
 
         return container;
@@ -50,7 +51,7 @@ export class TargetResolver {
         if (f1bandits.length > 0) zones.targets.force1 = f1bandits[GetRandomInt(0, f1bandits.length - 1)];
         if (f2bandits.length > 0) zones.targets.force2 = f2bandits[GetRandomInt(0, f2bandits.length - 1)];
 
-        if (!(f1bandits.length > 0 && f2bandits.length > 0)) {
+        if (f1bandits.length == 0 || f2bandits.length == 0) {
             print(`Not both players can fight the bandits, so it will be a war instead.`);
             if (f1bandits.length == 0) zones.selectedBattlefield = zones.targets.force1;
             else zones.selectedBattlefield = zones.targets.force2;
