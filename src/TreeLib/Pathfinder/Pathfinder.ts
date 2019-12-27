@@ -3,10 +3,12 @@ import {Point} from "../Utility/Point";
 import {Logger} from "../Logger";
 import {PriorityQueue} from "./PriorityQueue";
 import {PathfindResult} from "./PathfindResult";
+import {NodeTable} from "./NodeTable";
 
 export class Pathfinder {
     public nodes: Node[] = [];
     private frontier = new PriorityQueue<Node>();
+    public nodeTable: NodeTable = new NodeTable();
 
     public findPath(from: Point, to: Point): PathfindResult {
         let startNode = this.getNodeClosestTo(from);
@@ -15,6 +17,12 @@ export class Pathfinder {
     }
 
     public findPathByNodes(startNode: Node, endNode: Node, from: Point, to: Point): PathfindResult {
+        let node1 = this.nodeTable.get(startNode, endNode);
+        if (node1 != null) {
+            Logger.verbose("Used cached path.");
+            return node1.value.copy();
+        }
+
         //Setup
         this.frontier.clear();
         this.resetNodes();
@@ -76,7 +84,9 @@ export class Pathfinder {
             points.push(Point.copy(node.point));
         }
 
-        return new PathfindResult(points, finalNode == endNode, startNode.point, endNode.point, finalNode.point);
+        let pathfindResult = new PathfindResult(points, finalNode == endNode, startNode.point, endNode.point, finalNode.point);
+        this.nodeTable.push(startNode, endNode, pathfindResult);
+        return pathfindResult.copy();
     }
 
     public getNodeNumber(current: Node, target: Node) {

@@ -37,4 +37,14 @@ export class PathfindResult {
 
         return path;
     }
+
+    copy() {
+        let newPath: Point[] = [];
+        for (let i = 0; i < this.path.length; i++) {
+            let value = this.path[i];
+            newPath.push(value.copy());
+        }
+
+        return new PathfindResult(newPath, this.reachedTheEnd, this.startNode, this.endNode, this.finalNode);
+    }
 }

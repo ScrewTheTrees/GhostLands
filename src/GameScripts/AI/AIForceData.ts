@@ -22,6 +22,8 @@ export class AIForceData {
         this.aiPlayerArmy = aiPlayerArmy;
         this.aiPlayerExtra = aiPlayerExtra;
         this.force = force;
+
+        this.rangedUnits.add(Units.FOREST_TROLL, 20);
     }
 
 

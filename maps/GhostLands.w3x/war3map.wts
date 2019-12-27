@@ -203,3 +203,81 @@ STRING 40
 What the fuck
 }
 
+STRING 41
+// Abilities: A001 (Frenzy), Ubertip (Tooltip - Normal - Extended)
+{
+Increases the unit's attack rate and movement speed temporarily.
+}
+
+STRING 42
+// Abilities: A003 (Ensnare), EditorSuffix (Editor Suffix)
+{
+(Troll)
+}
+
+STRING 43
+// Abilities: A003 (Ensnare), Ubertip (Tooltip - Normal - Extended)
+{
+Causes a target unit to be bound to the ground so that it cannot move. Air units that are ensnared can be attacked as though they were land units
+}
+
+STRING 44
+// Units: h003 (Forest Troll), Name (Name)
+{
+Forest Troll
+}
+
+STRING 45
+// Units: h003 (Forest Troll), Hotkey (Hotkey)
+{
+T
+}
+
+STRING 46
+// Units: h003 (Forest Troll), Tip (Tooltip - Basic)
+{
+Train Forest |cffffcc00T|rroll
+}
+
+STRING 47
+// Units: h003 (Forest Troll), Ubertip (Tooltip - Extended)
+{
+Expert forest trappers throwing axes that deals normal damage instead of piercing. |n|n|cffffcc00Attacks land and air units.|r
+}
+
+STRING 48
+// Abilities: A004 (Ensnare), Tip (Tooltip - Normal)
+{
+Ensnare
+}
+
+STRING 49
+// Abilities: A004 (Ensnare), Hotkey (Hotkey - Normal)
+{
+E
+}
+
+STRING 50
+// Abilities: A004 (Ensnare), Unhotkey (Hotkey - Turn Off)
+{
+E
+}
+
+STRING 51
+// Abilities: A004 (Ensnare), Name (Name)
+{
+Ensnare
+}
+
+STRING 52
+// Abilities: A004 (Ensnare), Ubertip (Tooltip - Normal - Extended)
+{
+Causes a target unit to be bound to the ground so that it cannot move. Air units that are ensnared can be attacked as though they were land units
+}
+
+STRING 53
+// Abilities: A004 (Ensnare), EditorSuffix (Editor Suffix)
+{
+(Troll, Dummy)
+}
+

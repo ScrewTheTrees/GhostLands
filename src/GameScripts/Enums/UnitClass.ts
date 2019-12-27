@@ -30,6 +30,7 @@ export function GetUnitClassFromUnitType(u: number): UnitClass {
         case Units.SOLDIER:
             return UnitClass.MELEE;
         case Units.ARCHER:
+        case Units.FOREST_TROLL:
             return UnitClass.RANGED;
         default:
             return UnitClass.ERROR;

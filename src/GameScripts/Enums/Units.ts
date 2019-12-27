@@ -1,7 +1,10 @@
 export enum Units {
-    GRAND_GENERAL = FourCC("H000"),
+    HERO_GRAND_GENERAL = FourCC("H000"),
+
+
     SOLDIER = FourCC("h001"),
     ARCHER = FourCC("h002"),
+    FOREST_TROLL = FourCC("h003"),
 
 
     DUMMY_BUILDER = FourCC("e001"),
