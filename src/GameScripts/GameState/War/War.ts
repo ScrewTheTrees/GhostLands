@@ -17,29 +17,28 @@ import {NamedRect} from "../../RectControl/NamedRect";
 
 export class War extends Entity {
     public state: WarState = WarState.SETUP;
-    public targets: WarContainer | null = null;
+    public targets: WarContainer | null;
 
     public isFinished: boolean = false;
     public countdown: number = 60;
 
-    //TODO: Replace print with Debug.Log();
     constructor() {
         super();
-        print("THERE IS ONLY WAR!");
+        Logger.generic("THERE IS ONLY WAR!");
         this.targets = TargetResolver.resolveTargets();
         this._timerDelay = 1;
 
         if (this.targets != null) {
-            print("There is targets!");
+            Logger.generic("There is targets!");
             let targets = this.targets;
             let mgr = AIManager.getInstance();
 
             if (this.targets.deadLock && targets.selectedBattlefield != null) {
-                print("There is a deadlock, det finns bara krig.");
+                Logger.generic("There is a deadlock, normal war");
                 targets.armies.force1 = new Army(mgr.force1Data, targets.selectedBattlefield.force1gather);
                 targets.armies.force2 = new Army(mgr.force2Data, targets.selectedBattlefield.force2gather);
             } else {
-                print("This is not a deadlock, single side conquer war.");
+                Logger.generic("This is not a deadlock, single side conquer war.");
                 targets.armies.force1 = new Army(mgr.force1Data, targets.targets.force1.force1gather);
                 targets.armies.force2 = new Army(mgr.force2Data, targets.targets.force2.force2gather);
             }
@@ -51,8 +50,6 @@ export class War extends Entity {
             this.endWar();
             Logger.critical(`Cannot resolve targets... something went horribly wrong :(`);
         }
-
-        print("Time till war is: ", this.countdown);
     }
 
 
@@ -67,30 +64,27 @@ export class War extends Entity {
             this.countdown -= this._timerDelay;
             if (this.countdown <= 0) {
                 if (this.targets.deadLock) {
-                    print("Deadlock, Let there be clash.");
+                    Logger.generic("Deadlock, Let there be clash.");
                     this.startClash(this.targets);
                     this.state = WarState.CLASHING;
                 } else {
-                    print("No deadlock, go to: ", WarState.PREPARE_FOR_SIEGE);
+                    Logger.generic("No deadlock, go to: ", WarState.PREPARE_FOR_SIEGE);
                     this.countdown = 5;
                     this.state = WarState.PREPARE_FOR_SIEGE;
                 }
             }
             if (math.floor(this.countdown) % 5 == 0) {
-                print(this.countdown);
+                Logger.generic(this.countdown);
             }
 
         }
         if (this.state == WarState.PREPARE_FOR_SIEGE) {
             this.countdown -= this._timerDelay;
             if (this.countdown <= 0) {
-                print("Start siege.");
+                Logger.generic("Start siege.");
                 this.startSiege(this.targets);
                 this.countdown = 5;
                 this.state = WarState.SIEGE;
-            }
-            if (math.floor(this.countdown) % 5 == 0) {
-                print(this.countdown);
             }
         }
         if (this.state == WarState.CLASHING) {
@@ -123,7 +117,6 @@ export class War extends Entity {
 
                 if (!isF1Active && !isF2Active) {
                     this.endWar(); // Sad ending
-                    print("The end of all things.");
                 }
             }
         }
@@ -140,20 +133,19 @@ export class War extends Entity {
         let targetf2 = this.resolveSiegeTarget(targets, targets.targets.force2, Forces.FORCE_2);
 
         if (!targets.armies.force1.isArmyDead()) {
-            print("F1 army is alive");
-            this.sendArmyWithOffset(targets.armies.force1, targets.armies.force1.gathering.getCenter(), targetf1.force2Occupant.primaryRect.getCenter());
+            Logger.generic("F1 army is alive");
+            this.sendArmyToRect(targets.armies.force1, targetf1.force2Occupant.primaryRect);
         }
         if (!targets.armies.force2.isArmyDead()) {
-            print("F2 army is alive");
-            this.sendArmyWithOffset(targets.armies.force2, targets.armies.force2.gathering.getCenter(), targetf2.force1Occupant.primaryRect.getCenter());
+            Logger.generic("F2 army is alive");
+            this.sendArmyToRect(targets.armies.force2, targetf2.force1Occupant.primaryRect);
         }
     }
 
-    public sendArmyWithOffset(army: Army, start: Point, end: Point) {
-        let offset = start.getOffsetTo(end);
+    public sendArmyToRect(army: Army, end: NamedRect) {
         for (let i = 0; i < army.units.length; i++) {
             let unit = army.units[i];
-            let atkPoint = Point.fromWidget(unit.soldier).addOffset(offset);
+            let atkPoint = end.getRandomPoint();
             unit.currentQueue.isFinished = true;
             ActionQueue.disableQueue(unit.currentQueue);
             unit.currentQueue = ActionQueue.createSimpleGuardPoint(unit.soldier, atkPoint);
@@ -173,18 +165,18 @@ export class War extends Entity {
         this.remove(); //Kill entity.
         this.state = WarState.END;
         this.isFinished = true;
-        print("The war has reached its conclusion.");
+        Logger.generic("The war has reached its conclusion.");
 
         Delay.addDelay(() => {
-            print("Recall all the units.");
+            Logger.generic("Recall all the units.");
             if (this.targets != null) {
                 if (this.targets.armies.force1 != null) {
                     this.disbandArmy(this.targets.armies.force1);
-                    print("Disbanded force 1");
+                    Logger.generic("Disbanded force 1");
                 }
                 if (this.targets.armies.force2 != null) {
                     this.disbandArmy(this.targets.armies.force2);
-                    print("Disbanded force 2");
+                    Logger.generic("Disbanded force 2");
                 }
             }
         }, 180);
@@ -195,7 +187,7 @@ export class War extends Entity {
             let unit = army.units[i];
             let path = PathManager.getInstance().createPath(Point.fromWidget(unit.soldier), unit.startPoint, unit.force, WaypointOrders.move);
             let queue = new UnitQueue(unit.soldier, ...path);
-            queue.addAction(new UnitActionWaypoint(unit.startPoint, WaypointOrders.move));
+            queue.addAction(new UnitActionWaypoint(unit.startPoint, WaypointOrders.attack));
             queue.addAction(new UnitActionDeath(true));
             unit.currentQueue = queue;
             ActionQueue.enableQueue(queue);
@@ -218,12 +210,10 @@ export class War extends Entity {
         }
 
         if (targets.selectedBattlefield) {
-            let targetsf1 = targets.selectedBattlefield.force2gather.getCenter();
-            let targetsf2 = targets.selectedBattlefield.force1gather.getCenter();
-            let center = targets.selectedBattlefield.center.getCenter();
+            let center = targets.selectedBattlefield.center;
 
-            this.sendArmyWithOffset(targets.armies.force1, targetsf2, center);
-            this.sendArmyWithOffset(targets.armies.force2, targetsf1, center);
+            this.sendArmyToRect(targets.armies.force1, center);
+            this.sendArmyToRect(targets.armies.force2, center);
 
         } else {
             Logger.critical("There is no selected battlefield, if there is clashing there must be one.");
@@ -234,10 +224,13 @@ export class War extends Entity {
         let force1 = targets.armies.force1;
         let force2 = targets.armies.force2;
 
-        print("Finish the clash, winner is: ", winner);
+        Logger.generic("Finish the clash, winner is: ", winner);
         if (force1 && force2) {
-            this.countdown = 60;
+            this.countdown = 120;
             if (winner == Forces.FORCE_1) {
+                /*if (Occupations.getInstance().CITY_1.owner != Forces.FORCE_1) {
+                    targets.targets.force1 = Warzones.getInstance().getWarzoneByForceAndCity(Forces.FORCE_1, Occupations.getInstance().CITY_1);
+                }*/
                 this.sendUnitsToSiege(force1, targets, Forces.FORCE_1, targets.targets.force1.force1gather);
             } else if (winner == Forces.FORCE_2) {
                 this.sendUnitsToSiege(force2, targets, Forces.FORCE_2, targets.targets.force2.force2gather);
@@ -252,12 +245,12 @@ export class War extends Entity {
         if (targets.selectedBattlefield &&
             ((winner == Forces.FORCE_1 && targets.selectedBattlefield.force2Occupant.owner == Forces.FORCE_1)
                 || (winner == Forces.FORCE_2 && targets.selectedBattlefield.force1Occupant.owner == Forces.FORCE_2))) {
-            print("Switch battlezone");
+            Logger.generic("Switch battlezone");
             force.gathering = zone;
             this.countdown = 300;
         }
         Delay.addDelay(() => {
-            print("Send to new gathering.");
+            Logger.generic("Send to new gathering.");
             force.sendAllSoldiersToGathering();
         }, 30);
     }

@@ -281,3 +281,135 @@ STRING 53
 (Troll, Dummy)
 }
 
+STRING 54
+// Abilities: A005 (Heal), Ubertip (Tooltip - Normal - Extended)
+{
+Heals a target friendly non-mechanical wounded unit slightly.
+}
+
+STRING 55
+// Abilities: A005 (Heal), EditorSuffix (Editor Suffix)
+{
+(Priest)
+}
+
+STRING 56
+// Units: h004 (Priest), Name (Name)
+{
+Priest
+}
+
+STRING 57
+// Units: h004 (Priest), Tip (Tooltip - Basic)
+{
+Train |cffffcc00P|rriest
+}
+
+STRING 59
+// Units: h004 (Priest), Hotkey (Hotkey)
+{
+P
+}
+
+STRING 64
+// Abilities: A006 (Slow), EditorSuffix (Editor Suffix)
+{
+(Sorceress)
+}
+
+STRING 65
+// Abilities: A006 (Slow), Ubertip (Tooltip - Normal - Extended)
+{
+Slows a target enemy unit's attack rate and movement speed temporarily.
+}
+
+STRING 66
+// Units: h005 (Sorceress), Name (Name)
+{
+Sorceress
+}
+
+STRING 67
+// Units: h005 (Sorceress), Tip (Tooltip - Basic)
+{
+Train |cffffcc00S|rorceress
+}
+
+STRING 68
+// Units: h005 (Sorceress), Hotkey (Hotkey)
+{
+S
+}
+
+STRING 69
+// Units: h004 (Priest), Ubertip (Tooltip - Extended)
+{
+Basic healer that can consistently heal. |n|n|cffffcc00Attacks land and air units.|r
+}
+
+STRING 70
+// Units: h005 (Sorceress), Ubertip (Tooltip - Extended)
+{
+Caster that can cast slow. |n|n|cffffcc00Attacks land and air units.|r
+}
+
+STRING 71
+// Abilities: A007 (Vanguard Aura), Name (Name)
+{
+Vanguard Aura
+}
+
+STRING 72
+// Abilities: A007 (Vanguard Aura), Researchtip (Tooltip - Learn)
+{
+Learn |cffffcc00V|ranguard Aura - [|cffffcc00Level %d|r]
+}
+
+STRING 73
+// Abilities: A007 (Vanguard Aura), Researchubertip (Tooltip - Learn - Extended)
+{
+Gives additional armor to nearby friendly units. |n|n|cffffcc00Level 1|r - Increases base armor by <A007,DataA1,.>. |n|cffffcc00Level 2|r - Increases base armor by <A007,DataA2,.>. |n|cffffcc00Level 3|r - Increases base armor by <A007,DataA3,.>.
+}
+
+STRING 74
+// Abilities: A007 (Vanguard Aura), Ubertip (Tooltip - Normal - Extended)
+{
+Gives <A007,DataA1,.> additional armor to nearby friendly units.
+}
+
+STRING 75
+// Abilities: A007 (Vanguard Aura), Ubertip (Tooltip - Normal - Extended)
+{
+Gives <A007,DataA2,.> additional armor to nearby friendly units.
+}
+
+STRING 76
+// Abilities: A007 (Vanguard Aura), Ubertip (Tooltip - Normal - Extended)
+{
+Gives <A007,DataA3,.> additional armor to nearby friendly units.
+}
+
+STRING 77
+// Units: h006 (Knight), Name (Name)
+{
+Knight
+}
+
+STRING 78
+// Units: h006 (Knight), Hotkey (Hotkey)
+{
+K
+}
+
+STRING 79
+// Units: h006 (Knight), Tip (Tooltip - Basic)
+{
+Train Knight
+}
+
+STRING 80
+// Units: h006 (Knight), Ubertip (Tooltip - Extended)
+{
+Fast and agile cavalry excellent for hit and run attacks. |n|n|cffffcc00Attacks land units.|r
+}
+

@@ -11,7 +11,6 @@ import {Occupant} from "../GameState/Occupant";
 import {GetGuardTypeFromUnit, UnitClass} from "../Enums/UnitClass";
 import {Guard} from "./Guard";
 import {NamedRect} from "../RectControl/NamedRect";
-import {Logger} from "../../TreeLib/Logger";
 
 export class AIGuardSpawner {
     public forceData: AIForceData;
@@ -31,39 +30,40 @@ export class AIGuardSpawner {
     }
 
     public performUnitRevival() {
-        let melee = Math.min(this.forceData.amountOfMelee, this.buffer + this.occupations.getNeededGuardsByForce(this.forceData.force, UnitClass.MELEE) - this.countUnitOfGuardType(UnitClass.MELEE));
-        let ranged = Math.min(this.forceData.amountOfRanged, this.buffer + this.occupations.getNeededGuardsByForce(this.forceData.force, UnitClass.RANGED) - this.countUnitOfGuardType(UnitClass.RANGED));
+        let melee = this.buffer + this.occupations.getNeededGuardsByForce(this.forceData.force, UnitClass.MELEE) - this.countUnitOfGuardType(UnitClass.MELEE);
+        let ranged = this.buffer + this.occupations.getNeededGuardsByForce(this.forceData.force, UnitClass.RANGED) - this.countUnitOfGuardType(UnitClass.RANGED);
+        let caster = this.buffer + this.occupations.getNeededGuardsByForce(this.forceData.force, UnitClass.CASTER) - this.countUnitOfGuardType(UnitClass.CASTER);
+        let cavalry = (this.buffer / 2) + this.occupations.getNeededGuardsByForce(this.forceData.force, UnitClass.CAVALRY) - this.countUnitOfGuardType(UnitClass.CAVALRY);
+        let artillery = (this.buffer / 2) + this.occupations.getNeededGuardsByForce(this.forceData.force, UnitClass.ARTILLERY) - this.countUnitOfGuardType(UnitClass.ARTILLERY);
 
-        this.performRevival(melee, ranged);
+        this.performRevival(melee, ranged, caster, cavalry, artillery);
     }
 
-    public performRevival(melee: number, ranged: number) {
-        if (melee > 0) {
-            Delay.addDelay(() => {
-                this.executeGuardSpawn(this.getUnitTypeOfUnitClass(UnitClass.MELEE), this.forceData.getRandomSpawnPoint());
-                this.executeGuardSpawn(this.getUnitTypeOfUnitClass(UnitClass.MELEE), this.forceData.getRandomSpawnPoint());
-            }, 1, math.ceil(melee / 2));
-        }
-        if (ranged > 0) {
-            Delay.addDelay(() => {
-                Delay.addDelay(() => {
-                    this.executeGuardSpawn(this.getUnitTypeOfUnitClass(UnitClass.RANGED), this.forceData.getRandomSpawnPoint());
-                    this.executeGuardSpawn(this.getUnitTypeOfUnitClass(UnitClass.RANGED), this.forceData.getRandomSpawnPoint());
-                }, 2, math.ceil(ranged / 2));
-            }, 3);
-        }
-    }
+    public performRevival(melee: number, ranged: number, caster: number, cavalry: number, artillery: number) {
+        Delay.addDelay(() => {
+            this.executeGuardSpawn(this.forceData.getUnitTypeOfUnitClass(UnitClass.MELEE), this.forceData.getRandomSpawnPoint());
+            this.executeGuardSpawn(this.forceData.getUnitTypeOfUnitClass(UnitClass.MELEE), this.forceData.getRandomSpawnPoint());
+        }, 1, math.ceil(melee / 2));
+        Delay.addDelay(() => {
+            this.executeGuardSpawn(this.forceData.getUnitTypeOfUnitClass(UnitClass.ARTILLERY), this.forceData.getRandomSpawnPoint());
+        }, 1, math.ceil(artillery));
 
-    public getUnitTypeOfUnitClass(type: UnitClass) {
-        switch (type) {
-            case UnitClass.MELEE:
-                return this.forceData.meleeUnits.getRandom();
-            case UnitClass.RANGED:
-                return this.forceData.rangedUnits.getRandom();
-            default:
-                Logger.critical(`Trying to fetch unitType of undefined UnitClass: ${type}`);
-                return 0;
-        }
+        Delay.addDelay(() => {
+            Delay.addDelay(() => {
+                this.executeGuardSpawn(this.forceData.getUnitTypeOfUnitClass(UnitClass.RANGED), this.forceData.getRandomSpawnPoint());
+                this.executeGuardSpawn(this.forceData.getUnitTypeOfUnitClass(UnitClass.RANGED), this.forceData.getRandomSpawnPoint());
+            }, 2, math.ceil(ranged / 2));
+            Delay.addDelay(() => {
+                this.executeGuardSpawn(this.forceData.getUnitTypeOfUnitClass(UnitClass.CASTER), this.forceData.getRandomSpawnPoint());
+                this.executeGuardSpawn(this.forceData.getUnitTypeOfUnitClass(UnitClass.CASTER), this.forceData.getRandomSpawnPoint());
+            }, 2, math.ceil(caster / 2));
+        }, 2.5);
+
+        Delay.addDelay(() => {
+            Delay.addDelay(() => {
+                this.executeGuardSpawn(this.forceData.getUnitTypeOfUnitClass(UnitClass.CAVALRY), this.forceData.getRandomSpawnPoint());
+            }, 1, math.ceil(cavalry));
+        }, 4.5)
     }
 
     public executeGuardSpawn(unitType: number, spawnPoint: Point): Guard {
@@ -131,7 +131,7 @@ export class AIGuardSpawner {
         return this.sendRecruitToPoint(recruit, Point.fromLocationClean(GetRandomLocInRect(rct)), delay);
     }
 
-    public sendRecruitToPoint(recruit: Guard, point: Point, delay: number = 5) {
+    public sendRecruitToPoint(recruit: Guard, point: Point, delay: number = 10) {
         point = point.copy();
         let path = this.pathManager.createPath(Point.fromWidget(recruit.guard), point, this.forceData.force);
         //Prepare
@@ -157,7 +157,7 @@ export class AIGuardSpawner {
             occupant.guardPosts.forEach((guardPost) => {
                 if (guardPost.needNewGuard()) {
                     let pos = guardPost.point;
-                    let unit = CreateUnit(this.forceData.aiPlayer, this.getUnitTypeOfUnitClass(guardPost.postType), pos.x, pos.y, 0);
+                    let unit = CreateUnit(this.forceData.aiPlayer, this.forceData.getUnitTypeOfUnitClass(guardPost.postType), pos.x, pos.y, 0);
                     let queue = ActionQueue.createSimpleGuardPoint(unit, pos);
                     guardPost.occupied = new Guard(unit, this.forceData.force, queue);
                 }

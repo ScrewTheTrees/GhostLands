@@ -10,7 +10,7 @@ import {Army} from "./Army";
 export class TargetResolver {
 
     public static resolveTargets(): WarContainer | null {
-        let container: WarContainer | null = null;
+        let container: WarContainer;
 
         let f1 = WarData.getInstance().force1EarlyTargets.pop();
         let f2 = WarData.getInstance().force2EarlyTargets.pop();
@@ -66,6 +66,7 @@ export class TargetResolver {
         let zones2 = warzones.getContestedWarzonesByForce(Forces.FORCE_2);
         let f1zone = zones1[GetRandomInt(0, zones1.length - 1)];
         let f2zone = zones2[GetRandomInt(0, zones2.length - 1)];
+
         return new WarContainer(new WarTargets(f1zone, f2zone));
     }
 

@@ -1,3 +1,5 @@
+import {QuickSplice} from "../../TreeLib/Misc";
+
 export class SpawnWeight<T> {
     private list: T[] = [];
 
@@ -10,7 +12,7 @@ export class SpawnWeight<T> {
     public remove(type: T, amount: number = -1) {
         for (let i = 0; i < this.list.length; i++) {
             if (type == this.list[i]) {
-                this.list.splice(i, 1);
+                QuickSplice(this.list, i);
                 i -= 1;
                 amount -= 1;
                 if (amount == 0) {

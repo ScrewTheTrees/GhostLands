@@ -4,9 +4,9 @@ import {WorldState} from "../Enums/WorldState";
 import {War, WarState} from "./War/War";
 import {MapEvent} from "./Events/MapEvent";
 import {AIManager} from "../AI/AIManager";
-import {Delay} from "../../TreeLib/Utility/Delay";
 import {InputManager} from "../../TreeLib/InputManager/InputManager";
 import {DummyCaster} from "../../TreeLib/DummyCasting/DummyCaster";
+import {QuickSplice} from "../../TreeLib/Misc";
 
 export class GlobalGameManager extends Entity {
     private static instance: GlobalGameManager;
@@ -23,21 +23,14 @@ export class GlobalGameManager extends Entity {
     public allWars: War[] = [];
     public currentEvent: MapEvent | null = null;
     public guardSpawnCounter: number = 0;
-    public timeToWar: number = 60;
+    public timeToWar: number = 120;
     public reset: number = 120;
     private aiManager: AIManager = AIManager.getInstance();
 
     constructor() {
         super();
         this._timerDelay = 0.5;
-
         this.aiManager.banditNorthSpawner.stockUpAllGuardPointsInstant();
-        this.aiManager.performAIReinforcements();
-        Delay.addDelay(() => {
-            this.aiManager.performAIRelocation();
-            this.aiManager.performBanditRelocation();
-        }, 20);
-
 
         InputManager.addKeyboardPressCallback(OSKEY_Q, () => {
             this.startWar();
@@ -57,8 +50,8 @@ export class GlobalGameManager extends Entity {
         });
         InputManager.addKeyboardPressCallback(OSKEY_E, () => {
             this.allWars.forEach((war) => {
-                war.countdown = 5;
-                war.countdown = 5;
+                war.countdown = 1;
+                war.countdown = 1;
             });
         });
 
@@ -80,7 +73,7 @@ export class GlobalGameManager extends Entity {
     public startWar() {
         this.worldState = WorldState.WAR;
         this.allWars.push(new War());
-        this.timeToWar = 60;
+        this.timeToWar = 120;
     }
 
     public endWar() {
@@ -90,14 +83,14 @@ export class GlobalGameManager extends Entity {
             value?.endWar();
         }
         this.guardSpawnCounter = 0;
-        this.timeToWar = 60;
+        this.timeToWar = 120;
     }
 
     step(): void {
         for (let i = 0; i < this.allWars.length; i++) {
             let war = this.allWars[i];
             if (war.state == WarState.END) {
-                this.allWars.splice(i, 1);
+                QuickSplice(this.allWars, i);
                 i -= 1;
                 if (this.allWars.length == 0) {
                     this.endWar();
@@ -110,7 +103,7 @@ export class GlobalGameManager extends Entity {
             this.timeToWar -= this._timerDelay;
 
 
-            if (this.guardSpawnCounter == 10) {
+            if (this.guardSpawnCounter == 20) {
                 this.aiManager.performAIReinforcements();
             }
             if (this.guardSpawnCounter == 50) {

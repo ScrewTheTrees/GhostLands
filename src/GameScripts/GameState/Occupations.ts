@@ -11,6 +11,7 @@ import {DamageDetectionSystem} from "../../TreeLib/DDS/DamageDetectionSystem";
 import {HitCallback} from "../../TreeLib/DDS/HitCallback";
 import {DDSFilterTargetUnitTypes} from "../../TreeLib/DDS/Filters/DDSFilterTargetUnitTypes";
 import {Delay} from "../../TreeLib/Utility/Delay";
+import {DDSFilterIsEnemy} from "../../TreeLib/DDS/Filters/DDSFilterIsEnemy";
 
 export class Occupations extends Entity {
     private static instance: Occupations;
@@ -65,8 +66,8 @@ export class Occupations extends Entity {
             if (occupation != null) {
                 for (let i = 0; i < occupation.guardPosts.length; i++) {
                     let post = occupation.guardPosts[i];
-                    if (post.occupied != undefined && !post.occupied.currentQueue.isPaused) {
-                        let loc = Point.fromWidget(hitObject.targetUnit);
+                    let loc = Point.fromWidget(hitObject.targetUnit);
+                    if (post.occupied != undefined && !post.occupied.currentQueue.isPaused && Point.fromWidget(post.occupied.guard).distanceTo(loc) < 4000) {
                         post.occupied.currentQueue.isPaused = true;
                         IssuePointOrder(post.occupied.guard, "attack", loc.x, loc.y);
                         Delay.addDelay(() => {
@@ -79,6 +80,7 @@ export class Occupations extends Entity {
             }
         });
         this.callToAid.addFilter(new DDSFilterTargetUnitTypes(Units.HALL_FORCE_1, Units.HALL_FORCE_2, Units.HALL_FORCE_BANDITS));
+        this.callToAid.addFilter(new DDSFilterIsEnemy());
     }
 
     step() {
@@ -151,19 +153,28 @@ export class Occupations extends Entity {
         }
     }
 
+    arrayHasPlayer(minions: player[], p: player) {
+        for (let i = 0; i < minions.length; i++) {
+            let value = GetPlayerId(minions[i]);
+            if (value == GetPlayerId(p)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     getForceByPlayer(p: player): Forces {
         let playerManager = PlayerManager.getInstance();
-        if (playerManager.team1MinionsAll.indexOf(p) >= 0
-            || playerManager.team1Player == p
-            || playerManager.team1PlayerArmy == p
-            || playerManager.team1PlayerExtra == p
+        if (this.arrayHasPlayer(playerManager.team1MinionsAll, p)
+            || GetPlayerId(playerManager.team1Player) == GetPlayerId(p)
+            || GetPlayerId(playerManager.team1PlayerArmy) == GetPlayerId(p)
+            || GetPlayerId(playerManager.team1PlayerExtra) == GetPlayerId(p)
         ) {
             return Forces.FORCE_1;
-        }
-        if (playerManager.team2MinionsAll.indexOf(p) >= 0
-            || playerManager.team2Player == p
-            || playerManager.team2PlayerArmy == p
-            || playerManager.team2PlayerExtra == p
+        } else if (this.arrayHasPlayer(playerManager.team2MinionsAll, p)
+            || GetPlayerId(playerManager.team2Player) == GetPlayerId(p)
+            || GetPlayerId(playerManager.team2PlayerArmy) == GetPlayerId(p)
+            || GetPlayerId(playerManager.team2PlayerExtra) == GetPlayerId(p)
         ) {
             return Forces.FORCE_2;
         }
@@ -171,25 +182,27 @@ export class Occupations extends Entity {
     }
 
     private onHallUnitDie(dyingUnit: unit, killingUnit: unit) {
-        for (let i = 0; i < this.allOccupants.length; i++) {
-            let value = this.allOccupants[i];
-            if (value.keepUnit != null && value.keepUnit == dyingUnit) {
-                let newForce = this.getForceByPlayer(GetOwningPlayer(killingUnit));
-                let newPlayer = this.getHallPlayerByForce(newForce);
-                let newUnitType = this.getHallByForce(newForce);
-                let where = Point.fromLocationClean(GetUnitLoc(dyingUnit));
-                let building = CreateUnit(newPlayer, newUnitType, where.x, where.y, bj_UNIT_FACING);
-                SetWidgetLife(building, 50);
+        xpcall(() => {
+            for (let i = 0; i < this.allOccupants.length; i++) {
+                let value = this.allOccupants[i];
+                if (value.keepUnit == dyingUnit) {
+                    let newForce = this.getForceByPlayer(GetOwningPlayer(killingUnit));
+                    value.owner = newForce;
 
-                value.keepUnit = building;
-                value.owner = newForce;
+                    let newPlayer = this.getHallPlayerByForce(newForce);
+                    let newUnitType = this.getHallByForce(newForce);
+                    let where = Point.fromLocationClean(GetUnitLoc(dyingUnit));
 
-                //TODO: Send all guards on a sucide protection mission.
+                    let building = CreateUnit(newPlayer, newUnitType, where.x, where.y, bj_UNIT_FACING);
+                    value.keepUnit = building;
 
-                Logger.generic("Finished starting a new town hall.");
-                return;
+                    SetWidgetLife(building, 25);
+
+                    Logger.generic("Finished starting a new town hall.");
+                    return;
+                }
             }
-        }
+        }, (...args) => Logger.critical(...args));
     }
 
 }

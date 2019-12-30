@@ -4,6 +4,7 @@ export enum UnitClass {
     ERROR = "ERROR",
     MELEE = "MELEE",
     RANGED = "RANGED",
+    CASTER = "CASTER",
     CAVALRY = "CAVALRY",
     ARTILLERY = "ARTILLERY",
 }
@@ -14,6 +15,8 @@ export function GetUnitClassFromString(type: string): UnitClass {
             return UnitClass.MELEE;
         case UnitClass.RANGED:
             return UnitClass.RANGED;
+        case UnitClass.CASTER:
+            return UnitClass.CASTER;
         case UnitClass.CAVALRY:
             return UnitClass.CAVALRY;
         case UnitClass.ARTILLERY:
@@ -25,13 +28,26 @@ export function GetUnitClassFromString(type: string): UnitClass {
 
 }
 
+
 export function GetUnitClassFromUnitType(u: number): UnitClass {
     switch (u) {
-        case Units.SOLDIER:
+        case Units.MELEE_SOLDIER:
             return UnitClass.MELEE;
-        case Units.ARCHER:
-        case Units.FOREST_TROLL:
+
+        case Units.RANGER_ARCHER:
+        case Units.RANGER_FOREST_TROLL:
             return UnitClass.RANGED;
+
+        case Units.CASTER_PRIEST:
+        case Units.CASTER_SORCERESS:
+            return UnitClass.CASTER;
+
+        case Units.CAVALRY_KNIGHT:
+            return UnitClass.CAVALRY;
+
+        case Units.ARTILLERY_DEMOLISHER:
+            return UnitClass.ARTILLERY;
+
         default:
             return UnitClass.ERROR;
     }

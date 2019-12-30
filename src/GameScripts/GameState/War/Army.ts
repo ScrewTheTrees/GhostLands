@@ -7,6 +7,7 @@ import {ActionQueue} from "../../../TreeLib/ActionQueue/ActionQueue";
 import {Delay} from "../../../TreeLib/Utility/Delay";
 import {UnitActionExecuteCode} from "../../../TreeLib/ActionQueue/Actions/UnitActionExecuteCode";
 import {PathManager} from "../../AI/PathManager";
+import {UnitClass} from "../../Enums/UnitClass";
 
 export class Army {
     public units: ArmySoldier[] = [];
@@ -18,23 +19,51 @@ export class Army {
         this.forceData = forceData;
         this.gathering = gathering;
 
+        this.performRevival(this.forceData.amountOfMelee, this.forceData.amountOfRanged, this.forceData.amountOfCasters, this.forceData.amountOfCavalry, this.forceData.amountOfArtillery);
+    }
+
+    public performRevival(melee: number, ranged: number, caster: number, cavalry: number, artillery: number) {
         Delay.addDelay(() => {
             this.makeMeleeSoldier();
-        }, 1, this.forceData.amountOfMelee);
+        }, 1, math.ceil(melee));
+        Delay.addDelay(() => {
+            this.makeArtillerySoldier();
+        }, 1, math.ceil(artillery));
+
         Delay.addDelay(() => {
             Delay.addDelay(() => {
                 this.makeRangedSoldier();
-            }, 1, this.forceData.amountOfRanged)
-        }, 5);
+            }, 2, math.ceil(ranged));
+            Delay.addDelay(() => {
+                this.makeCasterSoldier();
+            }, 2, math.ceil(caster));
+        }, 2.5);
 
+        Delay.addDelay(() => {
+            Delay.addDelay(() => {
+                this.makeCavalrySoldier();
+            }, 1, math.ceil(cavalry));
+        }, 4.5)
     }
 
     public makeMeleeSoldier() {
-        return this.executeSoldierSpawn(this.forceData.meleeUnits.getRandom(), this.forceData.getRandomSpawnPoint());
+        return this.executeSoldierSpawn(this.forceData.getUnitTypeOfUnitClass(UnitClass.MELEE), this.forceData.getRandomSpawnPoint());
     }
 
     public makeRangedSoldier() {
-        return this.executeSoldierSpawn(this.forceData.rangedUnits.getRandom(), this.forceData.getRandomSpawnPoint());
+        return this.executeSoldierSpawn(this.forceData.getUnitTypeOfUnitClass(UnitClass.RANGED), this.forceData.getRandomSpawnPoint());
+    }
+
+    public makeCasterSoldier() {
+        return this.executeSoldierSpawn(this.forceData.getUnitTypeOfUnitClass(UnitClass.CASTER), this.forceData.getRandomSpawnPoint());
+    }
+
+    public makeCavalrySoldier() {
+        return this.executeSoldierSpawn(this.forceData.getUnitTypeOfUnitClass(UnitClass.CAVALRY), this.forceData.getRandomSpawnPoint());
+    }
+
+    public makeArtillerySoldier() {
+        return this.executeSoldierSpawn(this.forceData.getUnitTypeOfUnitClass(UnitClass.ARTILLERY), this.forceData.getRandomSpawnPoint());
     }
 
     public executeSoldierSpawn(unitType: number, spawnPoint: Point): ArmySoldier {

@@ -17,9 +17,9 @@ HeroFactorXP=100
 IntManaBonus=5.0
 MaxHeroLevel=10000
 MaxLevelHeroesDrainExp=0
+MaxUnitLevel=100
 MaxUnitSpeed=522.0
 MinUnitSpeed=50.0
-ReactionDelay=
 StrAttackBonus=0.5
 StrHitPointBonus=10.0
 

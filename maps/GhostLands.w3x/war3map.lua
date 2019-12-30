@@ -735,16 +735,80 @@ gg_rct_warzone1center = nil
 gg_rct_warzone3center = nil
 gg_rct_warzone4center = nil
 gg_rct_warzone5center = nil
+gg_rct_city1guard33caster = nil
+gg_rct_city1guard34caster = nil
+gg_rct_city1guard35caster = nil
+gg_rct_city1guard36caster = nil
+gg_rct_city2guard33caster = nil
+gg_rct_city2guard34caster = nil
+gg_rct_city2guard35caster = nil
+gg_rct_city2guard36caster = nil
+gg_rct_city3guard19caster = nil
+gg_rct_city3guard20caster = nil
+gg_rct_city3guard21caster = nil
+gg_rct_city3guard22caster = nil
+gg_rct_city3guard23caster = nil
+gg_rct_city3guard24caster = nil
+gg_rct_city5guard1caster = nil
+gg_rct_city5guard2caster = nil
+gg_rct_city5guard3caster = nil
+gg_rct_city5guard4caster = nil
+gg_rct_city5guard5caster = nil
+gg_rct_city5guard6caster = nil
+gg_rct_city4guard1caster = nil
+gg_rct_city4guard2caster = nil
+gg_rct_city4guard3caster = nil
+gg_rct_city4guard4caster = nil
+gg_rct_city4guard5caster = nil
+gg_rct_city4guard6caster = nil
+gg_rct_base1guard1caster = nil
+gg_rct_base1guard2caster = nil
+gg_rct_base1guard3caster = nil
+gg_rct_base2guard1caster = nil
+gg_rct_base2guard2caster = nil
+gg_rct_base2guard3caster = nil
 gg_trg_Untitled_Trigger_001 = nil
 function InitGlobals()
+end
+
+function CreateUnitsForPlayer0()
+    local p = Player(0)
+    local u
+    local unitID
+    local t
+    local life
+    u = CreateUnit(p, FourCC("h006"), 90.8, -5038.0, 315.724)
+    u = CreateUnit(p, FourCC("h006"), 250.6, -5034.1, 52.351)
+    u = CreateUnit(p, FourCC("h006"), 388.6, -5043.7, 326.073)
+    u = CreateUnit(p, FourCC("h006"), 520.9, -5007.1, 204.033)
+    u = CreateUnit(p, FourCC("h006"), 623.2, -5020.6, 98.583)
+    u = CreateUnit(p, FourCC("h006"), 722.6, -5024.5, 51.846)
+    u = CreateUnit(p, FourCC("h006"), 112.6, -5205.6, 163.075)
+    u = CreateUnit(p, FourCC("h006"), 193.6, -5187.5, 6.570)
+    u = CreateUnit(p, FourCC("h006"), 400.9, -5182.0, 238.323)
+    u = CreateUnit(p, FourCC("h006"), 537.0, -5158.3, 129.785)
+    u = CreateUnit(p, FourCC("h006"), 605.6, -5182.0, 161.790)
+    u = CreateUnit(p, FourCC("h006"), 723.4, -5163.8, 163.800)
+end
+
+function CreatePlayerBuildings()
+end
+
+function CreatePlayerUnits()
+    CreateUnitsForPlayer0()
+end
+
+function CreateAllUnits()
+    CreatePlayerBuildings()
+    CreatePlayerUnits()
 end
 
 function CreateRegions()
     local we
     gg_rct_force1spawner1 = Rect(-29952.0, 29568.0, -29824.0, 29696.0)
     gg_rct_force2spawner1 = Rect(29792.0, -30208.0, 29920.0, -30080.0)
-    gg_rct_force1gathering = Rect(-28960.0, 25920.0, -28256.0, 26656.0)
-    gg_rct_force2gathering = Rect(26112.0, -28960.0, 26880.0, -28064.0)
+    gg_rct_force1gathering = Rect(-27968.0, 26336.0, -26912.0, 27520.0)
+    gg_rct_force2gathering = Rect(26464.0, -28640.0, 27616.0, -27424.0)
     gg_rct_path1waypoint1 = Rect(-24704.0, 24288.0, -24448.0, 24544.0)
     gg_rct_path1waypoint2 = Rect(-24064.0, 23520.0, -23808.0, 23808.0)
     gg_rct_path1waypoint3 = Rect(-23360.0, 22784.0, -23040.0, 23104.0)
@@ -772,7 +836,7 @@ function CreateRegions()
     gg_rct_path4waypoint3 = Rect(7328.0, -8544.0, 7648.0, -8224.0)
     gg_rct_path4waypoint4 = Rect(6400.0, -7872.0, 6720.0, -7552.0)
     gg_rct_path4waypoint5 = Rect(5440.0, -7840.0, 5760.0, -7520.0)
-    gg_rct_force1outpost1 = Rect(-21120.0, 4192.0, -19872.0, 5376.0)
+    gg_rct_force1outpost1 = Rect(-21504.0, 3840.0, -19616.0, 5728.0)
     gg_rct_force1outpost2 = Rect(3072.0, 20352.0, 4800.0, 22240.0)
     gg_rct_force2outpost3 = Rect(-2432.0, -23456.0, -768.0, -21856.0)
     gg_rct_force2outpost4 = Rect(21664.0, -1696.0, 23648.0, 64.0)
@@ -952,7 +1016,7 @@ function CreateRegions()
     gg_rct_path9waypoint12 = Rect(-13760.0, 10016.0, -13504.0, 10272.0)
     gg_rct_path9waypoint13 = Rect(-13024.0, 10720.0, -12768.0, 10976.0)
     gg_rct_path10waypoint1 = Rect(-9664.0, 13632.0, -9408.0, 13888.0)
-    gg_rct_path10waypoint2 = Rect(-8832.0, 14240.0, -8576.0, 14496.0)
+    gg_rct_path10waypoint2 = Rect(-8928.0, 14336.0, -8672.0, 14592.0)
     gg_rct_path10waypoint3 = Rect(-7872.0, 14848.0, -7616.0, 15104.0)
     gg_rct_path10waypoint4 = Rect(-6880.0, 15424.0, -6624.0, 15680.0)
     gg_rct_path10waypoint5 = Rect(-5888.0, 16160.0, -5632.0, 16416.0)
@@ -1149,8 +1213,8 @@ function CreateRegions()
     gg_rct_path1waypoint27 = Rect(-28160.0, 27488.0, -27904.0, 27744.0)
     gg_rct_path1waypoint28 = Rect(-28640.0, 28192.0, -28384.0, 28448.0)
     gg_rct_path1waypoint29 = Rect(-28864.0, 28000.0, -28608.0, 28256.0)
-    gg_rct_path2waypoint23 = Rect(26368.0, -26912.0, 26688.0, -26592.0)
-    gg_rct_path2waypoint24 = Rect(26880.0, -27712.0, 27200.0, -27392.0)
+    gg_rct_path2waypoint23 = Rect(26208.0, -27008.0, 26528.0, -26688.0)
+    gg_rct_path2waypoint24 = Rect(26720.0, -27808.0, 27040.0, -27488.0)
     gg_rct_path2waypoint25 = Rect(27424.0, -28352.0, 27744.0, -28032.0)
     gg_rct_path2waypoint26 = Rect(28032.0, -28928.0, 28352.0, -28608.0)
     gg_rct_path2waypoint27 = Rect(28544.0, -29728.0, 28864.0, -29408.0)
@@ -1287,9 +1351,9 @@ function CreateRegions()
     gg_rct_forestpath2waypoint55 = Rect(4384.0, -10496.0, 4704.0, -10176.0)
     gg_rct_forestpath2waypoint56 = Rect(4416.0, -9472.0, 4736.0, -9152.0)
     gg_rct_forestpath2waypoint57 = Rect(4416.0, -8672.0, 4736.0, -8352.0)
-    gg_rct_city2guard1melee = Rect(7936.0, -9344.0, 8096.0, -9184.0)
-    gg_rct_city2guard2melee = Rect(8096.0, -9344.0, 8256.0, -9184.0)
-    gg_rct_city2guard3melee = Rect(7936.0, -9504.0, 8096.0, -9344.0)
+    gg_rct_city2guard1melee = Rect(7968.0, -9184.0, 8128.0, -9024.0)
+    gg_rct_city2guard2melee = Rect(8128.0, -9184.0, 8288.0, -9024.0)
+    gg_rct_city2guard3melee = Rect(7968.0, -9344.0, 8128.0, -9184.0)
     gg_rct_city2guard4melee = Rect(8480.0, -8448.0, 8640.0, -8288.0)
     gg_rct_city2guard5melee = Rect(8480.0, -8608.0, 8640.0, -8448.0)
     gg_rct_city2guard6melee = Rect(8640.0, -8448.0, 8800.0, -8288.0)
@@ -1396,10 +1460,10 @@ function CreateRegions()
     gg_rct_base1guard13melee = Rect(-26240.0, 26496.0, -26080.0, 26656.0)
     gg_rct_base1guard14melee = Rect(-26368.0, 26496.0, -26208.0, 26656.0)
     gg_rct_base1guard15melee = Rect(-26496.0, 26496.0, -26336.0, 26656.0)
-    gg_rct_base1guard16melee = Rect(-27808.0, 26656.0, -27648.0, 26816.0)
-    gg_rct_base1guard17melee = Rect(-27808.0, 26784.0, -27648.0, 26944.0)
-    gg_rct_base1guard18melee = Rect(-27296.0, 27168.0, -27136.0, 27328.0)
-    gg_rct_base1guard19melee = Rect(-27424.0, 27168.0, -27264.0, 27328.0)
+    gg_rct_base1guard16melee = Rect(-27072.0, 27616.0, -26912.0, 27776.0)
+    gg_rct_base1guard17melee = Rect(-26944.0, 27616.0, -26784.0, 27776.0)
+    gg_rct_base1guard18melee = Rect(-26464.0, 27616.0, -26304.0, 27776.0)
+    gg_rct_base1guard19melee = Rect(-26592.0, 27616.0, -26432.0, 27776.0)
     gg_rct_base1guard20ranged = Rect(-25600.0, 26496.0, -25440.0, 26656.0)
     gg_rct_base1guard21ranged = Rect(-25984.0, 26624.0, -25824.0, 26784.0)
     gg_rct_base1guard22ranged = Rect(-25472.0, 26496.0, -25312.0, 26656.0)
@@ -1414,7 +1478,7 @@ function CreateRegions()
     gg_rct_city3guard24ranged = Rect(-480.0, -2208.0, -320.0, -2048.0)
     gg_rct_city3guard25ranged = Rect(480.0, -2048.0, 640.0, -1888.0)
     gg_rct_city3guard26ranged = Rect(640.0, -2208.0, 800.0, -2048.0)
-    gg_rct_city2guard25ranged = Rect(8096.0, -9504.0, 8256.0, -9344.0)
+    gg_rct_city2guard25ranged = Rect(8128.0, -9344.0, 8288.0, -9184.0)
     gg_rct_city2guard26ranged = Rect(8640.0, -8608.0, 8800.0, -8448.0)
     gg_rct_city2guard27ranged = Rect(10880.0, -8640.0, 11040.0, -8480.0)
     gg_rct_city2guard28ranged = Rect(11296.0, -9184.0, 11456.0, -9024.0)
@@ -1449,10 +1513,10 @@ function CreateRegions()
     gg_rct_base2guard13melee = Rect(25824.0, -27008.0, 25984.0, -26848.0)
     gg_rct_base2guard14melee = Rect(25952.0, -27008.0, 26112.0, -26848.0)
     gg_rct_base2guard15melee = Rect(26080.0, -27008.0, 26240.0, -26848.0)
-    gg_rct_base2guard16melee = Rect(26912.0, -28224.0, 27072.0, -28064.0)
-    gg_rct_base2guard17melee = Rect(27040.0, -28224.0, 27200.0, -28064.0)
-    gg_rct_base2guard18melee = Rect(27648.0, -27776.0, 27808.0, -27616.0)
-    gg_rct_base2guard19melee = Rect(27648.0, -27648.0, 27808.0, -27488.0)
+    gg_rct_base2guard16melee = Rect(27136.0, -27360.0, 27296.0, -27200.0)
+    gg_rct_base2guard17melee = Rect(27136.0, -27232.0, 27296.0, -27072.0)
+    gg_rct_base2guard18melee = Rect(27136.0, -26848.0, 27296.0, -26688.0)
+    gg_rct_base2guard19melee = Rect(27136.0, -26720.0, 27296.0, -26560.0)
     gg_rct_base2guard20ranged = Rect(25184.0, -27040.0, 25344.0, -26880.0)
     gg_rct_base2guard21ranged = Rect(25056.0, -27040.0, 25216.0, -26880.0)
     gg_rct_base2guard22ranged = Rect(25568.0, -27168.0, 25728.0, -27008.0)
@@ -1478,6 +1542,38 @@ function CreateRegions()
     gg_rct_warzone3center = Rect(-4608.0, 4448.0, -3392.0, 5824.0)
     gg_rct_warzone4center = Rect(2816.0, -8544.0, 4160.0, -7200.0)
     gg_rct_warzone5center = Rect(18400.0, 15488.0, 19744.0, 16832.0)
+    gg_rct_city1guard33caster = Rect(-8960.0, 12064.0, -8800.0, 12224.0)
+    gg_rct_city1guard34caster = Rect(-11360.0, 12032.0, -11200.0, 12192.0)
+    gg_rct_city1guard35caster = Rect(-11232.0, 14144.0, -11072.0, 14304.0)
+    gg_rct_city1guard36caster = Rect(-8672.0, 14304.0, -8512.0, 14464.0)
+    gg_rct_city2guard33caster = Rect(8480.0, -11296.0, 8640.0, -11136.0)
+    gg_rct_city2guard34caster = Rect(11040.0, -11328.0, 11200.0, -11168.0)
+    gg_rct_city2guard35caster = Rect(11040.0, -9024.0, 11200.0, -8864.0)
+    gg_rct_city2guard36caster = Rect(8480.0, -9184.0, 8640.0, -9024.0)
+    gg_rct_city3guard19caster = Rect(-320.0, -2208.0, -160.0, -2048.0)
+    gg_rct_city3guard20caster = Rect(480.0, -2208.0, 640.0, -2048.0)
+    gg_rct_city3guard21caster = Rect(-1440.0, 736.0, -1280.0, 896.0)
+    gg_rct_city3guard22caster = Rect(-864.0, 1152.0, -704.0, 1312.0)
+    gg_rct_city3guard23caster = Rect(-800.0, 576.0, -640.0, 736.0)
+    gg_rct_city3guard24caster = Rect(0.0, -1888.0, 160.0, -1728.0)
+    gg_rct_city5guard1caster = Rect(25312.0, 27872.0, 25472.0, 28032.0)
+    gg_rct_city5guard2caster = Rect(25312.0, 27072.0, 25472.0, 27232.0)
+    gg_rct_city5guard3caster = Rect(25728.0, 25312.0, 25888.0, 25472.0)
+    gg_rct_city5guard4caster = Rect(26528.0, 25312.0, 26688.0, 25472.0)
+    gg_rct_city5guard5caster = Rect(26368.0, 25472.0, 26528.0, 25632.0)
+    gg_rct_city5guard6caster = Rect(25472.0, 27712.0, 25632.0, 27872.0)
+    gg_rct_city4guard1caster = Rect(-26752.0, -24704.0, -26592.0, -24544.0)
+    gg_rct_city4guard2caster = Rect(-25952.0, -24704.0, -25792.0, -24544.0)
+    gg_rct_city4guard3caster = Rect(-26592.0, -24864.0, -26432.0, -24704.0)
+    gg_rct_city4guard4caster = Rect(-24832.0, -26432.0, -24672.0, -26272.0)
+    gg_rct_city4guard5caster = Rect(-24832.0, -27232.0, -24672.0, -27072.0)
+    gg_rct_city4guard6caster = Rect(-24992.0, -27072.0, -24832.0, -26912.0)
+    gg_rct_base1guard1caster = Rect(-26592.0, 25824.0, -26432.0, 25984.0)
+    gg_rct_base1guard2caster = Rect(-26592.0, 25952.0, -26432.0, 26112.0)
+    gg_rct_base1guard3caster = Rect(-26592.0, 26080.0, -26432.0, 26240.0)
+    gg_rct_base2guard1caster = Rect(26496.0, -26496.0, 26656.0, -26336.0)
+    gg_rct_base2guard2caster = Rect(26496.0, -26624.0, 26656.0, -26464.0)
+    gg_rct_base2guard3caster = Rect(26496.0, -26752.0, 26656.0, -26592.0)
 end
 
 function Trig_Untitled_Trigger_001_Actions()
@@ -2347,17 +2443,15 @@ function InitAllyPriorities()
 end
 
 function main()
-    local we
     SetCameraBounds(-29952.0 + GetCameraMargin(CAMERA_MARGIN_LEFT), -30208.0 + GetCameraMargin(CAMERA_MARGIN_BOTTOM), 29952.0 - GetCameraMargin(CAMERA_MARGIN_RIGHT), 29696.0 - GetCameraMargin(CAMERA_MARGIN_TOP), -29952.0 + GetCameraMargin(CAMERA_MARGIN_LEFT), 29696.0 - GetCameraMargin(CAMERA_MARGIN_TOP), 29952.0 - GetCameraMargin(CAMERA_MARGIN_RIGHT), -30208.0 + GetCameraMargin(CAMERA_MARGIN_BOTTOM))
     SetDayNightModels("Environment\\DNC\\DNCAshenvale\\DNCAshenvaleTerrain\\DNCAshenvaleTerrain.mdl", "Environment\\DNC\\DNCAshenvale\\DNCAshenvaleUnit\\DNCAshenvaleUnit.mdl")
     SetWaterBaseColor(192, 192, 192, 255)
-    we = AddWeatherEffect(Rect(-30720.0, -30720.0, 30720.0, 30720.0), FourCC("WOlw"))
-    EnableWeatherEffect(we, true)
     NewSoundEnvironment("Default")
     SetAmbientDaySound("DalaranDay")
     SetAmbientNightSound("DalaranNight")
     SetMapMusic("Music", true, 0)
     CreateRegions()
+    CreateAllUnits()
     InitBlizzard()
     InitGlobals()
     InitCustomTriggers()
