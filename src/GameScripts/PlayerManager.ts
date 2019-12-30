@@ -12,6 +12,8 @@ export class PlayerManager {
         return this.instance;
     }
 
+    public allMinions: player[] = [];
+
     public team1Minions: player[] = [];
     public team2Minions: player[] = [];
 
@@ -43,6 +45,7 @@ export class PlayerManager {
             let p = this.team1MinionsAll[i];
             if (GetPlayerController(p) == MAP_CONTROL_USER && GetPlayerSlotState(p) == PLAYER_SLOT_STATE_PLAYING) {
                 this.team1Minions.push(p);
+                this.allMinions.push(p);
             }
         }
 
@@ -50,6 +53,7 @@ export class PlayerManager {
             let p = this.team2MinionsAll[i];
             if (GetPlayerController(p) == MAP_CONTROL_USER && GetPlayerSlotState(p) == PLAYER_SLOT_STATE_PLAYING) {
                 this.team2Minions.push(p);
+                this.allMinions.push(p);
             }
         }
         for (let i = 0; i < GetPlayerNeutralAggressive(); i++) {
@@ -69,6 +73,11 @@ export class PlayerManager {
         index = this.team2Minions.indexOf(p);
         if (index >= 0) {
             this.team2Minions.splice(index, 1);
+        }
+
+        index = this.allMinions.indexOf(p);
+        if (index >= 0) {
+            this.allMinions.splice(index, 1);
         }
     }
 }

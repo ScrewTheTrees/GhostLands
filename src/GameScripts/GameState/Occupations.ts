@@ -6,15 +6,28 @@ import {Point} from "../../TreeLib/Utility/Point";
 import {Units} from "../Enums/Units";
 import {PlayerManager} from "../PlayerManager";
 import {Logger} from "../../TreeLib/Logger";
-import {Entity} from "../../TreeLib/Entity";
 import {DamageDetectionSystem} from "../../TreeLib/DDS/DamageDetectionSystem";
 import {HitCallback} from "../../TreeLib/DDS/HitCallback";
 import {DDSFilterTargetUnitTypes} from "../../TreeLib/DDS/Filters/DDSFilterTargetUnitTypes";
 import {Delay} from "../../TreeLib/Utility/Delay";
 import {DDSFilterIsEnemy} from "../../TreeLib/DDS/Filters/DDSFilterIsEnemy";
+import {DamageHitContainer} from "../../TreeLib/DDS/DamageHitContainer";
 
-export class Occupations extends Entity {
+export class Occupations {
     private static instance: Occupations;
+
+    constructor() {
+        for (let i = 0; i < GetBJMaxPlayers(); i++) {
+            TriggerRegisterPlayerUnitEvent(this.onOccupantDie, Player(i), EVENT_PLAYER_UNIT_DEATH, null);
+        }
+        TriggerAddAction(this.onOccupantDie, () => this.onHallUnitDie(GetDyingUnit(), GetKillingUnit()));
+
+        this.callToAid = DamageDetectionSystem.getInstance().registerAfterDamageCalculation((hitObject) => {
+            this.onCallToAid(hitObject);
+        });
+        this.callToAid.addFilter(new DDSFilterTargetUnitTypes(Units.HALL_FORCE_1, Units.HALL_FORCE_2, Units.HALL_FORCE_BANDITS));
+        this.callToAid.addFilter(new DDSFilterIsEnemy());
+    }
 
     public CITY_1: Occupant = new Occupant(Forces.FORCE_BANDIT, "city1", "city1guard");
     public CITY_2: Occupant = new Occupant(Forces.FORCE_BANDIT, "city2", "city2guard");
@@ -27,7 +40,7 @@ export class Occupations extends Entity {
     public FORCE_1_OUTPOST_2: Occupant = new Occupant(Forces.FORCE_1, "force1outpost2", "outpost2guard");
     public FORCE_2_OUTPOST_3: Occupant = new Occupant(Forces.FORCE_2, "force2outpost3", "outpost3guard");
     public FORCE_2_OUTPOST_4: Occupant = new Occupant(Forces.FORCE_2, "force2outpost4", "outpost4guard");
-*/
+    */
 
     private allOccupants: Occupant[] = [
         this.FORCE_1_BASE,
@@ -52,39 +65,6 @@ export class Occupations extends Entity {
             Hooks.set("Occupations", this.instance);
         }
         return this.instance;
-    }
-
-    constructor() {
-        super();
-        for (let i = 0; i < GetBJMaxPlayers(); i++) {
-            TriggerRegisterPlayerUnitEvent(this.onOccupantDie, Player(i), EVENT_PLAYER_UNIT_DEATH, null);
-        }
-        TriggerAddAction(this.onOccupantDie, () => this.onHallUnitDie(GetDyingUnit(), GetKillingUnit()));
-
-        this.callToAid = DamageDetectionSystem.getInstance().registerAfterDamageCalculation((hitObject) => {
-            let occupation = this.getOccupationByHall(hitObject.targetUnit);
-            if (occupation != null) {
-                for (let i = 0; i < occupation.guardPosts.length; i++) {
-                    let post = occupation.guardPosts[i];
-                    let loc = Point.fromWidget(hitObject.targetUnit);
-                    if (post.occupied != undefined && !post.occupied.currentQueue.isPaused && Point.fromWidget(post.occupied.guard).distanceTo(loc) < 4000) {
-                        post.occupied.currentQueue.isPaused = true;
-                        IssuePointOrder(post.occupied.guard, "attack", loc.x, loc.y);
-                        Delay.addDelay(() => {
-                            if (post.occupied) {
-                                post.occupied.currentQueue.isPaused = false;
-                            }
-                        }, 30);
-                    }
-                }
-            }
-        });
-        this.callToAid.addFilter(new DDSFilterTargetUnitTypes(Units.HALL_FORCE_1, Units.HALL_FORCE_2, Units.HALL_FORCE_BANDITS));
-        this.callToAid.addFilter(new DDSFilterIsEnemy());
-    }
-
-    step() {
-        //TODO:
     }
 
     public getHallPlayerByForce(force: Forces): player {
@@ -199,10 +179,28 @@ export class Occupations extends Entity {
                     SetWidgetLife(building, 25);
 
                     Logger.generic("Finished starting a new town hall.");
-                    return;
                 }
             }
         }, (...args) => Logger.critical(...args));
+    }
+
+    private onCallToAid(hitObject: DamageHitContainer) {
+        let occupation = this.getOccupationByHall(hitObject.targetUnit);
+        if (occupation != null) {
+            for (let i = 0; i < occupation.guardPosts.length; i++) {
+                let post = occupation.guardPosts[i];
+                let loc = Point.fromWidget(hitObject.targetUnit);
+                if (post.occupied != undefined && !post.occupied.currentQueue.isPaused && Point.fromWidget(post.occupied.guard).distanceTo(loc) < 4000) {
+                    post.occupied.currentQueue.isPaused = true;
+                    IssuePointOrder(post.occupied.guard, "attack", loc.x, loc.y);
+                    Delay.addDelay(() => {
+                        if (post.occupied) {
+                            post.occupied.currentQueue.isPaused = false;
+                        }
+                    }, 30);
+                }
+            }
+        }
     }
 
 }

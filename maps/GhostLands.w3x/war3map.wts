@@ -413,3 +413,87 @@ STRING 80
 Fast and agile cavalry excellent for hit and run attacks. |n|n|cffffcc00Attacks land units.|r
 }
 
+STRING 81
+// Abilities: A007 (Vanguard Aura), Tip (Tooltip - Normal)
+{
+Devotion Aura - [|cffffcc00Level 4|r]
+}
+
+STRING 82
+// Abilities: A007 (Vanguard Aura), Tip (Tooltip - Normal)
+{
+Devotion Aura - [|cffffcc00Level 5|r]
+}
+
+STRING 83
+// Abilities: A007 (Vanguard Aura), Tip (Tooltip - Normal)
+{
+Devotion Aura - [|cffffcc00Level 6|r]
+}
+
+STRING 84
+// Abilities: A007 (Vanguard Aura), Tip (Tooltip - Normal)
+{
+Devotion Aura - [|cffffcc00Level 7|r]
+}
+
+STRING 85
+// Abilities: A007 (Vanguard Aura), Tip (Tooltip - Normal)
+{
+Devotion Aura - [|cffffcc00Level 8|r]
+}
+
+STRING 86
+// Abilities: A007 (Vanguard Aura), Tip (Tooltip - Normal)
+{
+Devotion Aura - [|cffffcc00Level 9|r]
+}
+
+STRING 87
+// Abilities: A007 (Vanguard Aura), Tip (Tooltip - Normal)
+{
+Devotion Aura - [|cffffcc00Level 10|r]
+}
+
+STRING 88
+// Abilities: A007 (Vanguard Aura), Ubertip (Tooltip - Normal - Extended)
+{
+Gives <A007,DataA4,.> additional armor to nearby friendly units.
+}
+
+STRING 89
+// Abilities: A007 (Vanguard Aura), Ubertip (Tooltip - Normal - Extended)
+{
+Gives <A007,DataA5,.> additional armor to nearby friendly units.
+}
+
+STRING 90
+// Abilities: A007 (Vanguard Aura), Ubertip (Tooltip - Normal - Extended)
+{
+Gives <A007,DataA6,.> additional armor to nearby friendly units.
+}
+
+STRING 91
+// Abilities: A007 (Vanguard Aura), Ubertip (Tooltip - Normal - Extended)
+{
+Gives <A007,DataA7,.> additional armor to nearby friendly units.
+}
+
+STRING 92
+// Abilities: A007 (Vanguard Aura), Ubertip (Tooltip - Normal - Extended)
+{
+Gives <A007,DataA8,.> additional armor to nearby friendly units.
+}
+
+STRING 93
+// Abilities: A007 (Vanguard Aura), Ubertip (Tooltip - Normal - Extended)
+{
+Gives <A007,DataA9,.> additional armor to nearby friendly units.
+}
+
+STRING 94
+// Abilities: A007 (Vanguard Aura), Ubertip (Tooltip - Normal - Extended)
+{
+Gives <A007,DataA10,.> additional armor to nearby friendly units.
+}
+
