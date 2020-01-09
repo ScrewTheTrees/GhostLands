@@ -35,20 +35,6 @@ export class ActionQueue extends Entity {
         super();
     }
 
-    /**
-     * Creates a simple guard position, a unit will infinitly guard this position until their their body disappears (unit is removed).
-     * @param target
-     * @param point
-     * @param delay the delay when the unit is ordered back... dont put it too low.
-     */
-    public static createSimpleGuardPoint(target: unit, point: Point, delay: number = 15) {
-        return this.getInstance().createUnitQueue(target,
-            new UnitActionWaypoint(point, WaypointOrders.attack),
-            new UnitActionDelay(delay),
-            new UnitActionWaitWhileDead(),
-            new UnitActionGoToAction(0));
-    }
-
     public createUnitQueue(target: unit, ...actions: UnitAction[]): UnitQueue {
         let unitQueue = new UnitQueue(target, ...actions);
         this.allQueues.push(unitQueue);
@@ -119,6 +105,20 @@ export class ActionQueue extends Entity {
             new UnitActionWaypoint(point1, WaypointOrders.attack),
             new UnitActionDelay(delay),
             new UnitActionWaypoint(point2, WaypointOrders.attack),
+            new UnitActionDelay(delay),
+            new UnitActionWaitWhileDead(),
+            new UnitActionGoToAction(0));
+    }
+
+    /**
+     * Creates a simple guard position, a unit will infinitly guard this position until their their body disappears (unit is removed).
+     * @param target
+     * @param point
+     * @param delay the delay when the unit is ordered back... dont put it too low.
+     */
+    public static createSimpleGuardPoint(target: unit, point: Point, delay: number = 15) {
+        return this.getInstance().createUnitQueue(target,
+            new UnitActionWaypoint(point, WaypointOrders.attack),
             new UnitActionDelay(delay),
             new UnitActionWaitWhileDead(),
             new UnitActionGoToAction(0));

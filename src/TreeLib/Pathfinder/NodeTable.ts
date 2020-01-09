@@ -34,6 +34,17 @@ export class NodeTable {
         }
         return null;
     }
+
+    public clearAll() {
+        this.list = [];
+    }
+
+    public clearByOriginNode(origin: Node) {
+        let container = this.getContainer(origin);
+        if (container) {
+            container.value = new ResultContainer();
+        }
+    }
 }
 
 class ResultContainer {

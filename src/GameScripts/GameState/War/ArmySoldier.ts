@@ -2,6 +2,7 @@ import {UnitQueue} from "../../../TreeLib/ActionQueue/Queues/UnitQueue";
 import {ActionQueue} from "../../../TreeLib/ActionQueue/ActionQueue";
 import {Forces} from "../../Enums/Forces";
 import {Point} from "../../../TreeLib/Utility/Point";
+import {IsValidUnit} from "../../../TreeLib/Misc";
 
 export class ArmySoldier {
     public soldier: unit;
@@ -30,6 +31,6 @@ export class ArmySoldier {
 
 
     public isDead(): boolean {
-        return IsUnitDeadBJ(this.soldier);
+        return !IsValidUnit(this.soldier) || IsUnitDeadBJ(this.soldier);
     }
 }

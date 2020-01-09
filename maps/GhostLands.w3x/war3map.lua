@@ -771,38 +771,6 @@ gg_trg_Untitled_Trigger_001 = nil
 function InitGlobals()
 end
 
-function CreateUnitsForPlayer0()
-    local p = Player(0)
-    local u
-    local unitID
-    local t
-    local life
-    u = CreateUnit(p, FourCC("h006"), 90.8, -5038.0, 315.724)
-    u = CreateUnit(p, FourCC("h006"), 250.6, -5034.1, 52.351)
-    u = CreateUnit(p, FourCC("h006"), 388.6, -5043.7, 326.073)
-    u = CreateUnit(p, FourCC("h006"), 520.9, -5007.1, 204.033)
-    u = CreateUnit(p, FourCC("h006"), 623.2, -5020.6, 98.583)
-    u = CreateUnit(p, FourCC("h006"), 722.6, -5024.5, 51.846)
-    u = CreateUnit(p, FourCC("h006"), 112.6, -5205.6, 163.075)
-    u = CreateUnit(p, FourCC("h006"), 193.6, -5187.5, 6.570)
-    u = CreateUnit(p, FourCC("h006"), 400.9, -5182.0, 238.323)
-    u = CreateUnit(p, FourCC("h006"), 537.0, -5158.3, 129.785)
-    u = CreateUnit(p, FourCC("h006"), 605.6, -5182.0, 161.790)
-    u = CreateUnit(p, FourCC("h006"), 723.4, -5163.8, 163.800)
-end
-
-function CreatePlayerBuildings()
-end
-
-function CreatePlayerUnits()
-    CreateUnitsForPlayer0()
-end
-
-function CreateAllUnits()
-    CreatePlayerBuildings()
-    CreatePlayerUnits()
-end
-
 function CreateRegions()
     local we
     gg_rct_force1spawner1 = Rect(-29952.0, 29568.0, -29824.0, 29696.0)
@@ -1205,7 +1173,7 @@ function CreateRegions()
     gg_rct_path16waypoint22 = Rect(25440.0, 22496.0, 25696.0, 22752.0)
     gg_rct_path16waypoint23 = Rect(25728.0, 23424.0, 25984.0, 23680.0)
     gg_rct_path16waypoint24 = Rect(25856.0, 24352.0, 26112.0, 24608.0)
-    gg_rct_path16waypoint25 = Rect(26112.0, 25152.0, 26368.0, 25408.0)
+    gg_rct_path16waypoint25 = Rect(26080.0, 25184.0, 26336.0, 25440.0)
     gg_rct_path16waypoint26 = Rect(26240.0, 25856.0, 26496.0, 26112.0)
     gg_rct_path1waypoint24 = Rect(-26912.0, 26208.0, -26656.0, 26464.0)
     gg_rct_path1waypoint25 = Rect(-25504.0, 25408.0, -25248.0, 25664.0)
@@ -2451,7 +2419,6 @@ function main()
     SetAmbientNightSound("DalaranNight")
     SetMapMusic("Music", true, 0)
     CreateRegions()
-    CreateAllUnits()
     InitBlizzard()
     InitGlobals()
     InitCustomTriggers()

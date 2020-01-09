@@ -27,7 +27,7 @@ export class InputManagerKeyboardHandler {
                     callback.triggeringPlayer = GetTriggerPlayer();
                     xpcall(() => {
                         callback.callback(callback);
-                    }, (...args) => Logger.critical(...args));
+                    }, Logger.critical);
                 }
             }
         }

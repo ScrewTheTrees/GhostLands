@@ -105,7 +105,7 @@ export class DamageDetectionSystem {
                     if (this.isPassingFilters(hitCall, hitContainer)) {
                         hitCall.callback(hitContainer);
                     }
-                }, () => Logger.LogCritical);
+                }, Logger.LogCritical);
                 this.locked = false;
             }
         } else {

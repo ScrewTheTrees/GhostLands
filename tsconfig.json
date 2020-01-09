@@ -3,6 +3,7 @@
     "allowJs": false,
     "strict": true,
     "strictNullChecks": true,
+    "alwaysStrict": true,
     "sourceMap": false,
     "target": "es6",
     "moduleResolution": "classic",

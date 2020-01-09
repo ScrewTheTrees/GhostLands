@@ -9,6 +9,7 @@ export class Pathfinder {
     public nodes: Node[] = [];
     private frontier = new PriorityQueue<Node>();
     public nodeTable: NodeTable = new NodeTable();
+    public useCache: boolean = true;
 
     public findPath(from: Point, to: Point): PathfindResult {
         let startNode = this.getNodeClosestTo(from);
@@ -17,10 +18,12 @@ export class Pathfinder {
     }
 
     public findPathByNodes(startNode: Node, endNode: Node, from: Point, to: Point): PathfindResult {
-        let node1 = this.nodeTable.get(startNode, endNode);
-        if (node1 != null) {
-            Logger.verbose("Used cached path.");
-            return node1.value.copy();
+        if (this.useCache) {
+            let node1 = this.nodeTable.get(startNode, endNode);
+            if (node1 != null) {
+                Logger.verbose("Used cached path.");
+                return node1.value.copy();
+            }
         }
 
         //Setup
@@ -85,8 +88,11 @@ export class Pathfinder {
         }
 
         let pathfindResult = new PathfindResult(points, finalNode == endNode, startNode.point, endNode.point, finalNode.point);
-        this.nodeTable.push(startNode, endNode, pathfindResult);
-        return pathfindResult.copy();
+        if (this.useCache) {
+            this.nodeTable.push(startNode, endNode, pathfindResult);
+            return pathfindResult.copy();
+        }
+        return pathfindResult; //No need to copy.
     }
 
     public getNodeNumber(current: Node, target: Node) {
@@ -115,6 +121,10 @@ export class Pathfinder {
         }
     }
 
+    public clearCache() {
+        this.nodeTable.clearAll();
+    }
+
     public addNodeWithNeighborsInRange(node: Node, distance: number): Node {
         distance += 0.5;
         for (let index = 0; index < this.nodes.length; index++) {
@@ -124,6 +134,7 @@ export class Pathfinder {
             }
         }
         this.nodes.push(node);
+        this.clearCache();
         return node;
     }
 
@@ -170,5 +181,6 @@ export class Pathfinder {
 
     public addNode(node: Node) {
         this.nodes.push(node);
+        this.clearCache();
     }
 }

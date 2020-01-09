@@ -23,21 +23,6 @@ export class Delay extends Entity {
 
     private queue: DelayDto[] = [];
 
-    /*
-    STATIC API
-     */
-    /**
-     * Adds a delayed function that will execute after a wanted duration.
-     * @param f the function to execute on the delay.
-     * @param delaySeconds the time before the delay executes.
-     * @param repeats How many times it will run, 1 runs it once. 0 and under wont run at all
-     */
-    public static addDelay(f: Function, delaySeconds: number, repeats: number = 1) {
-        if (repeats > 0) {
-            this.getInstance().addDelayFrom(new DelayDto(f, delaySeconds, repeats));
-        }
-    }
-
     public addDelay(f: Function, delaySeconds: number, repeats: number = 1) {
         this.addDelayFrom(new DelayDto(f, delaySeconds, repeats));
     }
@@ -60,6 +45,21 @@ export class Delay extends Entity {
                     queueDto.age = 0;
                 }
             }
+        }
+    }
+
+    /*
+    STATIC API
+    */
+    /**
+     * Adds a delayed function that will execute after a wanted duration.
+     * @param f the function to execute on the delay.
+     * @param delaySeconds the time before the delay executes.
+     * @param repeats How many times it will run, 1 runs it once. 0 and under wont run at all
+     */
+    public static addDelay(f: Function, delaySeconds: number, repeats: number = 1) {
+        if (repeats > 0) {
+            this.getInstance().addDelayFrom(new DelayDto(f, delaySeconds, repeats));
         }
     }
 

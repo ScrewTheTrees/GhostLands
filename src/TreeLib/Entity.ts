@@ -13,7 +13,7 @@ export abstract class Entity {
     private _internalTimer: number = 0;
     protected _timerDelay: number = 0.01;
 
-    constructor() {
+    protected constructor() {
         if (Entity.entityLoop == null) {
             Entity.entityLoop = () => {
                 Entity.entities.forEach((entity) =>

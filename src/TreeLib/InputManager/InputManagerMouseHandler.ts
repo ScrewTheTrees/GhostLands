@@ -40,7 +40,7 @@ export class InputManagerMouseHandler {
                     callback.position = new Point(x, y);
                     xpcall(() => {
                         callback.callback(callback);
-                    }, (...args) => Logger.critical(...args));
+                    }, Logger.critical);
                 }
             }
         }

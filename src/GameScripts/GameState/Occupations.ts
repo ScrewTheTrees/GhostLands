@@ -181,7 +181,7 @@ export class Occupations {
                     Logger.generic("Finished starting a new town hall.");
                 }
             }
-        }, (...args) => Logger.critical(...args));
+        }, Logger.critical);
     }
 
     private onCallToAid(hitObject: DamageHitContainer) {

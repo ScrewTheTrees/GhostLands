@@ -2,6 +2,7 @@ import {Hooks} from "../../../TreeLib/Hooks";
 import {Occupations} from "../Occupations";
 import {Occupant} from "../Occupant";
 import {Rectifier} from "../../RectControl/Rectifier";
+import {NamedRect} from "../../RectControl/NamedRect";
 
 export class WarData {
     private static instance: WarData;
@@ -41,5 +42,6 @@ export class WarData {
             case all.FORCE_2_BASE:
                 return recti.getRectByWEName("force2base");
         }
+        return new NamedRect("ERROR", Rect(-32, -32, 32, 32));
     }
 }
