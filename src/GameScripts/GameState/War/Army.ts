@@ -8,6 +8,7 @@ import {Delay} from "../../../TreeLib/Utility/Delay";
 import {UnitActionExecuteCode} from "../../../TreeLib/ActionQueue/Actions/UnitActionExecuteCode";
 import {PathManager} from "../../AI/PathManager";
 import {UnitClass} from "../../Enums/UnitClass";
+import {Quick} from "../../../TreeLib/Quick";
 
 export class Army {
     public units: ArmySoldier[] = [];
@@ -73,7 +74,7 @@ export class Army {
 
         let queue = new UnitQueue(u);
         let armySoldier = new ArmySoldier(u, this.forceData.force, queue);
-        this.units.push(armySoldier);
+        Quick.Push(this.units, armySoldier);
 
         this.sendSoldierToGathering(armySoldier);
 

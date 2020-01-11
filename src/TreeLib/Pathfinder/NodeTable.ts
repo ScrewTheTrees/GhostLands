@@ -1,7 +1,7 @@
 import {Node} from "./Node";
 import {PathfindResult} from "./PathfindResult";
 import {LabelValue} from "../Utility/LabelValue";
-import {QuickSplice} from "../Misc";
+import {Quick} from "../Quick";
 
 export class NodeTable {
     public list: LabelValue<Node, ResultContainer>[] = [];
@@ -10,7 +10,7 @@ export class NodeTable {
         let previous = this.getContainer(origin);
         if (previous == null) {
             previous = new LabelValue<Node, ResultContainer>(origin, new ResultContainer());
-            this.list.push(previous);
+            Quick.Push(this.list, previous);
         }
         previous.value.push(target, result);
     }
@@ -53,7 +53,7 @@ class ResultContainer {
     public push(node: Node, pathfindResult: PathfindResult) {
         let previous = this.get(node);
         if (previous != null) {
-            QuickSplice(this.list, this.list.indexOf(previous));
+            Quick.Splice(this.list, this.list.indexOf(previous));
         }
 
         this.list.push(new LabelValue<Node, PathfindResult>(node, pathfindResult))

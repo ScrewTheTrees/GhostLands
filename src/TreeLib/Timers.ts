@@ -1,4 +1,5 @@
 import {Hooks} from "./Hooks";
+import {Quick} from "./Quick";
 
 /**
  * Provides timers for other classes,
@@ -31,7 +32,7 @@ export class Timers {
     }
 
     public addFastTimerCallback(func: Function) {
-        this.fastTimerCallbacks.push(func);
+        Quick.Push(this.fastTimerCallbacks, func);
     }
 
     /*

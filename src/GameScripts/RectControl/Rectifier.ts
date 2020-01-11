@@ -2,6 +2,7 @@ import {Hooks} from "../../TreeLib/Hooks";
 import {NamedRect} from "./NamedRect";
 import {ShitEx} from "../../TreeLib/ShitEx";
 import {Segment} from "./Segment";
+import {Quick} from "../../TreeLib/Quick";
 
 export class Rectifier {
     private static instance: Rectifier;
@@ -43,7 +44,7 @@ export class Rectifier {
         for (let i = 0; i < this.rects.length; i++) {
             let named = this.rects[i];
             if (named.name.startsWith("gg_rct_" + name)) {
-                rects.push(named);
+                Quick.Push(rects, named);
             }
         }
         return rects;
@@ -57,7 +58,7 @@ export class Rectifier {
                 && segment.segment1Index == forceNum
                 && segment.segment2 == type) {
                 //We are in!
-                rects.push(value);
+                Quick.Push(rects, value);
             }
         });
 
@@ -76,7 +77,7 @@ export class Rectifier {
                 && (segment.segment3Index == 0 || segment.segment3Index == compare.segment3Index)
             ) {
                 //We are in!
-                rects.push(value);
+                Quick.Push(rects, value);
             }
         });
         return rects;
@@ -89,7 +90,7 @@ export class Rectifier {
             if (segment.segment1 == segment1
                 && segment.segment2 == segment2) {
                 //We are in!
-                rects.push(value);
+                Quick.Push(rects, value);
             }
         });
 

@@ -1,7 +1,7 @@
 import {Entity} from "../Entity";
 import {Hooks} from "../Hooks";
 import {DelayDto} from "./DelayDto";
-import {QuickSplice} from "../Misc";
+import {Quick} from "../Quick";
 
 /**
  * The Delay Executes the sent function after a defined delay. Can also be repeated X amount of times.
@@ -28,7 +28,7 @@ export class Delay extends Entity {
     }
 
     public addDelayFrom(delayDto: DelayDto) {
-        this.queue.push(delayDto);
+        Quick.Push(this.queue, delayDto);
     }
 
     step(): void {
@@ -39,7 +39,7 @@ export class Delay extends Entity {
                 queueDto.function();
                 queueDto.repeatCounter += 1;
                 if (queueDto.repeatCounter >= queueDto.repeats) {
-                    QuickSplice(this.queue, index);
+                    Quick.Splice(this.queue, index);
                     index -= 1;
                 } else {
                     queueDto.age = 0;

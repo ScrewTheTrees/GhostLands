@@ -31,6 +31,6 @@ export class ArmySoldier {
 
 
     public isDead(): boolean {
-        return !IsValidUnit(this.soldier) || IsUnitDeadBJ(this.soldier);
+        return (!IsValidUnit(this.soldier)) || IsUnitDeadBJ(this.soldier);
     }
 }

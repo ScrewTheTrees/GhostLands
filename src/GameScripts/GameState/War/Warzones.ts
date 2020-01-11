@@ -5,6 +5,7 @@ import {Rectifier} from "../../RectControl/Rectifier";
 import {Occupations} from "../Occupations";
 import {Forces} from "../../Enums/Forces";
 import {Logger} from "../../../TreeLib/Logger";
+import {Quick} from "../../../TreeLib/Quick";
 
 export class Warzones {
     private static instance: Warzones;
@@ -56,7 +57,7 @@ export class Warzones {
             let zone = this.allWarzones[i];
             if (zone.force1Occupant.owner != zone.force2Occupant.owner //if its between two warring factions
                 || zone.force1Occupant == zone.force2Occupant) { //If the zone is outside city 5 or 6, aka a constant contested zone.
-                entries.push(zone);
+                Quick.Push(entries, zone);
             }
         }
         return entries;
@@ -70,12 +71,12 @@ export class Warzones {
             if (force == Forces.FORCE_1) {
                 if ((zone.force1Occupant.owner == Forces.FORCE_1 && zone.force2Occupant.owner == Forces.FORCE_BANDIT) //if warzone is
                     || (zone.force1Occupant == zone.force2Occupant && zone.force1Occupant.owner == Forces.FORCE_BANDIT)) { //If the zone is outside city 5 or 6, aka a constant contested zone.
-                    entries.push(zone);
+                    Quick.Push(entries, zone);
                 }
             } else if (force == Forces.FORCE_2) {
                 if ((zone.force2Occupant.owner == Forces.FORCE_2 && zone.force1Occupant.owner == Forces.FORCE_BANDIT) //if warzone is
                     || (zone.force1Occupant == zone.force2Occupant && zone.force2Occupant.owner == Forces.FORCE_BANDIT)) { //If the zone is outside city 5 or 6, aka a constant contested zone.
-                    entries.push(zone);
+                    Quick.Push(entries, zone);
                 }
             }
         }
@@ -90,7 +91,7 @@ export class Warzones {
             if (zone.force1Occupant.owner != zone.force2Occupant.owner //if its between two warring factions
                 || (zone.force1Occupant == zone.force2Occupant && zone.force1Occupant.owner != force)) { //If side city and
                 if (zone != this.WARZONE_1 && zone != this.WARZONE_2) {
-                    entries.push(zone);
+                    Quick.Push(entries, zone);
                 }
             }
         }

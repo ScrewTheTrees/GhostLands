@@ -10,7 +10,7 @@ import {WaypointOrders} from "./Actions/WaypointOrders";
 import {UnitActionGoToAction} from "./Actions/UnitActionGoToAction";
 import {UnitActionWaitWhileDead} from "./Actions/UnitActionWaitWhileDead";
 import {UnitActionDelay} from "./Actions/UnitActionDelay";
-import {QuickSplice} from "../Misc";
+import {Quick} from "../Quick";
 
 /**
  * ActionQueue is a system that allows you to create waypoints and a string of orders, like if a player would
@@ -37,7 +37,7 @@ export class ActionQueue extends Entity {
 
     public createUnitQueue(target: unit, ...actions: UnitAction[]): UnitQueue {
         let unitQueue = new UnitQueue(target, ...actions);
-        this.allQueues.push(unitQueue);
+        Quick.Push(this.allQueues, unitQueue);
         Logger.verbose("Created UnitQueue, total: ", this.allQueues.length);
         return unitQueue;
     }
@@ -45,7 +45,7 @@ export class ActionQueue extends Entity {
     public enableQueue(queue: Queue) {
         if (this.allQueues.indexOf(queue) < 0) {
             Logger.LogVerbose("Queue is missing, adding");
-            this.allQueues.push(queue);
+            Quick.Push(this.allQueues, queue);
             return;
         }
         Logger.LogVerbose("Queue is present.");
@@ -55,7 +55,7 @@ export class ActionQueue extends Entity {
         for (let i = 0; i < this.allQueues.length; i++) {
             let queue = this.allQueues[i];
             if (queue.isFinished) {
-                QuickSplice(this.allQueues, i);
+                Quick.Splice(this.allQueues, i);
                 Logger.LogVerbose("Spliced queue:", this.allQueues.length);
                 i -= 1;
             } else if (!queue.isPaused) {
@@ -129,7 +129,7 @@ export class ActionQueue extends Entity {
         queue.isFinished = true;
         if (index >= 0) {
             Logger.verbose("Queue is present, splicing");
-            QuickSplice(this.allQueues, index);
+            Quick.Splice(this.allQueues, index);
             return;
         }
         Logger.LogVerbose("Queue is not present, no action required.");

@@ -12,6 +12,7 @@ import {DDSFilterTargetUnitTypes} from "../../TreeLib/DDS/Filters/DDSFilterTarge
 import {Delay} from "../../TreeLib/Utility/Delay";
 import {DDSFilterIsEnemy} from "../../TreeLib/DDS/Filters/DDSFilterIsEnemy";
 import {DamageHitContainer} from "../../TreeLib/DDS/DamageHitContainer";
+import {Quick} from "../../TreeLib/Quick";
 
 export class Occupations {
     private static instance: Occupations;
@@ -106,7 +107,7 @@ export class Occupations {
         for (let i = 0; i < allOccus.length; i++) {
             let value = allOccus[i];
             if (value.owner == force) {
-                result.push(value);
+                Quick.Push(result, value);
             }
         }
         return result;

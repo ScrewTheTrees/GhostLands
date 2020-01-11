@@ -11,6 +11,7 @@ import {Occupant} from "../GameState/Occupant";
 import {GetGuardTypeFromUnit, UnitClass} from "../Enums/UnitClass";
 import {Guard} from "./Guard";
 import {NamedRect} from "../RectControl/NamedRect";
+import {Quick} from "../../TreeLib/Quick";
 
 export class AIGuardSpawner {
     public forceData: AIForceData;
@@ -73,7 +74,7 @@ export class AIGuardSpawner {
 
         let queue = new UnitQueue(u);
         let guard = new Guard(u, this.forceData.force, queue);
-        this.unitsInGather.push(guard);
+        Quick.Push(this.unitsInGather, guard);
 
         this.sendRecruitToRect(guard, this.gathering.value, 0);
 

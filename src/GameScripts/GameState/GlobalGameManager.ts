@@ -6,7 +6,7 @@ import {MapEvent} from "./Events/MapEvent";
 import {AIManager} from "../AI/AIManager";
 import {InputManager} from "../../TreeLib/InputManager/InputManager";
 import {DummyCaster} from "../../TreeLib/DummyCasting/DummyCaster";
-import {QuickSplice} from "../../TreeLib/Misc";
+import {Quick} from "../../TreeLib/Quick";
 
 export class GlobalGameManager extends Entity {
     private static instance: GlobalGameManager;
@@ -90,7 +90,7 @@ export class GlobalGameManager extends Entity {
         for (let i = 0; i < this.allWars.length; i++) {
             let war = this.allWars[i];
             if (war.state == WarState.END) {
-                QuickSplice(this.allWars, i);
+                Quick.Splice(this.allWars, i);
                 i -= 1;
                 if (this.allWars.length == 0) {
                     this.endWar();

@@ -1,5 +1,6 @@
 import {Hooks} from "../TreeLib/Hooks";
 import {Players} from "../TreeLib/Structs/Players";
+import {Quick} from "../TreeLib/Quick";
 
 export class PlayerManager {
     private static instance: PlayerManager;
@@ -41,26 +42,25 @@ export class PlayerManager {
             this.team2MinionsAll.push(Player(i));
         }
 
-        for (let i = 0; i < this.team1MinionsAll.length; i++) {
-            let p = this.team1MinionsAll[i];
-            if (GetPlayerController(p) == MAP_CONTROL_USER && GetPlayerSlotState(p) == PLAYER_SLOT_STATE_PLAYING) {
-                this.team1Minions.push(p);
-                this.allMinions.push(p);
-            }
-        }
+        this.addActiveMinions(this.team1MinionsAll, this.team1Minions);
+        this.addActiveMinions(this.team2MinionsAll, this.team2Minions);
 
-        for (let i = 0; i < this.team2MinionsAll.length; i++) {
-            let p = this.team2MinionsAll[i];
-            if (GetPlayerController(p) == MAP_CONTROL_USER && GetPlayerSlotState(p) == PLAYER_SLOT_STATE_PLAYING) {
-                this.team2Minions.push(p);
-                this.allMinions.push(p);
-            }
-        }
+
         for (let i = 0; i < GetPlayerNeutralAggressive(); i++) {
             TriggerRegisterPlayerEventLeave(this.playerLeavesTrigger, Player(i));
         }
 
         TriggerAddAction(this.playerLeavesTrigger, () => this.onPlayerLeave());
+    }
+
+    private addActiveMinions(minions: player[], addTo: player[]) {
+        for (let i = 0; i < minions.length; i++) {
+            let p = minions[i];
+            if (GetPlayerController(p) == MAP_CONTROL_USER && GetPlayerSlotState(p) == PLAYER_SLOT_STATE_PLAYING) {
+                Quick.Push(addTo, p);
+                Quick.Push(this.allMinions, p);
+            }
+        }
     }
 
     private onPlayerLeave() {

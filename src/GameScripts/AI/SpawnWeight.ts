@@ -1,18 +1,18 @@
-import {QuickSplice} from "../../TreeLib/Misc";
+import {Quick} from "../../TreeLib/Quick";
 
 export class SpawnWeight<T> {
     private list: T[] = [];
 
     constructor(type: T) {
         for (let i = 0; i < 100; i++) {
-            this.list.push(type);
+            Quick.Push(this.list, type);
         }
     }
 
     public remove(type: T, amount: number = -1) {
         for (let i = 0; i < this.list.length; i++) {
             if (type == this.list[i]) {
-                QuickSplice(this.list, i);
+                Quick.Splice(this.list, i);
                 i -= 1;
                 amount -= 1;
                 if (amount == 0) {
@@ -24,7 +24,7 @@ export class SpawnWeight<T> {
 
     public add(type: T, amount: number) {
         for (let i = 0; i < amount; i++) {
-            this.list.push(type);
+            Quick.Push(this.list, type);
         }
     }
 

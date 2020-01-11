@@ -2,6 +2,7 @@ import {Hooks} from "../Hooks";
 import {EffectContainer} from "./EffectContainer";
 import {SpellData} from "./SpellData";
 import {DummyCaster} from "./DummyCaster";
+import {Quick} from "../Quick";
 
 export class OnSpellCast {
     private static instance: OnSpellCast;
@@ -38,7 +39,7 @@ export class OnSpellCast {
     }
 
     public addSpell(container: EffectContainer) {
-        this.registeredSpells.push(container);
+        Quick.Push(this.registeredSpells, container);
     }
 
     private onSpellEffect(spell: SpellData) {

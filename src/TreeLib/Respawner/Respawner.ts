@@ -3,7 +3,7 @@ import {Entity} from "../Entity";
 import {Spawner} from "./Spawner";
 import {UnitRespawner} from "./UnitRespawner";
 import {UnitCampRespawner} from "./UnitCampRespawner";
-import {QuickSplice} from "../Misc";
+import {Quick} from "../Quick";
 
 export class Respawner extends Entity {
     private static instance: Respawner;
@@ -33,7 +33,7 @@ export class Respawner extends Entity {
                 let spawner = this.spawners[index];
                 spawner.update(this._timerDelay);
                 if (spawner.respawns == 0) {
-                    QuickSplice(this.spawners, index);
+                    Quick.Splice(this.spawners, index);
                     index -= 1;
                 }
             }
@@ -43,14 +43,14 @@ export class Respawner extends Entity {
     public createNewUnitRespawner(target: unit, delay: number, respawnAtOriginalLocation?: boolean, doEyeCandy?: boolean,
                                   onRespawn?: (target: unit) => void, respawns?: number) {
         let spawner = new UnitRespawner(target, delay, onRespawn, respawnAtOriginalLocation, doEyeCandy, respawns);
-        this.spawners.push(spawner);
+        Quick.Push(this.spawners, spawner);
         return spawner;
     }
 
     public createNewUnitCampRespawner(targets: unit[], delay: number, respawnAtOriginalLocation?: boolean, doEyeCandy?: boolean,
                                       onRespawn?: (target: unit) => void, respawns?: number) {
         let spawner = new UnitCampRespawner(targets, delay, onRespawn, respawnAtOriginalLocation, doEyeCandy, respawns);
-        this.spawners.push(spawner);
+        Quick.Push(this.spawners, spawner);
         return spawner;
     }
 

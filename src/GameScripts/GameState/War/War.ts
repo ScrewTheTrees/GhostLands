@@ -21,6 +21,7 @@ export class War extends Entity {
 
     public isFinished: boolean = false;
     public countdown: number = 60;
+    public siegeTimer = 300;
 
     constructor() {
         super();
@@ -107,6 +108,8 @@ export class War extends Entity {
                 let isF1Active = true;
                 let isF2Active = true;
 
+                this.siegeTimer -= 1;
+
                 if (force1Target.force2Occupant.owner == Forces.FORCE_1 || force1.isArmyDead()) {
                     isF1Active = false;
                 }
@@ -114,8 +117,11 @@ export class War extends Entity {
                     isF2Active = false;
                 }
 
-
                 if (!isF1Active && !isF2Active) {
+                    this.endWar(); // Sad ending
+                }
+                if (this.siegeTimer <= 0) {
+                    Logger.warning("Siege has been running for longer than 300, might want to check that.");
                     this.endWar(); // Sad ending
                 }
             }

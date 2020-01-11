@@ -9,6 +9,7 @@ import {AIBanditSpawner} from "./Bandits/AIBanditSpawner";
 import {BanditCamp} from "./Bandits/BanditCamp";
 import {Segment} from "../RectControl/Segment";
 import {Logger} from "../../TreeLib/Logger";
+import {Quick} from "../../TreeLib/Quick";
 
 export class AIManager {
     private static instance: AIManager;
@@ -76,7 +77,7 @@ export class AIManager {
         let positions: Point[] = [];
         rects.forEach((value) => {
             let point = new Point(GetRectCenterX(value.value), GetRectCenterY(value.value));
-            positions.push(point);
+            Quick.Push(positions, point);
         });
         return positions;
     }
@@ -87,7 +88,7 @@ export class AIManager {
         let positions: Point[] = [];
         rects.forEach((value) => {
             let point = new Point(GetRectCenterX(value.value), GetRectCenterY(value.value));
-            positions.push(point);
+            Quick.Push(positions, point);
         });
         return positions;
     }

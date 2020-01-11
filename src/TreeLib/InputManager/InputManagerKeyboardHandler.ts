@@ -3,7 +3,7 @@ import {maxMetaKeys, MetaKey} from "./MetaKey";
 import {PressType} from "./PressType";
 import {KeyCallback} from "./KeyCallback";
 import {Logger} from "../Logger";
-import {QuickSplice} from "../Misc";
+import {Quick} from "../Quick";
 
 export class InputManagerKeyboardHandler {
     constructor() {
@@ -45,7 +45,7 @@ export class InputManagerKeyboardHandler {
     public removeKeyCallback(keyCallback: KeyCallback) {
         let container = this.getKeyContainer(keyCallback.key);
         if (container.callbacks.indexOf(keyCallback) >= 0) {
-            QuickSplice(container.callbacks, container.callbacks.indexOf(keyCallback));
+            Quick.Splice(container.callbacks, container.callbacks.indexOf(keyCallback));
         }
     }
 

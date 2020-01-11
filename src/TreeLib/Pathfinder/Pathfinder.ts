@@ -4,6 +4,7 @@ import {Logger} from "../Logger";
 import {PriorityQueue} from "./PriorityQueue";
 import {PathfindResult} from "./PathfindResult";
 import {NodeTable} from "./NodeTable";
+import {Quick} from "../Quick";
 
 export class Pathfinder {
     public nodes: Node[] = [];
@@ -69,7 +70,7 @@ export class Pathfinder {
         let iterateNode: Node | null = finalNode;
         startNode.cameFrom = null;
         while (iterateNode != null) {
-            compileNodes.push(iterateNode);
+            Quick.Push(compileNodes, iterateNode);
             iterateNode = iterateNode.cameFrom;
         }
 
@@ -133,7 +134,7 @@ export class Pathfinder {
                 node.addNeighborTwoWay(otherNode);
             }
         }
-        this.nodes.push(node);
+        Quick.Push(this.nodes, node);
         this.clearCache();
         return node;
     }
@@ -180,7 +181,7 @@ export class Pathfinder {
     }
 
     public addNode(node: Node) {
-        this.nodes.push(node);
+        Quick.Push(this.nodes, node);
         this.clearCache();
     }
 }

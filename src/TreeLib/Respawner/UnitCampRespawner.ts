@@ -1,6 +1,7 @@
 import {Spawner} from "./Spawner";
 import {IsValidUnit} from "../Misc";
 import {UnitRespawner} from "./UnitRespawner";
+import {Quick} from "../Quick";
 
 export class UnitCampRespawner implements Spawner {
     public targets: UnitRespawner[] = [];
@@ -23,7 +24,7 @@ export class UnitCampRespawner implements Spawner {
         this.respawns = maxRespawns;
         for (let target of targets) {
             let spawner = new UnitRespawner(target, 9999999, onRespawn, respawnAtOriginalLocation, doEyeCandy, maxRespawns);
-            this.targets.push(spawner);
+            Quick.Push(this.targets, spawner);
         }
     }
 
