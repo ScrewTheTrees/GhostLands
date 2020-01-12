@@ -263,7 +263,7 @@ export class War extends Entity {
 }
 
 
-export enum WarState {
+export const enum WarState {
     SETUP = "SETUP",
     PREPARE_CLASH = "PREPARE_CLASH",
     CLASHING = "CLASHING",

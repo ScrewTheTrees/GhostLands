@@ -12,11 +12,11 @@ export class AIForceData {
     public aiPlayerExtra: player;
     public force: Forces;
 
-    public meleeUnits = new SpawnWeight<number>(Units.MELEE_SOLDIER);
-    public rangedUnits = new SpawnWeight<number>(Units.RANGER_ARCHER);
-    public casterUnits = new SpawnWeight<number>(Units.CASTER_PRIEST);
-    public cavalryUnits = new SpawnWeight<number>(Units.CAVALRY_KNIGHT);
-    public artilleryUnits = new SpawnWeight<number>(Units.ARTILLERY_DEMOLISHER);
+    public meleeUnits = new SpawnWeight<string>(Units.MELEE_SOLDIER);
+    public rangedUnits = new SpawnWeight<string>(Units.RANGER_ARCHER);
+    public casterUnits = new SpawnWeight<string>(Units.CASTER_PRIEST);
+    public cavalryUnits = new SpawnWeight<string>(Units.CAVALRY_KNIGHT);
+    public artilleryUnits = new SpawnWeight<string>(Units.ARTILLERY_DEMOLISHER);
 
     public amountOfMelee: number = 20;
     public amountOfRanged: number = 8;
@@ -43,15 +43,15 @@ export class AIForceData {
     public getUnitTypeOfUnitClass(type: UnitClass) {
         switch (type) {
             case UnitClass.MELEE:
-                return this.meleeUnits.getRandom();
+                return FourCC(this.meleeUnits.getRandom());
             case UnitClass.RANGED:
-                return this.rangedUnits.getRandom();
+                return FourCC(this.rangedUnits.getRandom());
             case UnitClass.CASTER:
-                return this.casterUnits.getRandom();
+                return FourCC(this.casterUnits.getRandom());
             case UnitClass.CAVALRY:
-                return this.cavalryUnits.getRandom();
+                return FourCC(this.cavalryUnits.getRandom());
             case UnitClass.ARTILLERY:
-                return this.artilleryUnits.getRandom();
+                return FourCC(this.artilleryUnits.getRandom());
             default:
                 Logger.critical(`Trying to fetch unitType of undefined UnitClass: ${type}`);
                 return 0;

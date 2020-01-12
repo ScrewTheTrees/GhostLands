@@ -22,7 +22,7 @@ export class PlayerUnitBuilder {
             let minion = this.playerManager.team1Minions[i];
             let startX = GetPlayerStartLocationX(minion);
             let startY = GetPlayerStartLocationY(minion);
-            CreateUnit(minion, Units.HERO_GRAND_GENERAL, startX, startY, 270);
+            CreateUnit(minion, FourCC(Units.HERO_GRAND_GENERAL), startX, startY, 270);
         }
 
         let occupants = Occupations.getInstance().getAllOccupants();

@@ -1,6 +1,7 @@
 import {Units} from "./Units";
+import {InverseFourCC} from "../../TreeLib/Misc";
 
-export enum UnitClass {
+export const enum UnitClass {
     ERROR = "ERROR",
     MELEE = "MELEE",
     RANGED = "RANGED",
@@ -29,7 +30,8 @@ export function GetUnitClassFromString(type: string): UnitClass {
 }
 
 
-export function GetUnitClassFromUnitType(u: number): UnitClass {
+export function GetUnitClassFromUnitType(e: number): UnitClass {
+    const u = InverseFourCC(e);
     switch (u) {
         case Units.MELEE_SOLDIER:
             return UnitClass.MELEE;

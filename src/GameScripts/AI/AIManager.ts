@@ -46,8 +46,10 @@ export class AIManager {
         this.banditNorthSpawner = new AIBanditSpawner(this.banditNorthData, BanditCamp.CAMP_NORTH);
         this.banditSouthSpawner = new AIBanditSpawner(this.banditSouthData, BanditCamp.CAMP_SOUTH);
 
-        this.banditNorthData.amountOfRanged += 5;
-        this.banditSouthData.amountOfRanged += 5;
+        this.banditNorthData.amountOfCavalry = 0;
+        this.banditSouthData.amountOfCavalry = 0;
+        this.banditNorthData.amountOfArtillery = 0;
+        this.banditSouthData.amountOfArtillery = 0;
     }
 
     public performAIReinforcements() {

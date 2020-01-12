@@ -13,6 +13,5 @@ export class Game {
         PlayerUnitBuilder.getInstance().execute();
         AddAbilityReplacements.getInstance().register();
         GlobalGameManager.getInstance();
-
     }
 }

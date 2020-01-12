@@ -26,7 +26,7 @@ export class Occupations {
         this.callToAid = DamageDetectionSystem.getInstance().registerAfterDamageCalculation((hitObject) => {
             this.onCallToAid(hitObject);
         });
-        this.callToAid.addFilter(new DDSFilterTargetUnitTypes(Units.HALL_FORCE_1, Units.HALL_FORCE_2, Units.HALL_FORCE_BANDITS));
+        this.callToAid.addFilter(new DDSFilterTargetUnitTypes(FourCC(Units.HALL_FORCE_1), FourCC(Units.HALL_FORCE_2), FourCC(Units.HALL_FORCE_BANDITS)));
         this.callToAid.addFilter(new DDSFilterIsEnemy());
     }
 
@@ -126,11 +126,11 @@ export class Occupations {
     getHallByForce(force: Forces): number {
         switch (force) {
             case Forces.FORCE_1:
-                return Units.HALL_FORCE_1;
+                return FourCC(Units.HALL_FORCE_1);
             case Forces.FORCE_2:
-                return Units.HALL_FORCE_2;
+                return FourCC(Units.HALL_FORCE_2);
             case Forces.FORCE_BANDIT:
-                return Units.HALL_FORCE_BANDITS;
+                return FourCC(Units.HALL_FORCE_BANDITS);
         }
     }
 

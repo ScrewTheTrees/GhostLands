@@ -1,22 +1,21 @@
-export enum Units {
-    HERO_GRAND_GENERAL = FourCC("H000"),
+export const enum Units {
+    HERO_GRAND_GENERAL = "H000",
 
 
-    MELEE_SOLDIER = FourCC("h001"),
+    MELEE_SOLDIER = "h001",
 
-    RANGER_ARCHER = FourCC("h002"),
-    RANGER_FOREST_TROLL = FourCC("h003"),
+    RANGER_ARCHER = "h002",
+    RANGER_FOREST_TROLL = "h003",
 
-    CASTER_PRIEST = FourCC("h004"),
-    CASTER_SORCERESS = FourCC("h005"),
+    CASTER_PRIEST = "h004",
+    CASTER_SORCERESS = "h005",
 
-    CAVALRY_KNIGHT = FourCC("h006"),
+    CAVALRY_KNIGHT = "h006",
 
-    ARTILLERY_DEMOLISHER = FourCC("o000"),
+    ARTILLERY_DEMOLISHER = "o000",
 
 
-    DUMMY_BUILDER = FourCC("e001"),
-    HALL_FORCE_1 = FourCC("e000"),
-    HALL_FORCE_2 = FourCC("e000"),
-    HALL_FORCE_BANDITS = FourCC("e000"),
+    HALL_FORCE_1 = "e000",
+    HALL_FORCE_2 = "e000",
+    HALL_FORCE_BANDITS = "e000",
 }
