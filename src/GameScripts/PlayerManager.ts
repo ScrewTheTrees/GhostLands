@@ -1,6 +1,7 @@
 import {Hooks} from "../TreeLib/Hooks";
 import {Players} from "../TreeLib/Structs/Players";
 import {Quick} from "../TreeLib/Quick";
+import {Forces} from "./Enums/Forces";
 
 export class PlayerManager {
     private static instance: PlayerManager;
@@ -13,6 +14,7 @@ export class PlayerManager {
         return this.instance;
     }
 
+    public allPlayers: player[] = [];
     public allMinions: player[] = [];
 
     public team1Minions: player[] = [];
@@ -47,6 +49,7 @@ export class PlayerManager {
 
 
         for (let i = 0; i < GetPlayerNeutralAggressive(); i++) {
+            this.allPlayers.push(Player(i));
             TriggerRegisterPlayerEventLeave(this.playerLeavesTrigger, Player(i));
         }
 
@@ -79,5 +82,15 @@ export class PlayerManager {
         if (index >= 0) {
             this.allMinions.splice(index, 1);
         }
+    }
+
+    public getForcesByPlayer(p: player): Forces {
+        if (this.team1Minions.indexOf(p) >= 0) {
+            return Forces.FORCE_1;
+        } else if (this.team2Minions.indexOf(p) >= 0) {
+            return Forces.FORCE_2;
+        }
+
+        return Forces.FORCE_BANDIT;
     }
 }

@@ -8,7 +8,7 @@ import {ActionQueue} from "../../../TreeLib/ActionQueue/ActionQueue";
 import {Forces} from "../../Enums/Forces";
 import {Warzone} from "./Warzones";
 import {UnitQueue} from "../../../TreeLib/ActionQueue/Queues/UnitQueue";
-import {PathManager} from "../../AI/PathManager";
+import {PathManager} from "../../PathManager";
 import {WaypointOrders} from "../../../TreeLib/ActionQueue/Actions/WaypointOrders";
 import {UnitActionDeath} from "../../../TreeLib/ActionQueue/Actions/UnitActionDeath";
 import {UnitActionWaypoint} from "../../../TreeLib/ActionQueue/Actions/UnitActionWaypoint";
@@ -53,12 +53,13 @@ export class War extends Entity {
         }
     }
 
-
+    private count = 10;
     step() {
         if (this.targets == null) {
             Logger.critical(`Target is null? U fking wot m8`);
             return;
         }
+        this.count -= 1;
 
 
         if (this.state == WarState.PREPARE_CLASH || this.state == WarState.BREAK) {
@@ -91,7 +92,7 @@ export class War extends Entity {
         if (this.state == WarState.CLASHING) {
             let force1 = this.targets.armies.force1;
             let force2 = this.targets.armies.force2;
-            if (force1 && force2) {
+            if (force1 && force2 && this.count == 0) {
                 if (force1.isArmyDead()) {
                     this.finishClash(this.targets, Forces.FORCE_2);
                 } else if (force2.isArmyDead()) {
@@ -104,11 +105,11 @@ export class War extends Entity {
             let force2 = this.targets.armies.force2;
             let force1Target = this.resolveSiegeTarget(this.targets, this.targets.targets.force1, Forces.FORCE_1);
             let force2Target = this.resolveSiegeTarget(this.targets, this.targets.targets.force2, Forces.FORCE_2);
-            if (force1 && force2) {
+            this.siegeTimer -= 1;
+
+            if (force1 && force2 && this.count == 0) {
                 let isF1Active = true;
                 let isF2Active = true;
-
-                this.siegeTimer -= 1;
 
                 if (force1Target.force2Occupant.owner == Forces.FORCE_1 || force1.isArmyDead()) {
                     isF1Active = false;
@@ -125,6 +126,10 @@ export class War extends Entity {
                     this.endWar(); // Sad ending
                 }
             }
+        }
+
+        if (this.count == 0) {
+            this.count = 10;
         }
 
     }

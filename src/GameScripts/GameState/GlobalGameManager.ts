@@ -7,6 +7,7 @@ import {AIManager} from "../AI/AIManager";
 import {InputManager} from "../../TreeLib/InputManager/InputManager";
 import {DummyCaster} from "../../TreeLib/DummyCasting/DummyCaster";
 import {Quick} from "../../TreeLib/Quick";
+import {Logger} from "../../TreeLib/Logger";
 
 export class GlobalGameManager extends Entity {
     private static instance: GlobalGameManager;
@@ -29,7 +30,7 @@ export class GlobalGameManager extends Entity {
 
     constructor() {
         super();
-        this._timerDelay = 0.5;
+        this._timerDelay = 1;
         this.aiManager.banditNorthSpawner.stockUpAllGuardPointsInstant();
 
         InputManager.addKeyboardPressCallback(OSKEY_Q, () => {
@@ -77,31 +78,17 @@ export class GlobalGameManager extends Entity {
     }
 
     public endWar() {
-        this.worldState = WorldState.NEUTRAL;
-        while (this.allWars.length > 0) {
-            let value = this.allWars.pop();
-            value?.endWar();
-        }
-        this.guardSpawnCounter = 0;
-        this.timeToWar = 120;
+        this.allWars.forEach((war) => {
+            war.endWar();
+        });
     }
 
     step(): void {
-        for (let i = 0; i < this.allWars.length; i++) {
-            let war = this.allWars[i];
-            if (war.state == WarState.END) {
-                Quick.Splice(this.allWars, i);
-                i -= 1;
-                if (this.allWars.length == 0) {
-                    this.endWar();
-                }
-            }
-        }
+        this.updateWarList();
 
         if (this.worldState == WorldState.NEUTRAL) {
             this.guardSpawnCounter += this._timerDelay;
             this.timeToWar -= this._timerDelay;
-
 
             if (this.guardSpawnCounter == 20) {
                 this.aiManager.performAIReinforcements();
@@ -111,17 +98,36 @@ export class GlobalGameManager extends Entity {
                 this.aiManager.performAIRelocation();
             }
 
-            if (this.guardSpawnCounter % 10 == 0) {
+            if (Math.round(this.guardSpawnCounter % 10) == 0) {
                 print(this.guardSpawnCounter);
             }
 
             if (this.timeToWar <= 0) {
                 this.startWar();
             }
+        } else if (this.worldState == WorldState.WAR) {
+            if (this.allWars.length == 0) {
+                this.worldState = WorldState.NEUTRAL;
+                this.guardSpawnCounter = 0;
+                this.timeToWar = 120;
+            }
+        } else if (this.worldState == WorldState.EVENT) {
+            this.worldState = WorldState.EVENT; //NO
+            Logger.critical("Yeah no no events");
         }
 
         if (this.guardSpawnCounter > this.reset) {
             this.guardSpawnCounter -= this.reset;
+        }
+    }
+
+    private updateWarList() {
+        for (let i = 0; i < this.allWars.length; i++) {
+            let war = this.allWars[i];
+            if (war.state == WarState.END) {
+                Quick.Splice(this.allWars, i);
+                i -= 1;
+            }
         }
     }
 }

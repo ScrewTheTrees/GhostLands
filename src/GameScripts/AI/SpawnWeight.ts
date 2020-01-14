@@ -45,4 +45,17 @@ export class SpawnWeight<T> {
     public getRandom(): T {
         return this.list[GetRandomInt(0, this.list.length - 1)];
     }
+
+    public getAllAvailable(): T[] {
+        let retvar: T[] = [];
+        for (let i = 0; i < this.list.length; i++) {
+            let val = this.list[i];
+            if (retvar.indexOf(val) < 0) {
+                Quick.Push(retvar, val);
+            }
+        }
+
+        return retvar;
+
+    }
 }

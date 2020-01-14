@@ -4,7 +4,7 @@
  * gg_rct_route1waypoint1.
  * And make it into gg_rct_route   1    waypoint    1.
  * This way i could easily parse it into other systems...
- * You can use it if you'd like, or something more refined.
+ * You can use it if you'd like, or use something more refined.
  */
 import {Quick} from "./Quick";
 

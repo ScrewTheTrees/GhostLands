@@ -60,6 +60,19 @@ export class AIManager {
         this.banditSouthSpawner.performUnitRevival();
     }
 
+    public getDataByPlayer(force: Forces) {
+        switch (force) {
+            case Forces.FORCE_1:
+                return this.force1Data;
+
+            case Forces.FORCE_2:
+                return this.force2Data;
+
+            case Forces.FORCE_BANDIT:
+                return this.banditNorthData;
+        }
+    }
+
     public performAIRelocation() {
         Logger.warning("Force Relocate.");
         this.force1Spawner.replenishTroopsInAllCities();

@@ -1,6 +1,6 @@
 import {Hooks} from "../../../TreeLib/Hooks";
-import {Occupations} from "../Occupations";
-import {Occupant} from "../Occupant";
+import {Occupations} from "../Occupations/Occupations";
+import {Occupant} from "../Occupations/Occupant";
 import {Rectifier} from "../../RectControl/Rectifier";
 import {NamedRect} from "../../RectControl/NamedRect";
 

@@ -1,10 +1,10 @@
 import {WarData} from "./WarData";
 import {Warzone, Warzones} from "./Warzones";
 import {Forces} from "../../Enums/Forces";
-import {Occupations} from "../Occupations";
+import {Occupations} from "../Occupations/Occupations";
 import {Logger} from "../../../TreeLib/Logger";
 import {ChooseOne} from "../../../TreeLib/Misc";
-import {Occupant} from "../Occupant";
+import {Occupant} from "../Occupations/Occupant";
 import {Army} from "./Army";
 
 export class TargetResolver {
@@ -61,11 +61,20 @@ export class TargetResolver {
     }
 
     private static getContestedWarzones(): WarContainer {
-        let warzones = Warzones.getInstance();
+        const warzones = Warzones.getInstance();
+        const occupations = Occupations.getInstance();
         let zones1 = warzones.getContestedWarzonesByForce(Forces.FORCE_1);
         let zones2 = warzones.getContestedWarzonesByForce(Forces.FORCE_2);
         let f1zone = zones1[GetRandomInt(0, zones1.length - 1)];
         let f2zone = zones2[GetRandomInt(0, zones2.length - 1)];
+
+        //Readjust high priority zones to be targeted by respective sides. (Also to dodge bullshit)
+        if (occupations.CITY_1.owner != Forces.FORCE_1) {
+            f1zone = warzones.getWarzoneByForceAndCity(Forces.FORCE_1, Occupations.getInstance().CITY_1);
+        }
+        if (occupations.CITY_2.owner != Forces.FORCE_2) {
+            f2zone = warzones.getWarzoneByForceAndCity(Forces.FORCE_2, Occupations.getInstance().CITY_2);
+        }
 
         return new WarContainer(new WarTargets(f1zone, f2zone));
     }

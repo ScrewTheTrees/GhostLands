@@ -1,8 +1,7 @@
 import {Logger} from "./TreeLib/Logger";
 import {StartGameDiag} from "./GameScripts/StartGame/StartGameDiag";
-import {PlayerUnitBuilder} from "./GameScripts/StartGame/PlayerUnitBuilder";
-import {GlobalGameManager} from "./GameScripts/GameState/GlobalGameManager";
 import {AddAbilityReplacements} from "./GameScripts/StartGame/AddAbilityReplacements";
+import {GameContainer} from "./GameScripts/GameContainer";
 
 export class Game {
     constructor() {
@@ -10,8 +9,7 @@ export class Game {
         Logger.doLogDebug = true;
 
         StartGameDiag.getInstance().runDiagnosis();
-        PlayerUnitBuilder.getInstance().execute();
         AddAbilityReplacements.getInstance().register();
-        GlobalGameManager.getInstance();
+        GameContainer.getInstance();
     }
 }

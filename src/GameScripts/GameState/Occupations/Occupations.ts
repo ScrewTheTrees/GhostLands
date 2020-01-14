@@ -1,28 +1,22 @@
-import {Hooks} from "../../TreeLib/Hooks";
+import {Hooks} from "../../../TreeLib/Hooks";
 import {Occupant} from "./Occupant";
-import {Forces} from "../Enums/Forces";
-import {UnitClass} from "../Enums/UnitClass";
-import {Point} from "../../TreeLib/Utility/Point";
-import {Units} from "../Enums/Units";
-import {PlayerManager} from "../PlayerManager";
-import {Logger} from "../../TreeLib/Logger";
-import {DamageDetectionSystem} from "../../TreeLib/DDS/DamageDetectionSystem";
-import {HitCallback} from "../../TreeLib/DDS/HitCallback";
-import {DDSFilterTargetUnitTypes} from "../../TreeLib/DDS/Filters/DDSFilterTargetUnitTypes";
-import {Delay} from "../../TreeLib/Utility/Delay";
-import {DDSFilterIsEnemy} from "../../TreeLib/DDS/Filters/DDSFilterIsEnemy";
-import {DamageHitContainer} from "../../TreeLib/DDS/DamageHitContainer";
-import {Quick} from "../../TreeLib/Quick";
+import {Forces} from "../../Enums/Forces";
+import {UnitClass} from "../../Enums/UnitClass";
+import {Point} from "../../../TreeLib/Utility/Point";
+import {Units} from "../../Enums/Units";
+import {PlayerManager} from "../../PlayerManager";
+import {DamageDetectionSystem} from "../../../TreeLib/DDS/DamageDetectionSystem";
+import {HitCallback} from "../../../TreeLib/DDS/HitCallback";
+import {DDSFilterTargetUnitTypes} from "../../../TreeLib/DDS/Filters/DDSFilterTargetUnitTypes";
+import {Delay} from "../../../TreeLib/Utility/Delay";
+import {DDSFilterIsEnemy} from "../../../TreeLib/DDS/Filters/DDSFilterIsEnemy";
+import {DamageHitContainer} from "../../../TreeLib/DDS/DamageHitContainer";
+import {Quick} from "../../../TreeLib/Quick";
 
 export class Occupations {
     private static instance: Occupations;
 
     constructor() {
-        for (let i = 0; i < GetBJMaxPlayers(); i++) {
-            TriggerRegisterPlayerUnitEvent(this.onOccupantDie, Player(i), EVENT_PLAYER_UNIT_DEATH, null);
-        }
-        TriggerAddAction(this.onOccupantDie, () => this.onHallUnitDie(GetDyingUnit(), GetKillingUnit()));
-
         this.callToAid = DamageDetectionSystem.getInstance().registerAfterDamageCalculation((hitObject) => {
             this.onCallToAid(hitObject);
         });
@@ -30,13 +24,13 @@ export class Occupations {
         this.callToAid.addFilter(new DDSFilterIsEnemy());
     }
 
-    public CITY_1: Occupant = new Occupant(Forces.FORCE_BANDIT, "city1", "city1guard");
-    public CITY_2: Occupant = new Occupant(Forces.FORCE_BANDIT, "city2", "city2guard");
-    public CITY_3: Occupant = new Occupant(Forces.FORCE_BANDIT, "city3", "city3guard");
-    public CITY_4: Occupant = new Occupant(Forces.FORCE_BANDIT, "city4", "city4guard");
-    public CITY_5: Occupant = new Occupant(Forces.FORCE_BANDIT, "city5", "city5guard");
-    public FORCE_1_BASE: Occupant = new Occupant(Forces.FORCE_1, "force1base", "base1guard");
-    public FORCE_2_BASE: Occupant = new Occupant(Forces.FORCE_2, "force2base", "base2guard");
+    public CITY_1: Occupant = new Occupant(Forces.FORCE_BANDIT, "city1", "city1unitarea");
+    public CITY_2: Occupant = new Occupant(Forces.FORCE_BANDIT, "city2", "city2unitarea");
+    public CITY_3: Occupant = new Occupant(Forces.FORCE_BANDIT, "city3", "city3unitarea");
+    public CITY_4: Occupant = new Occupant(Forces.FORCE_BANDIT, "city4", "city4unitarea");
+    public CITY_5: Occupant = new Occupant(Forces.FORCE_BANDIT, "city5", "city5unitarea");
+    public FORCE_1_BASE: Occupant = new Occupant(Forces.FORCE_1, "force1base", "force1base1unitarea");
+    public FORCE_2_BASE: Occupant = new Occupant(Forces.FORCE_2, "force2base", "force2base1unitarea");
     /*public FORCE_1_OUTPOST_1: Occupant = new Occupant(Forces.FORCE_1, "force1outpost1", "outpost1guard");
     public FORCE_1_OUTPOST_2: Occupant = new Occupant(Forces.FORCE_1, "force1outpost2", "outpost2guard");
     public FORCE_2_OUTPOST_3: Occupant = new Occupant(Forces.FORCE_2, "force2outpost3", "outpost3guard");
@@ -57,7 +51,6 @@ export class Occupations {
         this.CITY_5,
     ];
 
-    private onOccupantDie: trigger = CreateTrigger();
     private callToAid: HitCallback;
 
     public static getInstance() {
@@ -160,29 +153,6 @@ export class Occupations {
             return Forces.FORCE_2;
         }
         return Forces.FORCE_BANDIT;
-    }
-
-    private onHallUnitDie(dyingUnit: unit, killingUnit: unit) {
-        xpcall(() => {
-            for (let i = 0; i < this.allOccupants.length; i++) {
-                let value = this.allOccupants[i];
-                if (value.keepUnit == dyingUnit) {
-                    let newForce = this.getForceByPlayer(GetOwningPlayer(killingUnit));
-                    value.owner = newForce;
-
-                    let newPlayer = this.getHallPlayerByForce(newForce);
-                    let newUnitType = this.getHallByForce(newForce);
-                    let where = Point.fromLocationClean(GetUnitLoc(dyingUnit));
-
-                    let building = CreateUnit(newPlayer, newUnitType, where.x, where.y, bj_UNIT_FACING);
-                    value.keepUnit = building;
-
-                    SetWidgetLife(building, 25);
-
-                    Logger.generic("Finished starting a new town hall.");
-                }
-            }
-        }, Logger.critical);
     }
 
     private onCallToAid(hitObject: DamageHitContainer) {

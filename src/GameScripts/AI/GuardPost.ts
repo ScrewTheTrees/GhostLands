@@ -1,6 +1,6 @@
 import {Point} from "../../TreeLib/Utility/Point";
 import {UnitClass} from "../Enums/UnitClass";
-import {Guard} from "../AI/Guard";
+import {Guard} from "./Guard";
 
 export class GuardPost {
     public point: Point;

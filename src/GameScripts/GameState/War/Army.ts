@@ -6,7 +6,7 @@ import {UnitQueue} from "../../../TreeLib/ActionQueue/Queues/UnitQueue";
 import {ActionQueue} from "../../../TreeLib/ActionQueue/ActionQueue";
 import {Delay} from "../../../TreeLib/Utility/Delay";
 import {UnitActionExecuteCode} from "../../../TreeLib/ActionQueue/Actions/UnitActionExecuteCode";
-import {PathManager} from "../../AI/PathManager";
+import {PathManager} from "../../PathManager";
 import {UnitClass} from "../../Enums/UnitClass";
 import {Quick} from "../../../TreeLib/Quick";
 
@@ -107,7 +107,7 @@ export class Army {
 
             ActionQueue.enableQueue(queue);
 
-        }, 0.5);
+        }, 1);
     }
 
     public isArmyDead(): boolean {
@@ -115,6 +115,9 @@ export class Army {
             let unit = this.units[i];
             if (!unit.isDead()) {
                 return false;
+            } else {
+                Quick.Splice(this.units, i);
+                i -= 1;
             }
         }
         return true;
