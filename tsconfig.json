@@ -1,9 +1,8 @@
 {
   "compilerOptions": {
     "allowJs": false,
-    "strict": true,
     "strictNullChecks": true,
-    "alwaysStrict": true,
+    "strictFunctionTypes": true,
     "sourceMap": false,
     "target": "es6",
     "moduleResolution": "classic",

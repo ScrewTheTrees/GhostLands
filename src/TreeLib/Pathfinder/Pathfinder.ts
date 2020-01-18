@@ -35,7 +35,7 @@ export class Pathfinder {
         this.frontier.push(startNode, startNode.costSoFar + startNode.cost);
         startNode.cameFrom = null;
         startNode.costSoFar = this.distanceBetweenNodes(startNode, endNode) * startNode.cost;
-        let finalNode = null;
+        let finalNode: Node | null = null;
         let highest = 0;
         let opCount = 0;
 

@@ -66,6 +66,27 @@ export class PlayerManager {
         }
     }
 
+    public isPlayerAnActiveMinion(p: player) {
+        let pp = GetPlayerId(p);
+        for (let i = 0; i < this.allMinions.length; i++) {
+            let val = this.allMinions[i];
+            if (GetPlayerId(val) == pp) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public getForcesByPlayer(p: player): Forces {
+        if (this.team1Minions.indexOf(p) >= 0) {
+            return Forces.FORCE_1;
+        } else if (this.team2Minions.indexOf(p) >= 0) {
+            return Forces.FORCE_2;
+        }
+
+        return Forces.FORCE_BANDIT;
+    }
+
     private onPlayerLeave() {
         let p = GetTriggerPlayer();
         let index = this.team1Minions.indexOf(p);
@@ -82,15 +103,10 @@ export class PlayerManager {
         if (index >= 0) {
             this.allMinions.splice(index, 1);
         }
-    }
 
-    public getForcesByPlayer(p: player): Forces {
-        if (this.team1Minions.indexOf(p) >= 0) {
-            return Forces.FORCE_1;
-        } else if (this.team2Minions.indexOf(p) >= 0) {
-            return Forces.FORCE_2;
+        index = this.allPlayers.indexOf(p);
+        if (index >= 0) {
+            this.allPlayers.splice(index, 1);
         }
-
-        return Forces.FORCE_BANDIT;
     }
 }

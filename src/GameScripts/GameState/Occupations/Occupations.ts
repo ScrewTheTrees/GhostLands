@@ -3,7 +3,7 @@ import {Occupant} from "./Occupant";
 import {Forces} from "../../Enums/Forces";
 import {UnitClass} from "../../Enums/UnitClass";
 import {Point} from "../../../TreeLib/Utility/Point";
-import {Units} from "../../Enums/Units";
+import {PlayerUnits} from "../../Enums/PlayerUnits";
 import {PlayerManager} from "../../PlayerManager";
 import {DamageDetectionSystem} from "../../../TreeLib/DDS/DamageDetectionSystem";
 import {HitCallback} from "../../../TreeLib/DDS/HitCallback";
@@ -20,8 +20,16 @@ export class Occupations {
         this.callToAid = DamageDetectionSystem.getInstance().registerAfterDamageCalculation((hitObject) => {
             this.onCallToAid(hitObject);
         });
-        this.callToAid.addFilter(new DDSFilterTargetUnitTypes(FourCC(Units.HALL_FORCE_1), FourCC(Units.HALL_FORCE_2), FourCC(Units.HALL_FORCE_BANDITS)));
+        this.callToAid.addFilter(new DDSFilterTargetUnitTypes(FourCC(PlayerUnits.HALL_FORCE_1), FourCC(PlayerUnits.HALL_FORCE_2), FourCC(PlayerUnits.HALL_FORCE_BANDITS)));
         this.callToAid.addFilter(new DDSFilterIsEnemy());
+    }
+
+    public static getInstance() {
+        if (this.instance == null) {
+            this.instance = new Occupations();
+            Hooks.set("Occupations", this.instance);
+        }
+        return this.instance;
     }
 
     public CITY_1: Occupant = new Occupant(Forces.FORCE_BANDIT, "city1", "city1unitarea");
@@ -52,14 +60,6 @@ export class Occupations {
     ];
 
     private callToAid: HitCallback;
-
-    public static getInstance() {
-        if (this.instance == null) {
-            this.instance = new Occupations();
-            Hooks.set("Occupations", this.instance);
-        }
-        return this.instance;
-    }
 
     public getHallPlayerByForce(force: Forces): player {
         switch (force) {
@@ -119,11 +119,11 @@ export class Occupations {
     getHallByForce(force: Forces): number {
         switch (force) {
             case Forces.FORCE_1:
-                return FourCC(Units.HALL_FORCE_1);
+                return FourCC(PlayerUnits.HALL_FORCE_1);
             case Forces.FORCE_2:
-                return FourCC(Units.HALL_FORCE_2);
+                return FourCC(PlayerUnits.HALL_FORCE_2);
             case Forces.FORCE_BANDIT:
-                return FourCC(Units.HALL_FORCE_BANDITS);
+                return FourCC(PlayerUnits.HALL_FORCE_BANDITS);
         }
     }
 

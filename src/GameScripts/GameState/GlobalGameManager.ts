@@ -15,7 +15,7 @@ export class GlobalGameManager extends Entity {
     public static getInstance() {
         if (this.instance == null) {
             this.instance = new GlobalGameManager();
-            Hooks.set("GlobalStatus", this.instance);
+            Hooks.set("GlobalGameManager", this.instance);
         }
         return this.instance;
     }

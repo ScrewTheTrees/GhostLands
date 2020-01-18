@@ -69,9 +69,9 @@ export class Rectifier {
         let rects: NamedRect[] = [];
         this.rects.forEach((value) => {
             let compare = new Segment(ShitEx.separateNumbers(value.name));
-            if ((segment.segment1 == "" || segment.segment1 == compare.segment1)
-                && (segment.segment2 == "" || segment.segment2 == compare.segment2)
-                && (segment.segment3 == "" || segment.segment3 == compare.segment3)
+            if ((compare.segment1 == "" || segment.segment1 == compare.segment1)
+                && (compare.segment2 == "" || segment.segment2 == compare.segment2)
+                && (compare.segment3 == "" || segment.segment3 == compare.segment3)
                 && (segment.segment1Index == 0 || segment.segment1Index == compare.segment1Index)
                 && (segment.segment2Index == 0 || segment.segment2Index == compare.segment2Index)
                 && (segment.segment3Index == 0 || segment.segment3Index == compare.segment3Index)
@@ -83,12 +83,13 @@ export class Rectifier {
         return rects;
     }
 
-    public getBySegmentNames(segment1: string, segment2: string): NamedRect[] {
+    public getBySegmentNames(segment1: string = "", segment2: string = "", segment3 = ""): NamedRect[] {
         let rects: NamedRect[] = [];
         this.rects.forEach((value) => {
             let segment = new Segment(ShitEx.separateNumbers(value.name));
-            if (segment.segment1 == segment1
-                && segment.segment2 == segment2) {
+            if ((segment1 == "" || segment.segment1 == segment1)
+                && (segment2 == "" || segment.segment2 == segment2)
+                && (segment3 == "" || segment.segment3 == segment3)) {
                 //We are in!
                 Quick.Push(rects, value);
             }

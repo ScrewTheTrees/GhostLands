@@ -497,3 +497,9 @@ STRING 94
 Gives <A007,DataA10,.> additional armor to nearby friendly units.
 }
 
+STRING 95
+// Units: h003 (Forest Troll), EditorSuffix (Name - Editor Suffix)
+{
+(Player)
+}
+

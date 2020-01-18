@@ -1,4 +1,4 @@
-export const enum Units {
+export const enum PlayerUnits {
     HERO_GRAND_GENERAL = "H000",
 
 

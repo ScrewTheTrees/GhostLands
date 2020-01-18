@@ -6,6 +6,15 @@ import {Occupations} from "./Occupations";
 
 export class OccupationBaseSpawner {
     private static instance: OccupationBaseSpawner;
+
+    public static getInstance() {
+        if (this.instance == null) {
+            this.instance = new OccupationBaseSpawner();
+            Hooks.set("OccupationBaseSpawner", this.instance);
+        }
+        return this.instance;
+    }
+
     private onOccupantDie: trigger = CreateTrigger();
 
     constructor() {
@@ -14,14 +23,6 @@ export class OccupationBaseSpawner {
         }
         TriggerAddAction(this.onOccupantDie, () => this.onHallUnitDie(GetDyingUnit(), GetKillingUnit()));
         this.createInitialUnits();
-    }
-
-    public static getInstance() {
-        if (this.instance == null) {
-            this.instance = new OccupationBaseSpawner();
-            Hooks.set("OccupationBaseSpawner", this.instance);
-        }
-        return this.instance;
     }
 
     private createInitialUnits() {

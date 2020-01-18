@@ -549,7 +549,11 @@ gg_rct_city2unitarea = nil
 gg_rct_city3unitarea = nil
 gg_rct_city4unitarea = nil
 gg_rct_city5unitarea = nil
+gg_rct_force2base1unitarea = nil
+gg_rct_creepcamp1murloc = nil
 gg_trg_Untitled_Trigger_001 = nil
+gg_rct_creepcamp2murloc = nil
+gg_rct_creepcamp1forest_troll = nil
 function InitGlobals()
 end
 
@@ -801,6 +805,29 @@ function CreateUnitsForPlayer21()
     u = CreateUnit(p, FourCC("h004"), 26588.3, -26672.3, 138.185)
 end
 
+function CreateNeutralHostile()
+    local p = Player(PLAYER_NEUTRAL_AGGRESSIVE)
+    local u
+    local unitID
+    local t
+    local life
+    u = CreateUnit(p, FourCC("n002"), -1156.0, 7569.2, -54.523)
+    u = CreateUnit(p, FourCC("n001"), -1037.3, 7278.8, 102.631)
+    u = CreateUnit(p, FourCC("n003"), -861.7, 7384.0, 160.752)
+    u = CreateUnit(p, FourCC("n004"), -971.0, 7532.2, 214.296)
+    u = CreateUnit(p, FourCC("n000"), -1182.7, 7392.8, 32.380)
+    u = CreateUnit(p, FourCC("n002"), 5436.0, -3084.6, 305.477)
+    u = CreateUnit(p, FourCC("n001"), 5566.9, -3178.3, 102.631)
+    u = CreateUnit(p, FourCC("n003"), 5730.3, -3269.8, 97.822)
+    u = CreateUnit(p, FourCC("n004"), 5696.7, -3088.9, -89.601)
+    u = CreateUnit(p, FourCC("n000"), 5409.3, -3260.9, 32.380)
+    u = CreateUnit(p, FourCC("n006"), 2413.1, 11578.2, -41.017)
+    u = CreateUnit(p, FourCC("n007"), 2570.6, 11658.0, 261.181)
+    u = CreateUnit(p, FourCC("n005"), 2670.5, 11478.8, 185.178)
+    u = CreateUnit(p, FourCC("n008"), 2577.6, 11286.2, 101.474)
+    u = CreateUnit(p, FourCC("n009"), 2413.0, 11381.4, 33.767)
+end
+
 function CreatePlayerBuildings()
 end
 
@@ -812,6 +839,7 @@ end
 
 function CreateAllUnits()
     CreatePlayerBuildings()
+    CreateNeutralHostile()
     CreatePlayerUnits()
 end
 
@@ -1308,7 +1336,7 @@ function CreateRegions()
     gg_rct_forestpath2waypoint51 = Rect(-9280.0, -27136.0, -8960.0, -26816.0)
     gg_rct_forestpath2waypoint52 = Rect(-9760.0, -28256.0, -9440.0, -27936.0)
     gg_rct_forestpath2waypoint53 = Rect(-8736.0, -28224.0, -8416.0, -27904.0)
-    gg_rct_forestpath1waypoint41 = Rect(-1440.0, 12032.0, -1120.0, 12352.0)
+    gg_rct_forestpath1waypoint41 = Rect(-1376.0, 12160.0, -1056.0, 12480.0)
     gg_rct_forestpath1waypoint42 = Rect(-1280.0, 13216.0, -960.0, 13536.0)
     gg_rct_forestpath1waypoint43 = Rect(-320.0, 12704.0, 0.0, 13024.0)
     gg_rct_forestpath2waypoint54 = Rect(4352.0, -11392.0, 4672.0, -11072.0)
@@ -1348,8 +1376,8 @@ function CreateRegions()
     gg_rct_warzone1force2 = Rect(-17440.0, 18272.0, -16128.0, 19520.0)
     gg_rct_warzone2force1 = Rect(15264.0, -17056.0, 16736.0, -15456.0)
     gg_rct_warzone2force2 = Rect(22656.0, -24736.0, 24032.0, -23424.0)
-    gg_rct_warzone3force1 = Rect(-6944.0, 7648.0, -5536.0, 9184.0)
-    gg_rct_warzone3force2 = Rect(-2464.0, 1344.0, -1248.0, 2688.0)
+    gg_rct_warzone3force1 = Rect(-6656.0, 7072.0, -5248.0, 8608.0)
+    gg_rct_warzone3force2 = Rect(-2656.0, 1888.0, -1440.0, 3232.0)
     gg_rct_warzone4force1 = Rect(64.0, -8192.0, 1216.0, -6944.0)
     gg_rct_warzone4force2 = Rect(5632.0, -9248.0, 6848.0, -7968.0)
     gg_rct_warzone5force1 = Rect(13888.0, 18048.0, 15264.0, 19488.0)
@@ -1359,7 +1387,7 @@ function CreateRegions()
     gg_rct_warzone6center = Rect(-18976.0, -19296.0, -17664.0, -17920.0)
     gg_rct_warzone2center = Rect(19200.0, -21152.0, 20544.0, -19808.0)
     gg_rct_warzone1center = Rect(-20064.0, 19872.0, -18912.0, 20928.0)
-    gg_rct_warzone3center = Rect(-4608.0, 4448.0, -3392.0, 5824.0)
+    gg_rct_warzone3center = Rect(-4544.0, 4512.0, -3392.0, 5728.0)
     gg_rct_warzone4center = Rect(2816.0, -8544.0, 4160.0, -7200.0)
     gg_rct_warzone5center = Rect(18400.0, 15488.0, 19744.0, 16832.0)
     gg_rct_force1base1unitarea = Rect(-30176.0, 24640.0, -24768.0, 29920.0)
@@ -1368,6 +1396,10 @@ function CreateRegions()
     gg_rct_city3unitarea = Rect(-2400.0, -3040.0, 3008.0, 2240.0)
     gg_rct_city4unitarea = Rect(-29184.0, -28928.0, -23776.0, -23648.0)
     gg_rct_city5unitarea = Rect(24224.0, 24416.0, 29632.0, 29696.0)
+    gg_rct_force2base1unitarea = Rect(24608.0, -30432.0, 30016.0, -25152.0)
+    gg_rct_creepcamp1murloc = Rect(-1312.0, 7136.0, -736.0, 7712.0)
+    gg_rct_creepcamp2murloc = Rect(5280.0, -3520.0, 5856.0, -2880.0)
+    gg_rct_creepcamp1forest_troll = Rect(2240.0, 11136.0, 2816.0, 11776.0)
 end
 
 function Trig_Untitled_Trigger_001_Actions()

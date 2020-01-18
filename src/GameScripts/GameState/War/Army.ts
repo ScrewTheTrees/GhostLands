@@ -91,7 +91,7 @@ export class Army {
         return this.sendSoldierToPoint(recruit, this.gathering.getRandomPoint());
     }
 
-    public sendSoldierToPoint(armySoldier: ArmySoldier, point: Point) {
+    public sendSoldierToPoint(armySoldier: ArmySoldier, point: Point, delay: number = 0.01) {
         point = point.copy();
         let path = this.pathManager.createPath(Point.fromWidget(armySoldier.soldier), point, this.forceData.force);
         //Prepare
@@ -107,7 +107,7 @@ export class Army {
 
             ActionQueue.enableQueue(queue);
 
-        }, 1);
+        }, delay);
     }
 
     public isArmyDead(): boolean {

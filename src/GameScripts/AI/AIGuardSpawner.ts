@@ -8,7 +8,7 @@ import {UnitActionExecuteCode} from "../../TreeLib/ActionQueue/Actions/UnitActio
 import {Delay} from "../../TreeLib/Utility/Delay";
 import {Occupations} from "../GameState/Occupations/Occupations";
 import {Occupant} from "../GameState/Occupations/Occupant";
-import {GetGuardTypeFromUnit, UnitClass} from "../Enums/UnitClass";
+import {GetDelayFromUnitClass, GetGuardTypeFromUnit, UnitClass} from "../Enums/UnitClass";
 import {Guard} from "./Guard";
 import {NamedRect} from "../RectControl/NamedRect";
 import {Quick} from "../../TreeLib/Quick";
@@ -41,30 +41,40 @@ export class AIGuardSpawner {
     }
 
     public performRevival(melee: number, ranged: number, caster: number, cavalry: number, artillery: number) {
-        Delay.addDelay(() => {
-            this.executeGuardSpawn(this.forceData.getUnitTypeOfUnitClass(UnitClass.MELEE), this.forceData.getRandomSpawnPoint());
-            this.executeGuardSpawn(this.forceData.getUnitTypeOfUnitClass(UnitClass.MELEE), this.forceData.getRandomSpawnPoint());
-        }, 1, math.ceil(melee / 2));
-        Delay.addDelay(() => {
-            this.executeGuardSpawn(this.forceData.getUnitTypeOfUnitClass(UnitClass.ARTILLERY), this.forceData.getRandomSpawnPoint());
-        }, 1, math.ceil(artillery));
+        if (melee > 0) {
+            Delay.addDelay(() => {
+                this.executeGuardSpawn(this.forceData.getUnitTypeOfUnitClass(UnitClass.MELEE), this.forceData.getRandomSpawnPoint());
+                this.executeGuardSpawn(this.forceData.getUnitTypeOfUnitClass(UnitClass.MELEE), this.forceData.getRandomSpawnPoint());
+            }, 1, math.ceil(melee / 2));
+        }
+        if (artillery > 0) {
+            Delay.addDelay(() => {
+                this.executeGuardSpawn(this.forceData.getUnitTypeOfUnitClass(UnitClass.ARTILLERY), this.forceData.getRandomSpawnPoint());
+            }, 1, math.ceil(artillery));
+        }
 
         Delay.addDelay(() => {
-            Delay.addDelay(() => {
-                this.executeGuardSpawn(this.forceData.getUnitTypeOfUnitClass(UnitClass.RANGED), this.forceData.getRandomSpawnPoint());
-                this.executeGuardSpawn(this.forceData.getUnitTypeOfUnitClass(UnitClass.RANGED), this.forceData.getRandomSpawnPoint());
-            }, 2, math.ceil(ranged / 2));
-            Delay.addDelay(() => {
-                this.executeGuardSpawn(this.forceData.getUnitTypeOfUnitClass(UnitClass.CASTER), this.forceData.getRandomSpawnPoint());
-                this.executeGuardSpawn(this.forceData.getUnitTypeOfUnitClass(UnitClass.CASTER), this.forceData.getRandomSpawnPoint());
-            }, 2, math.ceil(caster / 2));
-        }, 2.5);
+            if (ranged > 0) {
+                Delay.addDelay(() => {
+                    this.executeGuardSpawn(this.forceData.getUnitTypeOfUnitClass(UnitClass.RANGED), this.forceData.getRandomSpawnPoint());
+                    this.executeGuardSpawn(this.forceData.getUnitTypeOfUnitClass(UnitClass.RANGED), this.forceData.getRandomSpawnPoint());
+                }, 2, math.ceil(ranged / 2));
+            }
+            if (caster > 0) {
+                Delay.addDelay(() => {
+                    this.executeGuardSpawn(this.forceData.getUnitTypeOfUnitClass(UnitClass.CASTER), this.forceData.getRandomSpawnPoint());
+                    this.executeGuardSpawn(this.forceData.getUnitTypeOfUnitClass(UnitClass.CASTER), this.forceData.getRandomSpawnPoint());
+                }, 2, math.ceil(caster / 2));
+            }
+        }, GetDelayFromUnitClass(UnitClass.RANGED));
 
-        Delay.addDelay(() => {
+        if (cavalry > 0) {
             Delay.addDelay(() => {
-                this.executeGuardSpawn(this.forceData.getUnitTypeOfUnitClass(UnitClass.CAVALRY), this.forceData.getRandomSpawnPoint());
-            }, 1, math.ceil(cavalry));
-        }, 4.5)
+                Delay.addDelay(() => {
+                    this.executeGuardSpawn(this.forceData.getUnitTypeOfUnitClass(UnitClass.CAVALRY), this.forceData.getRandomSpawnPoint());
+                }, 1, math.ceil(cavalry));
+            }, GetDelayFromUnitClass(UnitClass.CAVALRY))
+        }
     }
 
     public executeGuardSpawn(unitType: number, spawnPoint: Point): Guard {
@@ -96,11 +106,13 @@ export class AIGuardSpawner {
             let guard = occupant.guardPosts[j];
             if (guard.needNewGuard()) {
                 let unit = this.popUnitByGuardType(guard.postType);
-                if (unit != null) {
-                    ActionQueue.getInstance().disableQueue(unit.currentQueue);
-                    guard.occupied = unit;
-                    this.sendRecruitToPoint(guard.occupied, guard.point);
-                }
+                Delay.addDelay(() => {
+                    if (unit != null) {
+                        ActionQueue.getInstance().disableQueue(unit.currentQueue);
+                        guard.occupied = unit;
+                        this.sendRecruitToPoint(guard.occupied, guard.point);
+                    }
+                }, GetDelayFromUnitClass(guard.postType));
             }
         }
     }

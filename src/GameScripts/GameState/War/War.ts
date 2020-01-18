@@ -14,6 +14,7 @@ import {UnitActionDeath} from "../../../TreeLib/ActionQueue/Actions/UnitActionDe
 import {UnitActionWaypoint} from "../../../TreeLib/ActionQueue/Actions/UnitActionWaypoint";
 import {Delay} from "../../../TreeLib/Utility/Delay";
 import {NamedRect} from "../../RectControl/NamedRect";
+import {GetDelayFromUnit} from "../../Enums/UnitClass";
 
 export class War extends Entity {
     public state: WarState = WarState.SETUP;
@@ -166,6 +167,8 @@ export class War extends Entity {
     public sendArmyToRectNoPath(army: Army, end: NamedRect) {
         for (let i = 0; i < army.units.length; i++) {
             let unit = army.units[i];
+            Delay.addDelay(() => {
+            }, GetDelayFromUnit(unit.soldier));
             unit.currentQueue.isFinished = true;
             ActionQueue.disableQueue(unit.currentQueue);
             unit.currentQueue = ActionQueue.createSimpleGuardPoint(unit.soldier, end.getRandomPoint());

@@ -1,4 +1,4 @@
-import {Units} from "./Units";
+import {PlayerUnits} from "./PlayerUnits";
 import {InverseFourCC} from "../../TreeLib/Misc";
 
 export const enum UnitClass {
@@ -33,21 +33,21 @@ export function GetUnitClassFromString(type: string): UnitClass {
 export function GetUnitClassFromUnitType(e: number): UnitClass {
     const u = InverseFourCC(e);
     switch (u) {
-        case Units.MELEE_SOLDIER:
+        case PlayerUnits.MELEE_SOLDIER:
             return UnitClass.MELEE;
 
-        case Units.RANGER_ARCHER:
-        case Units.RANGER_FOREST_TROLL:
+        case PlayerUnits.RANGER_ARCHER:
+        case PlayerUnits.RANGER_FOREST_TROLL:
             return UnitClass.RANGED;
 
-        case Units.CASTER_PRIEST:
-        case Units.CASTER_SORCERESS:
+        case PlayerUnits.CASTER_PRIEST:
+        case PlayerUnits.CASTER_SORCERESS:
             return UnitClass.CASTER;
 
-        case Units.CAVALRY_KNIGHT:
+        case PlayerUnits.CAVALRY_KNIGHT:
             return UnitClass.CAVALRY;
 
-        case Units.ARTILLERY_DEMOLISHER:
+        case PlayerUnits.ARTILLERY_DEMOLISHER:
             return UnitClass.ARTILLERY;
 
         default:
@@ -55,6 +55,28 @@ export function GetUnitClassFromUnitType(e: number): UnitClass {
     }
 }
 
+export function GetDelayFromUnitClass(type: UnitClass): number {
+    switch (type) {
+        case UnitClass.MELEE:
+            return 1;
+        case UnitClass.RANGED:
+            return 5;
+        case UnitClass.CASTER:
+            return 5;
+        case UnitClass.CAVALRY:
+            return 3;
+        case UnitClass.ARTILLERY:
+            return 8;
+
+        default:
+            return 0;
+    }
+}
+
 export function GetGuardTypeFromUnit(u: unit): UnitClass {
     return GetUnitClassFromUnitType(GetUnitTypeId(u));
+}
+
+export function GetDelayFromUnit(u: unit) {
+    return GetDelayFromUnitClass(GetUnitClassFromUnitType(GetUnitTypeId(u)))
 }

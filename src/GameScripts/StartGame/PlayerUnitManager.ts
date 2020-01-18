@@ -1,6 +1,6 @@
 import {Hooks} from "../../TreeLib/Hooks";
 import {PlayerManager} from "../PlayerManager";
-import {Units} from "../Enums/Units";
+import {PlayerUnits} from "../Enums/PlayerUnits";
 import {Delay} from "../../TreeLib/Utility/Delay";
 import {AIManager} from "../AI/AIManager";
 import {WaypointOrders} from "../../TreeLib/ActionQueue/Actions/WaypointOrders";
@@ -13,6 +13,8 @@ import {PathManager} from "../PathManager";
 import {Point} from "../../TreeLib/Utility/Point";
 import {ActionQueue} from "../../TreeLib/ActionQueue/ActionQueue";
 import {Entity} from "../../TreeLib/Entity";
+import {UnitActionWaypoint} from "../../TreeLib/ActionQueue/Actions/UnitActionWaypoint";
+import {Logger} from "../../TreeLib/Logger";
 
 export class PlayerUnitManager extends Entity {
     private static instance: PlayerUnitManager;
@@ -42,7 +44,7 @@ export class PlayerUnitManager extends Entity {
             let minion = this.playerManager.allMinions[i];
             let startX = GetPlayerStartLocationX(minion);
             let startY = GetPlayerStartLocationY(minion);
-            CreateUnit(minion, FourCC(Units.HERO_GRAND_GENERAL), startX, startY, 270);
+            CreateUnit(minion, FourCC(PlayerUnits.HERO_GRAND_GENERAL), startX, startY, 270);
             SetPlayerState(minion, PLAYER_STATE_RESOURCE_FOOD_CAP, 5);
 
             TriggerRegisterPlayerUnitEvent(this.respawnHeroes, minion, EVENT_PLAYER_UNIT_DEATH, null);
@@ -61,9 +63,9 @@ export class PlayerUnitManager extends Entity {
         TriggerAddAction(this.hiredUnits, () => {
             this.trigHireUnit();
         });
-        TriggerAddAction(this.onRouteOrderedUnits, () => {
+        TriggerAddAction(this.onRouteOrderedUnits, () => xpcall(() => {
             this.trigOrderedUnit();
-        });
+        }, Logger.critical));
     }
 
     step() {
@@ -103,7 +105,7 @@ export class PlayerUnitManager extends Entity {
         const forces = PlayerManager.getInstance().getForcesByPlayer(GetOwningPlayer(soldUnit));
         SetUnitPositionLoc(soldUnit, AIManager.getInstance().getDataByPlayer(forces).getRandomSpawnPoint().toLocationClean());
 
-        const path = PathManager.getInstance().createPath(Point.fromWidget(soldUnit), Point.fromWidget(sellingUnit), forces);
+        const path = PathManager.getInstance().createPath(Point.fromWidget(soldUnit), Point.fromWidget(sellingUnit), forces, WaypointOrders.move);
         const queue = ActionQueue.createUnitQueue(soldUnit, ...path);
 
         Quick.Push(this.onRouteUnits, new OnRouteUnit(soldUnit, queue));
@@ -111,10 +113,35 @@ export class PlayerUnitManager extends Entity {
 
     private trigOrderedUnit() {
         let ordered = GetOrderedUnit();
-        let order = GetIssuedOrderId();
-        if (order != OrderId(WaypointOrders.attack) && order != OrderId("stop")) {
-            this.removeRouteUnit(ordered);
+
+        switch (GetHandleId(GetTriggerEventId())) {
+            case GetHandleId(EVENT_PLAYER_UNIT_ISSUED_TARGET_ORDER):
+            case GetHandleId(EVENT_PLAYER_UNIT_ISSUED_UNIT_ORDER):
+                this.removeRouteUnit(ordered);
+                break;
+            case GetHandleId(EVENT_PLAYER_UNIT_ISSUED_POINT_ORDER):
+                let onRouteUnit = this.getOnRouteUnit(ordered);
+                if (onRouteUnit != null) {
+                    //Gotta wrap in XP call for safety
+                    xpcall(() => {
+                        let waypoint: UnitActionWaypoint = <UnitActionWaypoint>onRouteUnit?.queue.allActions[onRouteUnit.queue.currentActionIndex];
+                        if (waypoint != null && waypoint.toPoint.distanceTo(Point.fromLocationClean(GetOrderPointLoc())) > 5) {
+                            this.removeRouteUnit(ordered);
+                        }
+                    }, () => null);
+                }
+                break;
         }
+    }
+
+    private getOnRouteUnit(u: unit) {
+        for (let i = 0; i < this.onRouteUnits.length; i++) {
+            let value = this.onRouteUnits[i];
+            if (value.target == u) {
+                return value;
+            }
+        }
+        return null;
     }
 
     private removeRouteUnit(target: unit) {
@@ -125,7 +152,6 @@ export class PlayerUnitManager extends Entity {
                 routeUnit.queue.isFinished = true;
                 ActionQueue.disableQueue(routeUnit.queue);
                 Quick.Splice(this.onRouteUnits, i);
-                print("RouteUnit has been removed.");
                 return;
             }
         }
@@ -134,6 +160,7 @@ export class PlayerUnitManager extends Entity {
 
 export class OnRouteUnit {
     constructor(public target: unit, public queue: UnitQueue) {
+
     }
 
     public isGone() {

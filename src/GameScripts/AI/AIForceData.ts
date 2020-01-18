@@ -1,7 +1,7 @@
 import {Point} from "../../TreeLib/Utility/Point";
 import {Forces} from "../Enums/Forces";
 import {SpawnWeight} from "./SpawnWeight";
-import {Units} from "../Enums/Units";
+import {PlayerUnits} from "../Enums/PlayerUnits";
 import {UnitClass} from "../Enums/UnitClass";
 import {Logger} from "../../TreeLib/Logger";
 
@@ -12,13 +12,13 @@ export class AIForceData {
     public aiPlayerExtra: player;
     public force: Forces;
 
-    public meleeUnits = new SpawnWeight<string>(Units.MELEE_SOLDIER);
-    public rangedUnits = new SpawnWeight<string>(Units.RANGER_ARCHER);
-    public casterUnits = new SpawnWeight<string>(Units.CASTER_PRIEST);
-    public cavalryUnits = new SpawnWeight<string>(Units.CAVALRY_KNIGHT);
-    public artilleryUnits = new SpawnWeight<string>(Units.ARTILLERY_DEMOLISHER);
+    public meleeUnits = new SpawnWeight<string>(PlayerUnits.MELEE_SOLDIER);
+    public rangedUnits = new SpawnWeight<string>(PlayerUnits.RANGER_ARCHER);
+    public casterUnits = new SpawnWeight<string>(PlayerUnits.CASTER_PRIEST);
+    public cavalryUnits = new SpawnWeight<string>(PlayerUnits.CAVALRY_KNIGHT);
+    public artilleryUnits = new SpawnWeight<string>(PlayerUnits.ARTILLERY_DEMOLISHER);
 
-    public amountOfMelee: number = 20;
+    public amountOfMelee: number = 14;
     public amountOfRanged: number = 8;
     public amountOfCasters: number = 4;
     public amountOfCavalry: number = 3;
@@ -31,8 +31,8 @@ export class AIForceData {
         this.aiPlayerExtra = aiPlayerExtra;
         this.force = force;
 
-        this.rangedUnits.add(Units.RANGER_FOREST_TROLL, 20);
-        this.casterUnits.add(Units.CASTER_SORCERESS, 50);
+        this.rangedUnits.add(PlayerUnits.RANGER_FOREST_TROLL, 20);
+        this.casterUnits.add(PlayerUnits.CASTER_SORCERESS, 50);
     }
 
 
