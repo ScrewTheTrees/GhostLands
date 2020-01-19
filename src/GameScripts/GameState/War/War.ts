@@ -124,6 +124,9 @@ export class War extends Entity {
                 }
                 if (this.siegeTimer <= 0) {
                     Logger.warning("Siege has been running for longer than 300, might want to check that.");
+                    Logger.warning("Army 1 Len: ", this.targets.armies.force1?.units.length);
+                    Logger.warning("Army 2 Len: ", this.targets.armies.force2?.units.length);
+
                     this.endWar(); // Sad ending
                 }
             }

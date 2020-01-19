@@ -30,9 +30,6 @@ export class AIForceData {
         this.aiPlayerArmy = aiPlayerArmy;
         this.aiPlayerExtra = aiPlayerExtra;
         this.force = force;
-
-        this.rangedUnits.add(PlayerUnits.RANGER_FOREST_TROLL, 20);
-        this.casterUnits.add(PlayerUnits.CASTER_SORCERESS, 50);
     }
 
 

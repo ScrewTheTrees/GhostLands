@@ -1,4 +1,6 @@
 import {Game} from "./Game";
+import {ConfigContainer} from "./config/ConfigContainer";
+import {Hooks} from "./TreeLib/Hooks";
 
 let gg_trg_Start: trigger;
 let gameInstance: Game;
@@ -9,6 +11,7 @@ function MapStart() {
     }, print);
 
     DestroyTrigger(gg_trg_Start);
+    delete _G["gg_trg_Start"];
 }
 
 function NewMain() {
@@ -17,9 +20,10 @@ function NewMain() {
     TriggerAddAction(gg_trg_Start, () => MapStart())
 }
 
+function NewConfig() {
+    ConfigContainer();
+}
 
-_G.__oldMain = _G.main;
-_G.main = () => {
-    _G.__oldMain();
-    NewMain();
-};
+
+_G.main = Hooks.bind(_G.main, NewMain);
+_G.config = Hooks.bind(_G.config, NewConfig);

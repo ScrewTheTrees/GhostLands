@@ -8,4 +8,16 @@ export namespace Quick {
     export function Push<T>(arr: T[], value: T) {
         arr[arr.length] = value;
     }
+
+    export function groupToUnitArray(g: group): unit[] {
+        let units = [];
+        let val = FirstOfGroup(g);
+        while (val != null) {
+            Push(units, val);
+            GroupRemoveUnit(g, val);
+            val = FirstOfGroup(g);
+        }
+
+        return units;
+    }
 }

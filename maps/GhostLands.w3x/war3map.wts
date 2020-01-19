@@ -503,3 +503,45 @@ STRING 95
 (Player)
 }
 
+STRING 96
+// Units: h007 (Bandit), Name (Name)
+{
+Bandit
+}
+
+STRING 98
+// Units: h007 (Bandit), EditorSuffix (Name - Editor Suffix)
+{
+(Bandit)
+}
+
+STRING 99
+// Units: n00A (Assassin), EditorSuffix (Name - Editor Suffix)
+{
+(Bandit)
+}
+
+STRING 100
+// Units: n00B (Rogue Wizard), EditorSuffix (Name - Editor Suffix)
+{
+(Bandit)
+}
+
+STRING 101
+// Abilities: A008 (Frost Armor), EditorSuffix (Editor Suffix)
+{
+ (Autocast) (Rogue Wizard)
+}
+
+STRING 102
+// Units: n00A (Assassin), Name (Name)
+{
+Assassin
+}
+
+STRING 103
+// Abilities: A009 (Envenomed Weapons), EditorSuffix (Editor Suffix)
+{
+(Tier 1)
+}
+
