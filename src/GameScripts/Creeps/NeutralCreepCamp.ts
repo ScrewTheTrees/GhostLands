@@ -13,7 +13,8 @@ export class NeutralCreepCamp {
     public creeps: unit[];
     public noOfCreeps: number;
 
-    public secondTimer: number = 120;
+    public secondTimer: number = 60;
+    public secondTimerReset: number = 60;
 
     constructor(location: NamedRect, creeps: unit[], campType: CreepCampTypes, noOfCreeps: number) {
         this.location = location;
@@ -37,7 +38,7 @@ export class NeutralCreepCamp {
             Quick.Push(this.creeps, u);
         }
 
-        this.secondTimer = 120;
+        this.secondTimer = this.secondTimerReset;
     }
 
     public update() {
@@ -50,6 +51,7 @@ export class NeutralCreepCamp {
         }
         if (this.isCampDead()) {
             this.secondTimer -= 10;
+            print(this.secondTimer);
         }
     }
 }

@@ -942,7 +942,9 @@ declare function GetUnitsInRectMatching(r: rect, filter: boolexpr): group
 declare function GetUnitsInRectAll(r: rect): group
 declare function GetUnitsInRectOfPlayerFilter(): boolean
 declare function GetUnitsInRectOfPlayer(r: rect, whichPlayer: player): group
-declare function GetUnitsInRangeOfLocMatching(radius: number, whichLocation: location, filter: boolexpr): group
+
+declare function GetUnitsInRangeOfLocMatching(radius: number, whichLocation: location, filter: boolexpr | null): group
+
 declare function GetUnitsInRangeOfLocAll(radius: number, whichLocation: location): group
 declare function GetUnitsOfTypeIdAllFilter(): boolean
 declare function GetUnitsOfTypeIdAll(unitid: number): group

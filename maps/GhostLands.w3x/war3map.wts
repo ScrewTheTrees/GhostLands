@@ -365,12 +365,6 @@ STRING 72
 Learn |cffffcc00V|ranguard Aura - [|cffffcc00Level %d|r]
 }
 
-STRING 73
-// Abilities: A007 (Vanguard Aura), Researchubertip (Tooltip - Learn - Extended)
-{
-Gives additional armor to nearby friendly units. |n|n|cffffcc00Level 1|r - Increases base armor by <A007,DataA1,.>. |n|cffffcc00Level 2|r - Increases base armor by <A007,DataA2,.>. |n|cffffcc00Level 3|r - Increases base armor by <A007,DataA3,.>.
-}
-
 STRING 74
 // Abilities: A007 (Vanguard Aura), Ubertip (Tooltip - Normal - Extended)
 {
@@ -543,5 +537,256 @@ STRING 103
 // Abilities: A009 (Envenomed Weapons), EditorSuffix (Editor Suffix)
 {
 (Tier 1)
+}
+
+STRING 114
+// Abilities: A00A (Thunder Clap), Tip (Tooltip - Normal)
+{
+Thunder |cffffcc00C|rlap - [|cffffcc00Level 4|r]
+}
+
+STRING 115
+// Abilities: A00A (Thunder Clap), Tip (Tooltip - Normal)
+{
+Thunder |cffffcc00C|rlap - [|cffffcc00Level 5|r]
+}
+
+STRING 116
+// Abilities: A00A (Thunder Clap), Tip (Tooltip - Normal)
+{
+Thunder |cffffcc00C|rlap - [|cffffcc00Level 6|r]
+}
+
+STRING 117
+// Abilities: A00A (Thunder Clap), Tip (Tooltip - Normal)
+{
+Thunder |cffffcc00C|rlap - [|cffffcc00Level 7|r]
+}
+
+STRING 118
+// Abilities: A00A (Thunder Clap), Tip (Tooltip - Normal)
+{
+Thunder |cffffcc00C|rlap - [|cffffcc00Level 8|r]
+}
+
+STRING 119
+// Abilities: A00A (Thunder Clap), Tip (Tooltip - Normal)
+{
+Thunder |cffffcc00C|rlap - [|cffffcc00Level 9|r]
+}
+
+STRING 120
+// Abilities: A00A (Thunder Clap), Tip (Tooltip - Normal)
+{
+Thunder |cffffcc00C|rlap - [|cffffcc00Level 10|r]
+}
+
+STRING 121
+// Abilities: A00A (Thunder Clap), Ubertip (Tooltip - Normal - Extended)
+{
+Slams the ground, dealing <A00A,DataA3,.> damage to nearby enemy land units and slowing their movement and attack rate.
+}
+
+STRING 122
+// Abilities: A00A (Thunder Clap), Ubertip (Tooltip - Normal - Extended)
+{
+Slams the ground, dealing <A00A,DataA2,.> damage to nearby enemy land units and slowing their movement and attack rate.
+}
+
+STRING 123
+// Abilities: A00A (Thunder Clap), Ubertip (Tooltip - Normal - Extended)
+{
+Slams the ground, dealing <A00A,DataA1,.> damage to nearby enemy land units and slowing their movement and attack rate.
+}
+
+STRING 124
+// Abilities: A00A (Thunder Clap), Ubertip (Tooltip - Normal - Extended)
+{
+Slams the ground, dealing <A00A,DataA4,.> damage to nearby enemy land units and slowing their movement and attack rate.
+}
+
+STRING 125
+// Abilities: A00A (Thunder Clap), Ubertip (Tooltip - Normal - Extended)
+{
+Slams the ground, dealing <A00A,DataA5,.> damage to nearby enemy land units and slowing their movement and attack rate.
+}
+
+STRING 126
+// Abilities: A00A (Thunder Clap), Ubertip (Tooltip - Normal - Extended)
+{
+Slams the ground, dealing <A00A,DataA6,.> damage to nearby enemy land units and slowing their movement and attack rate.
+}
+
+STRING 127
+// Abilities: A00A (Thunder Clap), Ubertip (Tooltip - Normal - Extended)
+{
+Slams the ground, dealing <A00A,DataA7,.> damage to nearby enemy land units and slowing their movement and attack rate.
+}
+
+STRING 128
+// Abilities: A00A (Thunder Clap), Ubertip (Tooltip - Normal - Extended)
+{
+Slams the ground, dealing <A00A,DataA8,.> damage to nearby enemy land units and slowing their movement and attack rate.
+}
+
+STRING 129
+// Abilities: A00A (Thunder Clap), Ubertip (Tooltip - Normal - Extended)
+{
+Slams the ground, dealing <A00A,DataA9,.> damage to nearby enemy land units and slowing their movement and attack rate.
+}
+
+STRING 130
+// Abilities: A00A (Thunder Clap), Ubertip (Tooltip - Normal - Extended)
+{
+Slams the ground, dealing <A00A,DataA10,.> damage to nearby enemy land units and slowing their movement and attack rate.
+}
+
+STRING 132
+// Abilities: A007 (Vanguard Aura), Researchubertip (Tooltip - Learn - Extended)
+{
+Gives additional armor to nearby friendly units. |n|n|cffffcc00Armor per level|r - 10
+}
+
+STRING 133
+// Abilities: A007 (Vanguard Aura), EditorSuffix (Editor Suffix)
+{
+(Grand general)
+}
+
+STRING 134
+// Abilities: A00A (Thunder Clap), EditorSuffix (Editor Suffix)
+{
+(Grand general)
+}
+
+STRING 137
+// Units: n00C (Forest Troll Hut), EditorSuffix (Name - Editor Suffix)
+{
+(Size 5)
+}
+
+STRING 138
+// Units: n00D (Murloc Hut), EditorSuffix (Name - Editor Suffix)
+{
+(Size 5)
+}
+
+STRING 139
+// Units: n00G (Forest Troll Hut), EditorSuffix (Name - Editor Suffix)
+{
+(Size 3)
+}
+
+STRING 140
+// Units: n00H (Murloc Hut), EditorSuffix (Name - Editor Suffix)
+{
+(Size 3)
+}
+
+STRING 141
+// Abilities: A00B (Healing Salve), EditorSuffix (Editor Suffix)
+{
+(Tier 1)
+}
+
+STRING 142
+// Abilities: A00C (Lesser Clarity Potion), EditorSuffix (Editor Suffix)
+{
+(Tier 1)
+}
+
+STRING 143
+// Abilities: A00D (Item Area Healing), EditorSuffix (Editor Suffix)
+{
+(Tier 1)
+}
+
+STRING 144
+// Abilities: A00E (Scroll of Haste), EditorSuffix (Editor Suffix)
+{
+(Tier 1)
+}
+
+STRING 145
+// Abilities: A00F (Scroll of Regeneration), EditorSuffix (Editor Suffix)
+{
+(Tier 1)
+}
+
+STRING 146
+// Items: I000 (Healing Salve), Ubertip (Tooltip - Extended)
+{
+|cff87ceebNon-Combat Consumable|r|nRegenerates a target unit's hit points by <A00B,DataA1> over <A00B.Dur1> seconds when used. |nContains <hslv,uses> charges.
+}
+
+STRING 147
+// Items: I001 (Lesser Clarity Potion), Ubertip (Tooltip - Extended)
+{
+|cff87ceebNon-Combat Consumable|r|nRegenerates the Hero's mana by <A00Cl,DataB1> over <A00C,Dur1> seconds when used.
+}
+
+STRING 148
+// Items: I002 (Scroll of Speed), Ubertip (Tooltip - Extended)
+{
+Increases the movement speed of the Hero and nearby allied units to the maximum movement speed. |nLasts <A00E,Dur1> seconds.
+}
+
+STRING 149
+// Items: I003 (Scroll of Regeneration), Ubertip (Tooltip - Extended)
+{
+|cff87ceebNon-Combat Consumable|r|nRegenerates the hit points of all friendly non-mechanical units in an area around your Hero by <A00F,DataA1> over <A00F,Dur1> seconds when used.
+}
+
+STRING 150
+// Items: I004 (Scroll of Healing), Ubertip (Tooltip - Extended)
+{
+Heals <A00D,DataA1> hit points to all friendly non-mechanical units around the Hero when used.
+}
+
+STRING 151
+// Abilities: A00G (Cannibalize), EditorSuffix (Editor Suffix)
+{
+(Tier 1)
+}
+
+STRING 152
+// Abilities: A00G (Cannibalize), Ubertip (Tooltip - Normal - Extended)
+{
+Consumes a nearby corpse to heal <A00G,DataA1> hit points per second.
+}
+
+STRING 153
+// Units: n00I (Egg Sack), EditorSuffix (Name - Editor Suffix)
+{
+(Size 3)
+}
+
+STRING 154
+// Units: n00I (Egg Sack), Name (Name)
+{
+Egg Sack
+}
+
+STRING 155
+// Units: n00J (Egg Sack), EditorSuffix (Name - Editor Suffix)
+{
+(Size 5)
+}
+
+STRING 156
+// Units: n00J (Egg Sack), Name (Name)
+{
+Egg Sack
+}
+
+STRING 157
+// Abilities: A00A (Thunder Clap), Researchubertip (Tooltip - Learn - Extended)
+{
+Slams the ground, dealing damage to and slowing the movement speed and attack rate of nearby enemy land units. 
+
+|cffffcc00Starting damage|r - 20
+|cffffcc00Damage per level|r - 10
+|cffffcc00Starting Mana cost|r - 10
+|cffffcc00Mana cost per level|r - 5
 }
 

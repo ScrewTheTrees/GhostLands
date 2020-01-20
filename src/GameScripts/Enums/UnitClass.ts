@@ -60,13 +60,13 @@ export function GetDelayFromUnitClass(type: UnitClass): number {
         case UnitClass.MELEE:
             return 1;
         case UnitClass.RANGED:
-            return 5;
-        case UnitClass.CASTER:
-            return 5;
-        case UnitClass.CAVALRY:
             return 3;
+        case UnitClass.CASTER:
+            return 3;
+        case UnitClass.CAVALRY:
+            return 2;
         case UnitClass.ARTILLERY:
-            return 8;
+            return 4;
 
         default:
             return 0;

@@ -44,6 +44,8 @@ export class PlayerManager {
             this.team2MinionsAll.push(Player(i));
         }
 
+        SetPlayerState(Players.NEUTRAL_HOSTILE, PLAYER_STATE_GIVES_BOUNTY, 0);
+
         this.addActiveMinions(this.team1MinionsAll, this.team1Minions);
         this.addActiveMinions(this.team2MinionsAll, this.team2Minions);
 
