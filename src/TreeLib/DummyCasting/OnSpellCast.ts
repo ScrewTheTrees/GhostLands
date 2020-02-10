@@ -21,7 +21,7 @@ export class OnSpellCast {
     public static getInstance() {
         if (this.instance == null) {
             this.instance = new OnSpellCast();
-            Hooks.set("CastReplacer", this.instance);
+            Hooks.set(this.name, this.instance);
         }
         return this.instance;
     }

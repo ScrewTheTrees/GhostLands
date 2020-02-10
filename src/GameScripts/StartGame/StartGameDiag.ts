@@ -10,7 +10,7 @@ export class StartGameDiag {
     public static getInstance() {
         if (this.instance == null) {
             this.instance = new StartGameDiag();
-            Hooks.set("StartGameDiag", this.instance);
+            Hooks.set(this.name, this.instance);
         }
         return this.instance;
     }

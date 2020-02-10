@@ -27,7 +27,7 @@ export class Occupations {
     public static getInstance() {
         if (this.instance == null) {
             this.instance = new Occupations();
-            Hooks.set("Occupations", this.instance);
+            Hooks.set(this.name, this.instance);
         }
         return this.instance;
     }
@@ -78,19 +78,18 @@ export class Occupations {
     }
 
     public getNeededGuardsByForce(force: Forces, guardType: UnitClass): number {
-        let occu = this.getAllOccupants();
+        let occu = this.getTownsOwnedBy(force);
         let count = 0;
         for (let i = 0; i < occu.length; i++) {
             let occupant = occu[i];
-            if (occupant.owner == force) {
-                for (let j = 0; j < occupant.guardPosts.length; j++) {
-                    let post = occupant.guardPosts[j];
-                    if (post.postType == guardType && post.needNewGuard()) {
-                        count += 1;
-                    }
+            for (let j = 0; j < occupant.guardPosts.length; j++) {
+                let post = occupant.guardPosts[j];
+                if (post.postType == guardType && post.needNewGuard()) {
+                    count += 1;
                 }
             }
         }
+        if (force == Forces.FORCE_1) print(force, "count: ", count, " -> ", guardType);
         return count;
     }
 

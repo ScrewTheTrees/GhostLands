@@ -92,12 +92,10 @@ export class AIGuardSpawner {
     }
 
     public replenishTroopsInAllCities() {
-        let occupants = this.occupations.getAllOccupants();
+        let occupants = this.occupations.getTownsOwnedBy(this.forceData.force);
         for (let i = 0; i < occupants.length; i++) {
             let occupant = occupants[i];
-            if (occupant.owner == this.forceData.force) {
-                this.replenishTroopsInCity(occupant);
-            }
+            this.replenishTroopsInCity(occupant);
         }
     }
 

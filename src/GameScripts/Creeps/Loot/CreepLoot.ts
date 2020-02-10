@@ -16,7 +16,7 @@ export class CreepLoot {
     public static getInstance() {
         if (this.instance == null) {
             this.instance = new CreepLoot();
-            Hooks.set("CreepLoot", this.instance);
+            Hooks.set(this.name, this.instance);
         }
         return this.instance;
     }
@@ -26,7 +26,7 @@ export class CreepLoot {
         let level = GetUnitLevel(dying);
         let position = Point.fromWidget(dying);
 
-        let chance = GetRandomInt(0, 100);
+        let chance = GetRandomReal(0, 100);
 
         if (chance > 80) {
             CreateItem(CreepLootTable.getTableByLevel(level).getRandomAsId(), position.x, position.y);

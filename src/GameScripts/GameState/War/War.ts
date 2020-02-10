@@ -15,6 +15,7 @@ import {UnitActionWaypoint} from "../../../TreeLib/ActionQueue/Actions/UnitActio
 import {Delay} from "../../../TreeLib/Utility/Delay";
 import {NamedRect} from "../../RectControl/NamedRect";
 import {GetDelayFromUnit} from "../../Enums/UnitClass";
+import {Songs} from "../../flavor/Songs";
 
 export class War extends Entity {
     public state: WarState = WarState.SETUP;
@@ -138,25 +139,6 @@ export class War extends Entity {
 
     }
 
-    public startSiege(targets: WarContainer) {
-        if (!targets.armies.force1 || !targets.armies.force2) {
-            Logger.critical("One of the armies is undefined, it should never be undefined.");
-            return;
-        }
-
-        let targetf1 = this.resolveSiegeTarget(targets, targets.targets.force1, Forces.FORCE_1);
-        let targetf2 = this.resolveSiegeTarget(targets, targets.targets.force2, Forces.FORCE_2);
-
-        if (!targets.armies.force1.isArmyDead()) {
-            Logger.generic("F1 army is alive");
-            this.sendArmyToRect(targets.armies.force1, targetf1.force2Occupant.primaryRect);
-        }
-        if (!targets.armies.force2.isArmyDead()) {
-            Logger.generic("F2 army is alive");
-            this.sendArmyToRect(targets.armies.force2, targetf2.force1Occupant.primaryRect);
-        }
-    }
-
     public sendArmyToRect(army: Army, end: NamedRect) {
         for (let i = 0; i < army.units.length; i++) {
             let unit = army.units[i];
@@ -197,6 +179,8 @@ export class War extends Entity {
                 }
             }
         }, 180);
+
+        Songs.getInstance().resetBackgroundOst();
     }
 
     private disbandArmy(army: Army) {
@@ -220,6 +204,27 @@ export class War extends Entity {
         return target;
     }
 
+    private startSiege(targets: WarContainer) {
+        if (!targets.armies.force1 || !targets.armies.force2) {
+            Logger.critical("One of the armies is undefined, it should never be undefined.");
+            return;
+        }
+
+        let targetf1 = this.resolveSiegeTarget(targets, targets.targets.force1, Forces.FORCE_1);
+        let targetf2 = this.resolveSiegeTarget(targets, targets.targets.force2, Forces.FORCE_2);
+
+        if (!targets.armies.force1.isArmyDead()) {
+            Logger.generic("F1 army is alive");
+            this.sendArmyToRect(targets.armies.force1, targetf1.force2Occupant.primaryRect);
+        }
+        if (!targets.armies.force2.isArmyDead()) {
+            Logger.generic("F2 army is alive");
+            this.sendArmyToRect(targets.armies.force2, targetf2.force1Occupant.primaryRect);
+        }
+
+        Songs.getInstance().setBackgroundOst(Songs.getInstance().OST_COUNTDOWN_SIEGE);
+    }
+
     private startClash(targets: WarContainer) {
         if (!targets.armies.force1 || !targets.armies.force2) {
             Logger.critical("One of the armies is undefined, it should never be undefined.");
@@ -235,6 +240,8 @@ export class War extends Entity {
         } else {
             Logger.critical("There is no selected battlefield, if there is clashing there must be one.");
         }
+
+        Songs.getInstance().setBackgroundOst(Songs.getInstance().OST_COUNTDOWN_WAR);
     }
 
     private finishClash(targets: WarContainer, winner: Forces) {
@@ -254,6 +261,7 @@ export class War extends Entity {
             }
         }
 
+        Songs.getInstance().resetBackgroundOst();
         this.state = WarState.PREPARE_FOR_SIEGE;
     }
 

@@ -14,7 +14,7 @@ export class GameContainer {
     public static getInstance() {
         if (this.instance == null) {
             this.instance = new GameContainer();
-            Hooks.set("GameContainer", this.instance);
+            Hooks.set(this.name, this.instance);
         }
         return this.instance;
     }

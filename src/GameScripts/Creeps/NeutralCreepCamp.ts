@@ -30,7 +30,7 @@ export class NeutralCreepCamp {
     }
 
     public respawn() {
-        let num = GetRandomInt(this.noOfCreeps - 1, this.noOfCreeps + 1);
+        let num = GetRandomInt(this.noOfCreeps, this.noOfCreeps + 1);
 
         for (let i = 0; i < num; i++) {
             let point = this.location.getRandomPoint();

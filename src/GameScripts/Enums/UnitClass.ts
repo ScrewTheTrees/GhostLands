@@ -34,14 +34,17 @@ export function GetUnitClassFromUnitType(e: number): UnitClass {
     const u = InverseFourCC(e);
     switch (u) {
         case PlayerUnits.MELEE_SOLDIER:
+        case PlayerUnits.BANDIT_MELEE:
             return UnitClass.MELEE;
 
         case PlayerUnits.RANGER_ARCHER:
         case PlayerUnits.RANGER_FOREST_TROLL:
+        case PlayerUnits.BANDIT_ASSASSIN:
             return UnitClass.RANGED;
 
         case PlayerUnits.CASTER_PRIEST:
         case PlayerUnits.CASTER_SORCERESS:
+        case PlayerUnits.BANDIT_ROUGE_WIZARD:
             return UnitClass.CASTER;
 
         case PlayerUnits.CAVALRY_KNIGHT:

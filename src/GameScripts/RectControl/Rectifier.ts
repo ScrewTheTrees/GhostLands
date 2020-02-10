@@ -10,7 +10,7 @@ export class Rectifier {
     public static getInstance() {
         if (this.instance == null) {
             this.instance = new Rectifier();
-            Hooks.set("Rectifier", this.instance);
+            Hooks.set(this.name, this.instance);
         }
         return this.instance;
     }

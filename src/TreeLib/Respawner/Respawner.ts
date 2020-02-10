@@ -11,7 +11,7 @@ export class Respawner extends Entity {
     public static getInstance() {
         if (this.instance == null) {
             this.instance = new Respawner();
-            Hooks.set("Respawner", this.instance);
+            Hooks.set(this.name, this.instance);
         }
         return this.instance;
     }

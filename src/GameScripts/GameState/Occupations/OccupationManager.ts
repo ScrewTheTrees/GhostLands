@@ -10,7 +10,7 @@ export class OccupationManager {
     public static getInstance() {
         if (this.instance == null) {
             this.instance = new OccupationManager();
-            Hooks.set("OccupationManager", this.instance);
+            Hooks.set(this.name, this.instance);
         }
         return this.instance;
     }

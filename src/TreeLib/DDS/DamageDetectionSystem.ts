@@ -15,7 +15,7 @@ export class DamageDetectionSystem {
     public static getInstance() {
         if (this.instance == null) {
             this.instance = new DamageDetectionSystem();
-            Hooks.set("DamageDetectionSystem", this.instance);
+            Hooks.set(this.name, this.instance);
         }
         return this.instance;
     }

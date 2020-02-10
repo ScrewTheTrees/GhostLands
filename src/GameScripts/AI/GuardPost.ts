@@ -17,6 +17,6 @@ export class GuardPost {
     }
 
     public needNewGuard(): boolean {
-        return (this.occupied == undefined || this.occupied.hasDespawned());
+        return (this.occupied == undefined || this.occupied.hasDespawned() || this.occupied.isDead());
     }
 }

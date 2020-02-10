@@ -12,7 +12,7 @@ export class Delay extends Entity {
     public static getInstance() {
         if (this.instance == null) {
             this.instance = new Delay();
-            Hooks.set("Delay", this.instance);
+            Hooks.set(this.name, this.instance);
         }
         return this.instance;
     }

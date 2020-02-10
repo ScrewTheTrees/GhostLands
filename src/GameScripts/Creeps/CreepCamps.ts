@@ -20,16 +20,19 @@ export class CreepCamps extends Entity {
         this._timerDelay = 10;
         this.spawnCamp(CampBuilding.FOREST_TROLL_HUT_SIZE_3, CreepCampTypes.FOREST_TROLL, 3);
         this.spawnCamp(CampBuilding.FOREST_TROLL_HUT_SIZE_5, CreepCampTypes.FOREST_TROLL, 5);
+        this.spawnCamp(CampBuilding.FOREST_TROLL_HUT_SIZE_8, CreepCampTypes.FOREST_TROLL, 8);
         this.spawnCamp(CampBuilding.MURLOC_HUT_SIZE_3, CreepCampTypes.MURLOC, 3);
         this.spawnCamp(CampBuilding.MURLOC_HUT_SIZE_5, CreepCampTypes.MURLOC, 5);
+        this.spawnCamp(CampBuilding.MURLOC_HUT_SIZE_8, CreepCampTypes.MURLOC, 8);
         this.spawnCamp(CampBuilding.EGG_SACK_SIZE_3, CreepCampTypes.SPIDER, 3);
         this.spawnCamp(CampBuilding.EGG_SACK_SIZE_5, CreepCampTypes.SPIDER, 5);
+        this.spawnCamp(CampBuilding.EGG_SACK_SIZE_8, CreepCampTypes.SPIDER, 8);
     }
 
     public static getInstance() {
         if (this.instance == null) {
             this.instance = new CreepCamps();
-            Hooks.set("CreepCamps", this.instance);
+            Hooks.set(this.name, this.instance);
         }
         return this.instance;
     }

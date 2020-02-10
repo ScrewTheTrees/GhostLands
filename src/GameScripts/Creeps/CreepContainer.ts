@@ -10,7 +10,7 @@ export class CreepContainer {
     public static getInstance() {
         if (this.instance == null) {
             this.instance = new CreepContainer();
-            Hooks.set("CreepManager", this.instance);
+            Hooks.set(this.name, this.instance);
         }
         return this.instance;
     }

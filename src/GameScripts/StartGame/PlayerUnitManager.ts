@@ -34,7 +34,7 @@ export class PlayerUnitManager extends Entity {
     public static getInstance() {
         if (this.instance == null) {
             this.instance = new PlayerUnitManager();
-            Hooks.set("PlayerUnitManager", this.instance);
+            Hooks.set(this.name, this.instance);
         }
         return this.instance;
     }

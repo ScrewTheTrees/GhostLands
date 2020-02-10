@@ -174,18 +174,6 @@ STRING 35
 G
 }
 
-STRING 36
-// Abilities: A000 (Defend), EditorSuffix (Editor Suffix)
-{
-(Footman)
-}
-
-STRING 37
-// Abilities: A001 (Frenzy), EditorSuffix (Editor Suffix)
-{
-(Archer)
-}
-
 STRING 38
 {
 Bandits
@@ -207,12 +195,6 @@ STRING 41
 // Abilities: A001 (Frenzy), Ubertip (Tooltip - Normal - Extended)
 {
 Increases the unit's attack rate and movement speed temporarily.
-}
-
-STRING 42
-// Abilities: A003 (Ensnare), EditorSuffix (Editor Suffix)
-{
-(Troll)
 }
 
 STRING 43
@@ -245,52 +227,10 @@ STRING 47
 Expert forest trappers throwing axes that deals normal damage instead of piercing. |n|n|cffffcc00Attacks land and air units.|r
 }
 
-STRING 48
-// Abilities: A004 (Ensnare), Tip (Tooltip - Normal)
-{
-Ensnare
-}
-
-STRING 49
-// Abilities: A004 (Ensnare), Hotkey (Hotkey - Normal)
-{
-E
-}
-
-STRING 50
-// Abilities: A004 (Ensnare), Unhotkey (Hotkey - Turn Off)
-{
-E
-}
-
-STRING 51
-// Abilities: A004 (Ensnare), Name (Name)
-{
-Ensnare
-}
-
-STRING 52
-// Abilities: A004 (Ensnare), Ubertip (Tooltip - Normal - Extended)
-{
-Causes a target unit to be bound to the ground so that it cannot move. Air units that are ensnared can be attacked as though they were land units
-}
-
-STRING 53
-// Abilities: A004 (Ensnare), EditorSuffix (Editor Suffix)
-{
-(Troll, Dummy)
-}
-
 STRING 54
 // Abilities: A005 (Heal), Ubertip (Tooltip - Normal - Extended)
 {
 Heals a target friendly non-mechanical wounded unit slightly.
-}
-
-STRING 55
-// Abilities: A005 (Heal), EditorSuffix (Editor Suffix)
-{
-(Priest)
 }
 
 STRING 56
@@ -309,12 +249,6 @@ STRING 59
 // Units: h004 (Priest), Hotkey (Hotkey)
 {
 P
-}
-
-STRING 64
-// Abilities: A006 (Slow), EditorSuffix (Editor Suffix)
-{
-(Sorceress)
 }
 
 STRING 65
@@ -339,12 +273,6 @@ STRING 68
 // Units: h005 (Sorceress), Hotkey (Hotkey)
 {
 S
-}
-
-STRING 69
-// Units: h004 (Priest), Ubertip (Tooltip - Extended)
-{
-Basic healer that can consistently heal. |n|n|cffffcc00Attacks land and air units.|r
 }
 
 STRING 70
@@ -521,12 +449,6 @@ STRING 100
 (Bandit)
 }
 
-STRING 101
-// Abilities: A008 (Frost Armor), EditorSuffix (Editor Suffix)
-{
- (Autocast) (Rogue Wizard)
-}
-
 STRING 102
 // Units: n00A (Assassin), Name (Name)
 {
@@ -534,51 +456,9 @@ Assassin
 }
 
 STRING 103
-// Abilities: A009 (Envenomed Weapons), EditorSuffix (Editor Suffix)
+// Abilities: A001 (Frenzy), EditorSuffix (Editor Suffix)
 {
 (Tier 1)
-}
-
-STRING 114
-// Abilities: A00A (Thunder Clap), Tip (Tooltip - Normal)
-{
-Thunder |cffffcc00C|rlap - [|cffffcc00Level 4|r]
-}
-
-STRING 115
-// Abilities: A00A (Thunder Clap), Tip (Tooltip - Normal)
-{
-Thunder |cffffcc00C|rlap - [|cffffcc00Level 5|r]
-}
-
-STRING 116
-// Abilities: A00A (Thunder Clap), Tip (Tooltip - Normal)
-{
-Thunder |cffffcc00C|rlap - [|cffffcc00Level 6|r]
-}
-
-STRING 117
-// Abilities: A00A (Thunder Clap), Tip (Tooltip - Normal)
-{
-Thunder |cffffcc00C|rlap - [|cffffcc00Level 7|r]
-}
-
-STRING 118
-// Abilities: A00A (Thunder Clap), Tip (Tooltip - Normal)
-{
-Thunder |cffffcc00C|rlap - [|cffffcc00Level 8|r]
-}
-
-STRING 119
-// Abilities: A00A (Thunder Clap), Tip (Tooltip - Normal)
-{
-Thunder |cffffcc00C|rlap - [|cffffcc00Level 9|r]
-}
-
-STRING 120
-// Abilities: A00A (Thunder Clap), Tip (Tooltip - Normal)
-{
-Thunder |cffffcc00C|rlap - [|cffffcc00Level 10|r]
 }
 
 STRING 121
@@ -684,51 +564,39 @@ STRING 140
 }
 
 STRING 141
-// Abilities: A00B (Healing Salve), EditorSuffix (Editor Suffix)
+// Abilities: A003 (Ensnare), EditorSuffix (Editor Suffix)
 {
 (Tier 1)
 }
 
 STRING 142
-// Abilities: A00C (Lesser Clarity Potion), EditorSuffix (Editor Suffix)
+// Abilities: A008 (Frost Armor), EditorSuffix (Editor Suffix)
 {
 (Tier 1)
 }
 
 STRING 143
-// Abilities: A00D (Item Area Healing), EditorSuffix (Editor Suffix)
+// Abilities: A009 (Envenomed Weapons), EditorSuffix (Editor Suffix)
 {
 (Tier 1)
 }
 
 STRING 144
-// Abilities: A00E (Scroll of Haste), EditorSuffix (Editor Suffix)
+// Abilities: A00B (Healing Salve), EditorSuffix (Editor Suffix)
 {
 (Tier 1)
 }
 
 STRING 145
-// Abilities: A00F (Scroll of Regeneration), EditorSuffix (Editor Suffix)
+// Abilities: A00C (Lesser Clarity Potion), EditorSuffix (Editor Suffix)
 {
 (Tier 1)
-}
-
-STRING 146
-// Items: I000 (Healing Salve), Ubertip (Tooltip - Extended)
-{
-|cff87ceebNon-Combat Consumable|r|nRegenerates a target unit's hit points by <A00B,DataA1> over <A00B.Dur1> seconds when used. |nContains <hslv,uses> charges.
 }
 
 STRING 147
 // Items: I001 (Lesser Clarity Potion), Ubertip (Tooltip - Extended)
 {
 |cff87ceebNon-Combat Consumable|r|nRegenerates the Hero's mana by <A00Cl,DataB1> over <A00C,Dur1> seconds when used.
-}
-
-STRING 148
-// Items: I002 (Scroll of Speed), Ubertip (Tooltip - Extended)
-{
-Increases the movement speed of the Hero and nearby allied units to the maximum movement speed. |nLasts <A00E,Dur1> seconds.
 }
 
 STRING 149
@@ -744,7 +612,7 @@ Heals <A00D,DataA1> hit points to all friendly non-mechanical units around the H
 }
 
 STRING 151
-// Abilities: A00G (Cannibalize), EditorSuffix (Editor Suffix)
+// Abilities: A00D (Item Area Healing), EditorSuffix (Editor Suffix)
 {
 (Tier 1)
 }
@@ -788,5 +656,144 @@ Slams the ground, dealing damage to and slowing the movement speed and attack ra
 |cffffcc00Damage per level|r - 10
 |cffffcc00Starting Mana cost|r - 10
 |cffffcc00Mana cost per level|r - 5
+}
+
+STRING 158
+// Abilities: A00A (Thunder Clap), Tip (Tooltip - Normal)
+{
+Thunder Clap - [|cffffcc00Level 4|r]
+}
+
+STRING 159
+// Abilities: A00A (Thunder Clap), Tip (Tooltip - Normal)
+{
+Thunder Clap - [|cffffcc00Level 5|r]
+}
+
+STRING 160
+// Abilities: A00A (Thunder Clap), Tip (Tooltip - Normal)
+{
+Thunder Clap - [|cffffcc00Level 6|r]
+}
+
+STRING 161
+// Abilities: A00A (Thunder Clap), Tip (Tooltip - Normal)
+{
+Thunder Clap - [|cffffcc00Level 7|r]
+}
+
+STRING 162
+// Abilities: A00A (Thunder Clap), Tip (Tooltip - Normal)
+{
+Thunder Clap - [|cffffcc00Level 8|r]
+}
+
+STRING 163
+// Abilities: A00A (Thunder Clap), Tip (Tooltip - Normal)
+{
+Thunder Clap - [|cffffcc00Level 9|r]
+}
+
+STRING 164
+// Abilities: A00A (Thunder Clap), Tip (Tooltip - Normal)
+{
+Thunder Clap - [|cffffcc00Level 10|r]
+}
+
+STRING 165
+// Abilities: A00H (Abolish Magic), Ubertip (Tooltip - Normal - Extended)
+{
+Dispels positive buffs from enemy units, and negative buffs from friendly units. |n|cffffcc00Deals <A00H,DataB1> damage to summoned units.|r
+}
+
+STRING 167
+// Units: h004 (Priest), Ubertip (Tooltip - Extended)
+{
+Basic healer that can consistently heal and cast abolish magic. |n|n|cffffcc00Attacks land and air units.|r
+}
+
+STRING 168
+// Abilities: A000 (Defend), EditorSuffix (Editor Suffix)
+{
+(Tier1)
+}
+
+STRING 169
+// Abilities: A005 (Heal), EditorSuffix (Editor Suffix)
+{
+(Tier1)
+}
+
+STRING 170
+// Abilities: A006 (Slow), EditorSuffix (Editor Suffix)
+{
+(Tier1)
+}
+
+STRING 171
+// Abilities: A00H (Abolish Magic), EditorSuffix (Editor Suffix)
+{
+(Tier1)
+}
+
+STRING 172
+// Abilities: A002 (Berserk), EditorSuffix (Editor Suffix)
+{
+(TESTING)
+}
+
+STRING 173
+// Abilities: A00E (Scroll of Haste), EditorSuffix (Editor Suffix)
+{
+(Tier 1)
+}
+
+STRING 174
+// Abilities: A00F (Scroll of Regeneration), EditorSuffix (Editor Suffix)
+{
+(Tier 1)
+}
+
+STRING 175
+// Abilities: A00G (Cannibalize), EditorSuffix (Editor Suffix)
+{
+(Tier 1)
+}
+
+STRING 176
+// Units: n00O (Egg Sack), EditorSuffix (Name - Editor Suffix)
+{
+(Size 8)
+}
+
+STRING 177
+// Units: n00O (Egg Sack), Name (Name)
+{
+Egg Sack
+}
+
+STRING 178
+// Units: n00P (Forest Troll Hut), EditorSuffix (Name - Editor Suffix)
+{
+(Size 8)
+}
+
+STRING 179
+// Units: n00Q (Murloc Hut), EditorSuffix (Name - Editor Suffix)
+{
+(Size 8)
+}
+
+STRING 180
+// Items: I000 (Healing Salve), Ubertip (Tooltip - Extended)
+{
+|cff87ceebNon-Combat Consumable|r|nRegenerates a target unit's hit points by <A00B,DataA1> over <A00B,Dur1> seconds when used.
+Initially contains <A00B,uses> charges.
+}
+
+STRING 182
+// Items: I002 (Scroll of Speed), Ubertip (Tooltip - Extended)
+{
+Increases the movement speed of the Hero and nearby allied units. |nLasts <A00E,Dur1> seconds.
 }
 

@@ -17,7 +17,7 @@ export class DummyCaster extends Entity {
     public static getInstance() {
         if (this.instance == null) {
             this.instance = new DummyCaster();
-            Hooks.set("DummyCaster", this.instance);
+            Hooks.set(this.name, this.instance);
         }
         return this.instance;
     }

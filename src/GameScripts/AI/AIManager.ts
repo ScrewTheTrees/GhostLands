@@ -19,7 +19,7 @@ export class AIManager {
     public static getInstance() {
         if (this.instance == null) {
             this.instance = new AIManager();
-            Hooks.set("AIManager", this.instance);
+            Hooks.set(this.name, this.instance);
         }
         return this.instance;
     }

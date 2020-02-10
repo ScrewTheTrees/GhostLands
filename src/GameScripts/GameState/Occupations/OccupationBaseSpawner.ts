@@ -10,7 +10,7 @@ export class OccupationBaseSpawner {
     public static getInstance() {
         if (this.instance == null) {
             this.instance = new OccupationBaseSpawner();
-            Hooks.set("OccupationBaseSpawner", this.instance);
+            Hooks.set(this.name, this.instance);
         }
         return this.instance;
     }
@@ -46,6 +46,7 @@ export class OccupationBaseSpawner {
                 if (value.keepUnit == dyingUnit) {
                     let newForce = occupations.getForceByPlayer(GetOwningPlayer(killingUnit));
                     value.owner = newForce;
+                    print(newForce);
 
                     let newPlayer = occupations.getHallPlayerByForce(newForce);
                     let newUnitType = occupations.getHallByForce(newForce);

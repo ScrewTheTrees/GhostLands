@@ -23,7 +23,7 @@ export class ActionQueue extends Entity {
     public static getInstance() {
         if (this.instance == null) {
             this.instance = new ActionQueue();
-            Hooks.set("ActionQueue", this.instance);
+            Hooks.set(this.name, this.instance);
         }
         return this.instance;
     }
