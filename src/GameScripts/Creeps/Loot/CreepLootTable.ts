@@ -4,6 +4,7 @@ export namespace CreepLootTable {
     export function getTableByLevel(level: number) {
         switch (level) {
             case 1:
+            case 2:
                 return TIER_1;
             default:
                 return TIER_1;

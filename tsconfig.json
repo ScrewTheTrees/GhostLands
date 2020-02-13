@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "allowJs": false,
+    "strictPropertyInitialization": true,
     "strictNullChecks": true,
     "strictFunctionTypes": true,
     "sourceMap": false,

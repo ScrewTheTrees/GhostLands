@@ -13,8 +13,8 @@ export class NeutralCreepCamp {
     public creeps: unit[];
     public noOfCreeps: number;
 
-    public secondTimer: number = 60;
-    public secondTimerReset: number = 60;
+    public secondTimer: number = 300;
+    public secondTimerReset: number = 300;
 
     constructor(location: NamedRect, creeps: unit[], campType: CreepCampTypes, noOfCreeps: number) {
         this.location = location;
@@ -41,7 +41,7 @@ export class NeutralCreepCamp {
         this.secondTimer = this.secondTimerReset;
     }
 
-    public update() {
+    public update(_timerDelay: number) {
         for (let i = 0; i < this.creeps.length; i++) {
             let value = this.creeps[i];
             if (!IsValidUnit(value)) {
@@ -50,8 +50,7 @@ export class NeutralCreepCamp {
             }
         }
         if (this.isCampDead()) {
-            this.secondTimer -= 10;
-            print(this.secondTimer);
+            this.secondTimer -= _timerDelay;
         }
     }
 }

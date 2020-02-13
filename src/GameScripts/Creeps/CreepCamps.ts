@@ -44,7 +44,7 @@ export class CreepCamps extends Entity {
     step() {
         for (let i = 0; i < this.camps.length; i++) {
             let value = this.camps[i];
-            value.update();
+            value.update(this._timerDelay);
             if (value.secondTimer <= 0) {
                 if (this.isCampAllowedToRespawn(value)) {
                     value.respawn();

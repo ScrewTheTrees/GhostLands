@@ -33,7 +33,7 @@ export class OccupationBaseSpawner {
             let occu = occupants[i];
             let loc = occu.primaryRect.getCenter();
             occu.keepUnit = CreateUnit(occupations.getHallPlayerByForce(occu.owner), occupations.getHallByForce(occu.owner), loc.x, loc.y, bj_UNIT_FACING);
-            occu.reStock(AIManager.getInstance().getDataByPlayer(occu.owner));
+            occu.reStock(AIManager.getInstance().getDataByForces(occu.owner));
         }
     }
 
@@ -46,7 +46,6 @@ export class OccupationBaseSpawner {
                 if (value.keepUnit == dyingUnit) {
                     let newForce = occupations.getForceByPlayer(GetOwningPlayer(killingUnit));
                     value.owner = newForce;
-                    print(newForce);
 
                     let newPlayer = occupations.getHallPlayerByForce(newForce);
                     let newUnitType = occupations.getHallByForce(newForce);
@@ -54,7 +53,7 @@ export class OccupationBaseSpawner {
 
                     let building = CreateUnit(newPlayer, newUnitType, where.x, where.y, bj_UNIT_FACING);
                     value.keepUnit = building;
-                    value.reStock(AIManager.getInstance().getDataByPlayer(value.owner));
+                    value.reStock(AIManager.getInstance().getDataByForces(value.owner));
 
                     SetWidgetLife(building, 50);
 

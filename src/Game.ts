@@ -1,6 +1,6 @@
 import {Logger} from "./TreeLib/Logger";
 import {StartGameDiag} from "./GameScripts/StartGame/StartGameDiag";
-import {AddAbilityReplacements} from "./GameScripts/StartGame/AddAbilityReplacements";
+import {OnSpellCastCreator} from "./GameScripts/StartGame/OnSpellCastCreator";
 import {GameContainer} from "./GameScripts/GameContainer";
 
 export class Game {
@@ -9,7 +9,7 @@ export class Game {
         Logger.doLogDebug = true;
 
         StartGameDiag.getInstance().runDiagnosis();
-        AddAbilityReplacements.getInstance().register();
+        OnSpellCastCreator.getInstance().register();
         GameContainer.getInstance();
     }
 }

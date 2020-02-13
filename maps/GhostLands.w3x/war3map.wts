@@ -797,3 +797,2421 @@ STRING 182
 Increases the movement speed of the Hero and nearby allied units. |nLasts <A00E,Dur1> seconds.
 }
 
+STRING 187
+// Doodads: D000 (Mini Rocks), Name (Name)
+{
+Mini Rocks
+}
+
+STRING 188
+// Upgrades: R001 (Animal War Training), Name (Name)
+{
+Unit Health Upgrade
+}
+
+STRING 192
+// Upgrades: R001 (Animal War Training), Name (Name)
+{
+Unit Health Upgrade
+}
+
+STRING 193
+// Upgrades: R001 (Animal War Training), Name (Name)
+{
+Unit Health Upgrade
+}
+
+STRING 194
+// Upgrades: R001 (Animal War Training), Name (Name)
+{
+Unit Health Upgrade
+}
+
+STRING 195
+// Upgrades: R001 (Animal War Training), Name (Name)
+{
+Unit Health Upgrade
+}
+
+STRING 196
+// Upgrades: R001 (Animal War Training), Name (Name)
+{
+Unit Health Upgrade
+}
+
+STRING 197
+// Upgrades: R001 (Animal War Training), Name (Name)
+{
+Unit Health Upgrade
+}
+
+STRING 198
+// Upgrades: R001 (Animal War Training), Name (Name)
+{
+Unit Health Upgrade
+}
+
+STRING 199
+// Upgrades: R001 (Animal War Training), Name (Name)
+{
+Unit Health Upgrade
+}
+
+STRING 200
+// Upgrades: R001 (Animal War Training), Name (Name)
+{
+Unit Health Upgrade
+}
+
+STRING 201
+// Upgrades: R001 (Animal War Training), Name (Name)
+{
+Unit Health Upgrade
+}
+
+STRING 202
+// Upgrades: R001 (Animal War Training), Name (Name)
+{
+Unit Health Upgrade
+}
+
+STRING 203
+// Upgrades: R001 (Animal War Training), Name (Name)
+{
+Unit Health Upgrade
+}
+
+STRING 204
+// Upgrades: R001 (Animal War Training), Name (Name)
+{
+Unit Health Upgrade
+}
+
+STRING 205
+// Upgrades: R001 (Animal War Training), Name (Name)
+{
+Unit Health Upgrade
+}
+
+STRING 206
+// Upgrades: R001 (Animal War Training), Name (Name)
+{
+Unit Health Upgrade
+}
+
+STRING 207
+// Upgrades: R001 (Animal War Training), Name (Name)
+{
+Unit Health Upgrade
+}
+
+STRING 208
+// Upgrades: R001 (Animal War Training), Name (Name)
+{
+Unit Health Upgrade
+}
+
+STRING 209
+// Upgrades: R001 (Animal War Training), Name (Name)
+{
+Unit Health Upgrade
+}
+
+STRING 210
+// Upgrades: R001 (Animal War Training), Name (Name)
+{
+Unit Health Upgrade
+}
+
+STRING 211
+// Upgrades: R001 (Animal War Training), Name (Name)
+{
+Unit Health Upgrade
+}
+
+STRING 212
+// Upgrades: R001 (Animal War Training), Name (Name)
+{
+Unit Health Upgrade
+}
+
+STRING 213
+// Upgrades: R001 (Animal War Training), Name (Name)
+{
+Unit Health Upgrade
+}
+
+STRING 214
+// Upgrades: R001 (Animal War Training), Name (Name)
+{
+Unit Health Upgrade
+}
+
+STRING 215
+// Upgrades: R001 (Animal War Training), Name (Name)
+{
+Unit Health Upgrade
+}
+
+STRING 216
+// Upgrades: R001 (Animal War Training), Name (Name)
+{
+Unit Health Upgrade
+}
+
+STRING 217
+// Upgrades: R001 (Animal War Training), Name (Name)
+{
+Unit Health Upgrade
+}
+
+STRING 218
+// Upgrades: R001 (Animal War Training), Name (Name)
+{
+Unit Health Upgrade
+}
+
+STRING 219
+// Upgrades: R001 (Animal War Training), Name (Name)
+{
+Unit Health Upgrade
+}
+
+STRING 220
+// Upgrades: R001 (Animal War Training), Name (Name)
+{
+Unit Health Upgrade
+}
+
+STRING 221
+// Upgrades: R001 (Animal War Training), Name (Name)
+{
+Unit Health Upgrade
+}
+
+STRING 222
+// Upgrades: R001 (Animal War Training), Name (Name)
+{
+Unit Health Upgrade
+}
+
+STRING 223
+// Upgrades: R001 (Animal War Training), Name (Name)
+{
+Unit Health Upgrade
+}
+
+STRING 224
+// Upgrades: R001 (Animal War Training), Name (Name)
+{
+Unit Health Upgrade
+}
+
+STRING 225
+// Upgrades: R001 (Animal War Training), Name (Name)
+{
+Unit Health Upgrade
+}
+
+STRING 226
+// Upgrades: R001 (Animal War Training), Name (Name)
+{
+Unit Health Upgrade
+}
+
+STRING 227
+// Upgrades: R001 (Animal War Training), Name (Name)
+{
+Unit Health Upgrade
+}
+
+STRING 228
+// Upgrades: R001 (Animal War Training), Name (Name)
+{
+Unit Health Upgrade
+}
+
+STRING 229
+// Upgrades: R001 (Animal War Training), Name (Name)
+{
+Unit Health Upgrade
+}
+
+STRING 230
+// Upgrades: R001 (Animal War Training), Name (Name)
+{
+Unit Health Upgrade
+}
+
+STRING 231
+// Upgrades: R001 (Animal War Training), Name (Name)
+{
+Unit Health Upgrade
+}
+
+STRING 232
+// Upgrades: R001 (Animal War Training), Name (Name)
+{
+Unit Health Upgrade
+}
+
+STRING 233
+// Upgrades: R001 (Animal War Training), Name (Name)
+{
+Unit Health Upgrade
+}
+
+STRING 234
+// Upgrades: R001 (Animal War Training), Name (Name)
+{
+Unit Health Upgrade
+}
+
+STRING 235
+// Upgrades: R001 (Animal War Training), Name (Name)
+{
+Unit Health Upgrade
+}
+
+STRING 236
+// Upgrades: R001 (Animal War Training), Name (Name)
+{
+Unit Health Upgrade
+}
+
+STRING 237
+// Upgrades: R001 (Animal War Training), Name (Name)
+{
+Unit Health Upgrade
+}
+
+STRING 238
+// Upgrades: R001 (Animal War Training), Name (Name)
+{
+Unit Health Upgrade
+}
+
+STRING 239
+// Upgrades: R001 (Animal War Training), Name (Name)
+{
+Unit Health Upgrade
+}
+
+STRING 240
+// Upgrades: R001 (Animal War Training), Name (Name)
+{
+Unit Health Upgrade
+}
+
+STRING 241
+// Upgrades: R001 (Animal War Training), Name (Name)
+{
+Unit Health Upgrade
+}
+
+STRING 242
+// Upgrades: R001 (Animal War Training), Name (Name)
+{
+Unit Health Upgrade
+}
+
+STRING 243
+// Upgrades: R001 (Animal War Training), Name (Name)
+{
+Unit Health Upgrade
+}
+
+STRING 244
+// Upgrades: R001 (Animal War Training), Name (Name)
+{
+Unit Health Upgrade
+}
+
+STRING 245
+// Upgrades: R001 (Animal War Training), Name (Name)
+{
+Unit Health Upgrade
+}
+
+STRING 246
+// Upgrades: R001 (Animal War Training), Name (Name)
+{
+Unit Health Upgrade
+}
+
+STRING 247
+// Upgrades: R001 (Animal War Training), Name (Name)
+{
+Unit Health Upgrade
+}
+
+STRING 248
+// Upgrades: R001 (Animal War Training), Name (Name)
+{
+Unit Health Upgrade
+}
+
+STRING 249
+// Upgrades: R001 (Animal War Training), Name (Name)
+{
+Unit Health Upgrade
+}
+
+STRING 250
+// Upgrades: R001 (Animal War Training), Name (Name)
+{
+Unit Health Upgrade
+}
+
+STRING 251
+// Upgrades: R001 (Animal War Training), Name (Name)
+{
+Unit Health Upgrade
+}
+
+STRING 252
+// Upgrades: R001 (Animal War Training), Name (Name)
+{
+Unit Health Upgrade
+}
+
+STRING 253
+// Upgrades: R001 (Animal War Training), Name (Name)
+{
+Unit Health Upgrade
+}
+
+STRING 254
+// Upgrades: R001 (Animal War Training), Name (Name)
+{
+Unit Health Upgrade
+}
+
+STRING 255
+// Upgrades: R001 (Animal War Training), Name (Name)
+{
+Unit Health Upgrade
+}
+
+STRING 256
+// Upgrades: R001 (Animal War Training), Name (Name)
+{
+Unit Health Upgrade
+}
+
+STRING 257
+// Upgrades: R001 (Animal War Training), Name (Name)
+{
+Unit Health Upgrade
+}
+
+STRING 258
+// Upgrades: R001 (Animal War Training), Name (Name)
+{
+Unit Health Upgrade
+}
+
+STRING 259
+// Upgrades: R001 (Animal War Training), Name (Name)
+{
+Unit Health Upgrade
+}
+
+STRING 260
+// Upgrades: R001 (Animal War Training), Name (Name)
+{
+Unit Health Upgrade
+}
+
+STRING 261
+// Upgrades: R001 (Animal War Training), Name (Name)
+{
+Unit Health Upgrade
+}
+
+STRING 262
+// Upgrades: R001 (Animal War Training), Name (Name)
+{
+Unit Health Upgrade
+}
+
+STRING 263
+// Upgrades: R001 (Animal War Training), Name (Name)
+{
+Unit Health Upgrade
+}
+
+STRING 264
+// Upgrades: R001 (Animal War Training), Name (Name)
+{
+Unit Health Upgrade
+}
+
+STRING 265
+// Upgrades: R001 (Animal War Training), Name (Name)
+{
+Unit Health Upgrade
+}
+
+STRING 266
+// Upgrades: R001 (Animal War Training), Name (Name)
+{
+Unit Health Upgrade
+}
+
+STRING 267
+// Upgrades: R001 (Animal War Training), Name (Name)
+{
+Unit Health Upgrade
+}
+
+STRING 268
+// Upgrades: R001 (Animal War Training), Name (Name)
+{
+Unit Health Upgrade
+}
+
+STRING 269
+// Upgrades: R001 (Animal War Training), Name (Name)
+{
+Unit Health Upgrade
+}
+
+STRING 270
+// Upgrades: R001 (Animal War Training), Name (Name)
+{
+Unit Health Upgrade
+}
+
+STRING 271
+// Upgrades: R001 (Animal War Training), Name (Name)
+{
+Unit Health Upgrade
+}
+
+STRING 272
+// Upgrades: R001 (Animal War Training), Name (Name)
+{
+Unit Health Upgrade
+}
+
+STRING 273
+// Upgrades: R001 (Animal War Training), Name (Name)
+{
+Unit Health Upgrade
+}
+
+STRING 274
+// Upgrades: R001 (Animal War Training), Name (Name)
+{
+Unit Health Upgrade
+}
+
+STRING 275
+// Upgrades: R001 (Animal War Training), Name (Name)
+{
+Unit Health Upgrade
+}
+
+STRING 276
+// Upgrades: R001 (Animal War Training), Name (Name)
+{
+Unit Health Upgrade
+}
+
+STRING 277
+// Upgrades: R001 (Animal War Training), Name (Name)
+{
+Unit Health Upgrade
+}
+
+STRING 278
+// Upgrades: R001 (Animal War Training), Name (Name)
+{
+Unit Health Upgrade
+}
+
+STRING 279
+// Upgrades: R001 (Animal War Training), Name (Name)
+{
+Unit Health Upgrade
+}
+
+STRING 280
+// Upgrades: R001 (Animal War Training), Name (Name)
+{
+Unit Health Upgrade
+}
+
+STRING 281
+// Upgrades: R001 (Animal War Training), Name (Name)
+{
+Unit Health Upgrade
+}
+
+STRING 282
+// Upgrades: R001 (Animal War Training), Name (Name)
+{
+Unit Health Upgrade
+}
+
+STRING 283
+// Upgrades: R001 (Animal War Training), Name (Name)
+{
+Unit Health Upgrade
+}
+
+STRING 284
+// Upgrades: R001 (Animal War Training), Name (Name)
+{
+Unit Health Upgrade
+}
+
+STRING 285
+// Upgrades: R001 (Animal War Training), Name (Name)
+{
+Unit Health Upgrade
+}
+
+STRING 286
+// Upgrades: R001 (Animal War Training), Name (Name)
+{
+Unit Health Upgrade
+}
+
+STRING 287
+// Upgrades: R001 (Animal War Training), Name (Name)
+{
+Unit Health Upgrade
+}
+
+STRING 288
+// Upgrades: R001 (Animal War Training), Name (Name)
+{
+Unit Health Upgrade
+}
+
+STRING 289
+// Upgrades: R001 (Animal War Training), Name (Name)
+{
+Unit Health Upgrade
+}
+
+STRING 290
+// Upgrades: R001 (Animal War Training), Name (Name)
+{
+Unit Health Upgrade
+}
+
+STRING 893
+// Upgrades: R000 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the maximum hit points of Units.
+}
+
+STRING 894
+// Upgrades: R000 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the maximum hit points of Units.
+}
+
+STRING 895
+// Upgrades: R000 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the maximum hit points of Units.
+}
+
+STRING 896
+// Upgrades: R000 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the maximum hit points of Units.
+}
+
+STRING 897
+// Upgrades: R000 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the maximum hit points of Units.
+}
+
+STRING 898
+// Upgrades: R000 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the maximum hit points of Units.
+}
+
+STRING 899
+// Upgrades: R000 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the maximum hit points of Units.
+}
+
+STRING 900
+// Upgrades: R000 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the maximum hit points of Units.
+}
+
+STRING 901
+// Upgrades: R000 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the maximum hit points of Units.
+}
+
+STRING 902
+// Upgrades: R000 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the maximum hit points of Units.
+}
+
+STRING 903
+// Upgrades: R000 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the maximum hit points of Units.
+}
+
+STRING 904
+// Upgrades: R000 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the maximum hit points of Units.
+}
+
+STRING 905
+// Upgrades: R000 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the maximum hit points of Units.
+}
+
+STRING 906
+// Upgrades: R000 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the maximum hit points of Units.
+}
+
+STRING 907
+// Upgrades: R000 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the maximum hit points of Units.
+}
+
+STRING 908
+// Upgrades: R000 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the maximum hit points of Units.
+}
+
+STRING 909
+// Upgrades: R000 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the maximum hit points of Units.
+}
+
+STRING 910
+// Upgrades: R000 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the maximum hit points of Units.
+}
+
+STRING 911
+// Upgrades: R000 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the maximum hit points of Units.
+}
+
+STRING 912
+// Upgrades: R000 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the maximum hit points of Units.
+}
+
+STRING 913
+// Upgrades: R000 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the maximum hit points of Units.
+}
+
+STRING 914
+// Upgrades: R000 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the maximum hit points of Units.
+}
+
+STRING 915
+// Upgrades: R000 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the maximum hit points of Units.
+}
+
+STRING 916
+// Upgrades: R000 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the maximum hit points of Units.
+}
+
+STRING 917
+// Upgrades: R000 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the maximum hit points of Units.
+}
+
+STRING 918
+// Upgrades: R000 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the maximum hit points of Units.
+}
+
+STRING 919
+// Upgrades: R000 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the maximum hit points of Units.
+}
+
+STRING 920
+// Upgrades: R000 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the maximum hit points of Units.
+}
+
+STRING 921
+// Upgrades: R000 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the maximum hit points of Units.
+}
+
+STRING 922
+// Upgrades: R000 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the maximum hit points of Units.
+}
+
+STRING 923
+// Upgrades: R000 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the maximum hit points of Units.
+}
+
+STRING 924
+// Upgrades: R000 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the maximum hit points of Units.
+}
+
+STRING 925
+// Upgrades: R000 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the maximum hit points of Units.
+}
+
+STRING 926
+// Upgrades: R000 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the maximum hit points of Units.
+}
+
+STRING 927
+// Upgrades: R000 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the maximum hit points of Units.
+}
+
+STRING 928
+// Upgrades: R000 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the maximum hit points of Units.
+}
+
+STRING 929
+// Upgrades: R000 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the maximum hit points of Units.
+}
+
+STRING 930
+// Upgrades: R000 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the maximum hit points of Units.
+}
+
+STRING 931
+// Upgrades: R000 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the maximum hit points of Units.
+}
+
+STRING 932
+// Upgrades: R000 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the maximum hit points of Units.
+}
+
+STRING 933
+// Upgrades: R000 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the maximum hit points of Units.
+}
+
+STRING 934
+// Upgrades: R000 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the maximum hit points of Units.
+}
+
+STRING 935
+// Upgrades: R000 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the maximum hit points of Units.
+}
+
+STRING 936
+// Upgrades: R000 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the maximum hit points of Units.
+}
+
+STRING 937
+// Upgrades: R000 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the maximum hit points of Units.
+}
+
+STRING 938
+// Upgrades: R000 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the maximum hit points of Units.
+}
+
+STRING 939
+// Upgrades: R000 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the maximum hit points of Units.
+}
+
+STRING 940
+// Upgrades: R000 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the maximum hit points of Units.
+}
+
+STRING 941
+// Upgrades: R000 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the maximum hit points of Units.
+}
+
+STRING 942
+// Upgrades: R000 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the maximum hit points of Units.
+}
+
+STRING 943
+// Upgrades: R000 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the maximum hit points of Units.
+}
+
+STRING 944
+// Upgrades: R000 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the maximum hit points of Units.
+}
+
+STRING 945
+// Upgrades: R000 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the maximum hit points of Units.
+}
+
+STRING 946
+// Upgrades: R000 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the maximum hit points of Units.
+}
+
+STRING 947
+// Upgrades: R000 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the maximum hit points of Units.
+}
+
+STRING 948
+// Upgrades: R000 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the maximum hit points of Units.
+}
+
+STRING 949
+// Upgrades: R000 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the maximum hit points of Units.
+}
+
+STRING 950
+// Upgrades: R000 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the maximum hit points of Units.
+}
+
+STRING 951
+// Upgrades: R000 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the maximum hit points of Units.
+}
+
+STRING 952
+// Upgrades: R000 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the maximum hit points of Units.
+}
+
+STRING 953
+// Upgrades: R000 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the maximum hit points of Units.
+}
+
+STRING 954
+// Upgrades: R000 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the maximum hit points of Units.
+}
+
+STRING 955
+// Upgrades: R000 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the maximum hit points of Units.
+}
+
+STRING 956
+// Upgrades: R000 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the maximum hit points of Units.
+}
+
+STRING 957
+// Upgrades: R000 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the maximum hit points of Units.
+}
+
+STRING 958
+// Upgrades: R000 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the maximum hit points of Units.
+}
+
+STRING 959
+// Upgrades: R000 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the maximum hit points of Units.
+}
+
+STRING 960
+// Upgrades: R000 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the maximum hit points of Units.
+}
+
+STRING 961
+// Upgrades: R000 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the maximum hit points of Units.
+}
+
+STRING 962
+// Upgrades: R000 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the maximum hit points of Units.
+}
+
+STRING 963
+// Upgrades: R000 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the maximum hit points of Units.
+}
+
+STRING 964
+// Upgrades: R000 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the maximum hit points of Units.
+}
+
+STRING 965
+// Upgrades: R000 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the maximum hit points of Units.
+}
+
+STRING 966
+// Upgrades: R000 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the maximum hit points of Units.
+}
+
+STRING 967
+// Upgrades: R000 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the maximum hit points of Units.
+}
+
+STRING 968
+// Upgrades: R000 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the maximum hit points of Units.
+}
+
+STRING 969
+// Upgrades: R000 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the maximum hit points of Units.
+}
+
+STRING 970
+// Upgrades: R000 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the maximum hit points of Units.
+}
+
+STRING 971
+// Upgrades: R000 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the maximum hit points of Units.
+}
+
+STRING 972
+// Upgrades: R000 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the maximum hit points of Units.
+}
+
+STRING 973
+// Upgrades: R000 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the maximum hit points of Units.
+}
+
+STRING 974
+// Upgrades: R000 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the maximum hit points of Units.
+}
+
+STRING 975
+// Upgrades: R000 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the maximum hit points of Units.
+}
+
+STRING 976
+// Upgrades: R000 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the maximum hit points of Units.
+}
+
+STRING 977
+// Upgrades: R000 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the maximum hit points of Units.
+}
+
+STRING 978
+// Upgrades: R000 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the maximum hit points of Units.
+}
+
+STRING 979
+// Upgrades: R000 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the maximum hit points of Units.
+}
+
+STRING 980
+// Upgrades: R000 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the maximum hit points of Units.
+}
+
+STRING 981
+// Upgrades: R000 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the maximum hit points of Units.
+}
+
+STRING 982
+// Upgrades: R000 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the maximum hit points of Units.
+}
+
+STRING 983
+// Upgrades: R000 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the maximum hit points of Units.
+}
+
+STRING 984
+// Upgrades: R000 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the maximum hit points of Units.
+}
+
+STRING 985
+// Upgrades: R000 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the maximum hit points of Units.
+}
+
+STRING 986
+// Upgrades: R000 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the maximum hit points of Units.
+}
+
+STRING 987
+// Upgrades: R000 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the maximum hit points of Units.
+}
+
+STRING 988
+// Upgrades: R000 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the maximum hit points of Units.
+}
+
+STRING 989
+// Upgrades: R000 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the maximum hit points of Units.
+}
+
+STRING 990
+// Upgrades: R000 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the maximum hit points of Units.
+}
+
+STRING 991
+// Upgrades: R000 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the maximum hit points of Units.
+}
+
+STRING 992
+// Upgrades: R000 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the maximum hit points of Units.
+}
+
+STRING 993
+// Upgrades: R001 (Animal War Training), effect1 (Effect 1)
+{
+rhpo
+}
+
+STRING 994
+// Upgrades: R001 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base damage of Units.
+}
+
+STRING 995
+// Upgrades: R001 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base damage of Units.
+}
+
+STRING 996
+// Upgrades: R001 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base damage of Units.
+}
+
+STRING 997
+// Upgrades: R001 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base damage of Units.
+}
+
+STRING 998
+// Upgrades: R001 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base damage of Units.
+}
+
+STRING 999
+// Upgrades: R001 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base damage of Units.
+}
+
+STRING 1000
+// Upgrades: R001 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base damage of Units.
+}
+
+STRING 1001
+// Upgrades: R001 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base damage of Units.
+}
+
+STRING 1002
+// Upgrades: R001 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base damage of Units.
+}
+
+STRING 1003
+// Upgrades: R001 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base damage of Units.
+}
+
+STRING 1004
+// Upgrades: R001 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base damage of Units.
+}
+
+STRING 1005
+// Upgrades: R001 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base damage of Units.
+}
+
+STRING 1006
+// Upgrades: R001 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base damage of Units.
+}
+
+STRING 1007
+// Upgrades: R001 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base damage of Units.
+}
+
+STRING 1008
+// Upgrades: R001 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base damage of Units.
+}
+
+STRING 1009
+// Upgrades: R001 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base damage of Units.
+}
+
+STRING 1010
+// Upgrades: R001 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base damage of Units.
+}
+
+STRING 1011
+// Upgrades: R001 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base damage of Units.
+}
+
+STRING 1012
+// Upgrades: R001 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base damage of Units.
+}
+
+STRING 1013
+// Upgrades: R001 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base damage of Units.
+}
+
+STRING 1014
+// Upgrades: R001 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base damage of Units.
+}
+
+STRING 1015
+// Upgrades: R001 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base damage of Units.
+}
+
+STRING 1016
+// Upgrades: R001 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base damage of Units.
+}
+
+STRING 1017
+// Upgrades: R001 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base damage of Units.
+}
+
+STRING 1018
+// Upgrades: R001 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base damage of Units.
+}
+
+STRING 1019
+// Upgrades: R001 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base damage of Units.
+}
+
+STRING 1020
+// Upgrades: R001 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base damage of Units.
+}
+
+STRING 1021
+// Upgrades: R001 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base damage of Units.
+}
+
+STRING 1022
+// Upgrades: R001 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base damage of Units.
+}
+
+STRING 1023
+// Upgrades: R001 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base damage of Units.
+}
+
+STRING 1024
+// Upgrades: R001 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base damage of Units.
+}
+
+STRING 1025
+// Upgrades: R001 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base damage of Units.
+}
+
+STRING 1026
+// Upgrades: R001 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base damage of Units.
+}
+
+STRING 1027
+// Upgrades: R001 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base damage of Units.
+}
+
+STRING 1028
+// Upgrades: R001 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base damage of Units.
+}
+
+STRING 1029
+// Upgrades: R001 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base damage of Units.
+}
+
+STRING 1030
+// Upgrades: R001 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base damage of Units.
+}
+
+STRING 1031
+// Upgrades: R001 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base damage of Units.
+}
+
+STRING 1032
+// Upgrades: R001 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base damage of Units.
+}
+
+STRING 1033
+// Upgrades: R001 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base damage of Units.
+}
+
+STRING 1034
+// Upgrades: R001 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base damage of Units.
+}
+
+STRING 1035
+// Upgrades: R001 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base damage of Units.
+}
+
+STRING 1036
+// Upgrades: R001 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base damage of Units.
+}
+
+STRING 1037
+// Upgrades: R001 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base damage of Units.
+}
+
+STRING 1038
+// Upgrades: R001 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base damage of Units.
+}
+
+STRING 1039
+// Upgrades: R001 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base damage of Units.
+}
+
+STRING 1040
+// Upgrades: R001 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base damage of Units.
+}
+
+STRING 1041
+// Upgrades: R001 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base damage of Units.
+}
+
+STRING 1042
+// Upgrades: R001 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base damage of Units.
+}
+
+STRING 1043
+// Upgrades: R001 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base damage of Units.
+}
+
+STRING 1044
+// Upgrades: R001 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base damage of Units.
+}
+
+STRING 1045
+// Upgrades: R001 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base damage of Units.
+}
+
+STRING 1046
+// Upgrades: R001 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base damage of Units.
+}
+
+STRING 1047
+// Upgrades: R001 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base damage of Units.
+}
+
+STRING 1048
+// Upgrades: R001 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base damage of Units.
+}
+
+STRING 1049
+// Upgrades: R001 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base damage of Units.
+}
+
+STRING 1050
+// Upgrades: R001 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base damage of Units.
+}
+
+STRING 1051
+// Upgrades: R001 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base damage of Units.
+}
+
+STRING 1052
+// Upgrades: R001 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base damage of Units.
+}
+
+STRING 1053
+// Upgrades: R001 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base damage of Units.
+}
+
+STRING 1054
+// Upgrades: R001 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base damage of Units.
+}
+
+STRING 1055
+// Upgrades: R001 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base damage of Units.
+}
+
+STRING 1056
+// Upgrades: R001 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base damage of Units.
+}
+
+STRING 1057
+// Upgrades: R001 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base damage of Units.
+}
+
+STRING 1058
+// Upgrades: R001 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base damage of Units.
+}
+
+STRING 1059
+// Upgrades: R001 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base damage of Units.
+}
+
+STRING 1060
+// Upgrades: R001 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base damage of Units.
+}
+
+STRING 1061
+// Upgrades: R001 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base damage of Units.
+}
+
+STRING 1062
+// Upgrades: R001 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base damage of Units.
+}
+
+STRING 1063
+// Upgrades: R001 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base damage of Units.
+}
+
+STRING 1064
+// Upgrades: R001 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base damage of Units.
+}
+
+STRING 1065
+// Upgrades: R001 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base damage of Units.
+}
+
+STRING 1066
+// Upgrades: R001 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base damage of Units.
+}
+
+STRING 1067
+// Upgrades: R001 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base damage of Units.
+}
+
+STRING 1068
+// Upgrades: R001 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base damage of Units.
+}
+
+STRING 1069
+// Upgrades: R001 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base damage of Units.
+}
+
+STRING 1070
+// Upgrades: R001 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base damage of Units.
+}
+
+STRING 1071
+// Upgrades: R001 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base damage of Units.
+}
+
+STRING 1072
+// Upgrades: R001 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base damage of Units.
+}
+
+STRING 1073
+// Upgrades: R001 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base damage of Units.
+}
+
+STRING 1074
+// Upgrades: R001 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base damage of Units.
+}
+
+STRING 1075
+// Upgrades: R001 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base damage of Units.
+}
+
+STRING 1076
+// Upgrades: R001 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base damage of Units.
+}
+
+STRING 1077
+// Upgrades: R001 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base damage of Units.
+}
+
+STRING 1078
+// Upgrades: R001 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base damage of Units.
+}
+
+STRING 1079
+// Upgrades: R001 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base damage of Units.
+}
+
+STRING 1080
+// Upgrades: R001 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base damage of Units.
+}
+
+STRING 1081
+// Upgrades: R001 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base damage of Units.
+}
+
+STRING 1082
+// Upgrades: R001 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base damage of Units.
+}
+
+STRING 1083
+// Upgrades: R001 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base damage of Units.
+}
+
+STRING 1084
+// Upgrades: R001 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base damage of Units.
+}
+
+STRING 1085
+// Upgrades: R001 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base damage of Units.
+}
+
+STRING 1086
+// Upgrades: R001 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base damage of Units.
+}
+
+STRING 1087
+// Upgrades: R001 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base damage of Units.
+}
+
+STRING 1088
+// Upgrades: R001 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base damage of Units.
+}
+
+STRING 1089
+// Upgrades: R001 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base damage of Units.
+}
+
+STRING 1090
+// Upgrades: R001 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base damage of Units.
+}
+
+STRING 1091
+// Upgrades: R001 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base damage of Units.
+}
+
+STRING 1092
+// Upgrades: R001 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base damage of Units.
+}
+
+STRING 1093
+// Upgrades: R001 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base damage of Units.
+}
+
+STRING 1094
+// Upgrades: R000 (Animal War Training), Name (Name)
+{
+Unit Damage Upgrade
+}
+
+STRING 1095
+// Upgrades: R000 (Animal War Training), Name (Name)
+{
+Unit Damage Upgrade
+}
+
+STRING 1096
+// Upgrades: R000 (Animal War Training), Name (Name)
+{
+Unit Damage Upgrade
+}
+
+STRING 1097
+// Upgrades: R000 (Animal War Training), Name (Name)
+{
+Unit Damage Upgrade
+}
+
+STRING 1098
+// Upgrades: R000 (Animal War Training), Name (Name)
+{
+Unit Damage Upgrade
+}
+
+STRING 1099
+// Upgrades: R000 (Animal War Training), Name (Name)
+{
+Unit Damage Upgrade
+}
+
+STRING 1100
+// Upgrades: R000 (Animal War Training), Name (Name)
+{
+Unit Damage Upgrade
+}
+
+STRING 1101
+// Upgrades: R000 (Animal War Training), Name (Name)
+{
+Unit Damage Upgrade
+}
+
+STRING 1102
+// Upgrades: R000 (Animal War Training), Name (Name)
+{
+Unit Damage Upgrade
+}
+
+STRING 1103
+// Upgrades: R000 (Animal War Training), Name (Name)
+{
+Unit Damage Upgrade
+}
+
+STRING 1104
+// Upgrades: R000 (Animal War Training), Name (Name)
+{
+Unit Damage Upgrade
+}
+
+STRING 1105
+// Upgrades: R000 (Animal War Training), Name (Name)
+{
+Unit Damage Upgrade
+}
+
+STRING 1106
+// Upgrades: R000 (Animal War Training), Name (Name)
+{
+Unit Damage Upgrade
+}
+
+STRING 1107
+// Upgrades: R000 (Animal War Training), Name (Name)
+{
+Unit Damage Upgrade
+}
+
+STRING 1108
+// Upgrades: R000 (Animal War Training), Name (Name)
+{
+Unit Damage Upgrade
+}
+
+STRING 1109
+// Upgrades: R000 (Animal War Training), Name (Name)
+{
+Unit Damage Upgrade
+}
+
+STRING 1110
+// Upgrades: R000 (Animal War Training), Name (Name)
+{
+Unit Damage Upgrade
+}
+
+STRING 1111
+// Upgrades: R000 (Animal War Training), Name (Name)
+{
+Unit Damage Upgrade
+}
+
+STRING 1112
+// Upgrades: R000 (Animal War Training), Name (Name)
+{
+Unit Damage Upgrade
+}
+
+STRING 1113
+// Upgrades: R000 (Animal War Training), Name (Name)
+{
+Unit Damage Upgrade
+}
+
+STRING 1114
+// Upgrades: R000 (Animal War Training), Name (Name)
+{
+Unit Damage Upgrade
+}
+
+STRING 1115
+// Upgrades: R000 (Animal War Training), Name (Name)
+{
+Unit Damage Upgrade
+}
+
+STRING 1116
+// Upgrades: R000 (Animal War Training), Name (Name)
+{
+Unit Damage Upgrade
+}
+
+STRING 1117
+// Upgrades: R000 (Animal War Training), Name (Name)
+{
+Unit Damage Upgrade
+}
+
+STRING 1118
+// Upgrades: R000 (Animal War Training), Name (Name)
+{
+Unit Damage Upgrade
+}
+
+STRING 1119
+// Upgrades: R000 (Animal War Training), Name (Name)
+{
+Unit Damage Upgrade
+}
+
+STRING 1120
+// Upgrades: R000 (Animal War Training), Name (Name)
+{
+Unit Damage Upgrade
+}
+
+STRING 1121
+// Upgrades: R000 (Animal War Training), Name (Name)
+{
+Unit Damage Upgrade
+}
+
+STRING 1122
+// Upgrades: R000 (Animal War Training), Name (Name)
+{
+Unit Damage Upgrade
+}
+
+STRING 1123
+// Upgrades: R000 (Animal War Training), Name (Name)
+{
+Unit Damage Upgrade
+}
+
+STRING 1124
+// Upgrades: R000 (Animal War Training), Name (Name)
+{
+Unit Damage Upgrade
+}
+
+STRING 1125
+// Upgrades: R000 (Animal War Training), Name (Name)
+{
+Unit Damage Upgrade
+}
+
+STRING 1126
+// Upgrades: R000 (Animal War Training), Name (Name)
+{
+Unit Damage Upgrade
+}
+
+STRING 1127
+// Upgrades: R000 (Animal War Training), Name (Name)
+{
+Unit Damage Upgrade
+}
+
+STRING 1128
+// Upgrades: R000 (Animal War Training), Name (Name)
+{
+Unit Damage Upgrade
+}
+
+STRING 1129
+// Upgrades: R000 (Animal War Training), Name (Name)
+{
+Unit Damage Upgrade
+}
+
+STRING 1130
+// Upgrades: R000 (Animal War Training), Name (Name)
+{
+Unit Damage Upgrade
+}
+
+STRING 1131
+// Upgrades: R000 (Animal War Training), Name (Name)
+{
+Unit Damage Upgrade
+}
+
+STRING 1132
+// Upgrades: R000 (Animal War Training), Name (Name)
+{
+Unit Damage Upgrade
+}
+
+STRING 1133
+// Upgrades: R000 (Animal War Training), Name (Name)
+{
+Unit Damage Upgrade
+}
+
+STRING 1134
+// Upgrades: R000 (Animal War Training), Name (Name)
+{
+Unit Damage Upgrade
+}
+
+STRING 1135
+// Upgrades: R000 (Animal War Training), Name (Name)
+{
+Unit Damage Upgrade
+}
+
+STRING 1136
+// Upgrades: R000 (Animal War Training), Name (Name)
+{
+Unit Damage Upgrade
+}
+
+STRING 1137
+// Upgrades: R000 (Animal War Training), Name (Name)
+{
+Unit Damage Upgrade
+}
+
+STRING 1138
+// Upgrades: R000 (Animal War Training), Name (Name)
+{
+Unit Damage Upgrade
+}
+
+STRING 1139
+// Upgrades: R000 (Animal War Training), Name (Name)
+{
+Unit Damage Upgrade
+}
+
+STRING 1140
+// Upgrades: R000 (Animal War Training), Name (Name)
+{
+Unit Damage Upgrade
+}
+
+STRING 1141
+// Upgrades: R000 (Animal War Training), Name (Name)
+{
+Unit Damage Upgrade
+}
+
+STRING 1142
+// Upgrades: R000 (Animal War Training), Name (Name)
+{
+Unit Damage Upgrade
+}
+
+STRING 1143
+// Upgrades: R000 (Animal War Training), Name (Name)
+{
+Unit Damage Upgrade
+}
+
+STRING 1144
+// Upgrades: R000 (Animal War Training), Name (Name)
+{
+Unit Damage Upgrade
+}
+
+STRING 1145
+// Upgrades: R000 (Animal War Training), Name (Name)
+{
+Unit Damage Upgrade
+}
+
+STRING 1146
+// Upgrades: R000 (Animal War Training), Name (Name)
+{
+Unit Damage Upgrade
+}
+
+STRING 1147
+// Upgrades: R000 (Animal War Training), Name (Name)
+{
+Unit Damage Upgrade
+}
+
+STRING 1148
+// Upgrades: R000 (Animal War Training), Name (Name)
+{
+Unit Damage Upgrade
+}
+
+STRING 1149
+// Upgrades: R000 (Animal War Training), Name (Name)
+{
+Unit Damage Upgrade
+}
+
+STRING 1150
+// Upgrades: R000 (Animal War Training), Name (Name)
+{
+Unit Damage Upgrade
+}
+
+STRING 1151
+// Upgrades: R000 (Animal War Training), Name (Name)
+{
+Unit Damage Upgrade
+}
+
+STRING 1152
+// Upgrades: R000 (Animal War Training), Name (Name)
+{
+Unit Damage Upgrade
+}
+
+STRING 1153
+// Upgrades: R000 (Animal War Training), Name (Name)
+{
+Unit Damage Upgrade
+}
+
+STRING 1154
+// Upgrades: R000 (Animal War Training), Name (Name)
+{
+Unit Damage Upgrade
+}
+
+STRING 1155
+// Upgrades: R000 (Animal War Training), Name (Name)
+{
+Unit Damage Upgrade
+}
+
+STRING 1156
+// Upgrades: R000 (Animal War Training), Name (Name)
+{
+Unit Damage Upgrade
+}
+
+STRING 1157
+// Upgrades: R000 (Animal War Training), Name (Name)
+{
+Unit Damage Upgrade
+}
+
+STRING 1158
+// Upgrades: R000 (Animal War Training), Name (Name)
+{
+Unit Damage Upgrade
+}
+
+STRING 1159
+// Upgrades: R000 (Animal War Training), Name (Name)
+{
+Unit Damage Upgrade
+}
+
+STRING 1160
+// Upgrades: R000 (Animal War Training), Name (Name)
+{
+Unit Damage Upgrade
+}
+
+STRING 1161
+// Upgrades: R000 (Animal War Training), Name (Name)
+{
+Unit Damage Upgrade
+}
+
+STRING 1162
+// Upgrades: R000 (Animal War Training), Name (Name)
+{
+Unit Damage Upgrade
+}
+
+STRING 1163
+// Upgrades: R000 (Animal War Training), Name (Name)
+{
+Unit Damage Upgrade
+}
+
+STRING 1164
+// Upgrades: R000 (Animal War Training), Name (Name)
+{
+Unit Damage Upgrade
+}
+
+STRING 1165
+// Upgrades: R000 (Animal War Training), Name (Name)
+{
+Unit Damage Upgrade
+}
+
+STRING 1166
+// Upgrades: R000 (Animal War Training), Name (Name)
+{
+Unit Damage Upgrade
+}
+
+STRING 1167
+// Upgrades: R000 (Animal War Training), Name (Name)
+{
+Unit Damage Upgrade
+}
+
+STRING 1168
+// Upgrades: R000 (Animal War Training), Name (Name)
+{
+Unit Damage Upgrade
+}
+
+STRING 1169
+// Upgrades: R000 (Animal War Training), Name (Name)
+{
+Unit Damage Upgrade
+}
+
+STRING 1170
+// Upgrades: R000 (Animal War Training), Name (Name)
+{
+Unit Damage Upgrade
+}
+
+STRING 1171
+// Upgrades: R000 (Animal War Training), Name (Name)
+{
+Unit Damage Upgrade
+}
+
+STRING 1172
+// Upgrades: R000 (Animal War Training), Name (Name)
+{
+Unit Damage Upgrade
+}
+
+STRING 1173
+// Upgrades: R000 (Animal War Training), Name (Name)
+{
+Unit Damage Upgrade
+}
+
+STRING 1174
+// Upgrades: R000 (Animal War Training), Name (Name)
+{
+Unit Damage Upgrade
+}
+
+STRING 1175
+// Upgrades: R000 (Animal War Training), Name (Name)
+{
+Unit Damage Upgrade
+}
+
+STRING 1176
+// Upgrades: R000 (Animal War Training), Name (Name)
+{
+Unit Damage Upgrade
+}
+
+STRING 1177
+// Upgrades: R000 (Animal War Training), Name (Name)
+{
+Unit Damage Upgrade
+}
+
+STRING 1178
+// Upgrades: R000 (Animal War Training), Name (Name)
+{
+Unit Damage Upgrade
+}
+
+STRING 1179
+// Upgrades: R000 (Animal War Training), Name (Name)
+{
+Unit Damage Upgrade
+}
+
+STRING 1180
+// Upgrades: R000 (Animal War Training), Name (Name)
+{
+Unit Damage Upgrade
+}
+
+STRING 1181
+// Upgrades: R000 (Animal War Training), Name (Name)
+{
+Unit Damage Upgrade
+}
+
+STRING 1182
+// Upgrades: R000 (Animal War Training), Name (Name)
+{
+Unit Damage Upgrade
+}
+
+STRING 1183
+// Upgrades: R000 (Animal War Training), Name (Name)
+{
+Unit Damage Upgrade
+}
+
+STRING 1184
+// Upgrades: R000 (Animal War Training), Name (Name)
+{
+Unit Damage Upgrade
+}
+
+STRING 1185
+// Upgrades: R000 (Animal War Training), Name (Name)
+{
+Unit Damage Upgrade
+}
+
+STRING 1186
+// Upgrades: R000 (Animal War Training), Name (Name)
+{
+Unit Damage Upgrade
+}
+
+STRING 1187
+// Upgrades: R000 (Animal War Training), Name (Name)
+{
+Unit Damage Upgrade
+}
+
+STRING 1188
+// Upgrades: R000 (Animal War Training), Name (Name)
+{
+Unit Damage Upgrade
+}
+
+STRING 1189
+// Upgrades: R000 (Animal War Training), Name (Name)
+{
+Unit Damage Upgrade
+}
+
+STRING 1190
+// Upgrades: R000 (Animal War Training), Name (Name)
+{
+Unit Damage Upgrade
+}
+
+STRING 1191
+// Upgrades: R000 (Animal War Training), Name (Name)
+{
+Unit Damage Upgrade
+}
+
+STRING 1192
+// Upgrades: R000 (Animal War Training), Name (Name)
+{
+Unit Damage Upgrade
+}
+
+STRING 1193
+// Upgrades: R000 (Animal War Training), Name (Name)
+{
+Unit Damage Upgrade
+}
+
+STRING 1194
+// Upgrades: R000 (Animal War Training), effect1 (Effect 1)
+{
+ratt
+}
+

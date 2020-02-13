@@ -89,7 +89,6 @@ export class Occupations {
                 }
             }
         }
-        if (force == Forces.FORCE_1) print(force, "count: ", count, " -> ", guardType);
         return count;
     }
 

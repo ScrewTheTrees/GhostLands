@@ -73,7 +73,7 @@ export class AIManager {
         this.banditSouthSpawner.performUnitRevival();
     }
 
-    public getDataByPlayer(force: Forces) {
+    public getDataByForces(force: Forces) {
         switch (force) {
             case Forces.FORCE_1:
                 return this.force1Data;

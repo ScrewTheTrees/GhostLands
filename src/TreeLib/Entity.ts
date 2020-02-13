@@ -16,14 +16,16 @@ export abstract class Entity {
     protected constructor() {
         if (Entity.entityLoop == null) {
             Entity.entityLoop = () => {
-                Entity.entities.forEach((entity) =>
-                    xpcall(() => {
-                        entity._internalTimer += 0.01;
-                        if (entity._internalTimer >= entity._timerDelay) {
+                Entity.entities.forEach((entity) => {
+
+                    entity._internalTimer += 0.01;
+                    if (entity._internalTimer >= entity._timerDelay) {
+                        entity._internalTimer = 0;
+                        xpcall(() => {
                             entity.step();
-                            entity._internalTimer = 0;
-                        }
-                    }, () => Logger.LogCritical));
+                        }, Logger.LogCritical);
+                    }
+                });
             };
             Timers.getInstance().addFastTimerCallback(Entity.entityLoop);
         }

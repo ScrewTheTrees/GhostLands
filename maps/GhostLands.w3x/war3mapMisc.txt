@@ -1,3 +1,6 @@
+[HERO]
+DependencyOr=H000
+
 [Misc]
 AgiAttackSpeedBonus=0.01
 AgiDefenseBase=0.0
@@ -26,7 +29,7 @@ GlobalExperience=0
 GrantHeroXP=100,120,160,220,300
 GrantNormalXP=10
 HeroExpRange=10000.0
-HeroFactorXP=200
+HeroFactorXP=100
 IntManaBonus=5.0
 MaxHeroLevel=10000
 MaxLevelHeroesDrainExp=0

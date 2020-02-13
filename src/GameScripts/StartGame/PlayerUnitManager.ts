@@ -103,7 +103,7 @@ export class PlayerUnitManager extends Entity {
         const sellingUnit = GetSellingUnit();
 
         const forces = PlayerManager.getInstance().getForcesByPlayer(GetOwningPlayer(soldUnit));
-        SetUnitPositionLoc(soldUnit, AIManager.getInstance().getDataByPlayer(forces).getRandomSpawnPoint().toLocationClean());
+        SetUnitPositionLoc(soldUnit, AIManager.getInstance().getDataByForces(forces).getRandomSpawnPoint().toLocationClean());
 
         const path = PathManager.getInstance().createPath(Point.fromWidget(soldUnit), Point.fromWidget(sellingUnit), forces, WaypointOrders.move);
         const queue = ActionQueue.createUnitQueue(soldUnit, ...path);

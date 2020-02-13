@@ -52,6 +52,7 @@ declare interface mapvisibility extends handle { __mapvisibility: never; }
 declare interface mapsetting extends handle { __mapsetting: never; }
 declare interface mapdensity extends handle { __mapdensity: never; }
 declare interface mapcontrol extends handle { __mapcontrol: never; }
+declare interface minimapicon extends handle { __minimapicon: never; }
 declare interface playerslotstate extends handle { __playerslotstate: never; }
 declare interface volumegroup extends handle { __volumegroup: never; }
 declare interface camerafield extends handle { __camerafield: never; }
@@ -132,1501 +133,1534 @@ declare interface defensetype extends handle { __defensetype: never; }
 declare interface regentype extends handle { __regentype: never; }
 declare interface unitcategory extends handle { __unitcategory: never; }
 declare interface pathingflag extends handle { __pathingflag: never; }
+declare interface commandbuttoneffect extends handle { __commandbuttoneffect: never; }
 
-declare function ConvertRace(i: number): race
-declare function ConvertAllianceType(i: number): alliancetype
-declare function ConvertRacePref(i: number): racepreference
-declare function ConvertIGameState(i: number): igamestate
-declare function ConvertFGameState(i: number): fgamestate
-declare function ConvertPlayerState(i: number): playerstate
-declare function ConvertPlayerScore(i: number): playerscore
-declare function ConvertPlayerGameResult(i: number): playergameresult
-declare function ConvertUnitState(i: number): unitstate
-declare function ConvertAIDifficulty(i: number): aidifficulty
-declare function ConvertGameEvent(i: number): gameevent
-declare function ConvertPlayerEvent(i: number): playerevent
-declare function ConvertPlayerUnitEvent(i: number): playerunitevent
-declare function ConvertWidgetEvent(i: number): widgetevent
-declare function ConvertDialogEvent(i: number): dialogevent
-declare function ConvertUnitEvent(i: number): unitevent
-declare function ConvertLimitOp(i: number): limitop
-declare function ConvertUnitType(i: number): unittype
-declare function ConvertGameSpeed(i: number): gamespeed
-declare function ConvertPlacement(i: number): placement
-declare function ConvertStartLocPrio(i: number): startlocprio
-declare function ConvertGameDifficulty(i: number): gamedifficulty
-declare function ConvertGameType(i: number): gametype
-declare function ConvertMapFlag(i: number): mapflag
-declare function ConvertMapVisibility(i: number): mapvisibility
-declare function ConvertMapSetting(i: number): mapsetting
-declare function ConvertMapDensity(i: number): mapdensity
-declare function ConvertMapControl(i: number): mapcontrol
-declare function ConvertPlayerColor(i: number): playercolor
-declare function ConvertPlayerSlotState(i: number): playerslotstate
-declare function ConvertVolumeGroup(i: number): volumegroup
-declare function ConvertCameraField(i: number): camerafield
-declare function ConvertBlendMode(i: number): blendmode
-declare function ConvertRarityControl(i: number): raritycontrol
-declare function ConvertTexMapFlags(i: number): texmapflags
-declare function ConvertFogState(i: number): fogstate
-declare function ConvertEffectType(i: number): effecttype
-declare function ConvertVersion(i: number): version
-declare function ConvertItemType(i: number): itemtype
-declare function ConvertAttackType(i: number): attacktype
-declare function ConvertDamageType(i: number): damagetype
-declare function ConvertWeaponType(i: number): weapontype
-declare function ConvertSoundType(i: number): soundtype
-declare function ConvertPathingType(i: number): pathingtype
-declare function ConvertMouseButtonType(i: number): mousebuttontype
-declare function ConvertAnimType(i: number): animtype
-declare function ConvertSubAnimType(i: number): subanimtype
-declare function ConvertOriginFrameType(i: number): originframetype
-declare function ConvertFramePointType(i: number): framepointtype
-declare function ConvertTextAlignType(i: number): textaligntype
-declare function ConvertFrameEventType(i: number): frameeventtype
-declare function ConvertOsKeyType(i: number): oskeytype
-declare function ConvertAbilityIntegerField(i: number): abilityintegerfield
-declare function ConvertAbilityRealField(i: number): abilityrealfield
-declare function ConvertAbilityBooleanField(i: number): abilitybooleanfield
-declare function ConvertAbilityStringField(i: number): abilitystringfield
-declare function ConvertAbilityIntegerLevelField(i: number): abilityintegerlevelfield
-declare function ConvertAbilityRealLevelField(i: number): abilityreallevelfield
-declare function ConvertAbilityBooleanLevelField(i: number): abilitybooleanlevelfield
-declare function ConvertAbilityStringLevelField(i: number): abilitystringlevelfield
-declare function ConvertAbilityIntegerLevelArrayField(i: number): abilityintegerlevelarrayfield
-declare function ConvertAbilityRealLevelArrayField(i: number): abilityreallevelarrayfield
-declare function ConvertAbilityBooleanLevelArrayField(i: number): abilitybooleanlevelarrayfield
-declare function ConvertAbilityStringLevelArrayField(i: number): abilitystringlevelarrayfield
-declare function ConvertUnitIntegerField(i: number): unitintegerfield
-declare function ConvertUnitRealField(i: number): unitrealfield
-declare function ConvertUnitBooleanField(i: number): unitbooleanfield
-declare function ConvertUnitStringField(i: number): unitstringfield
-declare function ConvertUnitWeaponIntegerField(i: number): unitweaponintegerfield
-declare function ConvertUnitWeaponRealField(i: number): unitweaponrealfield
-declare function ConvertUnitWeaponBooleanField(i: number): unitweaponbooleanfield
-declare function ConvertUnitWeaponStringField(i: number): unitweaponstringfield
-declare function ConvertItemIntegerField(i: number): itemintegerfield
-declare function ConvertItemRealField(i: number): itemrealfield
-declare function ConvertItemBooleanField(i: number): itembooleanfield
-declare function ConvertItemStringField(i: number): itemstringfield
-declare function ConvertMoveType(i: number): movetype
-declare function ConvertTargetFlag(i: number): targetflag
-declare function ConvertArmorType(i: number): armortype
-declare function ConvertHeroAttribute(i: number): heroattribute
-declare function ConvertDefenseType(i: number): defensetype
-declare function ConvertRegenType(i: number): regentype
-declare function ConvertUnitCategory(i: number): unitcategory
-declare function ConvertPathingFlag(i: number): pathingflag
-declare function OrderId(orderIdString: string): number
-declare function OrderId2String(orderId: number): string
-declare function UnitId(unitIdString: string): number
-declare function UnitId2String(unitId: number): string
-declare function AbilityId(abilityIdString: string): number
-declare function AbilityId2String(abilityId: number): string
-declare function GetObjectName(objectId: number): string
-declare function GetBJMaxPlayers(): number
-declare function GetBJPlayerNeutralVictim(): number
-declare function GetBJPlayerNeutralExtra(): number
-declare function GetBJMaxPlayerSlots(): number
-declare function GetPlayerNeutralPassive(): number
-declare function GetPlayerNeutralAggressive(): number
-declare function Deg2Rad(degrees: number): number
-declare function Rad2Deg(radians: number): number
-declare function Sin(radians: number): number
-declare function Cos(radians: number): number
-declare function Tan(radians: number): number
-declare function Asin(y: number): number
-declare function Acos(x: number): number
-declare function Atan(x: number): number
-declare function Atan2(y: number, x: number): number
-declare function SquareRoot(x: number): number
-declare function Pow(x: number, power: number): number
-declare function I2R(i: number): number
-declare function R2I(r: number): number
-declare function I2S(i: number): string
-declare function R2S(r: number): string
-declare function R2SW(r: number, width: number, precision: number): string
-declare function S2I(s: string): number
-declare function S2R(s: string): number
-declare function GetHandleId(h: handle): number
-declare function SubString(source: string, start: number, end: number): string
-declare function StringLength(s: string): number
-declare function StringCase(source: string, upper: boolean): string
-declare function StringHash(s: string): number
-declare function GetLocalizedString(source: string): string
-declare function GetLocalizedHotkey(source: string): number
-declare function SetMapName(name: string): void
-declare function SetMapDescription(description: string): void
-declare function SetTeams(teamcount: number): void
-declare function SetPlayers(playercount: number): void
-declare function DefineStartLocation(whichStartLoc: number, x: number, y: number): void
-declare function DefineStartLocationLoc(whichStartLoc: number, whichLocation: location): void
-declare function SetStartLocPrioCount(whichStartLoc: number, prioSlotCount: number): void
-declare function SetStartLocPrio(whichStartLoc: number, prioSlotIndex: number, otherStartLocIndex: number, priority: startlocprio): void
-declare function GetStartLocPrioSlot(whichStartLoc: number, prioSlotIndex: number): number
-declare function GetStartLocPrio(whichStartLoc: number, prioSlotIndex: number): startlocprio
-declare function SetGameTypeSupported(whichGameType: gametype, value: boolean): void
-declare function SetMapFlag(whichMapFlag: mapflag, value: boolean): void
-declare function SetGamePlacement(whichPlacementType: placement): void
-declare function SetGameSpeed(whichspeed: gamespeed): void
-declare function SetGameDifficulty(whichdifficulty: gamedifficulty): void
-declare function SetResourceDensity(whichdensity: mapdensity): void
-declare function SetCreatureDensity(whichdensity: mapdensity): void
-declare function GetTeams(): number
-declare function GetPlayers(): number
-declare function IsGameTypeSupported(whichGameType: gametype): boolean
-declare function GetGameTypeSelected(): gametype
-declare function IsMapFlagSet(whichMapFlag: mapflag): boolean
-declare function GetGamePlacement(): placement
-declare function GetGameSpeed(): gamespeed
-declare function GetGameDifficulty(): gamedifficulty
-declare function GetResourceDensity(): mapdensity
-declare function GetCreatureDensity(): mapdensity
-declare function GetStartLocationX(whichStartLocation: number): number
-declare function GetStartLocationY(whichStartLocation: number): number
-declare function GetStartLocationLoc(whichStartLocation: number): location
-declare function SetPlayerTeam(whichPlayer: player, whichTeam: number): void
-declare function SetPlayerStartLocation(whichPlayer: player, startLocIndex: number): void
-declare function ForcePlayerStartLocation(whichPlayer: player, startLocIndex: number): void
-declare function SetPlayerColor(whichPlayer: player, color: playercolor): void
-declare function SetPlayerAlliance(sourcePlayer: player, otherPlayer: player, whichAllianceSetting: alliancetype, value: boolean): void
-declare function SetPlayerTaxRate(sourcePlayer: player, otherPlayer: player, whichResource: playerstate, rate: number): void
-declare function SetPlayerRacePreference(whichPlayer: player, whichRacePreference: racepreference): void
-declare function SetPlayerRaceSelectable(whichPlayer: player, value: boolean): void
-declare function SetPlayerController(whichPlayer: player, controlType: mapcontrol): void
-declare function SetPlayerName(whichPlayer: player, name: string): void
-declare function SetPlayerOnScoreScreen(whichPlayer: player, flag: boolean): void
-declare function GetPlayerTeam(whichPlayer: player): number
-declare function GetPlayerStartLocation(whichPlayer: player): number
-declare function GetPlayerColor(whichPlayer: player): playercolor
-declare function GetPlayerSelectable(whichPlayer: player): boolean
-declare function GetPlayerController(whichPlayer: player): mapcontrol
-declare function GetPlayerSlotState(whichPlayer: player): playerslotstate
-declare function GetPlayerTaxRate(sourcePlayer: player, otherPlayer: player, whichResource: playerstate): number
-declare function IsPlayerRacePrefSet(whichPlayer: player, pref: racepreference): boolean
-declare function GetPlayerName(whichPlayer: player): string
-declare function CreateTimer(): timer
-declare function DestroyTimer(whichTimer: timer): void
-declare function TimerStart(whichTimer: timer, timeout: number, periodic: boolean, handlerFunc: undefined): void
-declare function TimerGetElapsed(whichTimer: timer): number
-declare function TimerGetRemaining(whichTimer: timer): number
-declare function TimerGetTimeout(whichTimer: timer): number
-declare function PauseTimer(whichTimer: timer): void
-declare function ResumeTimer(whichTimer: timer): void
-declare function GetExpiredTimer(): timer
-declare function CreateGroup(): group
-declare function DestroyGroup(whichGroup: group): void
-declare function GroupAddUnit(whichGroup: group, whichUnit: unit): boolean
-declare function GroupRemoveUnit(whichGroup: group, whichUnit: unit): boolean
-declare function BlzGroupAddGroupFast(whichGroup: group, addGroup: group): number
-declare function BlzGroupRemoveGroupFast(whichGroup: group, removeGroup: group): number
-declare function GroupClear(whichGroup: group): void
-declare function BlzGroupGetSize(whichGroup: group): number
-declare function BlzGroupUnitAt(whichGroup: group, index: number): unit
-declare function GroupEnumUnitsOfType(whichGroup: group, unitname: string, filter: boolexpr): void
-declare function GroupEnumUnitsOfPlayer(whichGroup: group, whichPlayer: player, filter: boolexpr | null): void
-declare function GroupEnumUnitsOfTypeCounted(whichGroup: group, unitname: string, filter: boolexpr, countLimit: number): void
-declare function GroupEnumUnitsInRect(whichGroup: group, r: rect, filter: boolexpr): void
-declare function GroupEnumUnitsInRectCounted(whichGroup: group, r: rect, filter: boolexpr, countLimit: number): void
-declare function GroupEnumUnitsInRange(whichGroup: group, x: number, y: number, radius: number, filter: boolexpr): void
-declare function GroupEnumUnitsInRangeOfLoc(whichGroup: group, whichLocation: location, radius: number, filter: boolexpr): void
-declare function GroupEnumUnitsInRangeCounted(whichGroup: group, x: number, y: number, radius: number, filter: boolexpr, countLimit: number): void
-declare function GroupEnumUnitsInRangeOfLocCounted(whichGroup: group, whichLocation: location, radius: number, filter: boolexpr, countLimit: number): void
-declare function GroupEnumUnitsSelected(whichGroup: group, whichPlayer: player, filter: boolexpr): void
-declare function GroupImmediateOrder(whichGroup: group, order: string): boolean
-declare function GroupImmediateOrderById(whichGroup: group, order: number): boolean
-declare function GroupPointOrder(whichGroup: group, order: string, x: number, y: number): boolean
-declare function GroupPointOrderLoc(whichGroup: group, order: string, whichLocation: location): boolean
-declare function GroupPointOrderById(whichGroup: group, order: number, x: number, y: number): boolean
-declare function GroupPointOrderByIdLoc(whichGroup: group, order: number, whichLocation: location): boolean
-declare function GroupTargetOrder(whichGroup: group, order: string, targetWidget: widget): boolean
-declare function GroupTargetOrderById(whichGroup: group, order: number, targetWidget: widget): boolean
-declare function ForGroup(whichGroup: group, callback: () => void): void
-declare function FirstOfGroup(whichGroup: group): unit
-declare function CreateForce(): force
-declare function DestroyForce(whichForce: force): void
-declare function ForceAddPlayer(whichForce: force, whichPlayer: player): void
-declare function ForceRemovePlayer(whichForce: force, whichPlayer: player): void
-declare function BlzForceHasPlayer(whichForce: force, whichPlayer: player): boolean
-declare function ForceClear(whichForce: force): void
-declare function ForceEnumPlayers(whichForce: force, filter: boolexpr): void
-declare function ForceEnumPlayersCounted(whichForce: force, filter: boolexpr, countLimit: number): void
-declare function ForceEnumAllies(whichForce: force, whichPlayer: player, filter: boolexpr): void
-declare function ForceEnumEnemies(whichForce: force, whichPlayer: player, filter: boolexpr): void
-declare function ForForce(whichForce: force, callback: () => void): void
-declare function Rect(minx: number, miny: number, maxx: number, maxy: number): rect
-declare function RectFromLoc(min: location, max: location): rect
-declare function RemoveRect(whichRect: rect): void
-declare function SetRect(whichRect: rect, minx: number, miny: number, maxx: number, maxy: number): void
-declare function SetRectFromLoc(whichRect: rect, min: location, max: location): void
-declare function MoveRectTo(whichRect: rect, newCenterX: number, newCenterY: number): void
-declare function MoveRectToLoc(whichRect: rect, newCenterLoc: location): void
-declare function GetRectCenterX(whichRect: rect): number
-declare function GetRectCenterY(whichRect: rect): number
-declare function GetRectMinX(whichRect: rect): number
-declare function GetRectMinY(whichRect: rect): number
-declare function GetRectMaxX(whichRect: rect): number
-declare function GetRectMaxY(whichRect: rect): number
-declare function CreateRegion(): region
-declare function RemoveRegion(whichRegion: region): void
-declare function RegionAddRect(whichRegion: region, r: rect): void
-declare function RegionClearRect(whichRegion: region, r: rect): void
-declare function RegionAddCell(whichRegion: region, x: number, y: number): void
-declare function RegionAddCellAtLoc(whichRegion: region, whichLocation: location): void
-declare function RegionClearCell(whichRegion: region, x: number, y: number): void
-declare function RegionClearCellAtLoc(whichRegion: region, whichLocation: location): void
-declare function Location(x: number, y: number): location
-declare function RemoveLocation(whichLocation: location): void
-declare function MoveLocation(whichLocation: location, newX: number, newY: number): void
-declare function GetLocationX(whichLocation: location): number
-declare function GetLocationY(whichLocation: location): number
-declare function GetLocationZ(whichLocation: location): number
-declare function IsUnitInRegion(whichRegion: region, whichUnit: unit): boolean
-declare function IsPointInRegion(whichRegion: region, x: number, y: number): boolean
-declare function IsLocationInRegion(whichRegion: region, whichLocation: location): boolean
-declare function GetWorldBounds(): rect
-declare function CreateTrigger(): trigger
-declare function DestroyTrigger(whichTrigger: trigger): void
-declare function ResetTrigger(whichTrigger: trigger): void
-declare function EnableTrigger(whichTrigger: trigger): void
-declare function DisableTrigger(whichTrigger: trigger): void
-declare function IsTriggerEnabled(whichTrigger: trigger): boolean
-declare function TriggerWaitOnSleeps(whichTrigger: trigger, flag: boolean): void
-declare function IsTriggerWaitOnSleeps(whichTrigger: trigger): boolean
-declare function GetFilterUnit(): unit
-declare function GetEnumUnit(): unit
-declare function GetFilterDestructable(): destructable
-declare function GetEnumDestructable(): destructable
-declare function GetFilterItem(): item
-declare function GetEnumItem(): item
-declare function GetFilterPlayer(): player
-declare function GetEnumPlayer(): player
-declare function GetTriggeringTrigger(): trigger
-declare function GetTriggerEventId(): eventid
-declare function GetTriggerEvalCount(whichTrigger: trigger): number
-declare function GetTriggerExecCount(whichTrigger: trigger): number
-declare function ExecuteFunc(funcName: string): void
-declare function And(operandA: boolexpr, operandB: boolexpr): boolexpr
-declare function Or(operandA: boolexpr, operandB: boolexpr): boolexpr
-declare function Not(operand: boolexpr): boolexpr
-declare function Condition(func: () => boolean): conditionfunc
-declare function DestroyCondition(c: conditionfunc): void
-declare function Filter(func: () => boolean): filterfunc
-declare function DestroyFilter(f: filterfunc): void
-declare function DestroyBoolExpr(e: boolexpr): void
-declare function TriggerRegisterVariableEvent(whichTrigger: trigger, varName: string, opcode: limitop, limitval: number): event
-declare function TriggerRegisterTimerEvent(whichTrigger: trigger, timeout: number, periodic: boolean): event
-declare function TriggerRegisterTimerExpireEvent(whichTrigger: trigger, t: timer): event
-declare function TriggerRegisterGameStateEvent(whichTrigger: trigger, whichState: gamestate, opcode: limitop, limitval: number): event
-declare function TriggerRegisterDialogEvent(whichTrigger: trigger, whichDialog: dialog): event
-declare function TriggerRegisterDialogButtonEvent(whichTrigger: trigger, whichButton: button): event
-declare function GetEventGameState(): gamestate
-declare function TriggerRegisterGameEvent(whichTrigger: trigger, whichGameEvent: gameevent): event
-declare function GetWinningPlayer(): player
-declare function TriggerRegisterEnterRegion(whichTrigger: trigger, whichRegion: region, filter: boolexpr | null): event
-declare function GetTriggeringRegion(): region
-declare function GetEnteringUnit(): unit
-declare function TriggerRegisterLeaveRegion(whichTrigger: trigger, whichRegion: region, filter: boolexpr): event
-declare function GetLeavingUnit(): unit
-declare function TriggerRegisterTrackableHitEvent(whichTrigger: trigger, t: trackable): event
-declare function TriggerRegisterTrackableTrackEvent(whichTrigger: trigger, t: trackable): event
-declare function GetTriggeringTrackable(): trackable
-declare function GetClickedButton(): button
-declare function GetClickedDialog(): dialog
-declare function GetTournamentFinishSoonTimeRemaining(): number
-declare function GetTournamentFinishNowRule(): number
-declare function GetTournamentFinishNowPlayer(): player
-declare function GetTournamentScore(whichPlayer: player): number
-declare function GetSaveBasicFilename(): string
-declare function TriggerRegisterPlayerEvent(whichTrigger: trigger, whichPlayer: player, whichPlayerEvent: playerevent): event
-declare function GetTriggerPlayer(): player
-declare function TriggerRegisterPlayerUnitEvent(whichTrigger: trigger, whichPlayer: player, whichPlayerUnitEvent: playerunitevent, filter: boolexpr | null): event
-declare function GetLevelingUnit(): unit
-declare function GetLearningUnit(): unit
-declare function GetLearnedSkill(): number
-declare function GetLearnedSkillLevel(): number
-declare function GetRevivableUnit(): unit
-declare function GetRevivingUnit(): unit
-declare function GetAttacker(): unit
-declare function GetRescuer(): unit
-declare function GetDyingUnit(): unit
-declare function GetKillingUnit(): unit
-declare function GetDecayingUnit(): unit
-declare function GetConstructingStructure(): unit
-declare function GetCancelledStructure(): unit
-declare function GetConstructedStructure(): unit
-declare function GetResearchingUnit(): unit
-declare function GetResearched(): number
-declare function GetTrainedUnitType(): number
-declare function GetTrainedUnit(): unit
-declare function GetDetectedUnit(): unit
-declare function GetSummoningUnit(): unit
-declare function GetSummonedUnit(): unit
-declare function GetTransportUnit(): unit
-declare function GetLoadedUnit(): unit
-declare function GetSellingUnit(): unit
-declare function GetSoldUnit(): unit
-declare function GetBuyingUnit(): unit
-declare function GetSoldItem(): item
-declare function GetChangingUnit(): unit
-declare function GetChangingUnitPrevOwner(): player
-declare function GetManipulatingUnit(): unit
-declare function GetManipulatedItem(): item
-declare function GetOrderedUnit(): unit
-declare function GetIssuedOrderId(): number
-declare function GetOrderPointX(): number
-declare function GetOrderPointY(): number
-declare function GetOrderPointLoc(): location
-declare function GetOrderTarget(): widget
-declare function GetOrderTargetDestructable(): destructable
-declare function GetOrderTargetItem(): item
-declare function GetOrderTargetUnit(): unit
-declare function GetSpellAbilityUnit(): unit
-declare function GetSpellAbilityId(): number
-declare function GetSpellAbility(): ability
-declare function GetSpellTargetLoc(): location
-declare function GetSpellTargetX(): number
-declare function GetSpellTargetY(): number
-declare function GetSpellTargetDestructable(): destructable
-
-declare function GetSpellTargetItem(): item
-
-declare function GetSpellTargetUnit(): unit
-
-declare function TriggerRegisterPlayerAllianceChange(whichTrigger: trigger, whichPlayer: player, whichAlliance: alliancetype): event
-
-declare function TriggerRegisterPlayerStateEvent(whichTrigger: trigger, whichPlayer: player, whichState: playerstate, opcode: limitop, limitval: number): event
-
-declare function GetEventPlayerState(): playerstate
-
-declare function TriggerRegisterPlayerChatEvent(whichTrigger: trigger, whichPlayer: player, chatMessageToDetect: string, exactMatchOnly: boolean): event
-
-declare function GetEventPlayerChatString(): string
-
-declare function GetEventPlayerChatStringMatched(): string
-
-declare function TriggerRegisterDeathEvent(whichTrigger: trigger, whichWidget: widget): event
-
-declare function GetTriggerUnit(): unit
-
-declare function TriggerRegisterUnitStateEvent(whichTrigger: trigger, whichUnit: unit, whichState: unitstate, opcode: limitop, limitval: number): event
-
-declare function GetEventUnitState(): unitstate
-
-declare function TriggerRegisterUnitEvent(whichTrigger: trigger, whichUnit: unit, whichEvent: unitevent): event
-
-declare function GetEventDamage(): number
-
-declare function GetEventDamageSource(): unit
-
-declare function GetEventDetectingPlayer(): player
-
-declare function TriggerRegisterFilterUnitEvent(whichTrigger: trigger, whichUnit: unit, whichEvent: unitevent, filter: boolexpr): event
-
-declare function GetEventTargetUnit(): unit
-
-declare function TriggerRegisterUnitInRange(whichTrigger: trigger, whichUnit: unit, range: number, filter: boolexpr): event
-declare function TriggerAddCondition(whichTrigger: trigger, condition: boolexpr): triggercondition
-declare function TriggerRemoveCondition(whichTrigger: trigger, whichCondition: triggercondition): void
-declare function TriggerClearConditions(whichTrigger: trigger): void
-declare function TriggerAddAction(whichTrigger: trigger, actionFunc: () => void): triggeraction
-declare function TriggerRemoveAction(whichTrigger: trigger, whichAction: triggeraction): void
-declare function TriggerClearActions(whichTrigger: trigger): void
-declare function TriggerSleepAction(timeout: number): void
-declare function TriggerWaitForSound(s: sound, offset: number): void
-declare function TriggerEvaluate(whichTrigger: trigger): boolean
-declare function TriggerExecute(whichTrigger: trigger): void
-declare function TriggerExecuteWait(whichTrigger: trigger): void
-declare function TriggerSyncStart(): void
-declare function TriggerSyncReady(): void
-declare function GetWidgetLife(whichWidget: widget): number
-declare function SetWidgetLife(whichWidget: widget, newLife: number): void
-declare function GetWidgetX(whichWidget: widget): number
-declare function GetWidgetY(whichWidget: widget): number
-declare function GetTriggerWidget(): widget
-declare function CreateDestructable(objectid: number, x: number, y: number, face: number, scale: number, variation: number): destructable
-declare function CreateDestructableZ(objectid: number, x: number, y: number, z: number, face: number, scale: number, variation: number): destructable
-declare function CreateDeadDestructable(objectid: number, x: number, y: number, face: number, scale: number, variation: number): destructable
-declare function CreateDeadDestructableZ(objectid: number, x: number, y: number, z: number, face: number, scale: number, variation: number): destructable
-declare function RemoveDestructable(d: destructable): void
-declare function KillDestructable(d: destructable): void
-declare function SetDestructableInvulnerable(d: destructable, flag: boolean): void
-declare function IsDestructableInvulnerable(d: destructable): boolean
-declare function EnumDestructablesInRect(r: rect, filter: boolexpr, actionFunc: () => void): void
-declare function GetDestructableTypeId(d: destructable): number
-declare function GetDestructableX(d: destructable): number
-declare function GetDestructableY(d: destructable): number
-declare function SetDestructableLife(d: destructable, life: number): void
-declare function GetDestructableLife(d: destructable): number
-declare function SetDestructableMaxLife(d: destructable, max: number): void
-declare function GetDestructableMaxLife(d: destructable): number
-declare function DestructableRestoreLife(d: destructable, life: number, birth: boolean): void
-declare function QueueDestructableAnimation(d: destructable, whichAnimation: string): void
-declare function SetDestructableAnimation(d: destructable, whichAnimation: string): void
-declare function SetDestructableAnimationSpeed(d: destructable, speedFactor: number): void
-declare function ShowDestructable(d: destructable, flag: boolean): void
-declare function GetDestructableOccluderHeight(d: destructable): number
-declare function SetDestructableOccluderHeight(d: destructable, height: number): void
-declare function GetDestructableName(d: destructable): string
-declare function GetTriggerDestructable(): destructable
-declare function CreateItem(itemid: number, x: number, y: number): item
-declare function RemoveItem(whichItem: item): void
-declare function GetItemPlayer(whichItem: item): player
-declare function GetItemTypeId(i: item): number
-declare function GetItemX(i: item): number
-declare function GetItemY(i: item): number
-declare function SetItemPosition(i: item, x: number, y: number): void
-declare function SetItemDropOnDeath(whichItem: item, flag: boolean): void
-declare function SetItemDroppable(i: item, flag: boolean): void
-declare function SetItemPawnable(i: item, flag: boolean): void
-declare function SetItemPlayer(whichItem: item, whichPlayer: player, changeColor: boolean): void
-declare function SetItemInvulnerable(whichItem: item, flag: boolean): void
-declare function IsItemInvulnerable(whichItem: item): boolean
-declare function SetItemVisible(whichItem: item, show: boolean): void
-declare function IsItemVisible(whichItem: item): boolean
-declare function IsItemOwned(whichItem: item): boolean
-declare function IsItemPowerup(whichItem: item): boolean
-declare function IsItemSellable(whichItem: item): boolean
-declare function IsItemPawnable(whichItem: item): boolean
-declare function IsItemIdPowerup(itemId: number): boolean
-declare function IsItemIdSellable(itemId: number): boolean
-declare function IsItemIdPawnable(itemId: number): boolean
-declare function EnumItemsInRect(r: rect, filter: boolexpr, actionFunc: () => void): void
-declare function GetItemLevel(whichItem: item): number
-declare function GetItemType(whichItem: item): itemtype
-declare function SetItemDropID(whichItem: item, unitId: number): void
-declare function GetItemName(whichItem: item): string
-declare function GetItemCharges(whichItem: item): number
-declare function SetItemCharges(whichItem: item, charges: number): void
-declare function GetItemUserData(whichItem: item): number
-declare function SetItemUserData(whichItem: item, data: number): void
-declare function CreateUnit(id: player, unitid: number, x: number, y: number, face: number): unit
-declare function CreateUnitByName(whichPlayer: player, unitname: string, x: number, y: number, face: number): unit
-declare function CreateUnitAtLoc(id: player, unitid: number, whichLocation: location, face: number): unit
-declare function CreateUnitAtLocByName(id: player, unitname: string, whichLocation: location, face: number): unit
-declare function CreateCorpse(whichPlayer: player, unitid: number, x: number, y: number, face: number): unit
-declare function KillUnit(whichUnit: unit): void
-declare function RemoveUnit(whichUnit: unit): void
-declare function ShowUnit(whichUnit: unit, show: boolean): void
-declare function SetUnitState(whichUnit: unit, whichUnitState: unitstate, newVal: number): void
-declare function SetUnitX(whichUnit: unit, newX: number): void
-declare function SetUnitY(whichUnit: unit, newY: number): void
-declare function SetUnitPosition(whichUnit: unit, newX: number, newY: number): void
-declare function SetUnitPositionLoc(whichUnit: unit, whichLocation: location): void
-declare function SetUnitFacing(whichUnit: unit, facingAngle: number): void
-declare function SetUnitFacingTimed(whichUnit: unit, facingAngle: number, duration: number): void
-declare function SetUnitMoveSpeed(whichUnit: unit, newSpeed: number): void
-declare function SetUnitFlyHeight(whichUnit: unit, newHeight: number, rate: number): void
-declare function SetUnitTurnSpeed(whichUnit: unit, newTurnSpeed: number): void
-declare function SetUnitPropWindow(whichUnit: unit, newPropWindowAngle: number): void
-declare function SetUnitAcquireRange(whichUnit: unit, newAcquireRange: number): void
-declare function SetUnitCreepGuard(whichUnit: unit, creepGuard: boolean): void
-declare function GetUnitAcquireRange(whichUnit: unit): number
-declare function GetUnitTurnSpeed(whichUnit: unit): number
-declare function GetUnitPropWindow(whichUnit: unit): number
-declare function GetUnitFlyHeight(whichUnit: unit): number
-declare function GetUnitDefaultAcquireRange(whichUnit: unit): number
-declare function GetUnitDefaultTurnSpeed(whichUnit: unit): number
-declare function GetUnitDefaultPropWindow(whichUnit: unit): number
-declare function GetUnitDefaultFlyHeight(whichUnit: unit): number
-declare function SetUnitOwner(whichUnit: unit, whichPlayer: player, changeColor: boolean): void
-declare function SetUnitColor(whichUnit: unit, whichColor: playercolor): void
-declare function SetUnitScale(whichUnit: unit, scaleX: number, scaleY: number, scaleZ: number): void
-declare function SetUnitTimeScale(whichUnit: unit, timeScale: number): void
-declare function SetUnitBlendTime(whichUnit: unit, blendTime: number): void
-declare function SetUnitVertexColor(whichUnit: unit, red: number, green: number, blue: number, alpha: number): void
-declare function QueueUnitAnimation(whichUnit: unit, whichAnimation: string): void
-declare function SetUnitAnimation(whichUnit: unit, whichAnimation: string): void
-declare function SetUnitAnimationByIndex(whichUnit: unit, whichAnimation: number): void
-declare function SetUnitAnimationWithRarity(whichUnit: unit, whichAnimation: string, rarity: raritycontrol): void
-declare function AddUnitAnimationProperties(whichUnit: unit, animProperties: string, add: boolean): void
-declare function SetUnitLookAt(whichUnit: unit, whichBone: string, lookAtTarget: unit, offsetX: number, offsetY: number, offsetZ: number): void
-declare function ResetUnitLookAt(whichUnit: unit): void
-declare function SetUnitRescuable(whichUnit: unit, byWhichPlayer: player, flag: boolean): void
-declare function SetUnitRescueRange(whichUnit: unit, range: number): void
-declare function SetHeroStr(whichHero: unit, newStr: number, permanent: boolean): void
-declare function SetHeroAgi(whichHero: unit, newAgi: number, permanent: boolean): void
-declare function SetHeroInt(whichHero: unit, newInt: number, permanent: boolean): void
-declare function GetHeroStr(whichHero: unit, includeBonuses: boolean): number
-declare function GetHeroAgi(whichHero: unit, includeBonuses: boolean): number
-declare function GetHeroInt(whichHero: unit, includeBonuses: boolean): number
-declare function UnitStripHeroLevel(whichHero: unit, howManyLevels: number): boolean
-declare function GetHeroXP(whichHero: unit): number
-declare function SetHeroXP(whichHero: unit, newXpVal: number, showEyeCandy: boolean): void
-declare function GetHeroSkillPoints(whichHero: unit): number
-declare function UnitModifySkillPoints(whichHero: unit, skillPointDelta: number): boolean
-declare function AddHeroXP(whichHero: unit, xpToAdd: number, showEyeCandy: boolean): void
-declare function SetHeroLevel(whichHero: unit, level: number, showEyeCandy: boolean): void
-declare function GetHeroLevel(whichHero: unit): number
-declare function GetUnitLevel(whichUnit: unit): number
-declare function GetHeroProperName(whichHero: unit): string
-declare function SuspendHeroXP(whichHero: unit, flag: boolean): void
-declare function IsSuspendedXP(whichHero: unit): boolean
-declare function SelectHeroSkill(whichHero: unit, abilcode: number): void
-declare function GetUnitAbilityLevel(whichUnit: unit, abilcode: number): number
-declare function DecUnitAbilityLevel(whichUnit: unit, abilcode: number): number
-declare function IncUnitAbilityLevel(whichUnit: unit, abilcode: number): number
-declare function SetUnitAbilityLevel(whichUnit: unit, abilcode: number, level: number): number
-declare function ReviveHero(whichHero: unit, x: number, y: number, doEyecandy: boolean): boolean
-declare function ReviveHeroLoc(whichHero: unit, loc: location, doEyecandy: boolean): boolean
-declare function SetUnitExploded(whichUnit: unit, exploded: boolean): void
-declare function SetUnitInvulnerable(whichUnit: unit, flag: boolean): void
-declare function PauseUnit(whichUnit: unit, flag: boolean): void
-declare function IsUnitPaused(whichHero: unit): boolean
-declare function SetUnitPathing(whichUnit: unit, flag: boolean): void
-declare function ClearSelection(): void
-declare function SelectUnit(whichUnit: unit, flag: boolean): void
-declare function GetUnitPointValue(whichUnit: unit): number
-declare function GetUnitPointValueByType(unitType: number): number
-declare function UnitAddItem(whichUnit: unit, whichItem: item): boolean
-declare function UnitAddItemById(whichUnit: unit, itemId: number): item
-declare function UnitAddItemToSlotById(whichUnit: unit, itemId: number, itemSlot: number): boolean
-declare function UnitRemoveItem(whichUnit: unit, whichItem: item): void
-declare function UnitRemoveItemFromSlot(whichUnit: unit, itemSlot: number): item
-declare function UnitHasItem(whichUnit: unit, whichItem: item): boolean
-declare function UnitItemInSlot(whichUnit: unit, itemSlot: number): item
-declare function UnitInventorySize(whichUnit: unit): number
-declare function UnitDropItemPoint(whichUnit: unit, whichItem: item, x: number, y: number): boolean
-declare function UnitDropItemSlot(whichUnit: unit, whichItem: item, slot: number): boolean
-declare function UnitDropItemTarget(whichUnit: unit, whichItem: item, target: widget): boolean
-declare function UnitUseItem(whichUnit: unit, whichItem: item): boolean
-declare function UnitUseItemPoint(whichUnit: unit, whichItem: item, x: number, y: number): boolean
-declare function UnitUseItemTarget(whichUnit: unit, whichItem: item, target: widget): boolean
-declare function GetUnitX(whichUnit: unit): number
-declare function GetUnitY(whichUnit: unit): number
-declare function GetUnitLoc(whichUnit: unit): location
-declare function GetUnitFacing(whichUnit: unit): number
-declare function GetUnitMoveSpeed(whichUnit: unit): number
-declare function GetUnitDefaultMoveSpeed(whichUnit: unit): number
-declare function GetUnitState(whichUnit: unit, whichUnitState: unitstate): number
-declare function GetOwningPlayer(whichUnit: unit): player
-declare function GetUnitTypeId(whichUnit: unit): number
-declare function GetUnitRace(whichUnit: unit): race
-declare function GetUnitName(whichUnit: unit): string
-declare function GetUnitFoodUsed(whichUnit: unit): number
-declare function GetUnitFoodMade(whichUnit: unit): number
-declare function GetFoodMade(unitId: number): number
-declare function GetFoodUsed(unitId: number): number
-declare function SetUnitUseFood(whichUnit: unit, useFood: boolean): void
-declare function GetUnitRallyPoint(whichUnit: unit): location
-declare function GetUnitRallyUnit(whichUnit: unit): unit
-declare function GetUnitRallyDestructable(whichUnit: unit): destructable
-declare function IsUnitInGroup(whichUnit: unit, whichGroup: group): boolean
-declare function IsUnitInForce(whichUnit: unit, whichForce: force): boolean
-declare function IsUnitOwnedByPlayer(whichUnit: unit, whichPlayer: player): boolean
-declare function IsUnitAlly(whichUnit: unit, whichPlayer: player): boolean
-declare function IsUnitEnemy(whichUnit: unit, whichPlayer: player): boolean
-declare function IsUnitVisible(whichUnit: unit, whichPlayer: player): boolean
-declare function IsUnitDetected(whichUnit: unit, whichPlayer: player): boolean
-declare function IsUnitInvisible(whichUnit: unit, whichPlayer: player): boolean
-declare function IsUnitFogged(whichUnit: unit, whichPlayer: player): boolean
-declare function IsUnitMasked(whichUnit: unit, whichPlayer: player): boolean
-declare function IsUnitSelected(whichUnit: unit, whichPlayer: player): boolean
-declare function IsUnitRace(whichUnit: unit, whichRace: race): boolean
-declare function IsUnitType(whichUnit: unit, whichUnitType: unittype): boolean
-declare function IsUnit(whichUnit: unit, whichSpecifiedUnit: unit): boolean
-declare function IsUnitInRange(whichUnit: unit, otherUnit: unit, distance: number): boolean
-declare function IsUnitInRangeXY(whichUnit: unit, x: number, y: number, distance: number): boolean
-declare function IsUnitInRangeLoc(whichUnit: unit, whichLocation: location, distance: number): boolean
-declare function IsUnitHidden(whichUnit: unit): boolean
-declare function IsUnitIllusion(whichUnit: unit): boolean
-declare function IsUnitInTransport(whichUnit: unit, whichTransport: unit): boolean
-declare function IsUnitLoaded(whichUnit: unit): boolean
-declare function IsHeroUnitId(unitId: number): boolean
-declare function IsUnitIdType(unitId: number, whichUnitType: unittype): boolean
-declare function UnitShareVision(whichUnit: unit, whichPlayer: player, share: boolean): void
-declare function UnitSuspendDecay(whichUnit: unit, suspend: boolean): void
-declare function UnitAddType(whichUnit: unit, whichUnitType: unittype): boolean
-declare function UnitRemoveType(whichUnit: unit, whichUnitType: unittype): boolean
-declare function UnitAddAbility(whichUnit: unit, abilityId: number): boolean
-declare function UnitRemoveAbility(whichUnit: unit, abilityId: number): boolean
-declare function UnitMakeAbilityPermanent(whichUnit: unit, permanent: boolean, abilityId: number): boolean
-declare function UnitRemoveBuffs(whichUnit: unit, removePositive: boolean, removeNegative: boolean): void
-declare function UnitRemoveBuffsEx(whichUnit: unit, removePositive: boolean, removeNegative: boolean, magic: boolean, physical: boolean, timedLife: boolean, aura: boolean, autoDispel: boolean): void
-declare function UnitHasBuffsEx(whichUnit: unit, removePositive: boolean, removeNegative: boolean, magic: boolean, physical: boolean, timedLife: boolean, aura: boolean, autoDispel: boolean): boolean
-declare function UnitCountBuffsEx(whichUnit: unit, removePositive: boolean, removeNegative: boolean, magic: boolean, physical: boolean, timedLife: boolean, aura: boolean, autoDispel: boolean): number
-declare function UnitAddSleep(whichUnit: unit, add: boolean): void
-declare function UnitCanSleep(whichUnit: unit): boolean
-declare function UnitAddSleepPerm(whichUnit: unit, add: boolean): void
-declare function UnitCanSleepPerm(whichUnit: unit): boolean
-declare function UnitIsSleeping(whichUnit: unit): boolean
-declare function UnitWakeUp(whichUnit: unit): void
-declare function UnitApplyTimedLife(whichUnit: unit, buffId: number, duration: number): void
-declare function UnitIgnoreAlarm(whichUnit: unit, flag: boolean): boolean
-declare function UnitIgnoreAlarmToggled(whichUnit: unit): boolean
-declare function UnitResetCooldown(whichUnit: unit): void
-declare function UnitSetConstructionProgress(whichUnit: unit, constructionPercentage: number): void
-declare function UnitSetUpgradeProgress(whichUnit: unit, upgradePercentage: number): void
-declare function UnitPauseTimedLife(whichUnit: unit, flag: boolean): void
-declare function UnitSetUsesAltIcon(whichUnit: unit, flag: boolean): void
-declare function UnitDamagePoint(whichUnit: unit, delay: number, radius: number, x: number, y: number, amount: number, attack: boolean, ranged: boolean, attackType: attacktype, damageType: damagetype, weaponType: weapontype): boolean
-declare function UnitDamageTarget(whichUnit: unit, target: widget, amount: number, attack: boolean, ranged: boolean, attackType: attacktype, damageType: damagetype, weaponType: weapontype): boolean
-declare function IssueImmediateOrder(whichUnit: unit, order: string): boolean
-declare function IssueImmediateOrderById(whichUnit: unit, order: number): boolean
-declare function IssuePointOrder(whichUnit: unit, order: string, x: number, y: number): boolean
-declare function IssuePointOrderLoc(whichUnit: unit, order: string, whichLocation: location): boolean
-declare function IssuePointOrderById(whichUnit: unit, order: number, x: number, y: number): boolean
-declare function IssuePointOrderByIdLoc(whichUnit: unit, order: number, whichLocation: location): boolean
-declare function IssueTargetOrder(whichUnit: unit, order: string, targetWidget: widget): boolean
-declare function IssueTargetOrderById(whichUnit: unit, order: number, targetWidget: widget): boolean
-declare function IssueInstantPointOrder(whichUnit: unit, order: string, x: number, y: number, instantTargetWidget: widget): boolean
-declare function IssueInstantPointOrderById(whichUnit: unit, order: number, x: number, y: number, instantTargetWidget: widget): boolean
-declare function IssueInstantTargetOrder(whichUnit: unit, order: string, targetWidget: widget, instantTargetWidget: widget): boolean
-declare function IssueInstantTargetOrderById(whichUnit: unit, order: number, targetWidget: widget, instantTargetWidget: widget): boolean
-declare function IssueBuildOrder(whichPeon: unit, unitToBuild: string, x: number, y: number): boolean
-declare function IssueBuildOrderById(whichPeon: unit, unitId: number, x: number, y: number): boolean
-declare function IssueNeutralImmediateOrder(forWhichPlayer: player, neutralStructure: unit, unitToBuild: string): boolean
-declare function IssueNeutralImmediateOrderById(forWhichPlayer: player, neutralStructure: unit, unitId: number): boolean
-declare function IssueNeutralPointOrder(forWhichPlayer: player, neutralStructure: unit, unitToBuild: string, x: number, y: number): boolean
-declare function IssueNeutralPointOrderById(forWhichPlayer: player, neutralStructure: unit, unitId: number, x: number, y: number): boolean
-declare function IssueNeutralTargetOrder(forWhichPlayer: player, neutralStructure: unit, unitToBuild: string, target: widget): boolean
-declare function IssueNeutralTargetOrderById(forWhichPlayer: player, neutralStructure: unit, unitId: number, target: widget): boolean
-declare function GetUnitCurrentOrder(whichUnit: unit): number
-declare function SetResourceAmount(whichUnit: unit, amount: number): void
-declare function AddResourceAmount(whichUnit: unit, amount: number): void
-declare function GetResourceAmount(whichUnit: unit): number
-declare function WaygateGetDestinationX(waygate: unit): number
-declare function WaygateGetDestinationY(waygate: unit): number
-declare function WaygateSetDestination(waygate: unit, x: number, y: number): void
-declare function WaygateActivate(waygate: unit, activate: boolean): void
-declare function WaygateIsActive(waygate: unit): boolean
-declare function AddItemToAllStock(itemId: number, currentStock: number, stockMax: number): void
-declare function AddItemToStock(whichUnit: unit, itemId: number, currentStock: number, stockMax: number): void
-declare function AddUnitToAllStock(unitId: number, currentStock: number, stockMax: number): void
-declare function AddUnitToStock(whichUnit: unit, unitId: number, currentStock: number, stockMax: number): void
-declare function RemoveItemFromAllStock(itemId: number): void
-declare function RemoveItemFromStock(whichUnit: unit, itemId: number): void
-declare function RemoveUnitFromAllStock(unitId: number): void
-declare function RemoveUnitFromStock(whichUnit: unit, unitId: number): void
-declare function SetAllItemTypeSlots(slots: number): void
-declare function SetAllUnitTypeSlots(slots: number): void
-declare function SetItemTypeSlots(whichUnit: unit, slots: number): void
-declare function SetUnitTypeSlots(whichUnit: unit, slots: number): void
-declare function GetUnitUserData(whichUnit: unit): number
-declare function SetUnitUserData(whichUnit: unit, data: number): void
-declare function Player(number: number): player
-declare function GetLocalPlayer(): player
-declare function IsPlayerAlly(whichPlayer: player, otherPlayer: player): boolean
-declare function IsPlayerEnemy(whichPlayer: player, otherPlayer: player): boolean
-declare function IsPlayerInForce(whichPlayer: player, whichForce: force): boolean
-declare function IsPlayerObserver(whichPlayer: player): boolean
-declare function IsVisibleToPlayer(x: number, y: number, whichPlayer: player): boolean
-declare function IsLocationVisibleToPlayer(whichLocation: location, whichPlayer: player): boolean
-declare function IsFoggedToPlayer(x: number, y: number, whichPlayer: player): boolean
-declare function IsLocationFoggedToPlayer(whichLocation: location, whichPlayer: player): boolean
-declare function IsMaskedToPlayer(x: number, y: number, whichPlayer: player): boolean
-declare function IsLocationMaskedToPlayer(whichLocation: location, whichPlayer: player): boolean
-declare function GetPlayerRace(whichPlayer: player): race
-declare function GetPlayerId(whichPlayer: player): number
-declare function GetPlayerUnitCount(whichPlayer: player, includeIncomplete: boolean): number
-declare function GetPlayerTypedUnitCount(whichPlayer: player, unitName: string, includeIncomplete: boolean, includeUpgrades: boolean): number
-declare function GetPlayerStructureCount(whichPlayer: player, includeIncomplete: boolean): number
-declare function GetPlayerState(whichPlayer: player, whichPlayerState: playerstate): number
-declare function GetPlayerScore(whichPlayer: player, whichPlayerScore: playerscore): number
-declare function GetPlayerAlliance(sourcePlayer: player, otherPlayer: player, whichAllianceSetting: alliancetype): boolean
-declare function GetPlayerHandicap(whichPlayer: player): number
-declare function GetPlayerHandicapXP(whichPlayer: player): number
-declare function SetPlayerHandicap(whichPlayer: player, handicap: number): void
-declare function SetPlayerHandicapXP(whichPlayer: player, handicap: number): void
-declare function SetPlayerTechMaxAllowed(whichPlayer: player, techid: number, maximum: number): void
-declare function GetPlayerTechMaxAllowed(whichPlayer: player, techid: number): number
-declare function AddPlayerTechResearched(whichPlayer: player, techid: number, levels: number): void
-declare function SetPlayerTechResearched(whichPlayer: player, techid: number, setToLevel: number): void
-declare function GetPlayerTechResearched(whichPlayer: player, techid: number, specificonly: boolean): boolean
-declare function GetPlayerTechCount(whichPlayer: player, techid: number, specificonly: boolean): number
-declare function SetPlayerUnitsOwner(whichPlayer: player, newOwner: number): void
-declare function CripplePlayer(whichPlayer: player, toWhichPlayers: force, flag: boolean): void
-declare function SetPlayerAbilityAvailable(whichPlayer: player, abilid: number, avail: boolean): void
-declare function SetPlayerState(whichPlayer: player, whichPlayerState: playerstate, value: number): void
-declare function RemovePlayer(whichPlayer: player, gameResult: playergameresult): void
-declare function CachePlayerHeroData(whichPlayer: player): void
-declare function SetFogStateRect(forWhichPlayer: player, whichState: fogstate, where: rect, useSharedVision: boolean): void
-declare function SetFogStateRadius(forWhichPlayer: player, whichState: fogstate, centerx: number, centerY: number, radius: number, useSharedVision: boolean): void
-declare function SetFogStateRadiusLoc(forWhichPlayer: player, whichState: fogstate, center: location, radius: number, useSharedVision: boolean): void
-declare function FogMaskEnable(enable: boolean): void
-declare function IsFogMaskEnabled(): boolean
-declare function FogEnable(enable: boolean): void
-declare function IsFogEnabled(): boolean
-declare function CreateFogModifierRect(forWhichPlayer: player, whichState: fogstate, where: rect, useSharedVision: boolean, afterUnits: boolean): fogmodifier
-declare function CreateFogModifierRadius(forWhichPlayer: player, whichState: fogstate, centerx: number, centerY: number, radius: number, useSharedVision: boolean, afterUnits: boolean): fogmodifier
-declare function CreateFogModifierRadiusLoc(forWhichPlayer: player, whichState: fogstate, center: location, radius: number, useSharedVision: boolean, afterUnits: boolean): fogmodifier
-declare function DestroyFogModifier(whichFogModifier: fogmodifier): void
-declare function FogModifierStart(whichFogModifier: fogmodifier): void
-declare function FogModifierStop(whichFogModifier: fogmodifier): void
-declare function VersionGet(): version
-declare function VersionCompatible(whichVersion: version): boolean
-declare function VersionSupported(whichVersion: version): boolean
-declare function EndGame(doScoreScreen: boolean): void
-declare function ChangeLevel(newLevel: string, doScoreScreen: boolean): void
-declare function RestartGame(doScoreScreen: boolean): void
-declare function ReloadGame(): void
-declare function SetCampaignMenuRace(r: race): void
-declare function SetCampaignMenuRaceEx(campaignIndex: number): void
-declare function ForceCampaignSelectScreen(): void
-declare function LoadGame(saveFileName: string, doScoreScreen: boolean): void
-declare function SaveGame(saveFileName: string): void
-declare function RenameSaveDirectory(sourceDirName: string, destDirName: string): boolean
-declare function RemoveSaveDirectory(sourceDirName: string): boolean
-declare function CopySaveGame(sourceSaveName: string, destSaveName: string): boolean
-declare function SaveGameExists(saveName: string): boolean
-declare function SyncSelections(): void
-declare function SetFloatGameState(whichFloatGameState: fgamestate, value: number): void
-declare function GetFloatGameState(whichFloatGameState: fgamestate): number
-declare function SetIntegerGameState(whichIntegerGameState: igamestate, value: number): void
-declare function GetIntegerGameState(whichIntegerGameState: igamestate): number
-declare function SetTutorialCleared(cleared: boolean): void
-declare function SetMissionAvailable(campaignNumber: number, missionNumber: number, available: boolean): void
-declare function SetCampaignAvailable(campaignNumber: number, available: boolean): void
-declare function SetOpCinematicAvailable(campaignNumber: number, available: boolean): void
-declare function SetEdCinematicAvailable(campaignNumber: number, available: boolean): void
-declare function GetDefaultDifficulty(): gamedifficulty
-declare function SetDefaultDifficulty(g: gamedifficulty): void
-declare function SetCustomCampaignButtonVisible(whichButton: number, visible: boolean): void
-declare function GetCustomCampaignButtonVisible(whichButton: number): boolean
-declare function DoNotSaveReplay(): void
-declare function DialogCreate(): dialog
-declare function DialogDestroy(whichDialog: dialog): void
-declare function DialogClear(whichDialog: dialog): void
-declare function DialogSetMessage(whichDialog: dialog, messageText: string): void
-declare function DialogAddButton(whichDialog: dialog, buttonText: string, hotkey: number): button
-declare function DialogAddQuitButton(whichDialog: dialog, doScoreScreen: boolean, buttonText: string, hotkey: number): button
-declare function DialogDisplay(whichPlayer: player, whichDialog: dialog, flag: boolean): void
-declare function ReloadGameCachesFromDisk(): boolean
-declare function InitGameCache(campaignFile: string): gamecache
-declare function SaveGameCache(whichCache: gamecache): boolean
-declare function StoreInteger(cache: gamecache, missionKey: string, key: string, value: number): void
-declare function StoreReal(cache: gamecache, missionKey: string, key: string, value: number): void
-declare function StoreBoolean(cache: gamecache, missionKey: string, key: string, value: boolean): void
-declare function StoreUnit(cache: gamecache, missionKey: string, key: string, whichUnit: unit): boolean
-declare function StoreString(cache: gamecache, missionKey: string, key: string, value: string): boolean
-declare function SyncStoredInteger(cache: gamecache, missionKey: string, key: string): void
-declare function SyncStoredReal(cache: gamecache, missionKey: string, key: string): void
-declare function SyncStoredBoolean(cache: gamecache, missionKey: string, key: string): void
-declare function SyncStoredUnit(cache: gamecache, missionKey: string, key: string): void
-declare function SyncStoredString(cache: gamecache, missionKey: string, key: string): void
-declare function HaveStoredInteger(cache: gamecache, missionKey: string, key: string): boolean
-declare function HaveStoredReal(cache: gamecache, missionKey: string, key: string): boolean
-declare function HaveStoredBoolean(cache: gamecache, missionKey: string, key: string): boolean
-declare function HaveStoredUnit(cache: gamecache, missionKey: string, key: string): boolean
-declare function HaveStoredString(cache: gamecache, missionKey: string, key: string): boolean
-declare function FlushGameCache(cache: gamecache): void
-declare function FlushStoredMission(cache: gamecache, missionKey: string): void
-declare function FlushStoredInteger(cache: gamecache, missionKey: string, key: string): void
-declare function FlushStoredReal(cache: gamecache, missionKey: string, key: string): void
-declare function FlushStoredBoolean(cache: gamecache, missionKey: string, key: string): void
-declare function FlushStoredUnit(cache: gamecache, missionKey: string, key: string): void
-declare function FlushStoredString(cache: gamecache, missionKey: string, key: string): void
-declare function GetStoredInteger(cache: gamecache, missionKey: string, key: string): number
-declare function GetStoredReal(cache: gamecache, missionKey: string, key: string): number
-declare function GetStoredBoolean(cache: gamecache, missionKey: string, key: string): boolean
-declare function GetStoredString(cache: gamecache, missionKey: string, key: string): string
-declare function RestoreUnit(cache: gamecache, missionKey: string, key: string, forWhichPlayer: player, x: number, y: number, facing: number): unit
-declare function InitHashtable(): hashtable
-declare function SaveInteger(table: hashtable, parentKey: number, childKey: number, value: number): void
-declare function SaveReal(table: hashtable, parentKey: number, childKey: number, value: number): void
-declare function SaveBoolean(table: hashtable, parentKey: number, childKey: number, value: boolean): void
-declare function SaveStr(table: hashtable, parentKey: number, childKey: number, value: string): boolean
-declare function SavePlayerHandle(table: hashtable, parentKey: number, childKey: number, whichPlayer: player): boolean
-declare function SaveWidgetHandle(table: hashtable, parentKey: number, childKey: number, whichWidget: widget): boolean
-declare function SaveDestructableHandle(table: hashtable, parentKey: number, childKey: number, whichDestructable: destructable): boolean
-declare function SaveItemHandle(table: hashtable, parentKey: number, childKey: number, whichItem: item): boolean
-declare function SaveUnitHandle(table: hashtable, parentKey: number, childKey: number, whichUnit: unit): boolean
-declare function SaveAbilityHandle(table: hashtable, parentKey: number, childKey: number, whichAbility: ability): boolean
-declare function SaveTimerHandle(table: hashtable, parentKey: number, childKey: number, whichTimer: timer): boolean
-declare function SaveTriggerHandle(table: hashtable, parentKey: number, childKey: number, whichTrigger: trigger): boolean
-declare function SaveTriggerConditionHandle(table: hashtable, parentKey: number, childKey: number, whichTriggercondition: triggercondition): boolean
-declare function SaveTriggerActionHandle(table: hashtable, parentKey: number, childKey: number, whichTriggeraction: triggeraction): boolean
-declare function SaveTriggerEventHandle(table: hashtable, parentKey: number, childKey: number, whichEvent: event): boolean
-declare function SaveForceHandle(table: hashtable, parentKey: number, childKey: number, whichForce: force): boolean
-declare function SaveGroupHandle(table: hashtable, parentKey: number, childKey: number, whichGroup: group): boolean
-declare function SaveLocationHandle(table: hashtable, parentKey: number, childKey: number, whichLocation: location): boolean
-declare function SaveRectHandle(table: hashtable, parentKey: number, childKey: number, whichRect: rect): boolean
-declare function SaveBooleanExprHandle(table: hashtable, parentKey: number, childKey: number, whichBoolexpr: boolexpr): boolean
-declare function SaveSoundHandle(table: hashtable, parentKey: number, childKey: number, whichSound: sound): boolean
-declare function SaveEffectHandle(table: hashtable, parentKey: number, childKey: number, whichEffect: effect): boolean
-declare function SaveUnitPoolHandle(table: hashtable, parentKey: number, childKey: number, whichUnitpool: unitpool): boolean
-declare function SaveItemPoolHandle(table: hashtable, parentKey: number, childKey: number, whichItempool: itempool): boolean
-declare function SaveQuestHandle(table: hashtable, parentKey: number, childKey: number, whichQuest: quest): boolean
-declare function SaveQuestItemHandle(table: hashtable, parentKey: number, childKey: number, whichQuestitem: questitem): boolean
-declare function SaveDefeatConditionHandle(table: hashtable, parentKey: number, childKey: number, whichDefeatcondition: defeatcondition): boolean
-declare function SaveTimerDialogHandle(table: hashtable, parentKey: number, childKey: number, whichTimerdialog: timerdialog): boolean
-declare function SaveLeaderboardHandle(table: hashtable, parentKey: number, childKey: number, whichLeaderboard: leaderboard): boolean
-declare function SaveMultiboardHandle(table: hashtable, parentKey: number, childKey: number, whichMultiboard: multiboard): boolean
-declare function SaveMultiboardItemHandle(table: hashtable, parentKey: number, childKey: number, whichMultiboarditem: multiboarditem): boolean
-declare function SaveTrackableHandle(table: hashtable, parentKey: number, childKey: number, whichTrackable: trackable): boolean
-declare function SaveDialogHandle(table: hashtable, parentKey: number, childKey: number, whichDialog: dialog): boolean
-declare function SaveButtonHandle(table: hashtable, parentKey: number, childKey: number, whichButton: button): boolean
-declare function SaveTextTagHandle(table: hashtable, parentKey: number, childKey: number, whichTexttag: texttag): boolean
-declare function SaveLightningHandle(table: hashtable, parentKey: number, childKey: number, whichLightning: lightning): boolean
-declare function SaveImageHandle(table: hashtable, parentKey: number, childKey: number, whichImage: image): boolean
-declare function SaveUbersplatHandle(table: hashtable, parentKey: number, childKey: number, whichUbersplat: ubersplat): boolean
-declare function SaveRegionHandle(table: hashtable, parentKey: number, childKey: number, whichRegion: region): boolean
-declare function SaveFogStateHandle(table: hashtable, parentKey: number, childKey: number, whichFogState: fogstate): boolean
-declare function SaveFogModifierHandle(table: hashtable, parentKey: number, childKey: number, whichFogModifier: fogmodifier): boolean
-declare function SaveAgentHandle(table: hashtable, parentKey: number, childKey: number, whichAgent: agent): boolean
-declare function SaveHashtableHandle(table: hashtable, parentKey: number, childKey: number, whichHashtable: hashtable): boolean
-declare function SaveFrameHandle(table: hashtable, parentKey: number, childKey: number, whichFrameHandle: framehandle): boolean
-declare function LoadInteger(table: hashtable, parentKey: number, childKey: number): number
-declare function LoadReal(table: hashtable, parentKey: number, childKey: number): number
-declare function LoadBoolean(table: hashtable, parentKey: number, childKey: number): boolean
-declare function LoadStr(table: hashtable, parentKey: number, childKey: number): string
-declare function LoadPlayerHandle(table: hashtable, parentKey: number, childKey: number): player
-declare function LoadWidgetHandle(table: hashtable, parentKey: number, childKey: number): widget
-declare function LoadDestructableHandle(table: hashtable, parentKey: number, childKey: number): destructable
-declare function LoadItemHandle(table: hashtable, parentKey: number, childKey: number): item
-declare function LoadUnitHandle(table: hashtable, parentKey: number, childKey: number): unit
-declare function LoadAbilityHandle(table: hashtable, parentKey: number, childKey: number): ability
-declare function LoadTimerHandle(table: hashtable, parentKey: number, childKey: number): timer
-declare function LoadTriggerHandle(table: hashtable, parentKey: number, childKey: number): trigger
-declare function LoadTriggerConditionHandle(table: hashtable, parentKey: number, childKey: number): triggercondition
-declare function LoadTriggerActionHandle(table: hashtable, parentKey: number, childKey: number): triggeraction
-declare function LoadTriggerEventHandle(table: hashtable, parentKey: number, childKey: number): event
-declare function LoadForceHandle(table: hashtable, parentKey: number, childKey: number): force
-declare function LoadGroupHandle(table: hashtable, parentKey: number, childKey: number): group
-declare function LoadLocationHandle(table: hashtable, parentKey: number, childKey: number): location
-declare function LoadRectHandle(table: hashtable, parentKey: number, childKey: number): rect
-declare function LoadBooleanExprHandle(table: hashtable, parentKey: number, childKey: number): boolexpr
-declare function LoadSoundHandle(table: hashtable, parentKey: number, childKey: number): sound
-declare function LoadEffectHandle(table: hashtable, parentKey: number, childKey: number): effect
-declare function LoadUnitPoolHandle(table: hashtable, parentKey: number, childKey: number): unitpool
-declare function LoadItemPoolHandle(table: hashtable, parentKey: number, childKey: number): itempool
-declare function LoadQuestHandle(table: hashtable, parentKey: number, childKey: number): quest
-declare function LoadQuestItemHandle(table: hashtable, parentKey: number, childKey: number): questitem
-declare function LoadDefeatConditionHandle(table: hashtable, parentKey: number, childKey: number): defeatcondition
-declare function LoadTimerDialogHandle(table: hashtable, parentKey: number, childKey: number): timerdialog
-declare function LoadLeaderboardHandle(table: hashtable, parentKey: number, childKey: number): leaderboard
-declare function LoadMultiboardHandle(table: hashtable, parentKey: number, childKey: number): multiboard
-declare function LoadMultiboardItemHandle(table: hashtable, parentKey: number, childKey: number): multiboarditem
-declare function LoadTrackableHandle(table: hashtable, parentKey: number, childKey: number): trackable
-declare function LoadDialogHandle(table: hashtable, parentKey: number, childKey: number): dialog
-declare function LoadButtonHandle(table: hashtable, parentKey: number, childKey: number): button
-declare function LoadTextTagHandle(table: hashtable, parentKey: number, childKey: number): texttag
-declare function LoadLightningHandle(table: hashtable, parentKey: number, childKey: number): lightning
-declare function LoadImageHandle(table: hashtable, parentKey: number, childKey: number): image
-declare function LoadUbersplatHandle(table: hashtable, parentKey: number, childKey: number): ubersplat
-declare function LoadRegionHandle(table: hashtable, parentKey: number, childKey: number): region
-declare function LoadFogStateHandle(table: hashtable, parentKey: number, childKey: number): fogstate
-declare function LoadFogModifierHandle(table: hashtable, parentKey: number, childKey: number): fogmodifier
-declare function LoadHashtableHandle(table: hashtable, parentKey: number, childKey: number): hashtable
-declare function LoadFrameHandle(table: hashtable, parentKey: number, childKey: number): framehandle
-declare function HaveSavedInteger(table: hashtable, parentKey: number, childKey: number): boolean
-declare function HaveSavedReal(table: hashtable, parentKey: number, childKey: number): boolean
-declare function HaveSavedBoolean(table: hashtable, parentKey: number, childKey: number): boolean
-declare function HaveSavedString(table: hashtable, parentKey: number, childKey: number): boolean
-declare function HaveSavedHandle(table: hashtable, parentKey: number, childKey: number): boolean
-declare function RemoveSavedInteger(table: hashtable, parentKey: number, childKey: number): void
-declare function RemoveSavedReal(table: hashtable, parentKey: number, childKey: number): void
-declare function RemoveSavedBoolean(table: hashtable, parentKey: number, childKey: number): void
-declare function RemoveSavedString(table: hashtable, parentKey: number, childKey: number): void
-declare function RemoveSavedHandle(table: hashtable, parentKey: number, childKey: number): void
-declare function FlushParentHashtable(table: hashtable): void
-declare function FlushChildHashtable(table: hashtable, parentKey: number): void
-declare function GetRandomInt(lowBound: number, highBound: number): number
-declare function GetRandomReal(lowBound: number, highBound: number): number
-declare function CreateUnitPool(): unitpool
-declare function DestroyUnitPool(whichPool: unitpool): void
-declare function UnitPoolAddUnitType(whichPool: unitpool, unitId: number, weight: number): void
-declare function UnitPoolRemoveUnitType(whichPool: unitpool, unitId: number): void
-declare function PlaceRandomUnit(whichPool: unitpool, forWhichPlayer: player, x: number, y: number, facing: number): unit
-declare function CreateItemPool(): itempool
-declare function DestroyItemPool(whichItemPool: itempool): void
-declare function ItemPoolAddItemType(whichItemPool: itempool, itemId: number, weight: number): void
-declare function ItemPoolRemoveItemType(whichItemPool: itempool, itemId: number): void
-declare function PlaceRandomItem(whichItemPool: itempool, x: number, y: number): item
-declare function ChooseRandomCreep(level: number): number
-declare function ChooseRandomNPBuilding(): number
-declare function ChooseRandomItem(level: number): number
-declare function ChooseRandomItemEx(whichType: itemtype, level: number): number
-declare function SetRandomSeed(seed: number): void
-declare function SetTerrainFog(a: number, b: number, c: number, d: number, e: number): void
-declare function ResetTerrainFog(): void
-declare function SetUnitFog(a: number, b: number, c: number, d: number, e: number): void
-declare function SetTerrainFogEx(style: number, zstart: number, zend: number, density: number, red: number, green: number, blue: number): void
-declare function DisplayTextToPlayer(toPlayer: player, x: number, y: number, message: string): void
-declare function DisplayTimedTextToPlayer(toPlayer: player, x: number, y: number, duration: number, message: string): void
-declare function DisplayTimedTextFromPlayer(toPlayer: player, x: number, y: number, duration: number, message: string): void
-declare function ClearTextMessages(): void
-declare function SetDayNightModels(terrainDNCFile: string, unitDNCFile: string): void
-declare function SetSkyModel(skyModelFile: string): void
-declare function EnableUserControl(b: boolean): void
-declare function EnableUserUI(b: boolean): void
-declare function SuspendTimeOfDay(b: boolean): void
-declare function SetTimeOfDayScale(r: number): void
-declare function GetTimeOfDayScale(): number
-declare function ShowInterface(flag: boolean, fadeDuration: number): void
-declare function PauseGame(flag: boolean): void
-declare function UnitAddIndicator(whichUnit: unit, red: number, green: number, blue: number, alpha: number): void
-declare function AddIndicator(whichWidget: widget, red: number, green: number, blue: number, alpha: number): void
-declare function PingMinimap(x: number, y: number, duration: number): void
-declare function PingMinimapEx(x: number, y: number, duration: number, red: number, green: number, blue: number, extraEffects: boolean): void
-declare function EnableOcclusion(flag: boolean): void
-declare function SetIntroShotText(introText: string): void
-declare function SetIntroShotModel(introModelPath: string): void
-declare function EnableWorldFogBoundary(b: boolean): void
-declare function PlayModelCinematic(modelName: string): void
-declare function PlayCinematic(movieName: string): void
-declare function ForceUIKey(key: string): void
-declare function ForceUICancel(): void
-declare function DisplayLoadDialog(): void
-declare function SetAltMinimapIcon(iconPath: string): void
-declare function DisableRestartMission(flag: boolean): void
-declare function CreateTextTag(): texttag
-declare function DestroyTextTag(t: texttag): void
-declare function SetTextTagText(t: texttag, s: string, height: number): void
-declare function SetTextTagPos(t: texttag, x: number, y: number, heightOffset: number): void
-declare function SetTextTagPosUnit(t: texttag, whichUnit: unit, heightOffset: number): void
-declare function SetTextTagColor(t: texttag, red: number, green: number, blue: number, alpha: number): void
-declare function SetTextTagVelocity(t: texttag, xvel: number, yvel: number): void
-declare function SetTextTagVisibility(t: texttag, flag: boolean): void
-declare function SetTextTagSuspended(t: texttag, flag: boolean): void
-declare function SetTextTagPermanent(t: texttag, flag: boolean): void
-declare function SetTextTagAge(t: texttag, age: number): void
-declare function SetTextTagLifespan(t: texttag, lifespan: number): void
-declare function SetTextTagFadepoint(t: texttag, fadepoint: number): void
-declare function SetReservedLocalHeroButtons(reserved: number): void
-declare function GetAllyColorFilterState(): number
-declare function SetAllyColorFilterState(state: number): void
-declare function GetCreepCampFilterState(): boolean
-declare function SetCreepCampFilterState(state: boolean): void
-declare function EnableMinimapFilterButtons(enableAlly: boolean, enableCreep: boolean): void
-declare function EnableDragSelect(state: boolean, ui: boolean): void
-declare function EnablePreSelect(state: boolean, ui: boolean): void
-declare function EnableSelect(state: boolean, ui: boolean): void
-declare function CreateTrackable(trackableModelPath: string, x: number, y: number, facing: number): trackable
-declare function CreateQuest(): quest
-declare function DestroyQuest(whichQuest: quest): void
-declare function QuestSetTitle(whichQuest: quest, title: string): void
-declare function QuestSetDescription(whichQuest: quest, description: string): void
-declare function QuestSetIconPath(whichQuest: quest, iconPath: string): void
-declare function QuestSetRequired(whichQuest: quest, required: boolean): void
-declare function QuestSetCompleted(whichQuest: quest, completed: boolean): void
-declare function QuestSetDiscovered(whichQuest: quest, discovered: boolean): void
-declare function QuestSetFailed(whichQuest: quest, failed: boolean): void
-declare function QuestSetEnabled(whichQuest: quest, enabled: boolean): void
-declare function IsQuestRequired(whichQuest: quest): boolean
-declare function IsQuestCompleted(whichQuest: quest): boolean
-declare function IsQuestDiscovered(whichQuest: quest): boolean
-declare function IsQuestFailed(whichQuest: quest): boolean
-declare function IsQuestEnabled(whichQuest: quest): boolean
-declare function QuestCreateItem(whichQuest: quest): questitem
-declare function QuestItemSetDescription(whichQuestItem: questitem, description: string): void
-declare function QuestItemSetCompleted(whichQuestItem: questitem, completed: boolean): void
-declare function IsQuestItemCompleted(whichQuestItem: questitem): boolean
-declare function CreateDefeatCondition(): defeatcondition
-declare function DestroyDefeatCondition(whichCondition: defeatcondition): void
-declare function DefeatConditionSetDescription(whichCondition: defeatcondition, description: string): void
-declare function FlashQuestDialogButton(): void
-declare function ForceQuestDialogUpdate(): void
-declare function CreateTimerDialog(t: timer): timerdialog
-declare function DestroyTimerDialog(whichDialog: timerdialog): void
-declare function TimerDialogSetTitle(whichDialog: timerdialog, title: string): void
-declare function TimerDialogSetTitleColor(whichDialog: timerdialog, red: number, green: number, blue: number, alpha: number): void
-declare function TimerDialogSetTimeColor(whichDialog: timerdialog, red: number, green: number, blue: number, alpha: number): void
-declare function TimerDialogSetSpeed(whichDialog: timerdialog, speedMultFactor: number): void
-declare function TimerDialogDisplay(whichDialog: timerdialog, display: boolean): void
-declare function IsTimerDialogDisplayed(whichDialog: timerdialog): boolean
-declare function TimerDialogSetRealTimeRemaining(whichDialog: timerdialog, timeRemaining: number): void
-declare function CreateLeaderboard(): leaderboard
-declare function DestroyLeaderboard(lb: leaderboard): void
-declare function LeaderboardDisplay(lb: leaderboard, show: boolean): void
-declare function IsLeaderboardDisplayed(lb: leaderboard): boolean
-declare function LeaderboardGetItemCount(lb: leaderboard): number
-declare function LeaderboardSetSizeByItemCount(lb: leaderboard, count: number): void
-declare function LeaderboardAddItem(lb: leaderboard, label: string, value: number, p: player): void
-declare function LeaderboardRemoveItem(lb: leaderboard, index: number): void
-declare function LeaderboardRemovePlayerItem(lb: leaderboard, p: player): void
-declare function LeaderboardClear(lb: leaderboard): void
-declare function LeaderboardSortItemsByValue(lb: leaderboard, ascending: boolean): void
-declare function LeaderboardSortItemsByPlayer(lb: leaderboard, ascending: boolean): void
-declare function LeaderboardSortItemsByLabel(lb: leaderboard, ascending: boolean): void
-declare function LeaderboardHasPlayerItem(lb: leaderboard, p: player): boolean
-declare function LeaderboardGetPlayerIndex(lb: leaderboard, p: player): number
-declare function LeaderboardSetLabel(lb: leaderboard, label: string): void
-declare function LeaderboardGetLabelText(lb: leaderboard): string
-declare function PlayerSetLeaderboard(toPlayer: player, lb: leaderboard): void
-declare function PlayerGetLeaderboard(toPlayer: player): leaderboard
-declare function LeaderboardSetLabelColor(lb: leaderboard, red: number, green: number, blue: number, alpha: number): void
-declare function LeaderboardSetValueColor(lb: leaderboard, red: number, green: number, blue: number, alpha: number): void
-declare function LeaderboardSetStyle(lb: leaderboard, showLabel: boolean, showNames: boolean, showValues: boolean, showIcons: boolean): void
-declare function LeaderboardSetItemValue(lb: leaderboard, whichItem: number, val: number): void
-declare function LeaderboardSetItemLabel(lb: leaderboard, whichItem: number, val: string): void
-declare function LeaderboardSetItemStyle(lb: leaderboard, whichItem: number, showLabel: boolean, showValue: boolean, showIcon: boolean): void
-declare function LeaderboardSetItemLabelColor(lb: leaderboard, whichItem: number, red: number, green: number, blue: number, alpha: number): void
-declare function LeaderboardSetItemValueColor(lb: leaderboard, whichItem: number, red: number, green: number, blue: number, alpha: number): void
-declare function CreateMultiboard(): multiboard
-declare function DestroyMultiboard(lb: multiboard): void
-declare function MultiboardDisplay(lb: multiboard, show: boolean): void
-declare function IsMultiboardDisplayed(lb: multiboard): boolean
-declare function MultiboardMinimize(lb: multiboard, minimize: boolean): void
-declare function IsMultiboardMinimized(lb: multiboard): boolean
-declare function MultiboardClear(lb: multiboard): void
-declare function MultiboardSetTitleText(lb: multiboard, label: string): void
-declare function MultiboardGetTitleText(lb: multiboard): string
-declare function MultiboardSetTitleTextColor(lb: multiboard, red: number, green: number, blue: number, alpha: number): void
-declare function MultiboardGetRowCount(lb: multiboard): number
-declare function MultiboardGetColumnCount(lb: multiboard): number
-declare function MultiboardSetColumnCount(lb: multiboard, count: number): void
-declare function MultiboardSetRowCount(lb: multiboard, count: number): void
-declare function MultiboardSetItemsStyle(lb: multiboard, showValues: boolean, showIcons: boolean): void
-declare function MultiboardSetItemsValue(lb: multiboard, value: string): void
-declare function MultiboardSetItemsValueColor(lb: multiboard, red: number, green: number, blue: number, alpha: number): void
-declare function MultiboardSetItemsWidth(lb: multiboard, width: number): void
-declare function MultiboardSetItemsIcon(lb: multiboard, iconPath: string): void
-declare function MultiboardGetItem(lb: multiboard, row: number, column: number): multiboarditem
-declare function MultiboardReleaseItem(mbi: multiboarditem): void
-declare function MultiboardSetItemStyle(mbi: multiboarditem, showValue: boolean, showIcon: boolean): void
-declare function MultiboardSetItemValue(mbi: multiboarditem, val: string): void
-declare function MultiboardSetItemValueColor(mbi: multiboarditem, red: number, green: number, blue: number, alpha: number): void
-declare function MultiboardSetItemWidth(mbi: multiboarditem, width: number): void
-declare function MultiboardSetItemIcon(mbi: multiboarditem, iconFileName: string): void
-declare function MultiboardSuppressDisplay(flag: boolean): void
-declare function SetCameraPosition(x: number, y: number): void
-declare function SetCameraQuickPosition(x: number, y: number): void
-declare function SetCameraBounds(x1: number, y1: number, x2: number, y2: number, x3: number, y3: number, x4: number, y4: number): void
-declare function StopCamera(): void
-declare function ResetToGameCamera(duration: number): void
-declare function PanCameraTo(x: number, y: number): void
-declare function PanCameraToTimed(x: number, y: number, duration: number): void
-declare function PanCameraToWithZ(x: number, y: number, zOffsetDest: number): void
-declare function PanCameraToTimedWithZ(x: number, y: number, zOffsetDest: number, duration: number): void
-declare function SetCinematicCamera(cameraModelFile: string): void
-declare function SetCameraRotateMode(x: number, y: number, radiansToSweep: number, duration: number): void
-declare function SetCameraField(whichField: camerafield, value: number, duration: number): void
-declare function AdjustCameraField(whichField: camerafield, offset: number, duration: number): void
-declare function SetCameraTargetController(whichUnit: unit, xoffset: number, yoffset: number, inheritOrientation: boolean): void
-declare function SetCameraOrientController(whichUnit: unit, xoffset: number, yoffset: number): void
-declare function CreateCameraSetup(): camerasetup
-declare function CameraSetupSetField(whichSetup: camerasetup, whichField: camerafield, value: number, duration: number): void
-declare function CameraSetupGetField(whichSetup: camerasetup, whichField: camerafield): number
-declare function CameraSetupSetDestPosition(whichSetup: camerasetup, x: number, y: number, duration: number): void
-declare function CameraSetupGetDestPositionLoc(whichSetup: camerasetup): location
-declare function CameraSetupGetDestPositionX(whichSetup: camerasetup): number
-declare function CameraSetupGetDestPositionY(whichSetup: camerasetup): number
-declare function CameraSetupApply(whichSetup: camerasetup, doPan: boolean, panTimed: boolean): void
-declare function CameraSetupApplyWithZ(whichSetup: camerasetup, zDestOffset: number): void
-declare function CameraSetupApplyForceDuration(whichSetup: camerasetup, doPan: boolean, forceDuration: number): void
-declare function CameraSetupApplyForceDurationWithZ(whichSetup: camerasetup, zDestOffset: number, forceDuration: number): void
-declare function CameraSetTargetNoise(mag: number, velocity: number): void
-declare function CameraSetSourceNoise(mag: number, velocity: number): void
-declare function CameraSetTargetNoiseEx(mag: number, velocity: number, vertOnly: boolean): void
-declare function CameraSetSourceNoiseEx(mag: number, velocity: number, vertOnly: boolean): void
-declare function CameraSetSmoothingFactor(factor: number): void
-declare function SetCineFilterTexture(filename: string): void
-declare function SetCineFilterBlendMode(whichMode: blendmode): void
-declare function SetCineFilterTexMapFlags(whichFlags: texmapflags): void
-declare function SetCineFilterStartUV(minu: number, minv: number, maxu: number, maxv: number): void
-declare function SetCineFilterEndUV(minu: number, minv: number, maxu: number, maxv: number): void
-declare function SetCineFilterStartColor(red: number, green: number, blue: number, alpha: number): void
-declare function SetCineFilterEndColor(red: number, green: number, blue: number, alpha: number): void
-declare function SetCineFilterDuration(duration: number): void
-declare function DisplayCineFilter(flag: boolean): void
-declare function IsCineFilterDisplayed(): boolean
-declare function SetCinematicScene(portraitUnitId: number, color: playercolor, speakerTitle: string, text: string, sceneDuration: number, voiceoverDuration: number): void
-declare function EndCinematicScene(): void
-declare function ForceCinematicSubtitles(flag: boolean): void
-declare function GetCameraMargin(whichMargin: number): number
-declare function GetCameraBoundMinX(): number
-declare function GetCameraBoundMinY(): number
-declare function GetCameraBoundMaxX(): number
-declare function GetCameraBoundMaxY(): number
-declare function GetCameraField(whichField: camerafield): number
-declare function GetCameraTargetPositionX(): number
-declare function GetCameraTargetPositionY(): number
-declare function GetCameraTargetPositionZ(): number
-declare function GetCameraTargetPositionLoc(): location
-declare function GetCameraEyePositionX(): number
-declare function GetCameraEyePositionY(): number
-declare function GetCameraEyePositionZ(): number
-declare function GetCameraEyePositionLoc(): location
-declare function NewSoundEnvironment(environmentName: string): void
-declare function CreateSound(fileName: string, looping: boolean, is3D: boolean, stopwhenoutofrange: boolean, fadeInRate: number, fadeOutRate: number, eaxSetting: string): sound
-declare function CreateSoundFilenameWithLabel(fileName: string, looping: boolean, is3D: boolean, stopwhenoutofrange: boolean, fadeInRate: number, fadeOutRate: number, SLKEntryName: string): sound
-declare function CreateSoundFromLabel(soundLabel: string, looping: boolean, is3D: boolean, stopwhenoutofrange: boolean, fadeInRate: number, fadeOutRate: number): sound
-declare function CreateMIDISound(soundLabel: string, fadeInRate: number, fadeOutRate: number): sound
-declare function SetSoundParamsFromLabel(soundHandle: sound, soundLabel: string): void
-declare function SetSoundDistanceCutoff(soundHandle: sound, cutoff: number): void
-declare function SetSoundChannel(soundHandle: sound, channel: number): void
-declare function SetSoundVolume(soundHandle: sound, volume: number): void
-declare function SetSoundPitch(soundHandle: sound, pitch: number): void
-declare function SetSoundPlayPosition(soundHandle: sound, millisecs: number): void
-declare function SetSoundDistances(soundHandle: sound, minDist: number, maxDist: number): void
-declare function SetSoundConeAngles(soundHandle: sound, inside: number, outside: number, outsideVolume: number): void
-declare function SetSoundConeOrientation(soundHandle: sound, x: number, y: number, z: number): void
-declare function SetSoundPosition(soundHandle: sound, x: number, y: number, z: number): void
-declare function SetSoundVelocity(soundHandle: sound, x: number, y: number, z: number): void
-declare function AttachSoundToUnit(soundHandle: sound, whichUnit: unit): void
-declare function StartSound(soundHandle: sound): void
-declare function StopSound(soundHandle: sound, killWhenDone: boolean, fadeOut: boolean): void
-declare function KillSoundWhenDone(soundHandle: sound): void
-declare function SetMapMusic(musicName: string, random: boolean, index: number): void
-declare function ClearMapMusic(): void
-declare function PlayMusic(musicName: string): void
-declare function PlayMusicEx(musicName: string, frommsecs: number, fadeinmsecs: number): void
-declare function StopMusic(fadeOut: boolean): void
-declare function ResumeMusic(): void
-declare function PlayThematicMusic(musicFileName: string): void
-declare function PlayThematicMusicEx(musicFileName: string, frommsecs: number): void
-declare function EndThematicMusic(): void
-declare function SetMusicVolume(volume: number): void
-declare function SetMusicPlayPosition(millisecs: number): void
-declare function SetThematicMusicPlayPosition(millisecs: number): void
-declare function SetSoundDuration(soundHandle: sound, duration: number): void
-declare function GetSoundDuration(soundHandle: sound): number
-declare function GetSoundFileDuration(musicFileName: string): number
-declare function VolumeGroupSetVolume(vgroup: volumegroup, scale: number): void
-declare function VolumeGroupReset(): void
-declare function GetSoundIsPlaying(soundHandle: sound): boolean
-declare function GetSoundIsLoading(soundHandle: sound): boolean
-declare function RegisterStackedSound(soundHandle: sound, byPosition: boolean, rectwidth: number, rectheight: number): void
-declare function UnregisterStackedSound(soundHandle: sound, byPosition: boolean, rectwidth: number, rectheight: number): void
-declare function AddWeatherEffect(where: rect, effectID: number): weathereffect
-declare function RemoveWeatherEffect(whichEffect: weathereffect): void
-declare function EnableWeatherEffect(whichEffect: weathereffect, enable: boolean): void
-declare function TerrainDeformCrater(x: number, y: number, radius: number, depth: number, duration: number, permanent: boolean): terraindeformation
-declare function TerrainDeformRipple(x: number, y: number, radius: number, depth: number, duration: number, count: number, spaceWaves: number, timeWaves: number, radiusStartPct: number, limitNeg: boolean): terraindeformation
-declare function TerrainDeformWave(x: number, y: number, dirX: number, dirY: number, distance: number, speed: number, radius: number, depth: number, trailTime: number, count: number): terraindeformation
-declare function TerrainDeformRandom(x: number, y: number, radius: number, minDelta: number, maxDelta: number, duration: number, updateInterval: number): terraindeformation
-declare function TerrainDeformStop(deformation: terraindeformation, duration: number): void
-declare function TerrainDeformStopAll(): void
-declare function AddSpecialEffect(modelName: string, x: number, y: number): effect
-declare function AddSpecialEffectLoc(modelName: string, where: location): effect
-declare function AddSpecialEffectTarget(modelName: string, targetWidget: widget, attachPointName: string): effect
-declare function DestroyEffect(whichEffect: effect): void
-declare function AddSpellEffect(abilityString: string, t: effecttype, x: number, y: number): effect
-declare function AddSpellEffectLoc(abilityString: string, t: effecttype, where: location): effect
-declare function AddSpellEffectById(abilityId: number, t: effecttype, x: number, y: number): effect
-declare function AddSpellEffectByIdLoc(abilityId: number, t: effecttype, where: location): effect
-declare function AddSpellEffectTarget(modelName: string, t: effecttype, targetWidget: widget, attachPoint: string): effect
-declare function AddSpellEffectTargetById(abilityId: number, t: effecttype, targetWidget: widget, attachPoint: string): effect
-declare function AddLightning(codeName: string, checkVisibility: boolean, x1: number, y1: number, x2: number, y2: number): lightning
-declare function AddLightningEx(codeName: string, checkVisibility: boolean, x1: number, y1: number, z1: number, x2: number, y2: number, z2: number): lightning
-declare function DestroyLightning(whichBolt: lightning): boolean
-declare function MoveLightning(whichBolt: lightning, checkVisibility: boolean, x1: number, y1: number, x2: number, y2: number): boolean
-declare function MoveLightningEx(whichBolt: lightning, checkVisibility: boolean, x1: number, y1: number, z1: number, x2: number, y2: number, z2: number): boolean
-declare function GetLightningColorA(whichBolt: lightning): number
-declare function GetLightningColorR(whichBolt: lightning): number
-declare function GetLightningColorG(whichBolt: lightning): number
-declare function GetLightningColorB(whichBolt: lightning): number
-declare function SetLightningColor(whichBolt: lightning, r: number, g: number, b: number, a: number): boolean
-declare function GetAbilityEffect(abilityString: string, t: effecttype, index: number): string
-declare function GetAbilityEffectById(abilityId: number, t: effecttype, index: number): string
-declare function GetAbilitySound(abilityString: string, t: soundtype): string
-declare function GetAbilitySoundById(abilityId: number, t: soundtype): string
-declare function GetTerrainCliffLevel(x: number, y: number): number
-declare function SetWaterBaseColor(red: number, green: number, blue: number, alpha: number): void
-declare function SetWaterDeforms(val: boolean): void
-declare function GetTerrainType(x: number, y: number): number
-declare function GetTerrainVariance(x: number, y: number): number
-declare function SetTerrainType(x: number, y: number, terrainType: number, variation: number, area: number, shape: number): void
-declare function IsTerrainPathable(x: number, y: number, t: pathingtype): boolean
-declare function SetTerrainPathable(x: number, y: number, t: pathingtype, flag: boolean): void
-declare function CreateImage(file: string, sizeX: number, sizeY: number, sizeZ: number, posX: number, posY: number, posZ: number, originX: number, originY: number, originZ: number, imageType: number): image
-declare function DestroyImage(whichImage: image): void
-declare function ShowImage(whichImage: image, flag: boolean): void
-declare function SetImageConstantHeight(whichImage: image, flag: boolean, height: number): void
-declare function SetImagePosition(whichImage: image, x: number, y: number, z: number): void
-declare function SetImageColor(whichImage: image, red: number, green: number, blue: number, alpha: number): void
-declare function SetImageRender(whichImage: image, flag: boolean): void
-declare function SetImageRenderAlways(whichImage: image, flag: boolean): void
-declare function SetImageAboveWater(whichImage: image, flag: boolean, useWaterAlpha: boolean): void
-declare function SetImageType(whichImage: image, imageType: number): void
-declare function CreateUbersplat(x: number, y: number, name: string, red: number, green: number, blue: number, alpha: number, forcePaused: boolean, noBirthTime: boolean): ubersplat
-declare function DestroyUbersplat(whichSplat: ubersplat): void
-declare function ResetUbersplat(whichSplat: ubersplat): void
-declare function FinishUbersplat(whichSplat: ubersplat): void
-declare function ShowUbersplat(whichSplat: ubersplat, flag: boolean): void
-declare function SetUbersplatRender(whichSplat: ubersplat, flag: boolean): void
-declare function SetUbersplatRenderAlways(whichSplat: ubersplat, flag: boolean): void
-declare function SetBlight(whichPlayer: player, x: number, y: number, radius: number, addBlight: boolean): void
-declare function SetBlightRect(whichPlayer: player, r: rect, addBlight: boolean): void
-declare function SetBlightPoint(whichPlayer: player, x: number, y: number, addBlight: boolean): void
-declare function SetBlightLoc(whichPlayer: player, whichLocation: location, radius: number, addBlight: boolean): void
-declare function CreateBlightedGoldmine(id: player, x: number, y: number, face: number): unit
-declare function IsPointBlighted(x: number, y: number): boolean
-declare function SetDoodadAnimation(x: number, y: number, radius: number, doodadID: number, nearestOnly: boolean, animName: string, animRandom: boolean): void
-declare function SetDoodadAnimationRect(r: rect, doodadID: number, animName: string, animRandom: boolean): void
-declare function StartMeleeAI(num: player, script: string): void
-declare function StartCampaignAI(num: player, script: string): void
-declare function CommandAI(num: player, command: number, data: number): void
-declare function PauseCompAI(p: player, pause: boolean): void
-declare function GetAIDifficulty(num: player): aidifficulty
-declare function RemoveGuardPosition(hUnit: unit): void
-declare function RecycleGuardPosition(hUnit: unit): void
-declare function RemoveAllGuardPositions(num: player): void
-declare function Cheat(cheatStr: string): void
-declare function IsNoVictoryCheat(): boolean
-declare function IsNoDefeatCheat(): boolean
-declare function Preload(filename: string): void
-declare function PreloadEnd(timeout: number): void
-declare function PreloadStart(): void
-declare function PreloadRefresh(): void
-declare function PreloadEndEx(): void
-declare function PreloadGenClear(): void
-declare function PreloadGenStart(): void
-declare function PreloadGenEnd(filename: string): void
-declare function Preloader(filename: string): void
-declare function AutomationSetTestType(testType: string): void
-declare function AutomationTestStart(testName: string): void
-declare function AutomationTestEnd(): void
-declare function AutomationTestingFinished(): void
-declare function BlzGetTriggerPlayerMouseX(): number
-declare function BlzGetTriggerPlayerMouseY(): number
-declare function BlzGetTriggerPlayerMousePosition(): location
-declare function BlzGetTriggerPlayerMouseButton(): mousebuttontype
-declare function BlzSetAbilityTooltip(abilCode: number, tooltip: string, level: number): void
-declare function BlzSetAbilityActivatedTooltip(abilCode: number, tooltip: string, level: number): void
-declare function BlzSetAbilityExtendedTooltip(abilCode: number, extendedTooltip: string, level: number): void
-declare function BlzSetAbilityActivatedExtendedTooltip(abilCode: number, extendedTooltip: string, level: number): void
-declare function BlzSetAbilityResearchTooltip(abilCode: number, researchTooltip: string, level: number): void
-declare function BlzSetAbilityResearchExtendedTooltip(abilCode: number, researchExtendedTooltip: string, level: number): void
-declare function BlzGetAbilityTooltip(abilCode: number, level: number): string
-declare function BlzGetAbilityActivatedTooltip(abilCode: number, level: number): string
-declare function BlzGetAbilityExtendedTooltip(abilCode: number, level: number): string
-declare function BlzGetAbilityActivatedExtendedTooltip(abilCode: number, level: number): string
-declare function BlzGetAbilityResearchTooltip(abilCode: number, level: number): string
-declare function BlzGetAbilityResearchExtendedTooltip(abilCode: number, level: number): string
-declare function BlzSetAbilityIcon(abilCode: number, iconPath: string): void
-declare function BlzGetAbilityIcon(abilCode: number): string
-declare function BlzSetAbilityActivatedIcon(abilCode: number, iconPath: string): void
-declare function BlzGetAbilityActivatedIcon(abilCode: number): string
-declare function BlzGetAbilityPosX(abilCode: number): number
-declare function BlzGetAbilityPosY(abilCode: number): number
-declare function BlzSetAbilityPosX(abilCode: number, x: number): void
-declare function BlzSetAbilityPosY(abilCode: number, y: number): void
-declare function BlzGetAbilityActivatedPosX(abilCode: number): number
-declare function BlzGetAbilityActivatedPosY(abilCode: number): number
-declare function BlzSetAbilityActivatedPosX(abilCode: number, x: number): void
-declare function BlzSetAbilityActivatedPosY(abilCode: number, y: number): void
-declare function BlzGetUnitMaxHP(whichUnit: unit): number
-declare function BlzSetUnitMaxHP(whichUnit: unit, hp: number): void
-declare function BlzGetUnitMaxMana(whichUnit: unit): number
-declare function BlzSetUnitMaxMana(whichUnit: unit, mana: number): void
-declare function BlzSetItemName(whichItem: item, name: string): void
-declare function BlzSetItemDescription(whichItem: item, description: string): void
-declare function BlzGetItemDescription(whichItem: item): string
-declare function BlzSetItemTooltip(whichItem: item, tooltip: string): void
-declare function BlzGetItemTooltip(whichItem: item): string
-declare function BlzSetItemExtendedTooltip(whichItem: item, extendedTooltip: string): void
-declare function BlzGetItemExtendedTooltip(whichItem: item): string
-declare function BlzSetItemIconPath(whichItem: item, iconPath: string): void
-declare function BlzGetItemIconPath(whichItem: item): string
-declare function BlzSetUnitName(whichUnit: unit, name: string): void
-declare function BlzSetHeroProperName(whichUnit: unit, heroProperName: string): void
-declare function BlzGetUnitBaseDamage(whichUnit: unit, weaponIndex: number): number
-declare function BlzSetUnitBaseDamage(whichUnit: unit, baseDamage: number, weaponIndex: number): void
-declare function BlzGetUnitDiceNumber(whichUnit: unit, weaponIndex: number): number
-declare function BlzSetUnitDiceNumber(whichUnit: unit, diceNumber: number, weaponIndex: number): void
-declare function BlzGetUnitDiceSides(whichUnit: unit, weaponIndex: number): number
-declare function BlzSetUnitDiceSides(whichUnit: unit, diceSides: number, weaponIndex: number): void
-declare function BlzGetUnitAttackCooldown(whichUnit: unit, weaponIndex: number): number
-declare function BlzSetUnitAttackCooldown(whichUnit: unit, cooldown: number, weaponIndex: number): void
-declare function BlzSetSpecialEffectColorByPlayer(whichEffect: effect, whichPlayer: player): void
-declare function BlzSetSpecialEffectColor(whichEffect: effect, r: number, g: number, b: number): void
-declare function BlzSetSpecialEffectAlpha(whichEffect: effect, alpha: number): void
-declare function BlzSetSpecialEffectScale(whichEffect: effect, scale: number): void
-declare function BlzSetSpecialEffectPosition(whichEffect: effect, x: number, y: number, z: number): void
-declare function BlzSetSpecialEffectHeight(whichEffect: effect, height: number): void
-declare function BlzSetSpecialEffectTimeScale(whichEffect: effect, timeScale: number): void
-declare function BlzSetSpecialEffectTime(whichEffect: effect, time: number): void
-declare function BlzSetSpecialEffectOrientation(whichEffect: effect, yaw: number, pitch: number, roll: number): void
-declare function BlzSetSpecialEffectYaw(whichEffect: effect, yaw: number): void
-declare function BlzSetSpecialEffectPitch(whichEffect: effect, pitch: number): void
-declare function BlzSetSpecialEffectRoll(whichEffect: effect, roll: number): void
-declare function BlzSetSpecialEffectX(whichEffect: effect, x: number): void
-declare function BlzSetSpecialEffectY(whichEffect: effect, y: number): void
-declare function BlzSetSpecialEffectZ(whichEffect: effect, z: number): void
-declare function BlzSetSpecialEffectPositionLoc(whichEffect: effect, loc: location): void
-declare function BlzGetLocalSpecialEffectX(whichEffect: effect): number
-declare function BlzGetLocalSpecialEffectY(whichEffect: effect): number
-declare function BlzGetLocalSpecialEffectZ(whichEffect: effect): number
-declare function BlzSpecialEffectClearSubAnimations(whichEffect: effect): void
-declare function BlzSpecialEffectRemoveSubAnimation(whichEffect: effect, whichSubAnim: subanimtype): void
-declare function BlzSpecialEffectAddSubAnimation(whichEffect: effect, whichSubAnim: subanimtype): void
-declare function BlzPlaySpecialEffect(whichEffect: effect, whichAnim: animtype): void
-declare function BlzPlaySpecialEffectWithTimeScale(whichEffect: effect, whichAnim: animtype, timeScale: number): void
-declare function BlzGetAnimName(whichAnim: animtype): string
-declare function BlzGetUnitArmor(whichUnit: unit): number
-declare function BlzSetUnitArmor(whichUnit: unit, armorAmount: number): void
-declare function BlzUnitHideAbility(whichUnit: unit, abilId: number, flag: boolean): void
-declare function BlzUnitDisableAbility(whichUnit: unit, abilId: number, flag: boolean, hideUI: boolean): void
-declare function BlzUnitCancelTimedLife(whichUnit: unit): void
-declare function BlzIsUnitSelectable(whichUnit: unit): boolean
-declare function BlzIsUnitInvulnerable(whichUnit: unit): boolean
-declare function BlzUnitInterruptAttack(whichUnit: unit): void
-declare function BlzGetUnitCollisionSize(whichUnit: unit): number
-declare function BlzGetAbilityManaCost(abilId: number, level: number): number
-declare function BlzGetAbilityCooldown(abilId: number, level: number): number
-declare function BlzSetUnitAbilityCooldown(whichUnit: unit, abilId: number, level: number, cooldown: number): void
-declare function BlzGetUnitAbilityCooldown(whichUnit: unit, abilId: number, level: number): number
-declare function BlzGetUnitAbilityCooldownRemaining(whichUnit: unit, abilId: number): number
-declare function BlzEndUnitAbilityCooldown(whichUnit: unit, abilCode: number): void
-declare function BlzGetUnitAbilityManaCost(whichUnit: unit, abilId: number, level: number): number
-declare function BlzSetUnitAbilityManaCost(whichUnit: unit, abilId: number, level: number, manaCost: number): void
-declare function BlzGetLocalUnitZ(whichUnit: unit): number
-declare function BlzDecPlayerTechResearched(whichPlayer: player, techid: number, levels: number): void
-declare function BlzSetEventDamage(damage: number): void
-declare function BlzGetEventDamageTarget(): unit
-declare function BlzGetEventAttackType(): attacktype
-declare function BlzGetEventDamageType(): damagetype
-declare function BlzGetEventWeaponType(): weapontype
-declare function BlzSetEventAttackType(attackType: attacktype): boolean
-declare function BlzSetEventDamageType(damageType: damagetype): boolean
-declare function BlzSetEventWeaponType(weaponType: weapontype): boolean
-declare function RequestExtraIntegerData(dataType: number, whichPlayer: player, param1: string, param2: string, param3: boolean, param4: number, param5: number, param6: number): number
-declare function RequestExtraBooleanData(dataType: number, whichPlayer: player, param1: string, param2: string, param3: boolean, param4: number, param5: number, param6: number): boolean
-declare function RequestExtraStringData(dataType: number, whichPlayer: player, param1: string, param2: string, param3: boolean, param4: number, param5: number, param6: number): string
-declare function RequestExtraRealData(dataType: number, whichPlayer: player, param1: string, param2: string, param3: boolean, param4: number, param5: number, param6: number): number
-declare function BlzGetUnitZ(whichUnit: unit): number
-declare function BlzEnableSelections(enableSelection: boolean, enableSelectionCircle: boolean): void
-declare function BlzIsSelectionEnabled(): boolean
-declare function BlzIsSelectionCircleEnabled(): boolean
-declare function BlzCameraSetupApplyForceDurationSmooth(whichSetup: camerasetup, doPan: boolean, forcedDuration: number, easeInDuration: number, easeOutDuration: number, smoothFactor: number): void
-declare function BlzEnableTargetIndicator(enable: boolean): void
-declare function BlzIsTargetIndicatorEnabled(): boolean
-declare function BlzGetOriginFrame(frameType: originframetype, index: number): framehandle
-declare function BlzEnableUIAutoPosition(enable: boolean): void
-declare function BlzHideOriginFrames(enable: boolean): void
-declare function BlzConvertColor(a: number, r: number, g: number, b: number): number
-declare function BlzLoadTOCFile(TOCFile: string): boolean
-declare function BlzCreateFrame(name: string, owner: framehandle, priority: number, createContext: number): framehandle
-declare function BlzCreateSimpleFrame(name: string, owner: framehandle, createContext: number): framehandle
-declare function BlzCreateFrameByType(typeName: string, name: string, owner: framehandle, inherits: string, createContext: number): framehandle
-declare function BlzDestroyFrame(frame: framehandle): void
-declare function BlzFrameSetPoint(frame: framehandle, point: framepointtype, relative: framehandle, relativePoint: framepointtype, x: number, y: number): void
-declare function BlzFrameSetAbsPoint(frame: framehandle, point: framepointtype, x: number, y: number): void
-declare function BlzFrameClearAllPoints(frame: framehandle): void
-declare function BlzFrameSetAllPoints(frame: framehandle, relative: framehandle): void
-declare function BlzFrameSetVisible(frame: framehandle, visible: boolean): void
-declare function BlzFrameIsVisible(frame: framehandle): boolean
-declare function BlzGetFrameByName(name: string, createContext: number): framehandle
-declare function BlzFrameGetName(frame: framehandle): string
-declare function BlzFrameClick(frame: framehandle): void
-declare function BlzFrameSetText(frame: framehandle, text: string): void
-declare function BlzFrameGetText(frame: framehandle): string
-declare function BlzFrameSetTextSizeLimit(frame: framehandle, size: number): void
-declare function BlzFrameGetTextSizeLimit(frame: framehandle): number
-declare function BlzFrameSetTextColor(frame: framehandle, color: number): void
-declare function BlzFrameSetFocus(frame: framehandle, flag: boolean): void
-declare function BlzFrameSetModel(frame: framehandle, modelFile: string, cameraIndex: number): void
-declare function BlzFrameSetEnable(frame: framehandle, enabled: boolean): void
-declare function BlzFrameGetEnable(frame: framehandle): boolean
-declare function BlzFrameSetAlpha(frame: framehandle, alpha: number): void
-declare function BlzFrameGetAlpha(frame: framehandle): number
-declare function BlzFrameSetSpriteAnimate(frame: framehandle, primaryProp: number, flags: number): void
-declare function BlzFrameSetTexture(frame: framehandle, texFile: string, flag: number, blend: boolean): void
-declare function BlzFrameSetScale(frame: framehandle, scale: number): void
-declare function BlzFrameSetTooltip(frame: framehandle, tooltip: framehandle): void
-declare function BlzFrameCageMouse(frame: framehandle, enable: boolean): void
-declare function BlzFrameSetValue(frame: framehandle, value: number): void
-declare function BlzFrameGetValue(frame: framehandle): number
-declare function BlzFrameSetMinMaxValue(frame: framehandle, minValue: number, maxValue: number): void
-declare function BlzFrameSetStepSize(frame: framehandle, stepSize: number): void
-declare function BlzFrameSetSize(frame: framehandle, width: number, height: number): void
-declare function BlzFrameSetVertexColor(frame: framehandle, color: number): void
-declare function BlzFrameSetLevel(frame: framehandle, level: number): void
-declare function BlzFrameSetParent(frame: framehandle, parent: framehandle): void
-declare function BlzFrameGetParent(frame: framehandle): framehandle
-declare function BlzFrameGetHeight(frame: framehandle): number
-declare function BlzFrameGetWidth(frame: framehandle): number
-declare function BlzFrameSetFont(frame: framehandle, fileName: string, height: number, flags: number): void
-declare function BlzFrameSetTextAlignment(frame: framehandle, vert: textaligntype, horz: textaligntype): void
-declare function BlzTriggerRegisterFrameEvent(whichTrigger: trigger, frame: framehandle, eventId: frameeventtype): event
-declare function BlzGetTriggerFrame(): framehandle
-declare function BlzGetTriggerFrameEvent(): frameeventtype
-declare function BlzTriggerRegisterPlayerSyncEvent(whichTrigger: trigger, whichPlayer: player, prefix: string, fromServer: boolean): event
-declare function BlzSendSyncData(prefix: string, data: string): boolean
-declare function BlzGetTriggerSyncPrefix(): string
-declare function BlzGetTriggerSyncData(): string
-declare function BlzTriggerRegisterPlayerKeyEvent(whichTrigger: trigger, whichPlayer: player, key: oskeytype, metaKey: number, keyDown: boolean): event
-declare function BlzGetTriggerPlayerKey(): oskeytype
-declare function BlzGetTriggerPlayerMetaKey(): number
-declare function BlzGetTriggerPlayerIsKeyDown(): boolean
-declare function BlzEnableCursor(enable: boolean): void
-declare function BlzSetMousePos(x: number, y: number): void
-declare function BlzGetLocalClientWidth(): number
-declare function BlzGetLocalClientHeight(): number
-declare function BlzIsLocalClientActive(): boolean
-declare function BlzGetMouseFocusUnit(): unit
-declare function BlzChangeMinimapTerrainTex(texFile: string): boolean
-declare function BlzGetLocale(): string
-declare function BlzGetSpecialEffectScale(whichEffect: effect): number
-declare function BlzSetSpecialEffectMatrixScale(whichEffect: effect, x: number, y: number, z: number): void
-declare function BlzResetSpecialEffectMatrix(whichEffect: effect): void
-declare function BlzGetUnitAbility(whichUnit: unit, abilId: number): ability
-declare function BlzGetUnitAbilityByIndex(whichUnit: unit, index: number): ability
-declare function BlzDisplayChatMessage(whichPlayer: player, recipient: number, message: string): void
-declare function BlzPauseUnitEx(whichUnit: unit, flag: boolean): void
-declare function BlzBitOr(x: number, y: number): number
-declare function BlzBitAnd(x: number, y: number): number
-declare function BlzBitXor(x: number, y: number): number
-declare function BlzGetAbilityBooleanField(whichAbility: ability, whichField: abilitybooleanfield): boolean
-declare function BlzGetAbilityIntegerField(whichAbility: ability, whichField: abilityintegerfield): number
-declare function BlzGetAbilityRealField(whichAbility: ability, whichField: abilityrealfield): number
-declare function BlzGetAbilityStringField(whichAbility: ability, whichField: abilitystringfield): string
-declare function BlzGetAbilityBooleanLevelField(whichAbility: ability, whichField: abilitybooleanlevelfield, level: number): boolean
-declare function BlzGetAbilityIntegerLevelField(whichAbility: ability, whichField: abilityintegerlevelfield, level: number): number
-declare function BlzGetAbilityRealLevelField(whichAbility: ability, whichField: abilityreallevelfield, level: number): number
-declare function BlzGetAbilityStringLevelField(whichAbility: ability, whichField: abilitystringlevelfield, level: number): string
-declare function BlzGetAbilityBooleanLevelArrayField(whichAbility: ability, whichField: abilitybooleanlevelarrayfield, level: number, index: number): boolean
-declare function BlzGetAbilityIntegerLevelArrayField(whichAbility: ability, whichField: abilityintegerlevelarrayfield, level: number, index: number): number
-declare function BlzGetAbilityRealLevelArrayField(whichAbility: ability, whichField: abilityreallevelarrayfield, level: number, index: number): number
-declare function BlzGetAbilityStringLevelArrayField(whichAbility: ability, whichField: abilitystringlevelarrayfield, level: number, index: number): string
-declare function BlzSetAbilityBooleanField(whichAbility: ability, whichField: abilitybooleanfield, value: boolean): boolean
-declare function BlzSetAbilityIntegerField(whichAbility: ability, whichField: abilityintegerfield, value: number): boolean
-declare function BlzSetAbilityRealField(whichAbility: ability, whichField: abilityrealfield, value: number): boolean
-declare function BlzSetAbilityStringField(whichAbility: ability, whichField: abilitystringfield, value: string): boolean
-declare function BlzSetAbilityBooleanLevelField(whichAbility: ability, whichField: abilitybooleanlevelfield, level: number, value: boolean): boolean
-declare function BlzSetAbilityIntegerLevelField(whichAbility: ability, whichField: abilityintegerlevelfield, level: number, value: number): boolean
-declare function BlzSetAbilityRealLevelField(whichAbility: ability, whichField: abilityreallevelfield, level: number, value: number): boolean
-declare function BlzSetAbilityStringLevelField(whichAbility: ability, whichField: abilitystringlevelfield, level: number, value: string): boolean
-declare function BlzSetAbilityBooleanLevelArrayField(whichAbility: ability, whichField: abilitybooleanlevelarrayfield, level: number, index: number, value: boolean): boolean
-declare function BlzSetAbilityIntegerLevelArrayField(whichAbility: ability, whichField: abilityintegerlevelarrayfield, level: number, index: number, value: number): boolean
-declare function BlzSetAbilityRealLevelArrayField(whichAbility: ability, whichField: abilityreallevelarrayfield, level: number, index: number, value: number): boolean
-declare function BlzSetAbilityStringLevelArrayField(whichAbility: ability, whichField: abilitystringlevelarrayfield, level: number, index: number, value: string): boolean
-declare function BlzAddAbilityBooleanLevelArrayField(whichAbility: ability, whichField: abilitybooleanlevelarrayfield, level: number, value: boolean): boolean
-declare function BlzAddAbilityIntegerLevelArrayField(whichAbility: ability, whichField: abilityintegerlevelarrayfield, level: number, value: number): boolean
-declare function BlzAddAbilityRealLevelArrayField(whichAbility: ability, whichField: abilityreallevelarrayfield, level: number, value: number): boolean
-declare function BlzAddAbilityStringLevelArrayField(whichAbility: ability, whichField: abilitystringlevelarrayfield, level: number, value: string): boolean
-declare function BlzRemoveAbilityBooleanLevelArrayField(whichAbility: ability, whichField: abilitybooleanlevelarrayfield, level: number, value: boolean): boolean
-declare function BlzRemoveAbilityIntegerLevelArrayField(whichAbility: ability, whichField: abilityintegerlevelarrayfield, level: number, value: number): boolean
-declare function BlzRemoveAbilityRealLevelArrayField(whichAbility: ability, whichField: abilityreallevelarrayfield, level: number, value: number): boolean
-declare function BlzRemoveAbilityStringLevelArrayField(whichAbility: ability, whichField: abilitystringlevelarrayfield, level: number, value: string): boolean
-declare function BlzGetItemAbilityByIndex(whichItem: item, index: number): ability
-declare function BlzGetItemAbility(whichItem: item, abilCode: number): ability
-declare function BlzItemAddAbility(whichItem: item, abilCode: number): boolean
-declare function BlzGetItemBooleanField(whichItem: item, whichField: itembooleanfield): boolean
-declare function BlzGetItemIntegerField(whichItem: item, whichField: itemintegerfield): number
-declare function BlzGetItemRealField(whichItem: item, whichField: itemrealfield): number
-declare function BlzGetItemStringField(whichItem: item, whichField: itemstringfield): string
-declare function BlzSetItemBooleanField(whichItem: item, whichField: itembooleanfield, value: boolean): boolean
-declare function BlzSetItemIntegerField(whichItem: item, whichField: itemintegerfield, value: number): boolean
-declare function BlzSetItemRealField(whichItem: item, whichField: itemrealfield, value: number): boolean
-declare function BlzSetItemStringField(whichItem: item, whichField: itemstringfield, value: string): boolean
-declare function BlzItemRemoveAbility(whichItem: item, abilCode: number): boolean
-declare function BlzGetUnitBooleanField(whichUnit: unit, whichField: unitbooleanfield): boolean
-declare function BlzGetUnitIntegerField(whichUnit: unit, whichField: unitintegerfield): number
-declare function BlzGetUnitRealField(whichUnit: unit, whichField: unitrealfield): number
-declare function BlzGetUnitStringField(whichUnit: unit, whichField: unitstringfield): string
-declare function BlzSetUnitBooleanField(whichUnit: unit, whichField: unitbooleanfield, value: boolean): boolean
-declare function BlzSetUnitIntegerField(whichUnit: unit, whichField: unitintegerfield, value: number): boolean
-declare function BlzSetUnitRealField(whichUnit: unit, whichField: unitrealfield, value: number): boolean
-declare function BlzSetUnitStringField(whichUnit: unit, whichField: unitstringfield, value: string): boolean
-
-declare function BlzGetUnitWeaponBooleanField(whichUnit: unit, whichField: unitweaponbooleanfield, index: number): boolean
-
-declare function BlzGetUnitWeaponIntegerField(whichUnit: unit, whichField: unitweaponintegerfield, index: number): number
-
-declare function BlzGetUnitWeaponRealField(whichUnit: unit, whichField: unitweaponrealfield, index: number): number
-
-declare function BlzGetUnitWeaponStringField(whichUnit: unit, whichField: unitweaponstringfield, index: number): string
-
-declare function BlzSetUnitWeaponBooleanField(whichUnit: unit, whichField: unitweaponbooleanfield, index: number, value: boolean): boolean
-
-declare function BlzSetUnitWeaponIntegerField(whichUnit: unit, whichField: unitweaponintegerfield, index: number, value: number): boolean
-
-declare function BlzSetUnitWeaponRealField(whichUnit: unit, whichField: unitweaponrealfield, index: number, value: number): boolean
-
-declare function BlzSetUnitWeaponStringField(whichUnit: unit, whichField: unitweaponstringfield, index: number, value: string): boolean
+declare function ConvertRace(i: number): race;
+declare function ConvertAllianceType(i: number): alliancetype;
+declare function ConvertRacePref(i: number): racepreference;
+declare function ConvertIGameState(i: number): igamestate;
+declare function ConvertFGameState(i: number): fgamestate;
+declare function ConvertPlayerState(i: number): playerstate;
+declare function ConvertPlayerScore(i: number): playerscore;
+declare function ConvertPlayerGameResult(i: number): playergameresult;
+declare function ConvertUnitState(i: number): unitstate;
+declare function ConvertAIDifficulty(i: number): aidifficulty;
+declare function ConvertGameEvent(i: number): gameevent;
+declare function ConvertPlayerEvent(i: number): playerevent;
+declare function ConvertPlayerUnitEvent(i: number): playerunitevent;
+declare function ConvertWidgetEvent(i: number): widgetevent;
+declare function ConvertDialogEvent(i: number): dialogevent;
+declare function ConvertUnitEvent(i: number): unitevent;
+declare function ConvertLimitOp(i: number): limitop;
+declare function ConvertUnitType(i: number): unittype;
+declare function ConvertGameSpeed(i: number): gamespeed;
+declare function ConvertPlacement(i: number): placement;
+declare function ConvertStartLocPrio(i: number): startlocprio;
+declare function ConvertGameDifficulty(i: number): gamedifficulty;
+declare function ConvertGameType(i: number): gametype;
+declare function ConvertMapFlag(i: number): mapflag;
+declare function ConvertMapVisibility(i: number): mapvisibility;
+declare function ConvertMapSetting(i: number): mapsetting;
+declare function ConvertMapDensity(i: number): mapdensity;
+declare function ConvertMapControl(i: number): mapcontrol;
+declare function ConvertPlayerColor(i: number): playercolor;
+declare function ConvertPlayerSlotState(i: number): playerslotstate;
+declare function ConvertVolumeGroup(i: number): volumegroup;
+declare function ConvertCameraField(i: number): camerafield;
+declare function ConvertBlendMode(i: number): blendmode;
+declare function ConvertRarityControl(i: number): raritycontrol;
+declare function ConvertTexMapFlags(i: number): texmapflags;
+declare function ConvertFogState(i: number): fogstate;
+declare function ConvertEffectType(i: number): effecttype;
+declare function ConvertVersion(i: number): version;
+declare function ConvertItemType(i: number): itemtype;
+declare function ConvertAttackType(i: number): attacktype;
+declare function ConvertDamageType(i: number): damagetype;
+declare function ConvertWeaponType(i: number): weapontype;
+declare function ConvertSoundType(i: number): soundtype;
+declare function ConvertPathingType(i: number): pathingtype;
+declare function ConvertMouseButtonType(i: number): mousebuttontype;
+declare function ConvertAnimType(i: number): animtype;
+declare function ConvertSubAnimType(i: number): subanimtype;
+declare function ConvertOriginFrameType(i: number): originframetype;
+declare function ConvertFramePointType(i: number): framepointtype;
+declare function ConvertTextAlignType(i: number): textaligntype;
+declare function ConvertFrameEventType(i: number): frameeventtype;
+declare function ConvertOsKeyType(i: number): oskeytype;
+declare function ConvertAbilityIntegerField(i: number): abilityintegerfield;
+declare function ConvertAbilityRealField(i: number): abilityrealfield;
+declare function ConvertAbilityBooleanField(i: number): abilitybooleanfield;
+declare function ConvertAbilityStringField(i: number): abilitystringfield;
+declare function ConvertAbilityIntegerLevelField(i: number): abilityintegerlevelfield;
+declare function ConvertAbilityRealLevelField(i: number): abilityreallevelfield;
+declare function ConvertAbilityBooleanLevelField(i: number): abilitybooleanlevelfield;
+declare function ConvertAbilityStringLevelField(i: number): abilitystringlevelfield;
+declare function ConvertAbilityIntegerLevelArrayField(i: number): abilityintegerlevelarrayfield;
+declare function ConvertAbilityRealLevelArrayField(i: number): abilityreallevelarrayfield;
+declare function ConvertAbilityBooleanLevelArrayField(i: number): abilitybooleanlevelarrayfield;
+declare function ConvertAbilityStringLevelArrayField(i: number): abilitystringlevelarrayfield;
+declare function ConvertUnitIntegerField(i: number): unitintegerfield;
+declare function ConvertUnitRealField(i: number): unitrealfield;
+declare function ConvertUnitBooleanField(i: number): unitbooleanfield;
+declare function ConvertUnitStringField(i: number): unitstringfield;
+declare function ConvertUnitWeaponIntegerField(i: number): unitweaponintegerfield;
+declare function ConvertUnitWeaponRealField(i: number): unitweaponrealfield;
+declare function ConvertUnitWeaponBooleanField(i: number): unitweaponbooleanfield;
+declare function ConvertUnitWeaponStringField(i: number): unitweaponstringfield;
+declare function ConvertItemIntegerField(i: number): itemintegerfield;
+declare function ConvertItemRealField(i: number): itemrealfield;
+declare function ConvertItemBooleanField(i: number): itembooleanfield;
+declare function ConvertItemStringField(i: number): itemstringfield;
+declare function ConvertMoveType(i: number): movetype;
+declare function ConvertTargetFlag(i: number): targetflag;
+declare function ConvertArmorType(i: number): armortype;
+declare function ConvertHeroAttribute(i: number): heroattribute;
+declare function ConvertDefenseType(i: number): defensetype;
+declare function ConvertRegenType(i: number): regentype;
+declare function ConvertUnitCategory(i: number): unitcategory;
+declare function ConvertPathingFlag(i: number): pathingflag;
+declare function OrderId(orderIdString: string): number;
+declare function OrderId2String(orderId: number): string;
+declare function UnitId(unitIdString: string): number;
+declare function UnitId2String(unitId: number): string;
+declare function AbilityId(abilityIdString: string): number;
+declare function AbilityId2String(abilityId: number): string;
+declare function GetObjectName(objectId: number): string;
+declare function GetBJMaxPlayers(): number;
+declare function GetBJPlayerNeutralVictim(): number;
+declare function GetBJPlayerNeutralExtra(): number;
+declare function GetBJMaxPlayerSlots(): number;
+declare function GetPlayerNeutralPassive(): number;
+declare function GetPlayerNeutralAggressive(): number;
+declare function Deg2Rad(degrees: number): number;
+declare function Rad2Deg(radians: number): number;
+declare function Sin(radians: number): number;
+declare function Cos(radians: number): number;
+declare function Tan(radians: number): number;
+declare function Asin(y: number): number;
+declare function Acos(x: number): number;
+declare function Atan(x: number): number;
+declare function Atan2(y: number, x: number): number;
+declare function SquareRoot(x: number): number;
+declare function Pow(x: number, power: number): number;
+declare function MathRound(r: number): number;
+declare function I2R(i: number): number;
+declare function R2I(r: number): number;
+declare function I2S(i: number): string;
+declare function R2S(r: number): string;
+declare function R2SW(r: number, width: number, precision: number): string;
+declare function S2I(s: string): number;
+declare function S2R(s: string): number;
+declare function GetHandleId(h: handle): number;
+declare function SubString(source: string, start: number, end: number): string;
+declare function StringLength(s: string): number;
+declare function StringCase(source: string, upper: boolean): string;
+declare function StringHash(s: string): number;
+declare function GetLocalizedString(source: string): string;
+declare function GetLocalizedHotkey(source: string): number;
+declare function SetMapName(name: string): void;
+declare function SetMapDescription(description: string): void;
+declare function SetTeams(teamcount: number): void;
+declare function SetPlayers(playercount: number): void;
+declare function DefineStartLocation(whichStartLoc: number, x: number, y: number): void;
+declare function DefineStartLocationLoc(whichStartLoc: number, whichLocation: location): void;
+declare function SetStartLocPrioCount(whichStartLoc: number, prioSlotCount: number): void;
+declare function SetStartLocPrio(whichStartLoc: number, prioSlotIndex: number, otherStartLocIndex: number, priority: startlocprio): void;
+declare function GetStartLocPrioSlot(whichStartLoc: number, prioSlotIndex: number): number;
+declare function GetStartLocPrio(whichStartLoc: number, prioSlotIndex: number): startlocprio;
+declare function SetEnemyStartLocPrioCount(whichStartLoc: number, prioSlotCount: number): void;
+declare function SetEnemyStartLocPrio(whichStartLoc: number, prioSlotIndex: number, otherStartLocIndex: number, priority: startlocprio): void;
+declare function SetGameTypeSupported(whichGameType: gametype, value: boolean): void;
+declare function SetMapFlag(whichMapFlag: mapflag, value: boolean): void;
+declare function SetGamePlacement(whichPlacementType: placement): void;
+declare function SetGameSpeed(whichspeed: gamespeed): void;
+declare function SetGameDifficulty(whichdifficulty: gamedifficulty): void;
+declare function SetResourceDensity(whichdensity: mapdensity): void;
+declare function SetCreatureDensity(whichdensity: mapdensity): void;
+declare function GetTeams(): number;
+declare function GetPlayers(): number;
+declare function IsGameTypeSupported(whichGameType: gametype): boolean;
+declare function GetGameTypeSelected(): gametype;
+declare function IsMapFlagSet(whichMapFlag: mapflag): boolean;
+declare function GetGamePlacement(): placement;
+declare function GetGameSpeed(): gamespeed;
+declare function GetGameDifficulty(): gamedifficulty;
+declare function GetResourceDensity(): mapdensity;
+declare function GetCreatureDensity(): mapdensity;
+declare function GetStartLocationX(whichStartLocation: number): number;
+declare function GetStartLocationY(whichStartLocation: number): number;
+declare function GetStartLocationLoc(whichStartLocation: number): location;
+declare function SetPlayerTeam(whichPlayer: player, whichTeam: number): void;
+declare function SetPlayerStartLocation(whichPlayer: player, startLocIndex: number): void;
+declare function ForcePlayerStartLocation(whichPlayer: player, startLocIndex: number): void;
+declare function SetPlayerColor(whichPlayer: player, color: playercolor): void;
+declare function SetPlayerAlliance(sourcePlayer: player, otherPlayer: player, whichAllianceSetting: alliancetype, value: boolean): void;
+declare function SetPlayerTaxRate(sourcePlayer: player, otherPlayer: player, whichResource: playerstate, rate: number): void;
+declare function SetPlayerRacePreference(whichPlayer: player, whichRacePreference: racepreference): void;
+declare function SetPlayerRaceSelectable(whichPlayer: player, value: boolean): void;
+declare function SetPlayerController(whichPlayer: player, controlType: mapcontrol): void;
+declare function SetPlayerName(whichPlayer: player, name: string): void;
+declare function SetPlayerOnScoreScreen(whichPlayer: player, flag: boolean): void;
+declare function GetPlayerTeam(whichPlayer: player): number;
+declare function GetPlayerStartLocation(whichPlayer: player): number;
+declare function GetPlayerColor(whichPlayer: player): playercolor;
+declare function GetPlayerSelectable(whichPlayer: player): boolean;
+declare function GetPlayerController(whichPlayer: player): mapcontrol;
+declare function GetPlayerSlotState(whichPlayer: player): playerslotstate;
+declare function GetPlayerTaxRate(sourcePlayer: player, otherPlayer: player, whichResource: playerstate): number;
+declare function IsPlayerRacePrefSet(whichPlayer: player, pref: racepreference): boolean;
+declare function GetPlayerName(whichPlayer: player): string;
+declare function CreateTimer(): timer;
+declare function DestroyTimer(whichTimer: timer): void;
+declare function TimerStart(whichTimer: timer, timeout: number, periodic: boolean, handlerFunc: () => void): void;
+declare function TimerGetElapsed(whichTimer: timer): number;
+declare function TimerGetRemaining(whichTimer: timer): number;
+declare function TimerGetTimeout(whichTimer: timer): number;
+declare function PauseTimer(whichTimer: timer): void;
+declare function ResumeTimer(whichTimer: timer): void;
+declare function GetExpiredTimer(): timer;
+declare function CreateGroup(): group;
+declare function DestroyGroup(whichGroup: group): void;
+declare function GroupAddUnit(whichGroup: group, whichUnit: unit): boolean;
+declare function GroupRemoveUnit(whichGroup: group, whichUnit: unit): boolean;
+declare function BlzGroupAddGroupFast(whichGroup: group, addGroup: group): number;
+declare function BlzGroupRemoveGroupFast(whichGroup: group, removeGroup: group): number;
+declare function GroupClear(whichGroup: group): void;
+declare function BlzGroupGetSize(whichGroup: group): number;
+declare function BlzGroupUnitAt(whichGroup: group, index: number): unit;
+declare function GroupEnumUnitsOfType(whichGroup: group, unitname: string, filter: boolexpr | null): void;
+declare function GroupEnumUnitsOfPlayer(whichGroup: group, whichPlayer: player, filter: boolexpr | null): void;
+declare function GroupEnumUnitsOfTypeCounted(whichGroup: group, unitname: string, filter: boolexpr | null, countLimit: number): void;
+declare function GroupEnumUnitsInRect(whichGroup: group, r: rect, filter: boolexpr | null): void;
+declare function GroupEnumUnitsInRectCounted(whichGroup: group, r: rect, filter: boolexpr | null, countLimit: number): void;
+declare function GroupEnumUnitsInRange(whichGroup: group, x: number, y: number, radius: number, filter: boolexpr | null): void;
+declare function GroupEnumUnitsInRangeOfLoc(whichGroup: group, whichLocation: location, radius: number, filter: boolexpr | null): void;
+declare function GroupEnumUnitsInRangeCounted(whichGroup: group, x: number, y: number, radius: number, filter: boolexpr | null, countLimit: number): void;
+declare function GroupEnumUnitsInRangeOfLocCounted(whichGroup: group, whichLocation: location, radius: number, filter: boolexpr | null, countLimit: number): void;
+declare function GroupEnumUnitsSelected(whichGroup: group, whichPlayer: player, filter: boolexpr | null): void;
+declare function GroupImmediateOrder(whichGroup: group, order: string): boolean;
+declare function GroupImmediateOrderById(whichGroup: group, order: number): boolean;
+declare function GroupPointOrder(whichGroup: group, order: string, x: number, y: number): boolean;
+declare function GroupPointOrderLoc(whichGroup: group, order: string, whichLocation: location): boolean;
+declare function GroupPointOrderById(whichGroup: group, order: number, x: number, y: number): boolean;
+declare function GroupPointOrderByIdLoc(whichGroup: group, order: number, whichLocation: location): boolean;
+declare function GroupTargetOrder(whichGroup: group, order: string, targetWidget: widget): boolean;
+declare function GroupTargetOrderById(whichGroup: group, order: number, targetWidget: widget): boolean;
+declare function ForGroup(whichGroup: group, callback: () => void): void;
+declare function FirstOfGroup(whichGroup: group): unit;
+declare function CreateForce(): force;
+declare function DestroyForce(whichForce: force): void;
+declare function ForceAddPlayer(whichForce: force, whichPlayer: player): void;
+declare function ForceRemovePlayer(whichForce: force, whichPlayer: player): void;
+declare function BlzForceHasPlayer(whichForce: force, whichPlayer: player): boolean;
+declare function ForceClear(whichForce: force): void;
+declare function ForceEnumPlayers(whichForce: force, filter: boolexpr | null): void;
+declare function ForceEnumPlayersCounted(whichForce: force, filter: boolexpr | null, countLimit: number): void;
+declare function ForceEnumAllies(whichForce: force, whichPlayer: player, filter: boolexpr | null): void;
+declare function ForceEnumEnemies(whichForce: force, whichPlayer: player, filter: boolexpr | null): void;
+declare function ForForce(whichForce: force, callback: () => void): void;
+declare function Rect(minx: number, miny: number, maxx: number, maxy: number): rect;
+declare function RectFromLoc(min: location, max: location): rect;
+declare function RemoveRect(whichRect: rect): void;
+declare function SetRect(whichRect: rect, minx: number, miny: number, maxx: number, maxy: number): void;
+declare function SetRectFromLoc(whichRect: rect, min: location, max: location): void;
+declare function MoveRectTo(whichRect: rect, newCenterX: number, newCenterY: number): void;
+declare function MoveRectToLoc(whichRect: rect, newCenterLoc: location): void;
+declare function GetRectCenterX(whichRect: rect): number;
+declare function GetRectCenterY(whichRect: rect): number;
+declare function GetRectMinX(whichRect: rect): number;
+declare function GetRectMinY(whichRect: rect): number;
+declare function GetRectMaxX(whichRect: rect): number;
+declare function GetRectMaxY(whichRect: rect): number;
+declare function CreateRegion(): region;
+declare function RemoveRegion(whichRegion: region): void;
+declare function RegionAddRect(whichRegion: region, r: rect): void;
+declare function RegionClearRect(whichRegion: region, r: rect): void;
+declare function RegionAddCell(whichRegion: region, x: number, y: number): void;
+declare function RegionAddCellAtLoc(whichRegion: region, whichLocation: location): void;
+declare function RegionClearCell(whichRegion: region, x: number, y: number): void;
+declare function RegionClearCellAtLoc(whichRegion: region, whichLocation: location): void;
+declare function Location(x: number, y: number): location;
+declare function RemoveLocation(whichLocation: location): void;
+declare function MoveLocation(whichLocation: location, newX: number, newY: number): void;
+declare function GetLocationX(whichLocation: location): number;
+declare function GetLocationY(whichLocation: location): number;
+declare function GetLocationZ(whichLocation: location): number;
+declare function IsUnitInRegion(whichRegion: region, whichUnit: unit): boolean;
+declare function IsPointInRegion(whichRegion: region, x: number, y: number): boolean;
+declare function IsLocationInRegion(whichRegion: region, whichLocation: location): boolean;
+declare function GetWorldBounds(): rect;
+declare function CreateTrigger(): trigger;
+declare function DestroyTrigger(whichTrigger: trigger): void;
+declare function ResetTrigger(whichTrigger: trigger): void;
+declare function EnableTrigger(whichTrigger: trigger): void;
+declare function DisableTrigger(whichTrigger: trigger): void;
+declare function IsTriggerEnabled(whichTrigger: trigger): boolean;
+declare function TriggerWaitOnSleeps(whichTrigger: trigger, flag: boolean): void;
+declare function IsTriggerWaitOnSleeps(whichTrigger: trigger): boolean;
+declare function GetFilterUnit(): unit;
+declare function GetEnumUnit(): unit;
+declare function GetFilterDestructable(): destructable;
+declare function GetEnumDestructable(): destructable;
+declare function GetFilterItem(): item;
+declare function GetEnumItem(): item;
+declare function ParseTags(taggedString: string): string;
+declare function GetFilterPlayer(): player;
+declare function GetEnumPlayer(): player;
+declare function GetTriggeringTrigger(): trigger;
+declare function GetTriggerEventId(): eventid;
+declare function GetTriggerEvalCount(whichTrigger: trigger): number;
+declare function GetTriggerExecCount(whichTrigger: trigger): number;
+declare function ExecuteFunc(funcName: string): void;
+declare function And(operandA: boolexpr | null, operandB: boolexpr | null): boolexpr;
+declare function Or(operandA: boolexpr | null, operandB: boolexpr | null): boolexpr;
+declare function Not(operand: boolexpr | null): boolexpr;
+declare function Condition(func: () => boolean): conditionfunc;
+declare function DestroyCondition(c: conditionfunc): void;
+declare function Filter(func: () => boolean): filterfunc;
+declare function DestroyFilter(f: filterfunc): void;
+declare function DestroyBoolExpr(e: boolexpr | null): void;
+declare function TriggerRegisterVariableEvent(whichTrigger: trigger, varName: string, opcode: limitop, limitval: number): event;
+declare function TriggerRegisterTimerEvent(whichTrigger: trigger, timeout: number, periodic: boolean): event;
+declare function TriggerRegisterTimerExpireEvent(whichTrigger: trigger, t: timer): event;
+declare function TriggerRegisterGameStateEvent(whichTrigger: trigger, whichState: gamestate, opcode: limitop, limitval: number): event;
+declare function TriggerRegisterDialogEvent(whichTrigger: trigger, whichDialog: dialog): event;
+declare function TriggerRegisterDialogButtonEvent(whichTrigger: trigger, whichButton: button): event;
+declare function GetEventGameState(): gamestate;
+declare function TriggerRegisterGameEvent(whichTrigger: trigger, whichGameEvent: gameevent): event;
+declare function GetWinningPlayer(): player;
+declare function TriggerRegisterEnterRegion(whichTrigger: trigger, whichRegion: region, filter: boolexpr | null): event;
+declare function GetTriggeringRegion(): region;
+declare function GetEnteringUnit(): unit;
+declare function TriggerRegisterLeaveRegion(whichTrigger: trigger, whichRegion: region, filter: boolexpr | null): event;
+declare function GetLeavingUnit(): unit;
+declare function TriggerRegisterTrackableHitEvent(whichTrigger: trigger, t: trackable): event;
+declare function TriggerRegisterTrackableTrackEvent(whichTrigger: trigger, t: trackable): event;
+declare function TriggerRegisterCommandEvent(whichTrigger: trigger, whichAbility: number, order: string): event;
+declare function TriggerRegisterUpgradeCommandEvent(whichTrigger: trigger, whichUpgrade: number): event;
+declare function GetTriggeringTrackable(): trackable;
+declare function GetClickedButton(): button;
+declare function GetClickedDialog(): dialog;
+declare function GetTournamentFinishSoonTimeRemaining(): number;
+declare function GetTournamentFinishNowRule(): number;
+declare function GetTournamentFinishNowPlayer(): player;
+declare function GetTournamentScore(whichPlayer: player): number;
+declare function GetSaveBasicFilename(): string;
+declare function TriggerRegisterPlayerEvent(whichTrigger: trigger, whichPlayer: player, whichPlayerEvent: playerevent): event;
+declare function GetTriggerPlayer(): player;
+declare function TriggerRegisterPlayerUnitEvent(whichTrigger: trigger, whichPlayer: player, whichPlayerUnitEvent: playerunitevent, filter: boolexpr | null): event;
+declare function GetLevelingUnit(): unit;
+declare function GetLearningUnit(): unit;
+declare function GetLearnedSkill(): number;
+declare function GetLearnedSkillLevel(): number;
+declare function GetRevivableUnit(): unit;
+declare function GetRevivingUnit(): unit;
+declare function GetAttacker(): unit;
+declare function GetRescuer(): unit;
+declare function GetDyingUnit(): unit;
+declare function GetKillingUnit(): unit;
+declare function GetDecayingUnit(): unit;
+declare function GetConstructingStructure(): unit;
+declare function GetCancelledStructure(): unit;
+declare function GetConstructedStructure(): unit;
+declare function GetResearchingUnit(): unit;
+declare function GetResearched(): number;
+declare function GetTrainedUnitType(): number;
+declare function GetTrainedUnit(): unit;
+declare function GetDetectedUnit(): unit;
+declare function GetSummoningUnit(): unit;
+declare function GetSummonedUnit(): unit;
+declare function GetTransportUnit(): unit;
+declare function GetLoadedUnit(): unit;
+declare function GetSellingUnit(): unit;
+declare function GetSoldUnit(): unit;
+declare function GetBuyingUnit(): unit;
+declare function GetSoldItem(): item;
+declare function GetChangingUnit(): unit;
+declare function GetChangingUnitPrevOwner(): player;
+declare function GetManipulatingUnit(): unit;
+declare function GetManipulatedItem(): item;
+declare function GetOrderedUnit(): unit;
+declare function GetIssuedOrderId(): number;
+declare function GetOrderPointX(): number;
+declare function GetOrderPointY(): number;
+declare function GetOrderPointLoc(): location;
+declare function GetOrderTarget(): widget;
+declare function GetOrderTargetDestructable(): destructable;
+declare function GetOrderTargetItem(): item;
+declare function GetOrderTargetUnit(): unit;
+declare function GetSpellAbilityUnit(): unit;
+declare function GetSpellAbilityId(): number;
+declare function GetSpellAbility(): ability;
+declare function GetSpellTargetLoc(): location;
+declare function GetSpellTargetX(): number;
+declare function GetSpellTargetY(): number;
+declare function GetSpellTargetDestructable(): destructable;
+declare function GetSpellTargetItem(): item;
+declare function GetSpellTargetUnit(): unit;
+declare function TriggerRegisterPlayerAllianceChange(whichTrigger: trigger, whichPlayer: player, whichAlliance: alliancetype): event;
+declare function TriggerRegisterPlayerStateEvent(whichTrigger: trigger, whichPlayer: player, whichState: playerstate, opcode: limitop, limitval: number): event;
+declare function GetEventPlayerState(): playerstate;
+declare function TriggerRegisterPlayerChatEvent(whichTrigger: trigger, whichPlayer: player, chatMessageToDetect: string, exactMatchOnly: boolean): event;
+declare function GetEventPlayerChatString(): string;
+declare function GetEventPlayerChatStringMatched(): string;
+declare function TriggerRegisterDeathEvent(whichTrigger: trigger, whichWidget: widget): event;
+declare function GetTriggerUnit(): unit;
+declare function TriggerRegisterUnitStateEvent(whichTrigger: trigger, whichUnit: unit, whichState: unitstate, opcode: limitop, limitval: number): event;
+declare function GetEventUnitState(): unitstate;
+declare function TriggerRegisterUnitEvent(whichTrigger: trigger, whichUnit: unit, whichEvent: unitevent): event;
+declare function GetEventDamage(): number;
+declare function GetEventDamageSource(): unit;
+declare function GetEventDetectingPlayer(): player;
+declare function TriggerRegisterFilterUnitEvent(whichTrigger: trigger, whichUnit: unit, whichEvent: unitevent, filter: boolexpr | null): event;
+declare function GetEventTargetUnit(): unit;
+declare function TriggerRegisterUnitInRange(whichTrigger: trigger, whichUnit: unit, range: number, filter: boolexpr | null): event;
+declare function TriggerAddCondition(whichTrigger: trigger, condition: boolexpr | null): triggercondition;
+declare function TriggerRemoveCondition(whichTrigger: trigger, whichCondition: triggercondition): void;
+declare function TriggerClearConditions(whichTrigger: trigger): void;
+declare function TriggerAddAction(whichTrigger: trigger, actionFunc: () => void): triggeraction;
+declare function TriggerRemoveAction(whichTrigger: trigger, whichAction: triggeraction): void;
+declare function TriggerClearActions(whichTrigger: trigger): void;
+declare function TriggerSleepAction(timeout: number): void;
+declare function TriggerWaitForSound(s: sound, offset: number): void;
+declare function TriggerEvaluate(whichTrigger: trigger): boolean;
+declare function TriggerExecute(whichTrigger: trigger): void;
+declare function TriggerExecuteWait(whichTrigger: trigger): void;
+declare function TriggerSyncStart(): void;
+declare function TriggerSyncReady(): void;
+declare function GetWidgetLife(whichWidget: widget): number;
+declare function SetWidgetLife(whichWidget: widget, newLife: number): void;
+declare function GetWidgetX(whichWidget: widget): number;
+declare function GetWidgetY(whichWidget: widget): number;
+declare function GetTriggerWidget(): widget;
+declare function CreateDestructable(objectid: number, x: number, y: number, face: number, scale: number, variation: number): destructable;
+declare function CreateDestructableZ(objectid: number, x: number, y: number, z: number, face: number, scale: number, variation: number): destructable;
+declare function CreateDeadDestructable(objectid: number, x: number, y: number, face: number, scale: number, variation: number): destructable;
+declare function CreateDeadDestructableZ(objectid: number, x: number, y: number, z: number, face: number, scale: number, variation: number): destructable;
+declare function RemoveDestructable(d: destructable): void;
+declare function KillDestructable(d: destructable): void;
+declare function SetDestructableInvulnerable(d: destructable, flag: boolean): void;
+declare function IsDestructableInvulnerable(d: destructable): boolean;
+declare function EnumDestructablesInRect(r: rect, filter: boolexpr | null, actionFunc: () => void): void;
+declare function GetDestructableTypeId(d: destructable): number;
+declare function GetDestructableX(d: destructable): number;
+declare function GetDestructableY(d: destructable): number;
+declare function SetDestructableLife(d: destructable, life: number): void;
+declare function GetDestructableLife(d: destructable): number;
+declare function SetDestructableMaxLife(d: destructable, max: number): void;
+declare function GetDestructableMaxLife(d: destructable): number;
+declare function DestructableRestoreLife(d: destructable, life: number, birth: boolean): void;
+declare function QueueDestructableAnimation(d: destructable, whichAnimation: string): void;
+declare function SetDestructableAnimation(d: destructable, whichAnimation: string): void;
+declare function SetDestructableAnimationSpeed(d: destructable, speedFactor: number): void;
+declare function ShowDestructable(d: destructable, flag: boolean): void;
+declare function GetDestructableOccluderHeight(d: destructable): number;
+declare function SetDestructableOccluderHeight(d: destructable, height: number): void;
+declare function GetDestructableName(d: destructable): string;
+declare function GetTriggerDestructable(): destructable;
+declare function CreateItem(itemid: number, x: number, y: number): item;
+declare function RemoveItem(whichItem: item): void;
+declare function GetItemPlayer(whichItem: item): player;
+declare function GetItemTypeId(i: item): number;
+declare function GetItemX(i: item): number;
+declare function GetItemY(i: item): number;
+declare function SetItemPosition(i: item, x: number, y: number): void;
+declare function SetItemDropOnDeath(whichItem: item, flag: boolean): void;
+declare function SetItemDroppable(i: item, flag: boolean): void;
+declare function SetItemPawnable(i: item, flag: boolean): void;
+declare function SetItemPlayer(whichItem: item, whichPlayer: player, changeColor: boolean): void;
+declare function SetItemInvulnerable(whichItem: item, flag: boolean): void;
+declare function IsItemInvulnerable(whichItem: item): boolean;
+declare function SetItemVisible(whichItem: item, show: boolean): void;
+declare function IsItemVisible(whichItem: item): boolean;
+declare function IsItemOwned(whichItem: item): boolean;
+declare function IsItemPowerup(whichItem: item): boolean;
+declare function IsItemSellable(whichItem: item): boolean;
+declare function IsItemPawnable(whichItem: item): boolean;
+declare function IsItemIdPowerup(itemId: number): boolean;
+declare function IsItemIdSellable(itemId: number): boolean;
+declare function IsItemIdPawnable(itemId: number): boolean;
+declare function EnumItemsInRect(r: rect, filter: boolexpr | null, actionFunc: () => void): void;
+declare function GetItemLevel(whichItem: item): number;
+declare function GetItemType(whichItem: item): itemtype;
+declare function SetItemDropID(whichItem: item, unitId: number): void;
+declare function GetItemName(whichItem: item): string;
+declare function GetItemCharges(whichItem: item): number;
+declare function SetItemCharges(whichItem: item, charges: number): void;
+declare function GetItemUserData(whichItem: item): number;
+declare function SetItemUserData(whichItem: item, data: number): void;
+declare function CreateUnit(id: player, unitid: number, x: number, y: number, face: number): unit;
+declare function CreateUnitByName(whichPlayer: player, unitname: string, x: number, y: number, face: number): unit;
+declare function CreateUnitAtLoc(id: player, unitid: number, whichLocation: location, face: number): unit;
+declare function CreateUnitAtLocByName(id: player, unitname: string, whichLocation: location, face: number): unit;
+declare function CreateCorpse(whichPlayer: player, unitid: number, x: number, y: number, face: number): unit;
+declare function KillUnit(whichUnit: unit): void;
+declare function RemoveUnit(whichUnit: unit): void;
+declare function ShowUnit(whichUnit: unit, show: boolean): void;
+declare function SetUnitState(whichUnit: unit, whichUnitState: unitstate, newVal: number): void;
+declare function SetUnitX(whichUnit: unit, newX: number): void;
+declare function SetUnitY(whichUnit: unit, newY: number): void;
+declare function SetUnitPosition(whichUnit: unit, newX: number, newY: number): void;
+declare function SetUnitPositionLoc(whichUnit: unit, whichLocation: location): void;
+declare function SetUnitFacing(whichUnit: unit, facingAngle: number): void;
+declare function SetUnitFacingTimed(whichUnit: unit, facingAngle: number, duration: number): void;
+declare function SetUnitMoveSpeed(whichUnit: unit, newSpeed: number): void;
+declare function SetUnitFlyHeight(whichUnit: unit, newHeight: number, rate: number): void;
+declare function SetUnitTurnSpeed(whichUnit: unit, newTurnSpeed: number): void;
+declare function SetUnitPropWindow(whichUnit: unit, newPropWindowAngle: number): void;
+declare function SetUnitAcquireRange(whichUnit: unit, newAcquireRange: number): void;
+declare function SetUnitCreepGuard(whichUnit: unit, creepGuard: boolean): void;
+declare function GetUnitAcquireRange(whichUnit: unit): number;
+declare function GetUnitTurnSpeed(whichUnit: unit): number;
+declare function GetUnitPropWindow(whichUnit: unit): number;
+declare function GetUnitFlyHeight(whichUnit: unit): number;
+declare function GetUnitDefaultAcquireRange(whichUnit: unit): number;
+declare function GetUnitDefaultTurnSpeed(whichUnit: unit): number;
+declare function GetUnitDefaultPropWindow(whichUnit: unit): number;
+declare function GetUnitDefaultFlyHeight(whichUnit: unit): number;
+declare function SetUnitOwner(whichUnit: unit, whichPlayer: player, changeColor: boolean): void;
+declare function SetUnitColor(whichUnit: unit, whichColor: playercolor): void;
+declare function SetUnitScale(whichUnit: unit, scaleX: number, scaleY: number, scaleZ: number): void;
+declare function SetUnitTimeScale(whichUnit: unit, timeScale: number): void;
+declare function SetUnitBlendTime(whichUnit: unit, blendTime: number): void;
+declare function SetUnitVertexColor(whichUnit: unit, red: number, green: number, blue: number, alpha: number): void;
+declare function QueueUnitAnimation(whichUnit: unit, whichAnimation: string): void;
+declare function SetUnitAnimation(whichUnit: unit, whichAnimation: string): void;
+declare function SetUnitAnimationByIndex(whichUnit: unit, whichAnimation: number): void;
+declare function SetUnitAnimationWithRarity(whichUnit: unit, whichAnimation: string, rarity: raritycontrol): void;
+declare function AddUnitAnimationProperties(whichUnit: unit, animProperties: string, add: boolean): void;
+declare function SetUnitLookAt(whichUnit: unit, whichBone: string, lookAtTarget: unit, offsetX: number, offsetY: number, offsetZ: number): void;
+declare function ResetUnitLookAt(whichUnit: unit): void;
+declare function SetUnitRescuable(whichUnit: unit, byWhichPlayer: player, flag: boolean): void;
+declare function SetUnitRescueRange(whichUnit: unit, range: number): void;
+declare function SetHeroStr(whichHero: unit, newStr: number, permanent: boolean): void;
+declare function SetHeroAgi(whichHero: unit, newAgi: number, permanent: boolean): void;
+declare function SetHeroInt(whichHero: unit, newInt: number, permanent: boolean): void;
+declare function GetHeroStr(whichHero: unit, includeBonuses: boolean): number;
+declare function GetHeroAgi(whichHero: unit, includeBonuses: boolean): number;
+declare function GetHeroInt(whichHero: unit, includeBonuses: boolean): number;
+declare function UnitStripHeroLevel(whichHero: unit, howManyLevels: number): boolean;
+declare function GetHeroXP(whichHero: unit): number;
+declare function SetHeroXP(whichHero: unit, newXpVal: number, showEyeCandy: boolean): void;
+declare function GetHeroSkillPoints(whichHero: unit): number;
+declare function UnitModifySkillPoints(whichHero: unit, skillPointDelta: number): boolean;
+declare function AddHeroXP(whichHero: unit, xpToAdd: number, showEyeCandy: boolean): void;
+declare function SetHeroLevel(whichHero: unit, level: number, showEyeCandy: boolean): void;
+declare function GetHeroLevel(whichHero: unit): number;
+declare function GetUnitLevel(whichUnit: unit): number;
+declare function GetHeroProperName(whichHero: unit): string;
+declare function SuspendHeroXP(whichHero: unit, flag: boolean): void;
+declare function IsSuspendedXP(whichHero: unit): boolean;
+declare function SelectHeroSkill(whichHero: unit, abilcode: number): void;
+declare function GetUnitAbilityLevel(whichUnit: unit, abilcode: number): number;
+declare function DecUnitAbilityLevel(whichUnit: unit, abilcode: number): number;
+declare function IncUnitAbilityLevel(whichUnit: unit, abilcode: number): number;
+declare function SetUnitAbilityLevel(whichUnit: unit, abilcode: number, level: number): number;
+declare function ReviveHero(whichHero: unit, x: number, y: number, doEyecandy: boolean): boolean;
+declare function ReviveHeroLoc(whichHero: unit, loc: location, doEyecandy: boolean): boolean;
+declare function SetUnitExploded(whichUnit: unit, exploded: boolean): void;
+declare function SetUnitInvulnerable(whichUnit: unit, flag: boolean): void;
+declare function PauseUnit(whichUnit: unit, flag: boolean): void;
+declare function IsUnitPaused(whichHero: unit): boolean;
+declare function SetUnitPathing(whichUnit: unit, flag: boolean): void;
+declare function ClearSelection(): void;
+declare function SelectUnit(whichUnit: unit, flag: boolean): void;
+declare function GetUnitPointValue(whichUnit: unit): number;
+declare function GetUnitPointValueByType(unitType: number): number;
+declare function UnitAddItem(whichUnit: unit, whichItem: item): boolean;
+declare function UnitAddItemById(whichUnit: unit, itemId: number): item;
+declare function UnitAddItemToSlotById(whichUnit: unit, itemId: number, itemSlot: number): boolean;
+declare function UnitRemoveItem(whichUnit: unit, whichItem: item): void;
+declare function UnitRemoveItemFromSlot(whichUnit: unit, itemSlot: number): item;
+declare function UnitHasItem(whichUnit: unit, whichItem: item): boolean;
+declare function UnitItemInSlot(whichUnit: unit, itemSlot: number): item;
+declare function UnitInventorySize(whichUnit: unit): number;
+declare function UnitDropItemPoint(whichUnit: unit, whichItem: item, x: number, y: number): boolean;
+declare function UnitDropItemSlot(whichUnit: unit, whichItem: item, slot: number): boolean;
+declare function UnitDropItemTarget(whichUnit: unit, whichItem: item, target: widget): boolean;
+declare function UnitUseItem(whichUnit: unit, whichItem: item): boolean;
+declare function UnitUseItemPoint(whichUnit: unit, whichItem: item, x: number, y: number): boolean;
+declare function UnitUseItemTarget(whichUnit: unit, whichItem: item, target: widget): boolean;
+declare function GetUnitX(whichUnit: unit): number;
+declare function GetUnitY(whichUnit: unit): number;
+declare function GetUnitLoc(whichUnit: unit): location;
+declare function GetUnitFacing(whichUnit: unit): number;
+declare function GetUnitMoveSpeed(whichUnit: unit): number;
+declare function GetUnitDefaultMoveSpeed(whichUnit: unit): number;
+declare function GetUnitState(whichUnit: unit, whichUnitState: unitstate): number;
+declare function GetOwningPlayer(whichUnit: unit): player;
+declare function GetUnitTypeId(whichUnit: unit): number;
+declare function GetUnitRace(whichUnit: unit): race;
+declare function GetUnitName(whichUnit: unit): string;
+declare function GetUnitFoodUsed(whichUnit: unit): number;
+declare function GetUnitFoodMade(whichUnit: unit): number;
+declare function GetFoodMade(unitId: number): number;
+declare function GetFoodUsed(unitId: number): number;
+declare function SetUnitUseFood(whichUnit: unit, useFood: boolean): void;
+declare function GetUnitRallyPoint(whichUnit: unit): location;
+declare function GetUnitRallyUnit(whichUnit: unit): unit;
+declare function GetUnitRallyDestructable(whichUnit: unit): destructable;
+declare function IsUnitInGroup(whichUnit: unit, whichGroup: group): boolean;
+declare function IsUnitInForce(whichUnit: unit, whichForce: force): boolean;
+declare function IsUnitOwnedByPlayer(whichUnit: unit, whichPlayer: player): boolean;
+declare function IsUnitAlly(whichUnit: unit, whichPlayer: player): boolean;
+declare function IsUnitEnemy(whichUnit: unit, whichPlayer: player): boolean;
+declare function IsUnitVisible(whichUnit: unit, whichPlayer: player): boolean;
+declare function IsUnitDetected(whichUnit: unit, whichPlayer: player): boolean;
+declare function IsUnitInvisible(whichUnit: unit, whichPlayer: player): boolean;
+declare function IsUnitFogged(whichUnit: unit, whichPlayer: player): boolean;
+declare function IsUnitMasked(whichUnit: unit, whichPlayer: player): boolean;
+declare function IsUnitSelected(whichUnit: unit, whichPlayer: player): boolean;
+declare function IsUnitRace(whichUnit: unit, whichRace: race): boolean;
+declare function IsUnitType(whichUnit: unit, whichUnitType: unittype): boolean;
+declare function IsUnit(whichUnit: unit, whichSpecifiedUnit: unit): boolean;
+declare function IsUnitInRange(whichUnit: unit, otherUnit: unit, distance: number): boolean;
+declare function IsUnitInRangeXY(whichUnit: unit, x: number, y: number, distance: number): boolean;
+declare function IsUnitInRangeLoc(whichUnit: unit, whichLocation: location, distance: number): boolean;
+declare function IsUnitHidden(whichUnit: unit): boolean;
+declare function IsUnitIllusion(whichUnit: unit): boolean;
+declare function IsUnitInTransport(whichUnit: unit, whichTransport: unit): boolean;
+declare function IsUnitLoaded(whichUnit: unit): boolean;
+declare function IsHeroUnitId(unitId: number): boolean;
+declare function IsUnitIdType(unitId: number, whichUnitType: unittype): boolean;
+declare function UnitShareVision(whichUnit: unit, whichPlayer: player, share: boolean): void;
+declare function UnitSuspendDecay(whichUnit: unit, suspend: boolean): void;
+declare function UnitAddType(whichUnit: unit, whichUnitType: unittype): boolean;
+declare function UnitRemoveType(whichUnit: unit, whichUnitType: unittype): boolean;
+declare function UnitAddAbility(whichUnit: unit, abilityId: number): boolean;
+declare function UnitRemoveAbility(whichUnit: unit, abilityId: number): boolean;
+declare function UnitMakeAbilityPermanent(whichUnit: unit, permanent: boolean, abilityId: number): boolean;
+declare function UnitRemoveBuffs(whichUnit: unit, removePositive: boolean, removeNegative: boolean): void;
+declare function UnitRemoveBuffsEx(whichUnit: unit, removePositive: boolean, removeNegative: boolean, magic: boolean, physical: boolean, timedLife: boolean, aura: boolean, autoDispel: boolean): void;
+declare function UnitHasBuffsEx(whichUnit: unit, removePositive: boolean, removeNegative: boolean, magic: boolean, physical: boolean, timedLife: boolean, aura: boolean, autoDispel: boolean): boolean;
+declare function UnitCountBuffsEx(whichUnit: unit, removePositive: boolean, removeNegative: boolean, magic: boolean, physical: boolean, timedLife: boolean, aura: boolean, autoDispel: boolean): number;
+declare function UnitAddSleep(whichUnit: unit, add: boolean): void;
+declare function UnitCanSleep(whichUnit: unit): boolean;
+declare function UnitAddSleepPerm(whichUnit: unit, add: boolean): void;
+declare function UnitCanSleepPerm(whichUnit: unit): boolean;
+declare function UnitIsSleeping(whichUnit: unit): boolean;
+declare function UnitWakeUp(whichUnit: unit): void;
+declare function UnitApplyTimedLife(whichUnit: unit, buffId: number, duration: number): void;
+declare function UnitIgnoreAlarm(whichUnit: unit, flag: boolean): boolean;
+declare function UnitIgnoreAlarmToggled(whichUnit: unit): boolean;
+declare function UnitResetCooldown(whichUnit: unit): void;
+declare function UnitSetConstructionProgress(whichUnit: unit, constructionPercentage: number): void;
+declare function UnitSetUpgradeProgress(whichUnit: unit, upgradePercentage: number): void;
+declare function UnitPauseTimedLife(whichUnit: unit, flag: boolean): void;
+declare function UnitSetUsesAltIcon(whichUnit: unit, flag: boolean): void;
+declare function UnitDamagePoint(whichUnit: unit, delay: number, radius: number, x: number, y: number, amount: number, attack: boolean, ranged: boolean, attackType: attacktype, damageType: damagetype, weaponType: weapontype): boolean;
+declare function UnitDamageTarget(whichUnit: unit, target: widget, amount: number, attack: boolean, ranged: boolean, attackType: attacktype, damageType: damagetype, weaponType: weapontype): boolean;
+declare function IssueImmediateOrder(whichUnit: unit, order: string): boolean;
+declare function IssueImmediateOrderById(whichUnit: unit, order: number): boolean;
+declare function IssuePointOrder(whichUnit: unit, order: string, x: number, y: number): boolean;
+declare function IssuePointOrderLoc(whichUnit: unit, order: string, whichLocation: location): boolean;
+declare function IssuePointOrderById(whichUnit: unit, order: number, x: number, y: number): boolean;
+declare function IssuePointOrderByIdLoc(whichUnit: unit, order: number, whichLocation: location): boolean;
+declare function IssueTargetOrder(whichUnit: unit, order: string, targetWidget: widget): boolean;
+declare function IssueTargetOrderById(whichUnit: unit, order: number, targetWidget: widget): boolean;
+declare function IssueInstantPointOrder(whichUnit: unit, order: string, x: number, y: number, instantTargetWidget: widget): boolean;
+declare function IssueInstantPointOrderById(whichUnit: unit, order: number, x: number, y: number, instantTargetWidget: widget): boolean;
+declare function IssueInstantTargetOrder(whichUnit: unit, order: string, targetWidget: widget, instantTargetWidget: widget): boolean;
+declare function IssueInstantTargetOrderById(whichUnit: unit, order: number, targetWidget: widget, instantTargetWidget: widget): boolean;
+declare function IssueBuildOrder(whichPeon: unit, unitToBuild: string, x: number, y: number): boolean;
+declare function IssueBuildOrderById(whichPeon: unit, unitId: number, x: number, y: number): boolean;
+declare function IssueNeutralImmediateOrder(forWhichPlayer: player, neutralStructure: unit, unitToBuild: string): boolean;
+declare function IssueNeutralImmediateOrderById(forWhichPlayer: player, neutralStructure: unit, unitId: number): boolean;
+declare function IssueNeutralPointOrder(forWhichPlayer: player, neutralStructure: unit, unitToBuild: string, x: number, y: number): boolean;
+declare function IssueNeutralPointOrderById(forWhichPlayer: player, neutralStructure: unit, unitId: number, x: number, y: number): boolean;
+declare function IssueNeutralTargetOrder(forWhichPlayer: player, neutralStructure: unit, unitToBuild: string, target: widget): boolean;
+declare function IssueNeutralTargetOrderById(forWhichPlayer: player, neutralStructure: unit, unitId: number, target: widget): boolean;
+declare function GetUnitCurrentOrder(whichUnit: unit): number;
+declare function SetResourceAmount(whichUnit: unit, amount: number): void;
+declare function AddResourceAmount(whichUnit: unit, amount: number): void;
+declare function GetResourceAmount(whichUnit: unit): number;
+declare function WaygateGetDestinationX(waygate: unit): number;
+declare function WaygateGetDestinationY(waygate: unit): number;
+declare function WaygateSetDestination(waygate: unit, x: number, y: number): void;
+declare function WaygateActivate(waygate: unit, activate: boolean): void;
+declare function WaygateIsActive(waygate: unit): boolean;
+declare function AddItemToAllStock(itemId: number, currentStock: number, stockMax: number): void;
+declare function AddItemToStock(whichUnit: unit, itemId: number, currentStock: number, stockMax: number): void;
+declare function AddUnitToAllStock(unitId: number, currentStock: number, stockMax: number): void;
+declare function AddUnitToStock(whichUnit: unit, unitId: number, currentStock: number, stockMax: number): void;
+declare function RemoveItemFromAllStock(itemId: number): void;
+declare function RemoveItemFromStock(whichUnit: unit, itemId: number): void;
+declare function RemoveUnitFromAllStock(unitId: number): void;
+declare function RemoveUnitFromStock(whichUnit: unit, unitId: number): void;
+declare function SetAllItemTypeSlots(slots: number): void;
+declare function SetAllUnitTypeSlots(slots: number): void;
+declare function SetItemTypeSlots(whichUnit: unit, slots: number): void;
+declare function SetUnitTypeSlots(whichUnit: unit, slots: number): void;
+declare function GetUnitUserData(whichUnit: unit): number;
+declare function SetUnitUserData(whichUnit: unit, data: number): void;
+declare function Player(number: number): player;
+declare function GetLocalPlayer(): player;
+declare function IsPlayerAlly(whichPlayer: player, otherPlayer: player): boolean;
+declare function IsPlayerEnemy(whichPlayer: player, otherPlayer: player): boolean;
+declare function IsPlayerInForce(whichPlayer: player, whichForce: force): boolean;
+declare function IsPlayerObserver(whichPlayer: player): boolean;
+declare function IsVisibleToPlayer(x: number, y: number, whichPlayer: player): boolean;
+declare function IsLocationVisibleToPlayer(whichLocation: location, whichPlayer: player): boolean;
+declare function IsFoggedToPlayer(x: number, y: number, whichPlayer: player): boolean;
+declare function IsLocationFoggedToPlayer(whichLocation: location, whichPlayer: player): boolean;
+declare function IsMaskedToPlayer(x: number, y: number, whichPlayer: player): boolean;
+declare function IsLocationMaskedToPlayer(whichLocation: location, whichPlayer: player): boolean;
+declare function GetPlayerRace(whichPlayer: player): race;
+declare function GetPlayerId(whichPlayer: player): number;
+declare function GetPlayerUnitCount(whichPlayer: player, includeIncomplete: boolean): number;
+declare function GetPlayerTypedUnitCount(whichPlayer: player, unitName: string, includeIncomplete: boolean, includeUpgrades: boolean): number;
+declare function GetPlayerStructureCount(whichPlayer: player, includeIncomplete: boolean): number;
+declare function GetPlayerState(whichPlayer: player, whichPlayerState: playerstate): number;
+declare function GetPlayerScore(whichPlayer: player, whichPlayerScore: playerscore): number;
+declare function GetPlayerAlliance(sourcePlayer: player, otherPlayer: player, whichAllianceSetting: alliancetype): boolean;
+declare function GetPlayerHandicap(whichPlayer: player): number;
+declare function GetPlayerHandicapXP(whichPlayer: player): number;
+declare function GetPlayerHandicapReviveTime(whichPlayer: player): number;
+declare function GetPlayerHandicapDamage(whichPlayer: player): number;
+declare function SetPlayerHandicap(whichPlayer: player, handicap: number): void;
+declare function SetPlayerHandicapXP(whichPlayer: player, handicap: number): void;
+declare function SetPlayerHandicapReviveTime(whichPlayer: player, handicap: number): void;
+declare function SetPlayerHandicapDamage(whichPlayer: player, handicap: number): void;
+declare function SetPlayerTechMaxAllowed(whichPlayer: player, techid: number, maximum: number): void;
+declare function GetPlayerTechMaxAllowed(whichPlayer: player, techid: number): number;
+declare function AddPlayerTechResearched(whichPlayer: player, techid: number, levels: number): void;
+declare function SetPlayerTechResearched(whichPlayer: player, techid: number, setToLevel: number): void;
+declare function GetPlayerTechResearched(whichPlayer: player, techid: number, specificonly: boolean): boolean;
+declare function GetPlayerTechCount(whichPlayer: player, techid: number, specificonly: boolean): number;
+declare function SetPlayerUnitsOwner(whichPlayer: player, newOwner: number): void;
+declare function CripplePlayer(whichPlayer: player, toWhichPlayers: force, flag: boolean): void;
+declare function SetPlayerAbilityAvailable(whichPlayer: player, abilid: number, avail: boolean): void;
+declare function SetPlayerState(whichPlayer: player, whichPlayerState: playerstate, value: number): void;
+declare function RemovePlayer(whichPlayer: player, gameResult: playergameresult): void;
+declare function CachePlayerHeroData(whichPlayer: player): void;
+declare function SetFogStateRect(forWhichPlayer: player, whichState: fogstate, where: rect, useSharedVision: boolean): void;
+declare function SetFogStateRadius(forWhichPlayer: player, whichState: fogstate, centerx: number, centerY: number, radius: number, useSharedVision: boolean): void;
+declare function SetFogStateRadiusLoc(forWhichPlayer: player, whichState: fogstate, center: location, radius: number, useSharedVision: boolean): void;
+declare function FogMaskEnable(enable: boolean): void;
+declare function IsFogMaskEnabled(): boolean;
+declare function FogEnable(enable: boolean): void;
+declare function IsFogEnabled(): boolean;
+declare function CreateFogModifierRect(forWhichPlayer: player, whichState: fogstate, where: rect, useSharedVision: boolean, afterUnits: boolean): fogmodifier;
+declare function CreateFogModifierRadius(forWhichPlayer: player, whichState: fogstate, centerx: number, centerY: number, radius: number, useSharedVision: boolean, afterUnits: boolean): fogmodifier;
+declare function CreateFogModifierRadiusLoc(forWhichPlayer: player, whichState: fogstate, center: location, radius: number, useSharedVision: boolean, afterUnits: boolean): fogmodifier;
+declare function DestroyFogModifier(whichFogModifier: fogmodifier): void;
+declare function FogModifierStart(whichFogModifier: fogmodifier): void;
+declare function FogModifierStop(whichFogModifier: fogmodifier): void;
+declare function VersionGet(): version;
+declare function VersionCompatible(whichVersion: version): boolean;
+declare function VersionSupported(whichVersion: version): boolean;
+declare function EndGame(doScoreScreen: boolean): void;
+declare function ChangeLevel(newLevel: string, doScoreScreen: boolean): void;
+declare function RestartGame(doScoreScreen: boolean): void;
+declare function ReloadGame(): void;
+declare function SetCampaignMenuRace(r: race): void;
+declare function SetCampaignMenuRaceEx(campaignIndex: number): void;
+declare function ForceCampaignSelectScreen(): void;
+declare function LoadGame(saveFileName: string, doScoreScreen: boolean): void;
+declare function SaveGame(saveFileName: string): void;
+declare function RenameSaveDirectory(sourceDirName: string, destDirName: string): boolean;
+declare function RemoveSaveDirectory(sourceDirName: string): boolean;
+declare function CopySaveGame(sourceSaveName: string, destSaveName: string): boolean;
+declare function SaveGameExists(saveName: string): boolean;
+declare function SetMaxCheckpointSaves(maxCheckpointSaves: number): void;
+declare function SaveGameCheckpoint(saveFileName: string, showWindow: boolean): void;
+declare function SyncSelections(): void;
+declare function SetFloatGameState(whichFloatGameState: fgamestate, value: number): void;
+declare function GetFloatGameState(whichFloatGameState: fgamestate): number;
+declare function SetIntegerGameState(whichIntegerGameState: igamestate, value: number): void;
+declare function GetIntegerGameState(whichIntegerGameState: igamestate): number;
+declare function SetTutorialCleared(cleared: boolean): void;
+declare function SetMissionAvailable(campaignNumber: number, missionNumber: number, available: boolean): void;
+declare function SetCampaignAvailable(campaignNumber: number, available: boolean): void;
+declare function SetOpCinematicAvailable(campaignNumber: number, available: boolean): void;
+declare function SetEdCinematicAvailable(campaignNumber: number, available: boolean): void;
+declare function GetDefaultDifficulty(): gamedifficulty;
+declare function SetDefaultDifficulty(g: gamedifficulty): void;
+declare function SetCustomCampaignButtonVisible(whichButton: number, visible: boolean): void;
+declare function GetCustomCampaignButtonVisible(whichButton: number): boolean;
+declare function DoNotSaveReplay(): void;
+declare function DialogCreate(): dialog;
+declare function DialogDestroy(whichDialog: dialog): void;
+declare function DialogClear(whichDialog: dialog): void;
+declare function DialogSetMessage(whichDialog: dialog, messageText: string): void;
+declare function DialogAddButton(whichDialog: dialog, buttonText: string, hotkey: number): button;
+declare function DialogAddQuitButton(whichDialog: dialog, doScoreScreen: boolean, buttonText: string, hotkey: number): button;
+declare function DialogDisplay(whichPlayer: player, whichDialog: dialog, flag: boolean): void;
+declare function ReloadGameCachesFromDisk(): boolean;
+declare function InitGameCache(campaignFile: string): gamecache;
+declare function SaveGameCache(whichCache: gamecache): boolean;
+declare function StoreInteger(cache: gamecache, missionKey: string, key: string, value: number): void;
+declare function StoreReal(cache: gamecache, missionKey: string, key: string, value: number): void;
+declare function StoreBoolean(cache: gamecache, missionKey: string, key: string, value: boolean): void;
+declare function StoreUnit(cache: gamecache, missionKey: string, key: string, whichUnit: unit): boolean;
+declare function StoreString(cache: gamecache, missionKey: string, key: string, value: string): boolean;
+declare function SyncStoredInteger(cache: gamecache, missionKey: string, key: string): void;
+declare function SyncStoredReal(cache: gamecache, missionKey: string, key: string): void;
+declare function SyncStoredBoolean(cache: gamecache, missionKey: string, key: string): void;
+declare function SyncStoredUnit(cache: gamecache, missionKey: string, key: string): void;
+declare function SyncStoredString(cache: gamecache, missionKey: string, key: string): void;
+declare function HaveStoredInteger(cache: gamecache, missionKey: string, key: string): boolean;
+declare function HaveStoredReal(cache: gamecache, missionKey: string, key: string): boolean;
+declare function HaveStoredBoolean(cache: gamecache, missionKey: string, key: string): boolean;
+declare function HaveStoredUnit(cache: gamecache, missionKey: string, key: string): boolean;
+declare function HaveStoredString(cache: gamecache, missionKey: string, key: string): boolean;
+declare function FlushGameCache(cache: gamecache): void;
+declare function FlushStoredMission(cache: gamecache, missionKey: string): void;
+declare function FlushStoredInteger(cache: gamecache, missionKey: string, key: string): void;
+declare function FlushStoredReal(cache: gamecache, missionKey: string, key: string): void;
+declare function FlushStoredBoolean(cache: gamecache, missionKey: string, key: string): void;
+declare function FlushStoredUnit(cache: gamecache, missionKey: string, key: string): void;
+declare function FlushStoredString(cache: gamecache, missionKey: string, key: string): void;
+declare function GetStoredInteger(cache: gamecache, missionKey: string, key: string): number;
+declare function GetStoredReal(cache: gamecache, missionKey: string, key: string): number;
+declare function GetStoredBoolean(cache: gamecache, missionKey: string, key: string): boolean;
+declare function GetStoredString(cache: gamecache, missionKey: string, key: string): string;
+declare function RestoreUnit(cache: gamecache, missionKey: string, key: string, forWhichPlayer: player, x: number, y: number, facing: number): unit;
+declare function InitHashtable(): hashtable;
+declare function SaveInteger(table: hashtable, parentKey: number, childKey: number, value: number): void;
+declare function SaveReal(table: hashtable, parentKey: number, childKey: number, value: number): void;
+declare function SaveBoolean(table: hashtable, parentKey: number, childKey: number, value: boolean): void;
+declare function SaveStr(table: hashtable, parentKey: number, childKey: number, value: string): boolean;
+declare function SavePlayerHandle(table: hashtable, parentKey: number, childKey: number, whichPlayer: player): boolean;
+declare function SaveWidgetHandle(table: hashtable, parentKey: number, childKey: number, whichWidget: widget): boolean;
+declare function SaveDestructableHandle(table: hashtable, parentKey: number, childKey: number, whichDestructable: destructable): boolean;
+declare function SaveItemHandle(table: hashtable, parentKey: number, childKey: number, whichItem: item): boolean;
+declare function SaveUnitHandle(table: hashtable, parentKey: number, childKey: number, whichUnit: unit): boolean;
+declare function SaveAbilityHandle(table: hashtable, parentKey: number, childKey: number, whichAbility: ability): boolean;
+declare function SaveTimerHandle(table: hashtable, parentKey: number, childKey: number, whichTimer: timer): boolean;
+declare function SaveTriggerHandle(table: hashtable, parentKey: number, childKey: number, whichTrigger: trigger): boolean;
+declare function SaveTriggerConditionHandle(table: hashtable, parentKey: number, childKey: number, whichTriggercondition: triggercondition): boolean;
+declare function SaveTriggerActionHandle(table: hashtable, parentKey: number, childKey: number, whichTriggeraction: triggeraction): boolean;
+declare function SaveTriggerEventHandle(table: hashtable, parentKey: number, childKey: number, whichEvent: event): boolean;
+declare function SaveForceHandle(table: hashtable, parentKey: number, childKey: number, whichForce: force): boolean;
+declare function SaveGroupHandle(table: hashtable, parentKey: number, childKey: number, whichGroup: group): boolean;
+declare function SaveLocationHandle(table: hashtable, parentKey: number, childKey: number, whichLocation: location): boolean;
+declare function SaveRectHandle(table: hashtable, parentKey: number, childKey: number, whichRect: rect): boolean;
+declare function SaveBooleanExprHandle(table: hashtable, parentKey: number, childKey: number, whichBoolexpr: boolexpr | null): boolean;
+declare function SaveSoundHandle(table: hashtable, parentKey: number, childKey: number, whichSound: sound): boolean;
+declare function SaveEffectHandle(table: hashtable, parentKey: number, childKey: number, whichEffect: effect): boolean;
+declare function SaveUnitPoolHandle(table: hashtable, parentKey: number, childKey: number, whichUnitpool: unitpool): boolean;
+declare function SaveItemPoolHandle(table: hashtable, parentKey: number, childKey: number, whichItempool: itempool): boolean;
+declare function SaveQuestHandle(table: hashtable, parentKey: number, childKey: number, whichQuest: quest): boolean;
+declare function SaveQuestItemHandle(table: hashtable, parentKey: number, childKey: number, whichQuestitem: questitem): boolean;
+declare function SaveDefeatConditionHandle(table: hashtable, parentKey: number, childKey: number, whichDefeatcondition: defeatcondition): boolean;
+declare function SaveTimerDialogHandle(table: hashtable, parentKey: number, childKey: number, whichTimerdialog: timerdialog): boolean;
+declare function SaveLeaderboardHandle(table: hashtable, parentKey: number, childKey: number, whichLeaderboard: leaderboard): boolean;
+declare function SaveMultiboardHandle(table: hashtable, parentKey: number, childKey: number, whichMultiboard: multiboard): boolean;
+declare function SaveMultiboardItemHandle(table: hashtable, parentKey: number, childKey: number, whichMultiboarditem: multiboarditem): boolean;
+declare function SaveTrackableHandle(table: hashtable, parentKey: number, childKey: number, whichTrackable: trackable): boolean;
+declare function SaveDialogHandle(table: hashtable, parentKey: number, childKey: number, whichDialog: dialog): boolean;
+declare function SaveButtonHandle(table: hashtable, parentKey: number, childKey: number, whichButton: button): boolean;
+declare function SaveTextTagHandle(table: hashtable, parentKey: number, childKey: number, whichTexttag: texttag): boolean;
+declare function SaveLightningHandle(table: hashtable, parentKey: number, childKey: number, whichLightning: lightning): boolean;
+declare function SaveImageHandle(table: hashtable, parentKey: number, childKey: number, whichImage: image): boolean;
+declare function SaveUbersplatHandle(table: hashtable, parentKey: number, childKey: number, whichUbersplat: ubersplat): boolean;
+declare function SaveRegionHandle(table: hashtable, parentKey: number, childKey: number, whichRegion: region): boolean;
+declare function SaveFogStateHandle(table: hashtable, parentKey: number, childKey: number, whichFogState: fogstate): boolean;
+declare function SaveFogModifierHandle(table: hashtable, parentKey: number, childKey: number, whichFogModifier: fogmodifier): boolean;
+declare function SaveAgentHandle(table: hashtable, parentKey: number, childKey: number, whichAgent: agent): boolean;
+declare function SaveHashtableHandle(table: hashtable, parentKey: number, childKey: number, whichHashtable: hashtable): boolean;
+declare function SaveFrameHandle(table: hashtable, parentKey: number, childKey: number, whichFrameHandle: framehandle): boolean;
+declare function LoadInteger(table: hashtable, parentKey: number, childKey: number): number;
+declare function LoadReal(table: hashtable, parentKey: number, childKey: number): number;
+declare function LoadBoolean(table: hashtable, parentKey: number, childKey: number): boolean;
+declare function LoadStr(table: hashtable, parentKey: number, childKey: number): string;
+declare function LoadPlayerHandle(table: hashtable, parentKey: number, childKey: number): player;
+declare function LoadWidgetHandle(table: hashtable, parentKey: number, childKey: number): widget;
+declare function LoadDestructableHandle(table: hashtable, parentKey: number, childKey: number): destructable;
+declare function LoadItemHandle(table: hashtable, parentKey: number, childKey: number): item;
+declare function LoadUnitHandle(table: hashtable, parentKey: number, childKey: number): unit;
+declare function LoadAbilityHandle(table: hashtable, parentKey: number, childKey: number): ability;
+declare function LoadTimerHandle(table: hashtable, parentKey: number, childKey: number): timer;
+declare function LoadTriggerHandle(table: hashtable, parentKey: number, childKey: number): trigger;
+declare function LoadTriggerConditionHandle(table: hashtable, parentKey: number, childKey: number): triggercondition;
+declare function LoadTriggerActionHandle(table: hashtable, parentKey: number, childKey: number): triggeraction;
+declare function LoadTriggerEventHandle(table: hashtable, parentKey: number, childKey: number): event;
+declare function LoadForceHandle(table: hashtable, parentKey: number, childKey: number): force;
+declare function LoadGroupHandle(table: hashtable, parentKey: number, childKey: number): group;
+declare function LoadLocationHandle(table: hashtable, parentKey: number, childKey: number): location;
+declare function LoadRectHandle(table: hashtable, parentKey: number, childKey: number): rect;
+declare function LoadBooleanExprHandle(table: hashtable, parentKey: number, childKey: number): boolexpr;
+declare function LoadSoundHandle(table: hashtable, parentKey: number, childKey: number): sound;
+declare function LoadEffectHandle(table: hashtable, parentKey: number, childKey: number): effect;
+declare function LoadUnitPoolHandle(table: hashtable, parentKey: number, childKey: number): unitpool;
+declare function LoadItemPoolHandle(table: hashtable, parentKey: number, childKey: number): itempool;
+declare function LoadQuestHandle(table: hashtable, parentKey: number, childKey: number): quest;
+declare function LoadQuestItemHandle(table: hashtable, parentKey: number, childKey: number): questitem;
+declare function LoadDefeatConditionHandle(table: hashtable, parentKey: number, childKey: number): defeatcondition;
+declare function LoadTimerDialogHandle(table: hashtable, parentKey: number, childKey: number): timerdialog;
+declare function LoadLeaderboardHandle(table: hashtable, parentKey: number, childKey: number): leaderboard;
+declare function LoadMultiboardHandle(table: hashtable, parentKey: number, childKey: number): multiboard;
+declare function LoadMultiboardItemHandle(table: hashtable, parentKey: number, childKey: number): multiboarditem;
+declare function LoadTrackableHandle(table: hashtable, parentKey: number, childKey: number): trackable;
+declare function LoadDialogHandle(table: hashtable, parentKey: number, childKey: number): dialog;
+declare function LoadButtonHandle(table: hashtable, parentKey: number, childKey: number): button;
+declare function LoadTextTagHandle(table: hashtable, parentKey: number, childKey: number): texttag;
+declare function LoadLightningHandle(table: hashtable, parentKey: number, childKey: number): lightning;
+declare function LoadImageHandle(table: hashtable, parentKey: number, childKey: number): image;
+declare function LoadUbersplatHandle(table: hashtable, parentKey: number, childKey: number): ubersplat;
+declare function LoadRegionHandle(table: hashtable, parentKey: number, childKey: number): region;
+declare function LoadFogStateHandle(table: hashtable, parentKey: number, childKey: number): fogstate;
+declare function LoadFogModifierHandle(table: hashtable, parentKey: number, childKey: number): fogmodifier;
+declare function LoadHashtableHandle(table: hashtable, parentKey: number, childKey: number): hashtable;
+declare function LoadFrameHandle(table: hashtable, parentKey: number, childKey: number): framehandle;
+declare function HaveSavedInteger(table: hashtable, parentKey: number, childKey: number): boolean;
+declare function HaveSavedReal(table: hashtable, parentKey: number, childKey: number): boolean;
+declare function HaveSavedBoolean(table: hashtable, parentKey: number, childKey: number): boolean;
+declare function HaveSavedString(table: hashtable, parentKey: number, childKey: number): boolean;
+declare function HaveSavedHandle(table: hashtable, parentKey: number, childKey: number): boolean;
+declare function RemoveSavedInteger(table: hashtable, parentKey: number, childKey: number): void;
+declare function RemoveSavedReal(table: hashtable, parentKey: number, childKey: number): void;
+declare function RemoveSavedBoolean(table: hashtable, parentKey: number, childKey: number): void;
+declare function RemoveSavedString(table: hashtable, parentKey: number, childKey: number): void;
+declare function RemoveSavedHandle(table: hashtable, parentKey: number, childKey: number): void;
+declare function FlushParentHashtable(table: hashtable): void;
+declare function FlushChildHashtable(table: hashtable, parentKey: number): void;
+declare function GetRandomInt(lowBound: number, highBound: number): number;
+declare function GetRandomReal(lowBound: number, highBound: number): number;
+declare function CreateUnitPool(): unitpool;
+declare function DestroyUnitPool(whichPool: unitpool): void;
+declare function UnitPoolAddUnitType(whichPool: unitpool, unitId: number, weight: number): void;
+declare function UnitPoolRemoveUnitType(whichPool: unitpool, unitId: number): void;
+declare function PlaceRandomUnit(whichPool: unitpool, forWhichPlayer: player, x: number, y: number, facing: number): unit;
+declare function CreateItemPool(): itempool;
+declare function DestroyItemPool(whichItemPool: itempool): void;
+declare function ItemPoolAddItemType(whichItemPool: itempool, itemId: number, weight: number): void;
+declare function ItemPoolRemoveItemType(whichItemPool: itempool, itemId: number): void;
+declare function PlaceRandomItem(whichItemPool: itempool, x: number, y: number): item;
+declare function ChooseRandomCreep(level: number): number;
+declare function ChooseRandomNPBuilding(): number;
+declare function ChooseRandomItem(level: number): number;
+declare function ChooseRandomItemEx(whichType: itemtype, level: number): number;
+declare function SetRandomSeed(seed: number): void;
+declare function SetTerrainFog(a: number, b: number, c: number, d: number, e: number): void;
+declare function ResetTerrainFog(): void;
+declare function SetUnitFog(a: number, b: number, c: number, d: number, e: number): void;
+declare function SetTerrainFogEx(style: number, zstart: number, zend: number, density: number, red: number, green: number, blue: number): void;
+declare function DisplayTextToPlayer(toPlayer: player, x: number, y: number, message: string): void;
+declare function DisplayTimedTextToPlayer(toPlayer: player, x: number, y: number, duration: number, message: string): void;
+declare function DisplayTimedTextFromPlayer(toPlayer: player, x: number, y: number, duration: number, message: string): void;
+declare function ClearTextMessages(): void;
+declare function SetDayNightModels(terrainDNCFile: string, unitDNCFile: string): void;
+declare function SetPortraitLight(portraitDNCFile: string): void;
+declare function SetSkyModel(skyModelFile: string): void;
+declare function EnableUserControl(b: boolean): void;
+declare function EnableUserUI(b: boolean): void;
+declare function SuspendTimeOfDay(b: boolean): void;
+declare function SetTimeOfDayScale(r: number): void;
+declare function GetTimeOfDayScale(): number;
+declare function ShowInterface(flag: boolean, fadeDuration: number): void;
+declare function PauseGame(flag: boolean): void;
+declare function UnitAddIndicator(whichUnit: unit, red: number, green: number, blue: number, alpha: number): void;
+declare function AddIndicator(whichWidget: widget, red: number, green: number, blue: number, alpha: number): void;
+declare function PingMinimap(x: number, y: number, duration: number): void;
+declare function PingMinimapEx(x: number, y: number, duration: number, red: number, green: number, blue: number, extraEffects: boolean): void;
+declare function CreateMinimapIconOnUnit(whichUnit: unit, red: number, green: number, blue: number, pingPath: string, fogVisibility: fogstate): minimapicon;
+declare function CreateMinimapIconAtLoc(where: location, red: number, green: number, blue: number, pingPath: string, fogVisibility: fogstate): minimapicon;
+declare function CreateMinimapIcon(x: number, y: number, red: number, green: number, blue: number, pingPath: string, fogVisibility: fogstate): minimapicon;
+declare function SkinManagerGetLocalPath(key: string): string;
+declare function DestroyMinimapIcon(pingId: minimapicon): void;
+declare function SetMinimapIconVisible(whichMinimapIcon: minimapicon, visible: boolean): void;
+declare function SetMinimapIconOrphanDestroy(whichMinimapIcon: minimapicon, doDestroy: boolean): void;
+declare function EnableOcclusion(flag: boolean): void;
+declare function SetIntroShotText(introText: string): void;
+declare function SetIntroShotModel(introModelPath: string): void;
+declare function EnableWorldFogBoundary(b: boolean): void;
+declare function PlayModelCinematic(modelName: string): void;
+declare function PlayCinematic(movieName: string): void;
+declare function ForceUIKey(key: string): void;
+declare function ForceUICancel(): void;
+declare function DisplayLoadDialog(): void;
+declare function SetAltMinimapIcon(iconPath: string): void;
+declare function DisableRestartMission(flag: boolean): void;
+declare function CreateTextTag(): texttag;
+declare function DestroyTextTag(t: texttag): void;
+declare function SetTextTagText(t: texttag, s: string, height: number): void;
+declare function SetTextTagPos(t: texttag, x: number, y: number, heightOffset: number): void;
+declare function SetTextTagPosUnit(t: texttag, whichUnit: unit, heightOffset: number): void;
+declare function SetTextTagColor(t: texttag, red: number, green: number, blue: number, alpha: number): void;
+declare function SetTextTagVelocity(t: texttag, xvel: number, yvel: number): void;
+declare function SetTextTagVisibility(t: texttag, flag: boolean): void;
+declare function SetTextTagSuspended(t: texttag, flag: boolean): void;
+declare function SetTextTagPermanent(t: texttag, flag: boolean): void;
+declare function SetTextTagAge(t: texttag, age: number): void;
+declare function SetTextTagLifespan(t: texttag, lifespan: number): void;
+declare function SetTextTagFadepoint(t: texttag, fadepoint: number): void;
+declare function SetReservedLocalHeroButtons(reserved: number): void;
+declare function GetAllyColorFilterState(): number;
+declare function SetAllyColorFilterState(state: number): void;
+declare function GetCreepCampFilterState(): boolean;
+declare function SetCreepCampFilterState(state: boolean): void;
+declare function EnableMinimapFilterButtons(enableAlly: boolean, enableCreep: boolean): void;
+declare function EnableDragSelect(state: boolean, ui: boolean): void;
+declare function EnablePreSelect(state: boolean, ui: boolean): void;
+declare function EnableSelect(state: boolean, ui: boolean): void;
+declare function CreateTrackable(trackableModelPath: string, x: number, y: number, facing: number): trackable;
+declare function CreateQuest(): quest;
+declare function DestroyQuest(whichQuest: quest): void;
+declare function QuestSetTitle(whichQuest: quest, title: string): void;
+declare function QuestSetDescription(whichQuest: quest, description: string): void;
+declare function QuestSetIconPath(whichQuest: quest, iconPath: string): void;
+declare function QuestSetRequired(whichQuest: quest, required: boolean): void;
+declare function QuestSetCompleted(whichQuest: quest, completed: boolean): void;
+declare function QuestSetDiscovered(whichQuest: quest, discovered: boolean): void;
+declare function QuestSetFailed(whichQuest: quest, failed: boolean): void;
+declare function QuestSetEnabled(whichQuest: quest, enabled: boolean): void;
+declare function IsQuestRequired(whichQuest: quest): boolean;
+declare function IsQuestCompleted(whichQuest: quest): boolean;
+declare function IsQuestDiscovered(whichQuest: quest): boolean;
+declare function IsQuestFailed(whichQuest: quest): boolean;
+declare function IsQuestEnabled(whichQuest: quest): boolean;
+declare function QuestCreateItem(whichQuest: quest): questitem;
+declare function QuestItemSetDescription(whichQuestItem: questitem, description: string): void;
+declare function QuestItemSetCompleted(whichQuestItem: questitem, completed: boolean): void;
+declare function IsQuestItemCompleted(whichQuestItem: questitem): boolean;
+declare function CreateDefeatCondition(): defeatcondition;
+declare function DestroyDefeatCondition(whichCondition: defeatcondition): void;
+declare function DefeatConditionSetDescription(whichCondition: defeatcondition, description: string): void;
+declare function FlashQuestDialogButton(): void;
+declare function ForceQuestDialogUpdate(): void;
+declare function CreateTimerDialog(t: timer): timerdialog;
+declare function DestroyTimerDialog(whichDialog: timerdialog): void;
+declare function TimerDialogSetTitle(whichDialog: timerdialog, title: string): void;
+declare function TimerDialogSetTitleColor(whichDialog: timerdialog, red: number, green: number, blue: number, alpha: number): void;
+declare function TimerDialogSetTimeColor(whichDialog: timerdialog, red: number, green: number, blue: number, alpha: number): void;
+declare function TimerDialogSetSpeed(whichDialog: timerdialog, speedMultFactor: number): void;
+declare function TimerDialogDisplay(whichDialog: timerdialog, display: boolean): void;
+declare function IsTimerDialogDisplayed(whichDialog: timerdialog): boolean;
+declare function TimerDialogSetRealTimeRemaining(whichDialog: timerdialog, timeRemaining: number): void;
+declare function CreateLeaderboard(): leaderboard;
+declare function DestroyLeaderboard(lb: leaderboard): void;
+declare function LeaderboardDisplay(lb: leaderboard, show: boolean): void;
+declare function IsLeaderboardDisplayed(lb: leaderboard): boolean;
+declare function LeaderboardGetItemCount(lb: leaderboard): number;
+declare function LeaderboardSetSizeByItemCount(lb: leaderboard, count: number): void;
+declare function LeaderboardAddItem(lb: leaderboard, label: string, value: number, p: player): void;
+declare function LeaderboardRemoveItem(lb: leaderboard, index: number): void;
+declare function LeaderboardRemovePlayerItem(lb: leaderboard, p: player): void;
+declare function LeaderboardClear(lb: leaderboard): void;
+declare function LeaderboardSortItemsByValue(lb: leaderboard, ascending: boolean): void;
+declare function LeaderboardSortItemsByPlayer(lb: leaderboard, ascending: boolean): void;
+declare function LeaderboardSortItemsByLabel(lb: leaderboard, ascending: boolean): void;
+declare function LeaderboardHasPlayerItem(lb: leaderboard, p: player): boolean;
+declare function LeaderboardGetPlayerIndex(lb: leaderboard, p: player): number;
+declare function LeaderboardSetLabel(lb: leaderboard, label: string): void;
+declare function LeaderboardGetLabelText(lb: leaderboard): string;
+declare function PlayerSetLeaderboard(toPlayer: player, lb: leaderboard): void;
+declare function PlayerGetLeaderboard(toPlayer: player): leaderboard;
+declare function LeaderboardSetLabelColor(lb: leaderboard, red: number, green: number, blue: number, alpha: number): void;
+declare function LeaderboardSetValueColor(lb: leaderboard, red: number, green: number, blue: number, alpha: number): void;
+declare function LeaderboardSetStyle(lb: leaderboard, showLabel: boolean, showNames: boolean, showValues: boolean, showIcons: boolean): void;
+declare function LeaderboardSetItemValue(lb: leaderboard, whichItem: number, val: number): void;
+declare function LeaderboardSetItemLabel(lb: leaderboard, whichItem: number, val: string): void;
+declare function LeaderboardSetItemStyle(lb: leaderboard, whichItem: number, showLabel: boolean, showValue: boolean, showIcon: boolean): void;
+declare function LeaderboardSetItemLabelColor(lb: leaderboard, whichItem: number, red: number, green: number, blue: number, alpha: number): void;
+declare function LeaderboardSetItemValueColor(lb: leaderboard, whichItem: number, red: number, green: number, blue: number, alpha: number): void;
+declare function CreateMultiboard(): multiboard;
+declare function DestroyMultiboard(lb: multiboard): void;
+declare function MultiboardDisplay(lb: multiboard, show: boolean): void;
+declare function IsMultiboardDisplayed(lb: multiboard): boolean;
+declare function MultiboardMinimize(lb: multiboard, minimize: boolean): void;
+declare function IsMultiboardMinimized(lb: multiboard): boolean;
+declare function MultiboardClear(lb: multiboard): void;
+declare function MultiboardSetTitleText(lb: multiboard, label: string): void;
+declare function MultiboardGetTitleText(lb: multiboard): string;
+declare function MultiboardSetTitleTextColor(lb: multiboard, red: number, green: number, blue: number, alpha: number): void;
+declare function MultiboardGetRowCount(lb: multiboard): number;
+declare function MultiboardGetColumnCount(lb: multiboard): number;
+declare function MultiboardSetColumnCount(lb: multiboard, count: number): void;
+declare function MultiboardSetRowCount(lb: multiboard, count: number): void;
+declare function MultiboardSetItemsStyle(lb: multiboard, showValues: boolean, showIcons: boolean): void;
+declare function MultiboardSetItemsValue(lb: multiboard, value: string): void;
+declare function MultiboardSetItemsValueColor(lb: multiboard, red: number, green: number, blue: number, alpha: number): void;
+declare function MultiboardSetItemsWidth(lb: multiboard, width: number): void;
+declare function MultiboardSetItemsIcon(lb: multiboard, iconPath: string): void;
+declare function MultiboardGetItem(lb: multiboard, row: number, column: number): multiboarditem;
+declare function MultiboardReleaseItem(mbi: multiboarditem): void;
+declare function MultiboardSetItemStyle(mbi: multiboarditem, showValue: boolean, showIcon: boolean): void;
+declare function MultiboardSetItemValue(mbi: multiboarditem, val: string): void;
+declare function MultiboardSetItemValueColor(mbi: multiboarditem, red: number, green: number, blue: number, alpha: number): void;
+declare function MultiboardSetItemWidth(mbi: multiboarditem, width: number): void;
+declare function MultiboardSetItemIcon(mbi: multiboarditem, iconFileName: string): void;
+declare function MultiboardSuppressDisplay(flag: boolean): void;
+declare function SetCameraPosition(x: number, y: number): void;
+declare function SetCameraQuickPosition(x: number, y: number): void;
+declare function SetCameraBounds(x1: number, y1: number, x2: number, y2: number, x3: number, y3: number, x4: number, y4: number): void;
+declare function StopCamera(): void;
+declare function ResetToGameCamera(duration: number): void;
+declare function PanCameraTo(x: number, y: number): void;
+declare function PanCameraToTimed(x: number, y: number, duration: number): void;
+declare function PanCameraToWithZ(x: number, y: number, zOffsetDest: number): void;
+declare function PanCameraToTimedWithZ(x: number, y: number, zOffsetDest: number, duration: number): void;
+declare function SetCinematicCamera(cameraModelFile: string): void;
+declare function SetCameraRotateMode(x: number, y: number, radiansToSweep: number, duration: number): void;
+declare function SetCameraField(whichField: camerafield, value: number, duration: number): void;
+declare function AdjustCameraField(whichField: camerafield, offset: number, duration: number): void;
+declare function SetCameraTargetController(whichUnit: unit, xoffset: number, yoffset: number, inheritOrientation: boolean): void;
+declare function SetCameraOrientController(whichUnit: unit, xoffset: number, yoffset: number): void;
+declare function CreateCameraSetup(): camerasetup;
+declare function CameraSetupSetField(whichSetup: camerasetup, whichField: camerafield, value: number, duration: number): void;
+declare function CameraSetupGetField(whichSetup: camerasetup, whichField: camerafield): number;
+declare function CameraSetupSetDestPosition(whichSetup: camerasetup, x: number, y: number, duration: number): void;
+declare function CameraSetupGetDestPositionLoc(whichSetup: camerasetup): location;
+declare function CameraSetupGetDestPositionX(whichSetup: camerasetup): number;
+declare function CameraSetupGetDestPositionY(whichSetup: camerasetup): number;
+declare function CameraSetupApply(whichSetup: camerasetup, doPan: boolean, panTimed: boolean): void;
+declare function CameraSetupApplyWithZ(whichSetup: camerasetup, zDestOffset: number): void;
+declare function CameraSetupApplyForceDuration(whichSetup: camerasetup, doPan: boolean, forceDuration: number): void;
+declare function CameraSetupApplyForceDurationWithZ(whichSetup: camerasetup, zDestOffset: number, forceDuration: number): void;
+declare function BlzCameraSetupSetLabel(whichSetup: camerasetup, label: string): void;
+declare function BlzCameraSetupGetLabel(whichSetup: camerasetup): string;
+declare function CameraSetTargetNoise(mag: number, velocity: number): void;
+declare function CameraSetSourceNoise(mag: number, velocity: number): void;
+declare function CameraSetTargetNoiseEx(mag: number, velocity: number, vertOnly: boolean): void;
+declare function CameraSetSourceNoiseEx(mag: number, velocity: number, vertOnly: boolean): void;
+declare function CameraSetSmoothingFactor(factor: number): void;
+declare function CameraSetFocalDistance(distance: number): void;
+declare function CameraSetDepthOfFieldScale(scale: number): void;
+declare function SetCineFilterTexture(filename: string): void;
+declare function SetCineFilterBlendMode(whichMode: blendmode): void;
+declare function SetCineFilterTexMapFlags(whichFlags: texmapflags): void;
+declare function SetCineFilterStartUV(minu: number, minv: number, maxu: number, maxv: number): void;
+declare function SetCineFilterEndUV(minu: number, minv: number, maxu: number, maxv: number): void;
+declare function SetCineFilterStartColor(red: number, green: number, blue: number, alpha: number): void;
+declare function SetCineFilterEndColor(red: number, green: number, blue: number, alpha: number): void;
+declare function SetCineFilterDuration(duration: number): void;
+declare function DisplayCineFilter(flag: boolean): void;
+declare function IsCineFilterDisplayed(): boolean;
+declare function SetCinematicScene(portraitUnitId: number, color: playercolor, speakerTitle: string, text: string, sceneDuration: number, voiceoverDuration: number): void;
+declare function EndCinematicScene(): void;
+declare function ForceCinematicSubtitles(flag: boolean): void;
+declare function SetCinematicAudio(cinematicAudio: boolean): void;
+declare function GetCameraMargin(whichMargin: number): number;
+declare function GetCameraBoundMinX(): number;
+declare function GetCameraBoundMinY(): number;
+declare function GetCameraBoundMaxX(): number;
+declare function GetCameraBoundMaxY(): number;
+declare function GetCameraField(whichField: camerafield): number;
+declare function GetCameraTargetPositionX(): number;
+declare function GetCameraTargetPositionY(): number;
+declare function GetCameraTargetPositionZ(): number;
+declare function GetCameraTargetPositionLoc(): location;
+declare function GetCameraEyePositionX(): number;
+declare function GetCameraEyePositionY(): number;
+declare function GetCameraEyePositionZ(): number;
+declare function GetCameraEyePositionLoc(): location;
+declare function NewSoundEnvironment(environmentName: string): void;
+declare function CreateSound(fileName: string, looping: boolean, is3D: boolean, stopwhenoutofrange: boolean, fadeInRate: number, fadeOutRate: number, eaxSetting: string): sound;
+declare function CreateSoundFilenameWithLabel(fileName: string, looping: boolean, is3D: boolean, stopwhenoutofrange: boolean, fadeInRate: number, fadeOutRate: number, SLKEntryName: string): sound;
+declare function CreateSoundFromLabel(soundLabel: string, looping: boolean, is3D: boolean, stopwhenoutofrange: boolean, fadeInRate: number, fadeOutRate: number): sound;
+declare function CreateMIDISound(soundLabel: string, fadeInRate: number, fadeOutRate: number): sound;
+declare function SetSoundParamsFromLabel(soundHandle: sound, soundLabel: string): void;
+declare function SetSoundDistanceCutoff(soundHandle: sound, cutoff: number): void;
+declare function SetSoundChannel(soundHandle: sound, channel: number): void;
+declare function SetSoundVolume(soundHandle: sound, volume: number): void;
+declare function SetSoundPitch(soundHandle: sound, pitch: number): void;
+declare function SetSoundPlayPosition(soundHandle: sound, millisecs: number): void;
+declare function SetSoundDistances(soundHandle: sound, minDist: number, maxDist: number): void;
+declare function SetSoundConeAngles(soundHandle: sound, inside: number, outside: number, outsideVolume: number): void;
+declare function SetSoundConeOrientation(soundHandle: sound, x: number, y: number, z: number): void;
+declare function SetSoundPosition(soundHandle: sound, x: number, y: number, z: number): void;
+declare function SetSoundVelocity(soundHandle: sound, x: number, y: number, z: number): void;
+declare function AttachSoundToUnit(soundHandle: sound, whichUnit: unit): void;
+declare function StartSound(soundHandle: sound): void;
+declare function StopSound(soundHandle: sound, killWhenDone: boolean, fadeOut: boolean): void;
+declare function KillSoundWhenDone(soundHandle: sound): void;
+declare function SetMapMusic(musicName: string, random: boolean, index: number): void;
+declare function ClearMapMusic(): void;
+declare function PlayMusic(musicName: string): void;
+declare function PlayMusicEx(musicName: string, frommsecs: number, fadeinmsecs: number): void;
+declare function StopMusic(fadeOut: boolean): void;
+declare function ResumeMusic(): void;
+declare function PlayThematicMusic(musicFileName: string): void;
+declare function PlayThematicMusicEx(musicFileName: string, frommsecs: number): void;
+declare function EndThematicMusic(): void;
+declare function SetMusicVolume(volume: number): void;
+declare function SetMusicPlayPosition(millisecs: number): void;
+declare function SetThematicMusicPlayPosition(millisecs: number): void;
+declare function SetSoundDuration(soundHandle: sound, duration: number): void;
+declare function GetSoundDuration(soundHandle: sound): number;
+declare function GetSoundFileDuration(musicFileName: string): number;
+declare function VolumeGroupSetVolume(vgroup: volumegroup, scale: number): void;
+declare function VolumeGroupReset(): void;
+declare function GetSoundIsPlaying(soundHandle: sound): boolean;
+declare function GetSoundIsLoading(soundHandle: sound): boolean;
+declare function RegisterStackedSound(soundHandle: sound, byPosition: boolean, rectwidth: number, rectheight: number): void;
+declare function UnregisterStackedSound(soundHandle: sound, byPosition: boolean, rectwidth: number, rectheight: number): void;
+declare function SetSoundFacialAnimationLabel(soundHandle: sound, animationLabel: string): boolean;
+declare function SetSoundFacialAnimationGroupLabel(soundHandle: sound, groupLabel: string): boolean;
+declare function SetSoundFacialAnimationSetFilepath(soundHandle: sound, animationSetFilepath: string): boolean;
+declare function SetDialogueSpeakerNameKey(soundHandle: sound, speakerName: string): boolean;
+declare function GetDialogueSpeakerNameKey(soundHandle: sound): string;
+declare function SetDialogueTextKey(soundHandle: sound, dialogueText: string): boolean;
+declare function GetDialogueTextKey(soundHandle: sound): string;
+declare function AddWeatherEffect(where: rect, effectID: number): weathereffect;
+declare function RemoveWeatherEffect(whichEffect: weathereffect): void;
+declare function EnableWeatherEffect(whichEffect: weathereffect, enable: boolean): void;
+declare function TerrainDeformCrater(x: number, y: number, radius: number, depth: number, duration: number, permanent: boolean): terraindeformation;
+declare function TerrainDeformRipple(x: number, y: number, radius: number, depth: number, duration: number, count: number, spaceWaves: number, timeWaves: number, radiusStartPct: number, limitNeg: boolean): terraindeformation;
+declare function TerrainDeformWave(x: number, y: number, dirX: number, dirY: number, distance: number, speed: number, radius: number, depth: number, trailTime: number, count: number): terraindeformation;
+declare function TerrainDeformRandom(x: number, y: number, radius: number, minDelta: number, maxDelta: number, duration: number, updateInterval: number): terraindeformation;
+declare function TerrainDeformStop(deformation: terraindeformation, duration: number): void;
+declare function TerrainDeformStopAll(): void;
+declare function AddSpecialEffect(modelName: string, x: number, y: number): effect;
+declare function AddSpecialEffectLoc(modelName: string, where: location): effect;
+declare function AddSpecialEffectTarget(modelName: string, targetWidget: widget, attachPointName: string): effect;
+declare function DestroyEffect(whichEffect: effect): void;
+declare function AddSpellEffect(abilityString: string, t: effecttype, x: number, y: number): effect;
+declare function AddSpellEffectLoc(abilityString: string, t: effecttype, where: location): effect;
+declare function AddSpellEffectById(abilityId: number, t: effecttype, x: number, y: number): effect;
+declare function AddSpellEffectByIdLoc(abilityId: number, t: effecttype, where: location): effect;
+declare function AddSpellEffectTarget(modelName: string, t: effecttype, targetWidget: widget, attachPoint: string): effect;
+declare function AddSpellEffectTargetById(abilityId: number, t: effecttype, targetWidget: widget, attachPoint: string): effect;
+declare function AddLightning(codeName: string, checkVisibility: boolean, x1: number, y1: number, x2: number, y2: number): lightning;
+declare function AddLightningEx(codeName: string, checkVisibility: boolean, x1: number, y1: number, z1: number, x2: number, y2: number, z2: number): lightning;
+declare function DestroyLightning(whichBolt: lightning): boolean;
+declare function MoveLightning(whichBolt: lightning, checkVisibility: boolean, x1: number, y1: number, x2: number, y2: number): boolean;
+declare function MoveLightningEx(whichBolt: lightning, checkVisibility: boolean, x1: number, y1: number, z1: number, x2: number, y2: number, z2: number): boolean;
+declare function GetLightningColorA(whichBolt: lightning): number;
+declare function GetLightningColorR(whichBolt: lightning): number;
+declare function GetLightningColorG(whichBolt: lightning): number;
+declare function GetLightningColorB(whichBolt: lightning): number;
+declare function SetLightningColor(whichBolt: lightning, r: number, g: number, b: number, a: number): boolean;
+declare function GetAbilityEffect(abilityString: string, t: effecttype, index: number): string;
+declare function GetAbilityEffectById(abilityId: number, t: effecttype, index: number): string;
+declare function GetAbilitySound(abilityString: string, t: soundtype): string;
+declare function GetAbilitySoundById(abilityId: number, t: soundtype): string;
+declare function GetTerrainCliffLevel(x: number, y: number): number;
+declare function SetWaterBaseColor(red: number, green: number, blue: number, alpha: number): void;
+declare function SetWaterDeforms(val: boolean): void;
+declare function GetTerrainType(x: number, y: number): number;
+declare function GetTerrainVariance(x: number, y: number): number;
+declare function SetTerrainType(x: number, y: number, terrainType: number, variation: number, area: number, shape: number): void;
+declare function IsTerrainPathable(x: number, y: number, t: pathingtype): boolean;
+declare function SetTerrainPathable(x: number, y: number, t: pathingtype, flag: boolean): void;
+declare function CreateImage(file: string, sizeX: number, sizeY: number, sizeZ: number, posX: number, posY: number, posZ: number, originX: number, originY: number, originZ: number, imageType: number): image;
+declare function DestroyImage(whichImage: image): void;
+declare function ShowImage(whichImage: image, flag: boolean): void;
+declare function SetImageConstantHeight(whichImage: image, flag: boolean, height: number): void;
+declare function SetImagePosition(whichImage: image, x: number, y: number, z: number): void;
+declare function SetImageColor(whichImage: image, red: number, green: number, blue: number, alpha: number): void;
+declare function SetImageRender(whichImage: image, flag: boolean): void;
+declare function SetImageRenderAlways(whichImage: image, flag: boolean): void;
+declare function SetImageAboveWater(whichImage: image, flag: boolean, useWaterAlpha: boolean): void;
+declare function SetImageType(whichImage: image, imageType: number): void;
+declare function CreateUbersplat(x: number, y: number, name: string, red: number, green: number, blue: number, alpha: number, forcePaused: boolean, noBirthTime: boolean): ubersplat;
+declare function DestroyUbersplat(whichSplat: ubersplat): void;
+declare function ResetUbersplat(whichSplat: ubersplat): void;
+declare function FinishUbersplat(whichSplat: ubersplat): void;
+declare function ShowUbersplat(whichSplat: ubersplat, flag: boolean): void;
+declare function SetUbersplatRender(whichSplat: ubersplat, flag: boolean): void;
+declare function SetUbersplatRenderAlways(whichSplat: ubersplat, flag: boolean): void;
+declare function SetBlight(whichPlayer: player, x: number, y: number, radius: number, addBlight: boolean): void;
+declare function SetBlightRect(whichPlayer: player, r: rect, addBlight: boolean): void;
+declare function SetBlightPoint(whichPlayer: player, x: number, y: number, addBlight: boolean): void;
+declare function SetBlightLoc(whichPlayer: player, whichLocation: location, radius: number, addBlight: boolean): void;
+declare function CreateBlightedGoldmine(id: player, x: number, y: number, face: number): unit;
+declare function IsPointBlighted(x: number, y: number): boolean;
+declare function SetDoodadAnimation(x: number, y: number, radius: number, doodadID: number, nearestOnly: boolean, animName: string, animRandom: boolean): void;
+declare function SetDoodadAnimationRect(r: rect, doodadID: number, animName: string, animRandom: boolean): void;
+declare function StartMeleeAI(num: player, script: string): void;
+declare function StartCampaignAI(num: player, script: string): void;
+declare function CommandAI(num: player, command: number, data: number): void;
+declare function PauseCompAI(p: player, pause: boolean): void;
+declare function GetAIDifficulty(num: player): aidifficulty;
+declare function RemoveGuardPosition(hUnit: unit): void;
+declare function RecycleGuardPosition(hUnit: unit): void;
+declare function RemoveAllGuardPositions(num: player): void;
+declare function Cheat(cheatStr: string): void;
+declare function IsNoVictoryCheat(): boolean;
+declare function IsNoDefeatCheat(): boolean;
+declare function Preload(filename: string): void;
+declare function PreloadEnd(timeout: number): void;
+declare function PreloadStart(): void;
+declare function PreloadRefresh(): void;
+declare function PreloadEndEx(): void;
+declare function PreloadGenClear(): void;
+declare function PreloadGenStart(): void;
+declare function PreloadGenEnd(filename: string): void;
+declare function Preloader(filename: string): void;
+declare function BlzHideCinematicPanels(enable: boolean): void;
+declare function AutomationSetTestType(testType: string): void;
+declare function AutomationTestStart(testName: string): void;
+declare function AutomationTestEnd(): void;
+declare function AutomationTestingFinished(): void;
+declare function BlzGetTriggerPlayerMouseX(): number;
+declare function BlzGetTriggerPlayerMouseY(): number;
+declare function BlzGetTriggerPlayerMousePosition(): location;
+declare function BlzGetTriggerPlayerMouseButton(): mousebuttontype;
+declare function BlzSetAbilityTooltip(abilCode: number, tooltip: string, level: number): void;
+declare function BlzSetAbilityActivatedTooltip(abilCode: number, tooltip: string, level: number): void;
+declare function BlzSetAbilityExtendedTooltip(abilCode: number, extendedTooltip: string, level: number): void;
+declare function BlzSetAbilityActivatedExtendedTooltip(abilCode: number, extendedTooltip: string, level: number): void;
+declare function BlzSetAbilityResearchTooltip(abilCode: number, researchTooltip: string, level: number): void;
+declare function BlzSetAbilityResearchExtendedTooltip(abilCode: number, researchExtendedTooltip: string, level: number): void;
+declare function BlzGetAbilityTooltip(abilCode: number, level: number): string;
+declare function BlzGetAbilityActivatedTooltip(abilCode: number, level: number): string;
+declare function BlzGetAbilityExtendedTooltip(abilCode: number, level: number): string;
+declare function BlzGetAbilityActivatedExtendedTooltip(abilCode: number, level: number): string;
+declare function BlzGetAbilityResearchTooltip(abilCode: number, level: number): string;
+declare function BlzGetAbilityResearchExtendedTooltip(abilCode: number, level: number): string;
+declare function BlzSetAbilityIcon(abilCode: number, iconPath: string): void;
+declare function BlzGetAbilityIcon(abilCode: number): string;
+declare function BlzSetAbilityActivatedIcon(abilCode: number, iconPath: string): void;
+declare function BlzGetAbilityActivatedIcon(abilCode: number): string;
+declare function BlzGetAbilityPosX(abilCode: number): number;
+declare function BlzGetAbilityPosY(abilCode: number): number;
+declare function BlzSetAbilityPosX(abilCode: number, x: number): void;
+declare function BlzSetAbilityPosY(abilCode: number, y: number): void;
+declare function BlzGetAbilityActivatedPosX(abilCode: number): number;
+declare function BlzGetAbilityActivatedPosY(abilCode: number): number;
+declare function BlzSetAbilityActivatedPosX(abilCode: number, x: number): void;
+declare function BlzSetAbilityActivatedPosY(abilCode: number, y: number): void;
+declare function BlzGetUnitMaxHP(whichUnit: unit): number;
+declare function BlzSetUnitMaxHP(whichUnit: unit, hp: number): void;
+declare function BlzGetUnitMaxMana(whichUnit: unit): number;
+declare function BlzSetUnitMaxMana(whichUnit: unit, mana: number): void;
+declare function BlzSetItemName(whichItem: item, name: string): void;
+declare function BlzSetItemDescription(whichItem: item, description: string): void;
+declare function BlzGetItemDescription(whichItem: item): string;
+declare function BlzSetItemTooltip(whichItem: item, tooltip: string): void;
+declare function BlzGetItemTooltip(whichItem: item): string;
+declare function BlzSetItemExtendedTooltip(whichItem: item, extendedTooltip: string): void;
+declare function BlzGetItemExtendedTooltip(whichItem: item): string;
+declare function BlzSetItemIconPath(whichItem: item, iconPath: string): void;
+declare function BlzGetItemIconPath(whichItem: item): string;
+declare function BlzSetUnitName(whichUnit: unit, name: string): void;
+declare function BlzSetHeroProperName(whichUnit: unit, heroProperName: string): void;
+declare function BlzGetUnitBaseDamage(whichUnit: unit, weaponIndex: number): number;
+declare function BlzSetUnitBaseDamage(whichUnit: unit, baseDamage: number, weaponIndex: number): void;
+declare function BlzGetUnitDiceNumber(whichUnit: unit, weaponIndex: number): number;
+declare function BlzSetUnitDiceNumber(whichUnit: unit, diceNumber: number, weaponIndex: number): void;
+declare function BlzGetUnitDiceSides(whichUnit: unit, weaponIndex: number): number;
+declare function BlzSetUnitDiceSides(whichUnit: unit, diceSides: number, weaponIndex: number): void;
+declare function BlzGetUnitAttackCooldown(whichUnit: unit, weaponIndex: number): number;
+declare function BlzSetUnitAttackCooldown(whichUnit: unit, cooldown: number, weaponIndex: number): void;
+declare function BlzSetSpecialEffectColorByPlayer(whichEffect: effect, whichPlayer: player): void;
+declare function BlzSetSpecialEffectColor(whichEffect: effect, r: number, g: number, b: number): void;
+declare function BlzSetSpecialEffectAlpha(whichEffect: effect, alpha: number): void;
+declare function BlzSetSpecialEffectScale(whichEffect: effect, scale: number): void;
+declare function BlzSetSpecialEffectPosition(whichEffect: effect, x: number, y: number, z: number): void;
+declare function BlzSetSpecialEffectHeight(whichEffect: effect, height: number): void;
+declare function BlzSetSpecialEffectTimeScale(whichEffect: effect, timeScale: number): void;
+declare function BlzSetSpecialEffectTime(whichEffect: effect, time: number): void;
+declare function BlzSetSpecialEffectOrientation(whichEffect: effect, yaw: number, pitch: number, roll: number): void;
+declare function BlzSetSpecialEffectYaw(whichEffect: effect, yaw: number): void;
+declare function BlzSetSpecialEffectPitch(whichEffect: effect, pitch: number): void;
+declare function BlzSetSpecialEffectRoll(whichEffect: effect, roll: number): void;
+declare function BlzSetSpecialEffectX(whichEffect: effect, x: number): void;
+declare function BlzSetSpecialEffectY(whichEffect: effect, y: number): void;
+declare function BlzSetSpecialEffectZ(whichEffect: effect, z: number): void;
+declare function BlzSetSpecialEffectPositionLoc(whichEffect: effect, loc: location): void;
+declare function BlzGetLocalSpecialEffectX(whichEffect: effect): number;
+declare function BlzGetLocalSpecialEffectY(whichEffect: effect): number;
+declare function BlzGetLocalSpecialEffectZ(whichEffect: effect): number;
+declare function BlzSpecialEffectClearSubAnimations(whichEffect: effect): void;
+declare function BlzSpecialEffectRemoveSubAnimation(whichEffect: effect, whichSubAnim: subanimtype): void;
+declare function BlzSpecialEffectAddSubAnimation(whichEffect: effect, whichSubAnim: subanimtype): void;
+declare function BlzPlaySpecialEffect(whichEffect: effect, whichAnim: animtype): void;
+declare function BlzPlaySpecialEffectWithTimeScale(whichEffect: effect, whichAnim: animtype, timeScale: number): void;
+declare function BlzGetAnimName(whichAnim: animtype): string;
+declare function BlzGetUnitArmor(whichUnit: unit): number;
+declare function BlzSetUnitArmor(whichUnit: unit, armorAmount: number): void;
+declare function BlzUnitHideAbility(whichUnit: unit, abilId: number, flag: boolean): void;
+declare function BlzUnitDisableAbility(whichUnit: unit, abilId: number, flag: boolean, hideUI: boolean): void;
+declare function BlzUnitCancelTimedLife(whichUnit: unit): void;
+declare function BlzIsUnitSelectable(whichUnit: unit): boolean;
+declare function BlzIsUnitInvulnerable(whichUnit: unit): boolean;
+declare function BlzUnitInterruptAttack(whichUnit: unit): void;
+declare function BlzGetUnitCollisionSize(whichUnit: unit): number;
+declare function BlzGetAbilityManaCost(abilId: number, level: number): number;
+declare function BlzGetAbilityCooldown(abilId: number, level: number): number;
+declare function BlzSetUnitAbilityCooldown(whichUnit: unit, abilId: number, level: number, cooldown: number): void;
+declare function BlzGetUnitAbilityCooldown(whichUnit: unit, abilId: number, level: number): number;
+declare function BlzGetUnitAbilityCooldownRemaining(whichUnit: unit, abilId: number): number;
+declare function BlzEndUnitAbilityCooldown(whichUnit: unit, abilCode: number): void;
+declare function BlzStartUnitAbilityCooldown(whichUnit: unit, abilCode: number, cooldown: number): void;
+declare function BlzGetUnitAbilityManaCost(whichUnit: unit, abilId: number, level: number): number;
+declare function BlzSetUnitAbilityManaCost(whichUnit: unit, abilId: number, level: number, manaCost: number): void;
+declare function BlzGetLocalUnitZ(whichUnit: unit): number;
+declare function BlzDecPlayerTechResearched(whichPlayer: player, techid: number, levels: number): void;
+declare function BlzSetEventDamage(damage: number): void;
+declare function BlzGetEventDamageTarget(): unit;
+declare function BlzGetEventAttackType(): attacktype;
+declare function BlzGetEventDamageType(): damagetype;
+declare function BlzGetEventWeaponType(): weapontype;
+declare function BlzSetEventAttackType(attackType: attacktype): boolean;
+declare function BlzSetEventDamageType(damageType: damagetype): boolean;
+declare function BlzSetEventWeaponType(weaponType: weapontype): boolean;
+declare function BlzGetEventIsAttack(): boolean;
+declare function RequestExtraIntegerData(dataType: number, whichPlayer: player, param1: string, param2: string, param3: boolean, param4: number, param5: number, param6: number): number;
+declare function RequestExtraBooleanData(dataType: number, whichPlayer: player, param1: string, param2: string, param3: boolean, param4: number, param5: number, param6: number): boolean;
+declare function RequestExtraStringData(dataType: number, whichPlayer: player, param1: string, param2: string, param3: boolean, param4: number, param5: number, param6: number): string;
+declare function RequestExtraRealData(dataType: number, whichPlayer: player, param1: string, param2: string, param3: boolean, param4: number, param5: number, param6: number): number;
+declare function BlzGetUnitZ(whichUnit: unit): number;
+declare function BlzEnableSelections(enableSelection: boolean, enableSelectionCircle: boolean): void;
+declare function BlzIsSelectionEnabled(): boolean;
+declare function BlzIsSelectionCircleEnabled(): boolean;
+declare function BlzCameraSetupApplyForceDurationSmooth(whichSetup: camerasetup, doPan: boolean, forcedDuration: number, easeInDuration: number, easeOutDuration: number, smoothFactor: number): void;
+declare function BlzEnableTargetIndicator(enable: boolean): void;
+declare function BlzIsTargetIndicatorEnabled(): boolean;
+declare function BlzShowTerrain(show: boolean): void;
+declare function BlzShowSkyBox(show: boolean): void;
+declare function BlzStartRecording(fps: number): void;
+declare function BlzEndRecording(): void;
+declare function BlzShowUnitTeamGlow(whichUnit: unit, show: boolean): void;
+declare function BlzGetOriginFrame(frameType: originframetype, index: number): framehandle;
+declare function BlzEnableUIAutoPosition(enable: boolean): void;
+declare function BlzHideOriginFrames(enable: boolean): void;
+declare function BlzConvertColor(a: number, r: number, g: number, b: number): number;
+declare function BlzLoadTOCFile(TOCFile: string): boolean;
+declare function BlzCreateFrame(name: string, owner: framehandle, priority: number, createContext: number): framehandle;
+declare function BlzCreateSimpleFrame(name: string, owner: framehandle, createContext: number): framehandle;
+declare function BlzCreateFrameByType(typeName: string, name: string, owner: framehandle, inherits: string, createContext: number): framehandle;
+declare function BlzDestroyFrame(frame: framehandle): void;
+declare function BlzFrameSetPoint(frame: framehandle, point: framepointtype, relative: framehandle, relativePoint: framepointtype, x: number, y: number): void;
+declare function BlzFrameSetAbsPoint(frame: framehandle, point: framepointtype, x: number, y: number): void;
+declare function BlzFrameClearAllPoints(frame: framehandle): void;
+declare function BlzFrameSetAllPoints(frame: framehandle, relative: framehandle): void;
+declare function BlzFrameSetVisible(frame: framehandle, visible: boolean): void;
+declare function BlzFrameIsVisible(frame: framehandle): boolean;
+declare function BlzGetFrameByName(name: string, createContext: number): framehandle;
+declare function BlzFrameGetName(frame: framehandle): string;
+declare function BlzFrameClick(frame: framehandle): void;
+declare function BlzFrameSetText(frame: framehandle, text: string): void;
+declare function BlzFrameGetText(frame: framehandle): string;
+declare function BlzFrameAddText(frame: framehandle, text: string): void;
+declare function BlzFrameSetTextSizeLimit(frame: framehandle, size: number): void;
+declare function BlzFrameGetTextSizeLimit(frame: framehandle): number;
+declare function BlzFrameSetTextColor(frame: framehandle, color: number): void;
+declare function BlzFrameSetFocus(frame: framehandle, flag: boolean): void;
+declare function BlzFrameSetModel(frame: framehandle, modelFile: string, cameraIndex: number): void;
+declare function BlzFrameSetEnable(frame: framehandle, enabled: boolean): void;
+declare function BlzFrameGetEnable(frame: framehandle): boolean;
+declare function BlzFrameSetAlpha(frame: framehandle, alpha: number): void;
+declare function BlzFrameGetAlpha(frame: framehandle): number;
+declare function BlzFrameSetSpriteAnimate(frame: framehandle, primaryProp: number, flags: number): void;
+declare function BlzFrameSetTexture(frame: framehandle, texFile: string, flag: number, blend: boolean): void;
+declare function BlzFrameSetScale(frame: framehandle, scale: number): void;
+declare function BlzFrameSetTooltip(frame: framehandle, tooltip: framehandle): void;
+declare function BlzFrameCageMouse(frame: framehandle, enable: boolean): void;
+declare function BlzFrameSetValue(frame: framehandle, value: number): void;
+declare function BlzFrameGetValue(frame: framehandle): number;
+declare function BlzFrameSetMinMaxValue(frame: framehandle, minValue: number, maxValue: number): void;
+declare function BlzFrameSetStepSize(frame: framehandle, stepSize: number): void;
+declare function BlzFrameSetSize(frame: framehandle, width: number, height: number): void;
+declare function BlzFrameSetVertexColor(frame: framehandle, color: number): void;
+declare function BlzFrameSetLevel(frame: framehandle, level: number): void;
+declare function BlzFrameSetParent(frame: framehandle, parent: framehandle): void;
+declare function BlzFrameGetParent(frame: framehandle): framehandle;
+declare function BlzFrameGetHeight(frame: framehandle): number;
+declare function BlzFrameGetWidth(frame: framehandle): number;
+declare function BlzFrameSetFont(frame: framehandle, fileName: string, height: number, flags: number): void;
+declare function BlzFrameSetTextAlignment(frame: framehandle, vert: textaligntype, horz: textaligntype): void;
+declare function BlzTriggerRegisterFrameEvent(whichTrigger: trigger, frame: framehandle, eventId: frameeventtype): event;
+declare function BlzGetTriggerFrame(): framehandle;
+declare function BlzGetTriggerFrameEvent(): frameeventtype;
+declare function BlzGetTriggerFrameValue(): number;
+declare function BlzGetTriggerFrameText(): string;
+declare function BlzTriggerRegisterPlayerSyncEvent(whichTrigger: trigger, whichPlayer: player, prefix: string, fromServer: boolean): event;
+declare function BlzSendSyncData(prefix: string, data: string): boolean;
+declare function BlzGetTriggerSyncPrefix(): string;
+declare function BlzGetTriggerSyncData(): string;
+declare function BlzTriggerRegisterPlayerKeyEvent(whichTrigger: trigger, whichPlayer: player, key: oskeytype, metaKey: number, keyDown: boolean): event;
+declare function BlzGetTriggerPlayerKey(): oskeytype;
+declare function BlzGetTriggerPlayerMetaKey(): number;
+declare function BlzGetTriggerPlayerIsKeyDown(): boolean;
+declare function BlzEnableCursor(enable: boolean): void;
+declare function BlzSetMousePos(x: number, y: number): void;
+declare function BlzGetLocalClientWidth(): number;
+declare function BlzGetLocalClientHeight(): number;
+declare function BlzIsLocalClientActive(): boolean;
+declare function BlzGetMouseFocusUnit(): unit;
+declare function BlzChangeMinimapTerrainTex(texFile: string): boolean;
+declare function BlzGetLocale(): string;
+declare function BlzGetSpecialEffectScale(whichEffect: effect): number;
+declare function BlzSetSpecialEffectMatrixScale(whichEffect: effect, x: number, y: number, z: number): void;
+declare function BlzResetSpecialEffectMatrix(whichEffect: effect): void;
+declare function BlzGetUnitAbility(whichUnit: unit, abilId: number): ability;
+declare function BlzGetUnitAbilityByIndex(whichUnit: unit, index: number): ability;
+declare function BlzDisplayChatMessage(whichPlayer: player, recipient: number, message: string): void;
+declare function BlzPauseUnitEx(whichUnit: unit, flag: boolean): void;
+declare function BlzSetUnitFacingEx(whichUnit: unit, facingAngle: number): void;
+declare function CreateCommandButtonEffect(abilityId: number, order: string): commandbuttoneffect;
+declare function CreateUpgradeCommandButtonEffect(whichUprgade: number): commandbuttoneffect;
+declare function CreateLearnCommandButtonEffect(abilityId: number): commandbuttoneffect;
+declare function DestroyCommandButtonEffect(whichEffect: commandbuttoneffect): void;
+declare function BlzBitOr(x: number, y: number): number;
+declare function BlzBitAnd(x: number, y: number): number;
+declare function BlzBitXor(x: number, y: number): number;
+declare function BlzGetAbilityBooleanField(whichAbility: ability, whichField: abilitybooleanfield): boolean;
+declare function BlzGetAbilityIntegerField(whichAbility: ability, whichField: abilityintegerfield): number;
+declare function BlzGetAbilityRealField(whichAbility: ability, whichField: abilityrealfield): number;
+declare function BlzGetAbilityStringField(whichAbility: ability, whichField: abilitystringfield): string;
+declare function BlzGetAbilityBooleanLevelField(whichAbility: ability, whichField: abilitybooleanlevelfield, level: number): boolean;
+declare function BlzGetAbilityIntegerLevelField(whichAbility: ability, whichField: abilityintegerlevelfield, level: number): number;
+declare function BlzGetAbilityRealLevelField(whichAbility: ability, whichField: abilityreallevelfield, level: number): number;
+declare function BlzGetAbilityStringLevelField(whichAbility: ability, whichField: abilitystringlevelfield, level: number): string;
+declare function BlzGetAbilityBooleanLevelArrayField(whichAbility: ability, whichField: abilitybooleanlevelarrayfield, level: number, index: number): boolean;
+declare function BlzGetAbilityIntegerLevelArrayField(whichAbility: ability, whichField: abilityintegerlevelarrayfield, level: number, index: number): number;
+declare function BlzGetAbilityRealLevelArrayField(whichAbility: ability, whichField: abilityreallevelarrayfield, level: number, index: number): number;
+declare function BlzGetAbilityStringLevelArrayField(whichAbility: ability, whichField: abilitystringlevelarrayfield, level: number, index: number): string;
+declare function BlzSetAbilityBooleanField(whichAbility: ability, whichField: abilitybooleanfield, value: boolean): boolean;
+declare function BlzSetAbilityIntegerField(whichAbility: ability, whichField: abilityintegerfield, value: number): boolean;
+declare function BlzSetAbilityRealField(whichAbility: ability, whichField: abilityrealfield, value: number): boolean;
+declare function BlzSetAbilityStringField(whichAbility: ability, whichField: abilitystringfield, value: string): boolean;
+declare function BlzSetAbilityBooleanLevelField(whichAbility: ability, whichField: abilitybooleanlevelfield, level: number, value: boolean): boolean;
+declare function BlzSetAbilityIntegerLevelField(whichAbility: ability, whichField: abilityintegerlevelfield, level: number, value: number): boolean;
+declare function BlzSetAbilityRealLevelField(whichAbility: ability, whichField: abilityreallevelfield, level: number, value: number): boolean;
+declare function BlzSetAbilityStringLevelField(whichAbility: ability, whichField: abilitystringlevelfield, level: number, value: string): boolean;
+declare function BlzSetAbilityBooleanLevelArrayField(whichAbility: ability, whichField: abilitybooleanlevelarrayfield, level: number, index: number, value: boolean): boolean;
+declare function BlzSetAbilityIntegerLevelArrayField(whichAbility: ability, whichField: abilityintegerlevelarrayfield, level: number, index: number, value: number): boolean;
+declare function BlzSetAbilityRealLevelArrayField(whichAbility: ability, whichField: abilityreallevelarrayfield, level: number, index: number, value: number): boolean;
+declare function BlzSetAbilityStringLevelArrayField(whichAbility: ability, whichField: abilitystringlevelarrayfield, level: number, index: number, value: string): boolean;
+declare function BlzAddAbilityBooleanLevelArrayField(whichAbility: ability, whichField: abilitybooleanlevelarrayfield, level: number, value: boolean): boolean;
+declare function BlzAddAbilityIntegerLevelArrayField(whichAbility: ability, whichField: abilityintegerlevelarrayfield, level: number, value: number): boolean;
+declare function BlzAddAbilityRealLevelArrayField(whichAbility: ability, whichField: abilityreallevelarrayfield, level: number, value: number): boolean;
+declare function BlzAddAbilityStringLevelArrayField(whichAbility: ability, whichField: abilitystringlevelarrayfield, level: number, value: string): boolean;
+declare function BlzRemoveAbilityBooleanLevelArrayField(whichAbility: ability, whichField: abilitybooleanlevelarrayfield, level: number, value: boolean): boolean;
+declare function BlzRemoveAbilityIntegerLevelArrayField(whichAbility: ability, whichField: abilityintegerlevelarrayfield, level: number, value: number): boolean;
+declare function BlzRemoveAbilityRealLevelArrayField(whichAbility: ability, whichField: abilityreallevelarrayfield, level: number, value: number): boolean;
+declare function BlzRemoveAbilityStringLevelArrayField(whichAbility: ability, whichField: abilitystringlevelarrayfield, level: number, value: string): boolean;
+declare function BlzGetItemAbilityByIndex(whichItem: item, index: number): ability;
+declare function BlzGetItemAbility(whichItem: item, abilCode: number): ability;
+declare function BlzItemAddAbility(whichItem: item, abilCode: number): boolean;
+declare function BlzGetItemBooleanField(whichItem: item, whichField: itembooleanfield): boolean;
+declare function BlzGetItemIntegerField(whichItem: item, whichField: itemintegerfield): number;
+declare function BlzGetItemRealField(whichItem: item, whichField: itemrealfield): number;
+declare function BlzGetItemStringField(whichItem: item, whichField: itemstringfield): string;
+declare function BlzSetItemBooleanField(whichItem: item, whichField: itembooleanfield, value: boolean): boolean;
+declare function BlzSetItemIntegerField(whichItem: item, whichField: itemintegerfield, value: number): boolean;
+declare function BlzSetItemRealField(whichItem: item, whichField: itemrealfield, value: number): boolean;
+declare function BlzSetItemStringField(whichItem: item, whichField: itemstringfield, value: string): boolean;
+declare function BlzItemRemoveAbility(whichItem: item, abilCode: number): boolean;
+declare function BlzGetUnitBooleanField(whichUnit: unit, whichField: unitbooleanfield): boolean;
+declare function BlzGetUnitIntegerField(whichUnit: unit, whichField: unitintegerfield): number;
+declare function BlzGetUnitRealField(whichUnit: unit, whichField: unitrealfield): number;
+declare function BlzGetUnitStringField(whichUnit: unit, whichField: unitstringfield): string;
+declare function BlzSetUnitBooleanField(whichUnit: unit, whichField: unitbooleanfield, value: boolean): boolean;
+declare function BlzSetUnitIntegerField(whichUnit: unit, whichField: unitintegerfield, value: number): boolean;
+declare function BlzSetUnitRealField(whichUnit: unit, whichField: unitrealfield, value: number): boolean;
+declare function BlzSetUnitStringField(whichUnit: unit, whichField: unitstringfield, value: string): boolean;
+declare function BlzGetUnitWeaponBooleanField(whichUnit: unit, whichField: unitweaponbooleanfield, index: number): boolean;
+declare function BlzGetUnitWeaponIntegerField(whichUnit: unit, whichField: unitweaponintegerfield, index: number): number;
+declare function BlzGetUnitWeaponRealField(whichUnit: unit, whichField: unitweaponrealfield, index: number): number;
+declare function BlzGetUnitWeaponStringField(whichUnit: unit, whichField: unitweaponstringfield, index: number): string;
+declare function BlzSetUnitWeaponBooleanField(whichUnit: unit, whichField: unitweaponbooleanfield, index: number, value: boolean): boolean;
+declare function BlzSetUnitWeaponIntegerField(whichUnit: unit, whichField: unitweaponintegerfield, index: number, value: number): boolean;
+declare function BlzSetUnitWeaponRealField(whichUnit: unit, whichField: unitweaponrealfield, index: number, value: number): boolean;
+declare function BlzSetUnitWeaponStringField(whichUnit: unit, whichField: unitweaponstringfield, index: number, value: string): boolean;
+declare function BlzGetUnitSkin(whichUnit: unit): number;
+declare function BlzGetItemSkin(whichItem: item): number;
+declare function BlzSetUnitSkin(whichUnit: unit, skinId: number): void;
+declare function BlzSetItemSkin(whichItem: item, skinId: number): void;
+declare function BlzCreateItemWithSkin(itemid: number, x: number, y: number, skinId: number): item;
+declare function BlzCreateUnitWithSkin(id: player, unitid: number, x: number, y: number, face: number, skinId: number): unit;
+declare function BlzCreateDestructableWithSkin(objectid: number, x: number, y: number, face: number, scale: number, variation: number, skinId: number): destructable;
+declare function BlzCreateDestructableZWithSkin(objectid: number, x: number, y: number, z: number, face: number, scale: number, variation: number, skinId: number): destructable;
+declare function BlzCreateDeadDestructableWithSkin(objectid: number, x: number, y: number, face: number, scale: number, variation: number, skinId: number): destructable;
+declare function BlzCreateDeadDestructableZWithSkin(objectid: number, x: number, y: number, z: number, face: number, scale: number, variation: number, skinId: number): destructable;
+declare function BlzGetPlayerTownHallCount(whichPlayer: player): number;
 
 declare const FALSE: boolean;
 declare const TRUE: boolean;
@@ -2165,6 +2199,11 @@ declare const ORIGIN_FRAME_UNIT_MSG: originframetype;
 declare const ORIGIN_FRAME_TOP_MSG: originframetype;
 declare const ORIGIN_FRAME_PORTRAIT: originframetype;
 declare const ORIGIN_FRAME_WORLD_FRAME: originframetype;
+declare const ORIGIN_FRAME_SIMPLE_UI_PARENT: originframetype;
+declare const ORIGIN_FRAME_PORTRAIT_HP_TEXT: originframetype;
+declare const ORIGIN_FRAME_PORTRAIT_MANA_TEXT: originframetype;
+declare const ORIGIN_FRAME_UNIT_PANEL_BUFF_BAR: originframetype;
+declare const ORIGIN_FRAME_UNIT_PANEL_BUFF_BAR_LABEL: originframetype;
 declare const FRAMEPOINT_TOPLEFT: framepointtype;
 declare const FRAMEPOINT_TOP: framepointtype;
 declare const FRAMEPOINT_TOPRIGHT: framepointtype;
@@ -3300,4 +3339,3 @@ declare const PATHING_FLAG_BLIGHTED: pathingflag;
 declare const PATHING_FLAG_UNFLOATABLE: pathingflag;
 declare const PATHING_FLAG_UNAMPHIBIOUS: pathingflag;
 declare const PATHING_FLAG_UNITEMPLACABLE: pathingflag;
-
