@@ -550,6 +550,7 @@ gg_rct_city3unitarea = nil
 gg_rct_city4unitarea = nil
 gg_rct_city5unitarea = nil
 gg_rct_force2base1unitarea = nil
+gg_rct_preloadRegion = nil
 gg_trg_Untitled_Trigger_001 = nil
 function InitGlobals()
 end
@@ -729,6 +730,34 @@ function CreateUnitsForPlayer16()
     u = BlzCreateUnitWithSkin(p, FourCC("h007"), 2050.7, -214.8, 167.893, FourCC("h007"))
 end
 
+function CreateBuildingsForPlayer17()
+    local p = Player(17)
+    local u
+    local unitID
+    local t
+    local life
+    u = BlzCreateUnitWithSkin(p, FourCC("e000"), 7808.0, 29568.0, 270.000, FourCC("e000"))
+end
+
+function CreateUnitsForPlayer17()
+    local p = Player(17)
+    local u
+    local unitID
+    local t
+    local life
+    u = BlzCreateUnitWithSkin(p, FourCC("o000"), 7612.0, 29559.1, 271.726, FourCC("o000"))
+    u = BlzCreateUnitWithSkin(p, FourCC("h007"), 7583.4, 29363.8, 274.667, FourCC("h007"))
+    u = BlzCreateUnitWithSkin(p, FourCC("h001"), 7651.6, 29375.6, 268.870, FourCC("h001"))
+    u = BlzCreateUnitWithSkin(p, FourCC("h006"), 7584.1, 29215.1, 275.909, FourCC("h006"))
+    u = BlzCreateUnitWithSkin(p, FourCC("h002"), 7674.1, 29229.4, 266.160, FourCC("h002"))
+    u = BlzCreateUnitWithSkin(p, FourCC("n00A"), 7584.4, 29099.2, 277.546, FourCC("n00A"))
+    u = BlzCreateUnitWithSkin(p, FourCC("h003"), 7687.1, 29109.7, 263.289, FourCC("h003"))
+    u = BlzCreateUnitWithSkin(p, FourCC("h004"), 7579.5, 28981.9, 281.497, FourCC("h004"))
+    u = BlzCreateUnitWithSkin(p, FourCC("h005"), 7673.6, 28989.9, 263.176, FourCC("h005"))
+    u = BlzCreateUnitWithSkin(p, FourCC("n00B"), 7598.0, 28879.2, 282.182, FourCC("n00B"))
+    u = BlzCreateUnitWithSkin(p, FourCC("H000"), 8086.2, 29619.3, 268.858, FourCC("H000"))
+end
+
 function CreateUnitsForPlayer18()
     local p = Player(18)
     local u
@@ -836,7 +865,7 @@ function CreateNeutralHostileBuildings()
     u = BlzCreateUnitWithSkin(p, FourCC("n00G"), -12672.0, 19904.0, 270.000, FourCC("n00G"))
     u = BlzCreateUnitWithSkin(p, FourCC("n00C"), 2560.0, 11456.0, 270.000, FourCC("n00C"))
     u = BlzCreateUnitWithSkin(p, FourCC("n00O"), 6208.0, 14912.0, 270.000, FourCC("n00O"))
-    u = BlzCreateUnitWithSkin(p, FourCC("n00P"), 7680.0, 2624.0, 270.000, FourCC("n00P"))
+    u = BlzCreateUnitWithSkin(p, FourCC("n00C"), 7616.0, 2496.0, 270.000, FourCC("n00C"))
     u = BlzCreateUnitWithSkin(p, FourCC("n00G"), 8704.0, -15360.0, 270.000, FourCC("n00G"))
     u = BlzCreateUnitWithSkin(p, FourCC("n00C"), -2560.0, -15360.0, 270.000, FourCC("n00C"))
     u = BlzCreateUnitWithSkin(p, FourCC("n00O"), -13248.0, -6656.0, 270.000, FourCC("n00O"))
@@ -847,7 +876,7 @@ function CreateNeutralHostileBuildings()
     u = BlzCreateUnitWithSkin(p, FourCC("n00I"), 20480.0, -13312.0, 270.000, FourCC("n00I"))
     u = BlzCreateUnitWithSkin(p, FourCC("n00I"), 11776.0, -19456.0, 270.000, FourCC("n00I"))
     u = BlzCreateUnitWithSkin(p, FourCC("n00J"), -3456.0, -1024.0, 270.000, FourCC("n00J"))
-    u = BlzCreateUnitWithSkin(p, FourCC("n00O"), 5952.0, 6656.0, 270.000, FourCC("n00O"))
+    u = BlzCreateUnitWithSkin(p, FourCC("n00O"), 6080.0, 6464.0, 270.000, FourCC("n00O"))
     u = BlzCreateUnitWithSkin(p, FourCC("n00P"), -9984.0, -12672.0, 270.000, FourCC("n00P"))
     u = BlzCreateUnitWithSkin(p, FourCC("n00P"), 12992.0, 12288.0, 270.000, FourCC("n00P"))
     u = BlzCreateUnitWithSkin(p, FourCC("n00G"), -26816.0, 15168.0, 270.000, FourCC("n00G"))
@@ -861,13 +890,19 @@ function CreateNeutralHostileBuildings()
     u = BlzCreateUnitWithSkin(p, FourCC("n00I"), 25408.0, -15744.0, 270.000, FourCC("n00I"))
     u = BlzCreateUnitWithSkin(p, FourCC("n00C"), -7808.0, 22208.0, 270.000, FourCC("n00C"))
     u = BlzCreateUnitWithSkin(p, FourCC("n00D"), -14720.0, -11008.0, 270.000, FourCC("n00D"))
+    u = BlzCreateUnitWithSkin(p, FourCC("n00C"), 640.0, 2880.0, 270.000, FourCC("n00C"))
+    u = BlzCreateUnitWithSkin(p, FourCC("n00C"), -896.0, 5440.0, 270.000, FourCC("n00C"))
+    u = BlzCreateUnitWithSkin(p, FourCC("n00C"), 2432.0, -4608.0, 270.000, FourCC("n00C"))
+    u = BlzCreateUnitWithSkin(p, FourCC("n00P"), 9664.0, 3200.0, 270.000, FourCC("n00P"))
 end
 
 function CreatePlayerBuildings()
+    CreateBuildingsForPlayer17()
 end
 
 function CreatePlayerUnits()
     CreateUnitsForPlayer16()
+    CreateUnitsForPlayer17()
     CreateUnitsForPlayer18()
     CreateUnitsForPlayer21()
 end
@@ -1432,6 +1467,7 @@ function CreateRegions()
     gg_rct_city4unitarea = Rect(-29184.0, -28928.0, -23776.0, -23648.0)
     gg_rct_city5unitarea = Rect(24224.0, 24416.0, 29632.0, 29696.0)
     gg_rct_force2base1unitarea = Rect(24704.0, -30400.0, 30112.0, -25120.0)
+    gg_rct_preloadRegion = Rect(7392.0, 28608.0, 9952.0, 29888.0)
 end
 
 function Trig_Untitled_Trigger_001_Actions()
@@ -1439,7 +1475,7 @@ end
 
 function InitTrig_Untitled_Trigger_001()
     gg_trg_Untitled_Trigger_001 = CreateTrigger()
-    TriggerRegisterUnitEvent(gg_trg_Untitled_Trigger_001, nil, EVENT_UNIT_ISSUED_POINT_ORDER)
+    TriggerRegisterAnyUnitEventBJ(gg_trg_Untitled_Trigger_001, EVENT_PLAYER_UNIT_DEATH)
     TriggerAddAction(gg_trg_Untitled_Trigger_001, Trig_Untitled_Trigger_001_Actions)
 end
 

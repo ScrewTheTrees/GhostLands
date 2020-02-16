@@ -26,18 +26,6 @@ export class OnSpellCast {
         return this.instance;
     }
 
-    //STATIC API
-    public static addSpell(container: OnCastContainer) {
-        this.getInstance().addSpell(container);
-    }
-
-    public static makeBasicTargetReplacement(fromType: number, toType: number, orderString: string) {
-        let container = new OnCastContainer([fromType], (data) => {
-            DummyCaster.castAtWidgetInstant(toType, orderString, data.targetUnit, data.castingUnit);
-        });
-        this.addSpell(container);
-    }
-
     public addSpell(container: OnCastContainer) {
         Quick.Push(this.registeredSpells, container);
     }
@@ -52,5 +40,19 @@ export class OnSpellCast {
             }
         }
     }
+
+    //STATIC API
+    public static addSpell(container: OnCastContainer) {
+        this.getInstance().addSpell(container);
+    }
+
+    public static makeBasicTargetReplacement(fromType: number, toType: number, orderString: string) {
+        let container = new OnCastContainer([fromType], (data) => {
+            DummyCaster.castAtWidgetInstant(toType, orderString, data.targetUnit, data.castingUnit);
+        });
+        this.addSpell(container);
+    }
+
+
 }
 

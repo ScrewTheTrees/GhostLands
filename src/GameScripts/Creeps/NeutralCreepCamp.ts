@@ -6,6 +6,7 @@ import {IsValidUnit} from "../../TreeLib/Misc";
 import {CreepCampTypes} from "./CreepCampTypes";
 import {GetCreepTableByCreepCampType} from "./CreepCampSpawnTable";
 import {RandAngle} from "../../TreeLib/Utility/TreeMath";
+import {CreateUnitHandleSkin} from "../../Skinner";
 
 export class NeutralCreepCamp {
     public location: NamedRect;
@@ -34,7 +35,7 @@ export class NeutralCreepCamp {
 
         for (let i = 0; i < num; i++) {
             let point = this.location.getRandomPoint();
-            let u = CreateUnit(Players.NEUTRAL_HOSTILE, GetCreepTableByCreepCampType(this.campType).getRandomAsId(), point.x, point.y, RandAngle());
+            let u = CreateUnitHandleSkin(Players.NEUTRAL_HOSTILE, GetCreepTableByCreepCampType(this.campType).getRandomAsId(), point.x, point.y, RandAngle());
             Quick.Push(this.creeps, u);
         }
 

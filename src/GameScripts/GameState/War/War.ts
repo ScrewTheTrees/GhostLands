@@ -23,7 +23,7 @@ export class War extends Entity {
 
     public isFinished: boolean = false;
     public countdown: number = 60;
-    public siegeTimer = 300;
+    public siegeTimer = 600;
 
     constructor() {
         super();
@@ -124,11 +124,11 @@ export class War extends Entity {
                     this.endWar(); // Sad ending
                 }
                 if (this.siegeTimer <= 0) {
-                    Logger.warning("Siege has been running for longer than 300, might want to check that.");
+                    Logger.warning("Siege has been running for longer than 600, might want to check that.");
                     Logger.warning("Army 1 Len: ", this.targets.armies.force1?.units.length);
                     Logger.warning("Army 2 Len: ", this.targets.armies.force2?.units.length);
 
-                    this.endWar(); // Sad ending
+                    this.endWar(); // Wtf ending
                 }
             }
         }

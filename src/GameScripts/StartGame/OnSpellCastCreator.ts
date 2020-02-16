@@ -4,10 +4,11 @@ import {OnCastContainer} from "../../TreeLib/DummyCasting/OnCastContainer";
 import {Point} from "../../TreeLib/Utility/Point";
 import {PlayerManager} from "../PlayerManager";
 import {RGB} from "../../TreeLib/Utility/RGB";
-import {Forces} from "../Enums/Forces";
+import {GetColorByForce} from "../Enums/Forces";
 import {ChooseOne} from "../../TreeLib/Misc";
 import {TemporaryEffects} from "../../TreeLib/Effects/TemporaryEffects";
 import {ColorFadeEffect} from "../../TreeLib/Effects/StepEffects/ColorFadeEffect";
+import {SpellData} from "../../TreeLib/DummyCasting/SpellData";
 
 export class OnSpellCastCreator {
     private static instance: OnSpellCastCreator;
@@ -20,31 +21,47 @@ export class OnSpellCastCreator {
         return this.instance;
     }
 
-    register() {
-        OnSpellCast.getInstance().addSpell(new OnCastContainer([FourCC("A00A")], (cont) => {
-            let p = Point.fromWidget(cont.castingUnit);
-            let eff = AddSpecialEffect("Doodads\\Cityscape\\Props\\MagicRunes\\MagicRunes" + ChooseOne("0.mdl", "1.mdl", "2.mdl"), p.x, p.y);
-            let forcesByPlayer = PlayerManager.getInstance().getForcesByPlayer(GetOwningPlayer(cont.castingUnit));
+    constructor() {
+        let grandSpells = [FourCC("A00A"), FourCC("A007")];
+        let largeSpells = [FourCC("A004")];
 
-            let rgb = new RGB(0, 255, 0);
+        OnSpellCast.getInstance().addSpell(new OnCastContainer(grandSpells,
+            (cont) => this.onGrandSpell(cont),
+        ));
+        OnSpellCast.getInstance().addSpell(new OnCastContainer(largeSpells,
+            (cont) => this.onLargeSpell(cont)
+        ));
 
-            if (forcesByPlayer == Forces.FORCE_1) {
-                rgb = new RGB(255, 0, 0);
+    }
 
-            } else if (forcesByPlayer == Forces.FORCE_2) {
-                rgb = new RGB(0, 0, 255);
-            }
+    private onGrandSpell(cont: SpellData) {
+        let p = Point.fromWidget(cont.castingUnit);
+        let eff = AddSpecialEffect("Doodads\\Cityscape\\Props\\MagicRunes\\MagicRunes" + ChooseOne("0.mdl", "1.mdl", "2.mdl"), p.x, p.y);
+        let forcesByPlayer = PlayerManager.getInstance().getForcesByPlayer(GetOwningPlayer(cont.castingUnit));
+        let rgb = GetColorByForce(forcesByPlayer);
 
-            BlzSetSpecialEffectColor(eff, rgb.red, rgb.green, rgb.blue);
-            BlzSetSpecialEffectYaw(eff, GetRandomReal(0, 360));
-            BlzSetSpecialEffectZ(eff, GetLocationZ(p.toLocationClean()) - 50);
-            BlzSetSpecialEffectTimeScale(eff, 0.25);
-            BlzSetSpecialEffectScale(eff, 2);
+        BlzSetSpecialEffectColor(eff, rgb.red, rgb.green, rgb.blue);
+        BlzSetSpecialEffectYaw(eff, GetRandomReal(0, 360));
+        BlzSetSpecialEffectZ(eff, GetLocationZ(p.toLocationClean()) - 50);
+        BlzSetSpecialEffectScale(eff, 2);
+        BlzSetSpecialEffectTimeScale(eff, 0.25);
 
-            TemporaryEffects.getInstance().addEffect(new ColorFadeEffect(eff, 120, rgb, new RGB(32, 32, 32)))
+        TemporaryEffects.getInstance().addEffect(new ColorFadeEffect(eff, 120, rgb, new RGB(32, 32, 32)))
+    }
 
-        }, (cont) => IsHeroUnitId(GetUnitTypeId(cont.castingUnit))));
+    private onLargeSpell(cont: SpellData) {
+        let p = Point.fromWidget(cont.castingUnit);
+        let eff = AddSpecialEffect("Doodads\\Cityscape\\Props\\MagicRunes\\MagicRunes" + ChooseOne("0.mdl", "1.mdl", "2.mdl"), p.x, p.y);
+        let forcesByPlayer = PlayerManager.getInstance().getForcesByPlayer(GetOwningPlayer(cont.castingUnit));
+        let rgb = GetColorByForce(forcesByPlayer);
 
+        BlzSetSpecialEffectColor(eff, rgb.red, rgb.green, rgb.blue);
+        BlzSetSpecialEffectYaw(eff, GetRandomReal(0, 360));
+        BlzSetSpecialEffectZ(eff, GetLocationZ(p.toLocationClean()) - 50);
+        BlzSetSpecialEffectScale(eff, 1.5);
+        BlzSetSpecialEffectTimeScale(eff, 0.25);
+
+        TemporaryEffects.getInstance().addEffect(new ColorFadeEffect(eff, 120, rgb, new RGB(32, 32, 32)))
     }
 }
 

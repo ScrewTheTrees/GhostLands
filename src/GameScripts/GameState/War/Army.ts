@@ -9,6 +9,7 @@ import {UnitActionExecuteCode} from "../../../TreeLib/ActionQueue/Actions/UnitAc
 import {PathManager} from "../../PathManager";
 import {UnitClass} from "../../Enums/UnitClass";
 import {Quick} from "../../../TreeLib/Quick";
+import {CreateUnitHandleSkin} from "../../../Skinner";
 
 export class Army {
     public units: ArmySoldier[] = [];
@@ -68,7 +69,7 @@ export class Army {
     }
 
     public executeSoldierSpawn(unitType: number, spawnPoint: Point): ArmySoldier {
-        let u = CreateUnit(this.forceData.aiPlayerArmy, unitType, spawnPoint.x, spawnPoint.y, spawnPoint.directionTo(new Point(0, 0)));
+        let u = CreateUnitHandleSkin(this.forceData.aiPlayerArmy, unitType, spawnPoint.x, spawnPoint.y, spawnPoint.directionTo(new Point(0, 0)));
         SetUnitCreepGuard(u, false);
         RemoveGuardPosition(u);
 

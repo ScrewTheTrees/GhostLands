@@ -3,6 +3,7 @@ import {Point} from "../../../TreeLib/Utility/Point";
 import {AIManager} from "../../AI/AIManager";
 import {Logger} from "../../../TreeLib/Logger";
 import {Occupations} from "./Occupations";
+import {CreateUnitHandleSkin} from "../../../Skinner";
 
 export class OccupationBaseSpawner {
     private static instance: OccupationBaseSpawner;
@@ -32,7 +33,7 @@ export class OccupationBaseSpawner {
         for (let i = 0; i < occupants.length; i++) {
             let occu = occupants[i];
             let loc = occu.primaryRect.getCenter();
-            occu.keepUnit = CreateUnit(occupations.getHallPlayerByForce(occu.owner), occupations.getHallByForce(occu.owner), loc.x, loc.y, bj_UNIT_FACING);
+            occu.keepUnit = CreateUnitHandleSkin(occupations.getHallPlayerByForce(occu.owner), occupations.getHallByForce(occu.owner), loc.x, loc.y, bj_UNIT_FACING);
             occu.reStock(AIManager.getInstance().getDataByForces(occu.owner));
         }
     }
@@ -51,7 +52,7 @@ export class OccupationBaseSpawner {
                     let newUnitType = occupations.getHallByForce(newForce);
                     let where = Point.fromLocationClean(GetUnitLoc(dyingUnit));
 
-                    let building = CreateUnit(newPlayer, newUnitType, where.x, where.y, bj_UNIT_FACING);
+                    let building = CreateUnitHandleSkin(newPlayer, newUnitType, where.x, where.y, bj_UNIT_FACING);
                     value.keepUnit = building;
                     value.reStock(AIManager.getInstance().getDataByForces(value.owner));
 

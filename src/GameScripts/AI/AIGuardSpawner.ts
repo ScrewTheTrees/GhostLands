@@ -12,6 +12,7 @@ import {GetDelayFromUnitClass, GetGuardTypeFromUnit, UnitClass} from "../Enums/U
 import {Guard} from "./Guard";
 import {NamedRect} from "../RectControl/NamedRect";
 import {Quick} from "../../TreeLib/Quick";
+import {CreateUnitHandleSkin} from "../../Skinner";
 
 export class AIGuardSpawner {
     public forceData: AIForceData;
@@ -78,7 +79,7 @@ export class AIGuardSpawner {
     }
 
     public executeGuardSpawn(unitType: number, spawnPoint: Point): Guard {
-        let u = CreateUnit(this.forceData.aiPlayer, unitType, spawnPoint.x, spawnPoint.y, spawnPoint.directionTo(new Point(0, 0)));
+        let u = CreateUnitHandleSkin(this.forceData.aiPlayer, unitType, spawnPoint.x, spawnPoint.y, spawnPoint.directionTo(new Point(0, 0)));
         SetUnitCreepGuard(u, false);
         RemoveGuardPosition(u);
 
@@ -168,7 +169,7 @@ export class AIGuardSpawner {
             occupant.guardPosts.forEach((guardPost) => {
                 if (guardPost.needNewGuard()) {
                     let pos = guardPost.point;
-                    let unit = CreateUnit(this.forceData.aiPlayer, this.forceData.getUnitTypeOfUnitClass(guardPost.postType), pos.x, pos.y, 0);
+                    let unit = CreateUnitHandleSkin(this.forceData.aiPlayer, this.forceData.getUnitTypeOfUnitClass(guardPost.postType), pos.x, pos.y, 0);
                     let queue = ActionQueue.createSimpleGuardPoint(unit, pos);
                     guardPost.occupied = new Guard(unit, this.forceData.force, queue);
                 }

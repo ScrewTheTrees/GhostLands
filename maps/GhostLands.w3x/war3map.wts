@@ -151,12 +151,6 @@ Force 3
 }
 
 STRING 32
-// Units: H000 (Grand General), Propernames (Proper Names)
-{
-Grand General
-}
-
-STRING 33
 // Units: H000 (Grand General), Name (Name)
 {
 Grand General
@@ -281,36 +275,6 @@ STRING 70
 Caster that can cast slow. |n|n|cffffcc00Attacks land and air units.|r
 }
 
-STRING 71
-// Abilities: A007 (Vanguard Aura), Name (Name)
-{
-Vanguard Aura
-}
-
-STRING 72
-// Abilities: A007 (Vanguard Aura), Researchtip (Tooltip - Learn)
-{
-Learn |cffffcc00V|ranguard Aura - [|cffffcc00Level %d|r]
-}
-
-STRING 74
-// Abilities: A007 (Vanguard Aura), Ubertip (Tooltip - Normal - Extended)
-{
-Gives <A007,DataA1,.> additional armor to nearby friendly units.
-}
-
-STRING 75
-// Abilities: A007 (Vanguard Aura), Ubertip (Tooltip - Normal - Extended)
-{
-Gives <A007,DataA2,.> additional armor to nearby friendly units.
-}
-
-STRING 76
-// Abilities: A007 (Vanguard Aura), Ubertip (Tooltip - Normal - Extended)
-{
-Gives <A007,DataA3,.> additional armor to nearby friendly units.
-}
-
 STRING 77
 // Units: h006 (Knight), Name (Name)
 {
@@ -333,90 +297,6 @@ STRING 80
 // Units: h006 (Knight), Ubertip (Tooltip - Extended)
 {
 Fast and agile cavalry excellent for hit and run attacks. |n|n|cffffcc00Attacks land units.|r
-}
-
-STRING 81
-// Abilities: A007 (Vanguard Aura), Tip (Tooltip - Normal)
-{
-Devotion Aura - [|cffffcc00Level 4|r]
-}
-
-STRING 82
-// Abilities: A007 (Vanguard Aura), Tip (Tooltip - Normal)
-{
-Devotion Aura - [|cffffcc00Level 5|r]
-}
-
-STRING 83
-// Abilities: A007 (Vanguard Aura), Tip (Tooltip - Normal)
-{
-Devotion Aura - [|cffffcc00Level 6|r]
-}
-
-STRING 84
-// Abilities: A007 (Vanguard Aura), Tip (Tooltip - Normal)
-{
-Devotion Aura - [|cffffcc00Level 7|r]
-}
-
-STRING 85
-// Abilities: A007 (Vanguard Aura), Tip (Tooltip - Normal)
-{
-Devotion Aura - [|cffffcc00Level 8|r]
-}
-
-STRING 86
-// Abilities: A007 (Vanguard Aura), Tip (Tooltip - Normal)
-{
-Devotion Aura - [|cffffcc00Level 9|r]
-}
-
-STRING 87
-// Abilities: A007 (Vanguard Aura), Tip (Tooltip - Normal)
-{
-Devotion Aura - [|cffffcc00Level 10|r]
-}
-
-STRING 88
-// Abilities: A007 (Vanguard Aura), Ubertip (Tooltip - Normal - Extended)
-{
-Gives <A007,DataA4,.> additional armor to nearby friendly units.
-}
-
-STRING 89
-// Abilities: A007 (Vanguard Aura), Ubertip (Tooltip - Normal - Extended)
-{
-Gives <A007,DataA5,.> additional armor to nearby friendly units.
-}
-
-STRING 90
-// Abilities: A007 (Vanguard Aura), Ubertip (Tooltip - Normal - Extended)
-{
-Gives <A007,DataA6,.> additional armor to nearby friendly units.
-}
-
-STRING 91
-// Abilities: A007 (Vanguard Aura), Ubertip (Tooltip - Normal - Extended)
-{
-Gives <A007,DataA7,.> additional armor to nearby friendly units.
-}
-
-STRING 92
-// Abilities: A007 (Vanguard Aura), Ubertip (Tooltip - Normal - Extended)
-{
-Gives <A007,DataA8,.> additional armor to nearby friendly units.
-}
-
-STRING 93
-// Abilities: A007 (Vanguard Aura), Ubertip (Tooltip - Normal - Extended)
-{
-Gives <A007,DataA9,.> additional armor to nearby friendly units.
-}
-
-STRING 94
-// Abilities: A007 (Vanguard Aura), Ubertip (Tooltip - Normal - Extended)
-{
-Gives <A007,DataA10,.> additional armor to nearby friendly units.
 }
 
 STRING 95
@@ -519,24 +399,6 @@ STRING 130
 // Abilities: A00A (Thunder Clap), Ubertip (Tooltip - Normal - Extended)
 {
 Slams the ground, dealing <A00A,DataA10,.> damage to nearby enemy land units and slowing their movement and attack rate.
-}
-
-STRING 132
-// Abilities: A007 (Vanguard Aura), Researchubertip (Tooltip - Learn - Extended)
-{
-Gives additional armor to nearby friendly units. |n|n|cffffcc00Armor per level|r - 10
-}
-
-STRING 133
-// Abilities: A007 (Vanguard Aura), EditorSuffix (Editor Suffix)
-{
-(Grand general)
-}
-
-STRING 134
-// Abilities: A00A (Thunder Clap), EditorSuffix (Editor Suffix)
-{
-(Grand general)
 }
 
 STRING 137
@@ -3213,5 +3075,320 @@ STRING 1194
 // Upgrades: R000 (Animal War Training), effect1 (Effect 1)
 {
 ratt
+}
+
+STRING 1212
+// Abilities: A004 (Watch out watch out watch out), Tip (Tooltip - Normal)
+{
+Watch out watch out watch out - [|cffffcc00Level 4|r]
+}
+
+STRING 1213
+// Abilities: A004 (Watch out watch out watch out), Tip (Tooltip - Normal)
+{
+Watch out watch out watch out - [|cffffcc00Level 5|r]
+}
+
+STRING 1214
+// Abilities: A004 (Watch out watch out watch out), Tip (Tooltip - Normal)
+{
+Watch out watch out watch out - [|cffffcc00Level 6|r]
+}
+
+STRING 1215
+// Abilities: A004 (Watch out watch out watch out), Tip (Tooltip - Normal)
+{
+Watch out watch out watch out - [|cffffcc00Level 7|r]
+}
+
+STRING 1216
+// Abilities: A004 (Watch out watch out watch out), Tip (Tooltip - Normal)
+{
+Watch out watch out watch out - [|cffffcc00Level 8|r]
+}
+
+STRING 1217
+// Abilities: A004 (Watch out watch out watch out), Tip (Tooltip - Normal)
+{
+Watch out watch out watch out - [|cffffcc00Level 9|r]
+}
+
+STRING 1218
+// Abilities: A004 (Watch out watch out watch out), Tip (Tooltip - Normal)
+{
+Watch out watch out watch out - [|cffffcc00Level 10|r]
+}
+
+STRING 1219
+// Abilities: A004 (Watch out watch out watch out), Ubertip (Tooltip - Normal - Extended)
+{
+Slam a target enemy unit, dealing <A004,DataA1> damage and momentarily interrupting the unit.
+}
+
+STRING 1220
+// Abilities: A004 (Watch out watch out watch out), Ubertip (Tooltip - Normal - Extended)
+{
+Slam a target enemy unit, dealing <A004,DataA2> damage and momentarily interrupting the unit.
+}
+
+STRING 1221
+// Abilities: A004 (Watch out watch out watch out), Ubertip (Tooltip - Normal - Extended)
+{
+Slam a target enemy unit, dealing <A004,DataA3> damage and momentarily interrupting the unit.
+}
+
+STRING 1222
+// Abilities: A004 (Watch out watch out watch out), Ubertip (Tooltip - Normal - Extended)
+{
+Slam a target enemy unit, dealing <A004,DataA4> damage and momentarily interrupting the unit.
+}
+
+STRING 1223
+// Abilities: A004 (Watch out watch out watch out), Ubertip (Tooltip - Normal - Extended)
+{
+Slam a target enemy unit, dealing <A004,DataA5> damage and momentarily interrupting the unit.
+}
+
+STRING 1224
+// Abilities: A004 (Watch out watch out watch out), Ubertip (Tooltip - Normal - Extended)
+{
+Slam a target enemy unit, dealing <A004,DataA6> damage and momentarily interrupting the unit.
+}
+
+STRING 1225
+// Abilities: A004 (Watch out watch out watch out), Ubertip (Tooltip - Normal - Extended)
+{
+Slam a target enemy unit, dealing <A004,DataA7> damage and momentarily interrupting the unit.
+}
+
+STRING 1226
+// Abilities: A004 (Watch out watch out watch out), Ubertip (Tooltip - Normal - Extended)
+{
+Slam a target enemy unit, dealing <A004,DataA8> damage and momentarily interrupting the unit.
+}
+
+STRING 1227
+// Abilities: A004 (Watch out watch out watch out), Ubertip (Tooltip - Normal - Extended)
+{
+Slam a target enemy unit, dealing <A004,DataA9> damage and momentarily interrupting the unit.
+}
+
+STRING 1228
+// Abilities: A004 (Watch out watch out watch out), Ubertip (Tooltip - Normal - Extended)
+{
+Slam a target enemy unit, dealing <A004,DataA10> damage and momentarily interrupting the unit.
+}
+
+STRING 1229
+// Abilities: A004 (Watch out watch out watch out), Tip (Tooltip - Normal)
+{
+Watch out watch out watch out - [|cffffcc00Level 1|r]
+}
+
+STRING 1230
+// Abilities: A004 (Watch out watch out watch out), Tip (Tooltip - Normal)
+{
+Watch out watch out watch out - [|cffffcc00Level 2|r]
+}
+
+STRING 1231
+// Abilities: A004 (Watch out watch out watch out), Tip (Tooltip - Normal)
+{
+Watch out watch out watch out - [|cffffcc00Level 3|r]
+}
+
+STRING 1232
+// Abilities: A004 (Watch out watch out watch out), Name (Name)
+{
+Watch out watch out watch out
+}
+
+STRING 1233
+// Abilities: A004 (Watch out watch out watch out), Researchtip (Tooltip - Learn)
+{
+Learn Watch out watch out watch out - [|cffffcc00Level %d|r]
+}
+
+STRING 1236
+// Abilities: A007 (Shockwave), Tip (Tooltip - Normal)
+{
+Shockwave - [|cffffcc00Level 4|r]
+}
+
+STRING 1237
+// Abilities: A007 (Shockwave), Tip (Tooltip - Normal)
+{
+Shockwave - [|cffffcc00Level 5|r]
+}
+
+STRING 1238
+// Abilities: A007 (Shockwave), Tip (Tooltip - Normal)
+{
+Shockwave - [|cffffcc00Level 6|r]
+}
+
+STRING 1239
+// Abilities: A007 (Shockwave), Tip (Tooltip - Normal)
+{
+Shockwave - [|cffffcc00Level 7|r]
+}
+
+STRING 1240
+// Abilities: A007 (Shockwave), Tip (Tooltip - Normal)
+{
+Shockwave - [|cffffcc00Level 8|r]
+}
+
+STRING 1241
+// Abilities: A007 (Shockwave), Tip (Tooltip - Normal)
+{
+Shockwave - [|cffffcc00Level 9|r]
+}
+
+STRING 1242
+// Abilities: A007 (Shockwave), Tip (Tooltip - Normal)
+{
+Shockwave - [|cffffcc00Level 10|r]
+}
+
+STRING 1243
+// Abilities: A007 (Shockwave), Ubertip (Tooltip - Normal - Extended)
+{
+A wave of force that ripples outward, causing <AOsh,DataA4> damage to land units in a line.
+}
+
+STRING 1244
+// Abilities: A007 (Shockwave), Ubertip (Tooltip - Normal - Extended)
+{
+A wave of force that ripples outward, causing <AOsh,DataA5> damage to land units in a line.
+}
+
+STRING 1245
+// Abilities: A007 (Shockwave), Ubertip (Tooltip - Normal - Extended)
+{
+A wave of force that ripples outward, causing <AOsh,DataA6> damage to land units in a line.
+}
+
+STRING 1246
+// Abilities: A007 (Shockwave), Ubertip (Tooltip - Normal - Extended)
+{
+A wave of force that ripples outward, causing <AOsh,DataA7> damage to land units in a line.
+}
+
+STRING 1247
+// Abilities: A007 (Shockwave), Ubertip (Tooltip - Normal - Extended)
+{
+A wave of force that ripples outward, causing <AOsh,DataA8> damage to land units in a line.
+}
+
+STRING 1248
+// Abilities: A007 (Shockwave), Ubertip (Tooltip - Normal - Extended)
+{
+A wave of force that ripples outward, causing <AOsh,DataA9> damage to land units in a line.
+}
+
+STRING 1249
+// Abilities: A007 (Shockwave), Ubertip (Tooltip - Normal - Extended)
+{
+A wave of force that ripples outward, causing <AOsh,DataA10> damage to land units in a line.
+}
+
+STRING 1251
+// Units: n00R (Archer), EditorSuffix (Name - Editor Suffix)
+{
+(Skin 1)
+}
+
+STRING 1252
+// Abilities: A007 (Shockwave), Researchhotkey (Hotkey - Learn)
+{
+Q
+}
+
+STRING 1253
+// Abilities: A007 (Shockwave), Hotkey (Hotkey - Normal)
+{
+Q
+}
+
+STRING 1254
+// Abilities: A00A (Thunder Clap), EditorSuffix (Editor Suffix)
+{
+(W)
+}
+
+STRING 1255
+// Abilities: A00A (Thunder Clap), Researchhotkey (Hotkey - Learn)
+{
+W
+}
+
+STRING 1256
+// Abilities: A00A (Thunder Clap), Hotkey (Hotkey - Normal)
+{
+W
+}
+
+STRING 1257
+// Abilities: A004 (Watch out watch out watch out), EditorSuffix (Editor Suffix)
+{
+(E)
+}
+
+STRING 1258
+// Abilities: A004 (Watch out watch out watch out), Researchhotkey (Hotkey - Learn)
+{
+E
+}
+
+STRING 1259
+// Abilities: A004 (Watch out watch out watch out), Hotkey (Hotkey - Normal)
+{
+E
+}
+
+STRING 1260
+// Abilities: A007 (Shockwave), EditorSuffix (Editor Suffix)
+{
+(Q)
+}
+
+STRING 1264
+// Abilities: A004 (Watch out watch out watch out), Researchubertip (Tooltip - Learn - Extended)
+{
+Slams target causing a very temporary interruption and dealing damage.
+
+|cffffcc00Damage|r - 20 + (10*L)
+|cffffcc00Mana cost|r - 10 + (5*L)
+}
+
+STRING 1265
+// Units: H000 (Grand General), Propernames (Proper Names)
+{
+Inhalus Dongus
+}
+
+STRING 1266
+// Units: h008 (Footman), EditorSuffix (Name - Editor Suffix)
+{
+(Skin 1)
+}
+
+STRING 1267
+// Units: h009 (Imperial Soldier), EditorSuffix (Name - Editor Suffix)
+{
+(Skin 2)
+}
+
+STRING 1268
+// Units: h009 (Imperial Soldier), Name (Name)
+{
+Imperial Soldier
+}
+
+STRING 1269
+// Units: h009 (Imperial Soldier), Tip (Tooltip - Basic)
+{
+Train Imperial Soldier
 }
 
