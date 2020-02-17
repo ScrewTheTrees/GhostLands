@@ -22,10 +22,10 @@ export class OnSpellCastCreator {
     }
 
     constructor() {
-        let grandSpells = [FourCC("A00A"), FourCC("A007")];
-        let largeSpells = [FourCC("A004")];
+        let greatRune = [FourCC("A00A"), FourCC("A007")];
+        let largeSpells = [];
 
-        OnSpellCast.getInstance().addSpell(new OnCastContainer(grandSpells,
+        OnSpellCast.getInstance().addSpell(new OnCastContainer(greatRune,
             (cont) => this.onGrandSpell(cont),
         ));
         OnSpellCast.getInstance().addSpell(new OnCastContainer(largeSpells,
@@ -36,32 +36,34 @@ export class OnSpellCastCreator {
 
     private onGrandSpell(cont: SpellData) {
         let p = Point.fromWidget(cont.castingUnit);
-        let eff = AddSpecialEffect("Doodads\\Cityscape\\Props\\MagicRunes\\MagicRunes" + ChooseOne("0.mdl", "1.mdl", "2.mdl"), p.x, p.y);
+        let rune = "Doodads\\Cityscape\\Props\\MagicRunes\\MagicRunes" + ChooseOne("0.mdl", "1.mdl", "2.mdl");
         let forcesByPlayer = PlayerManager.getInstance().getForcesByPlayer(GetOwningPlayer(cont.castingUnit));
         let rgb = GetColorByForce(forcesByPlayer);
+        let eff = this.createFadingEffect(rune, p, rgb, 2);
 
-        BlzSetSpecialEffectColor(eff, rgb.red, rgb.green, rgb.blue);
-        BlzSetSpecialEffectYaw(eff, GetRandomReal(0, 360));
-        BlzSetSpecialEffectZ(eff, GetLocationZ(p.toLocationClean()) - 50);
-        BlzSetSpecialEffectScale(eff, 2);
-        BlzSetSpecialEffectTimeScale(eff, 0.25);
-
-        TemporaryEffects.getInstance().addEffect(new ColorFadeEffect(eff, 120, rgb, new RGB(32, 32, 32)))
+        TemporaryEffects.getInstance().addEffect(new ColorFadeEffect(eff, 180, rgb, new RGB(32, 32, 32)))
     }
 
     private onLargeSpell(cont: SpellData) {
         let p = Point.fromWidget(cont.castingUnit);
-        let eff = AddSpecialEffect("Doodads\\Cityscape\\Props\\MagicRunes\\MagicRunes" + ChooseOne("0.mdl", "1.mdl", "2.mdl"), p.x, p.y);
+        let rune = "Doodads\\Cityscape\\Props\\MagicRunes\\MagicRunes" + ChooseOne("0.mdl", "1.mdl", "2.mdl");
         let forcesByPlayer = PlayerManager.getInstance().getForcesByPlayer(GetOwningPlayer(cont.castingUnit));
         let rgb = GetColorByForce(forcesByPlayer);
+        let eff = this.createFadingEffect(rune, p, rgb, 1.5);
 
-        BlzSetSpecialEffectColor(eff, rgb.red, rgb.green, rgb.blue);
+        TemporaryEffects.getInstance().addEffect(new ColorFadeEffect(eff, 60, rgb, new RGB(32, 32, 32)))
+    }
+
+
+    private createFadingEffect(modelName: string, p: Point, color: RGB, scale: number) {
+        let eff = AddSpecialEffect(modelName, p.x, p.y);
+
+        BlzSetSpecialEffectColor(eff, color.red, color.green, color.blue);
         BlzSetSpecialEffectYaw(eff, GetRandomReal(0, 360));
         BlzSetSpecialEffectZ(eff, GetLocationZ(p.toLocationClean()) - 50);
-        BlzSetSpecialEffectScale(eff, 1.5);
-        BlzSetSpecialEffectTimeScale(eff, 0.25);
+        BlzSetSpecialEffectScale(eff, scale);
 
-        TemporaryEffects.getInstance().addEffect(new ColorFadeEffect(eff, 120, rgb, new RGB(32, 32, 32)))
+        return eff;
     }
 }
 

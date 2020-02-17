@@ -57,7 +57,7 @@ export class Delay extends Entity {
      * @param delaySeconds the time before the delay executes.
      * @param repeats How many times it will run, 1 runs it once. 0 and under wont run at all
      */
-    public static addDelay(f: Function, delaySeconds: number, repeats: number = 1) {
+    public static addDelay(f: Function, delaySeconds: number = 1, repeats: number = 1) {
         if (repeats > 0) {
             this.getInstance().addDelayFrom(new DelayDto(f, delaySeconds, repeats));
         }

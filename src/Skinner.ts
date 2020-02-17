@@ -27,7 +27,7 @@ export class Skinner {
 
     constructor() {
         this.skins[PlayerUnits.RANGER_ARCHER] = [PlayerUnits.RANGER_ARCHER, PlayerUnits.RANGER_ARCHER_SKIN1];
-        this.skins[PlayerUnits.MELEE_SOLDIER] = [PlayerUnits.MELEE_SOLDIER, PlayerUnits.MELEE_SOLDIER_SKIN1, PlayerUnits.MELEE_SOLDIER_SKIN2];
+        this.skins[PlayerUnits.MELEE_SOLDIER] = [PlayerUnits.MELEE_SOLDIER, PlayerUnits.MELEE_SOLDIER_SKIN1, PlayerUnits.MELEE_SOLDIER_SKIN2, PlayerUnits.MELEE_SOLDIER_SKIN3];
     }
 
     public getRandomSkinOfUnit(u: unit): number {

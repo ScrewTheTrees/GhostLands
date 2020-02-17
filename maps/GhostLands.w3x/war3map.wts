@@ -341,66 +341,6 @@ STRING 103
 (Tier 1)
 }
 
-STRING 121
-// Abilities: A00A (Thunder Clap), Ubertip (Tooltip - Normal - Extended)
-{
-Slams the ground, dealing <A00A,DataA3,.> damage to nearby enemy land units and slowing their movement and attack rate.
-}
-
-STRING 122
-// Abilities: A00A (Thunder Clap), Ubertip (Tooltip - Normal - Extended)
-{
-Slams the ground, dealing <A00A,DataA2,.> damage to nearby enemy land units and slowing their movement and attack rate.
-}
-
-STRING 123
-// Abilities: A00A (Thunder Clap), Ubertip (Tooltip - Normal - Extended)
-{
-Slams the ground, dealing <A00A,DataA1,.> damage to nearby enemy land units and slowing their movement and attack rate.
-}
-
-STRING 124
-// Abilities: A00A (Thunder Clap), Ubertip (Tooltip - Normal - Extended)
-{
-Slams the ground, dealing <A00A,DataA4,.> damage to nearby enemy land units and slowing their movement and attack rate.
-}
-
-STRING 125
-// Abilities: A00A (Thunder Clap), Ubertip (Tooltip - Normal - Extended)
-{
-Slams the ground, dealing <A00A,DataA5,.> damage to nearby enemy land units and slowing their movement and attack rate.
-}
-
-STRING 126
-// Abilities: A00A (Thunder Clap), Ubertip (Tooltip - Normal - Extended)
-{
-Slams the ground, dealing <A00A,DataA6,.> damage to nearby enemy land units and slowing their movement and attack rate.
-}
-
-STRING 127
-// Abilities: A00A (Thunder Clap), Ubertip (Tooltip - Normal - Extended)
-{
-Slams the ground, dealing <A00A,DataA7,.> damage to nearby enemy land units and slowing their movement and attack rate.
-}
-
-STRING 128
-// Abilities: A00A (Thunder Clap), Ubertip (Tooltip - Normal - Extended)
-{
-Slams the ground, dealing <A00A,DataA8,.> damage to nearby enemy land units and slowing their movement and attack rate.
-}
-
-STRING 129
-// Abilities: A00A (Thunder Clap), Ubertip (Tooltip - Normal - Extended)
-{
-Slams the ground, dealing <A00A,DataA9,.> damage to nearby enemy land units and slowing their movement and attack rate.
-}
-
-STRING 130
-// Abilities: A00A (Thunder Clap), Ubertip (Tooltip - Normal - Extended)
-{
-Slams the ground, dealing <A00A,DataA10,.> damage to nearby enemy land units and slowing their movement and attack rate.
-}
-
 STRING 137
 // Units: n00C (Forest Troll Hut), EditorSuffix (Name - Editor Suffix)
 {
@@ -507,17 +447,6 @@ STRING 156
 // Units: n00J (Egg Sack), Name (Name)
 {
 Egg Sack
-}
-
-STRING 157
-// Abilities: A00A (Thunder Clap), Researchubertip (Tooltip - Learn - Extended)
-{
-Slams the ground, dealing damage to and slowing the movement speed and attack rate of nearby enemy land units. 
-
-|cffffcc00Starting damage|r - 20
-|cffffcc00Damage per level|r - 10
-|cffffcc00Starting Mana cost|r - 10
-|cffffcc00Mana cost per level|r - 5
 }
 
 STRING 158
@@ -3251,48 +3180,6 @@ STRING 1242
 Shockwave - [|cffffcc00Level 10|r]
 }
 
-STRING 1243
-// Abilities: A007 (Shockwave), Ubertip (Tooltip - Normal - Extended)
-{
-A wave of force that ripples outward, causing <AOsh,DataA4> damage to land units in a line.
-}
-
-STRING 1244
-// Abilities: A007 (Shockwave), Ubertip (Tooltip - Normal - Extended)
-{
-A wave of force that ripples outward, causing <AOsh,DataA5> damage to land units in a line.
-}
-
-STRING 1245
-// Abilities: A007 (Shockwave), Ubertip (Tooltip - Normal - Extended)
-{
-A wave of force that ripples outward, causing <AOsh,DataA6> damage to land units in a line.
-}
-
-STRING 1246
-// Abilities: A007 (Shockwave), Ubertip (Tooltip - Normal - Extended)
-{
-A wave of force that ripples outward, causing <AOsh,DataA7> damage to land units in a line.
-}
-
-STRING 1247
-// Abilities: A007 (Shockwave), Ubertip (Tooltip - Normal - Extended)
-{
-A wave of force that ripples outward, causing <AOsh,DataA8> damage to land units in a line.
-}
-
-STRING 1248
-// Abilities: A007 (Shockwave), Ubertip (Tooltip - Normal - Extended)
-{
-A wave of force that ripples outward, causing <AOsh,DataA9> damage to land units in a line.
-}
-
-STRING 1249
-// Abilities: A007 (Shockwave), Ubertip (Tooltip - Normal - Extended)
-{
-A wave of force that ripples outward, causing <AOsh,DataA10> damage to land units in a line.
-}
-
 STRING 1251
 // Units: n00R (Archer), EditorSuffix (Name - Editor Suffix)
 {
@@ -3353,15 +3240,6 @@ STRING 1260
 (Q)
 }
 
-STRING 1264
-// Abilities: A004 (Watch out watch out watch out), Researchubertip (Tooltip - Learn - Extended)
-{
-Slams target causing a very temporary interruption and dealing damage.
-
-|cffffcc00Damage|r - 20 + (10*L)
-|cffffcc00Mana cost|r - 10 + (5*L)
-}
-
 STRING 1265
 // Units: H000 (Grand General), Propernames (Proper Names)
 {
@@ -3369,7 +3247,7 @@ Inhalus Dongus
 }
 
 STRING 1266
-// Units: h008 (Footman), EditorSuffix (Name - Editor Suffix)
+// Units: h008 (Imperial Soldier), EditorSuffix (Name - Editor Suffix)
 {
 (Skin 1)
 }
@@ -3381,14 +3259,261 @@ STRING 1267
 }
 
 STRING 1268
-// Units: h009 (Imperial Soldier), Name (Name)
+// Units: h001 (Imperial Soldier), Name (Name)
 {
 Imperial Soldier
 }
 
 STRING 1269
+// Units: h001 (Imperial Soldier), Tip (Tooltip - Basic)
+{
+Train Imperial Soldier
+}
+
+STRING 1270
+// Units: h008 (Imperial Soldier), Name (Name)
+{
+Imperial Soldier
+}
+
+STRING 1271
+// Units: h008 (Imperial Soldier), Tip (Tooltip - Basic)
+{
+Train Imperial Soldier
+}
+
+STRING 1272
+// Units: h009 (Imperial Soldier), Name (Name)
+{
+Imperial Soldier
+}
+
+STRING 1273
 // Units: h009 (Imperial Soldier), Tip (Tooltip - Basic)
 {
 Train Imperial Soldier
+}
+
+STRING 1275
+// Units: h00A (Imperial Soldier), Name (Name)
+{
+Imperial Soldier
+}
+
+STRING 1276
+// Units: h00A (Imperial Soldier), Tip (Tooltip - Basic)
+{
+Train Imperial Soldier
+}
+
+STRING 1277
+// Units: h00A (Imperial Soldier), EditorSuffix (Name - Editor Suffix)
+{
+(Skin 3)
+}
+
+STRING 1283
+// Abilities: A004 (Watch out watch out watch out), Researchubertip (Tooltip - Learn - Extended)
+{
+Physically slams target causing a temporary interruption and dealing damage.
+
+|cffffcc00Damage|r - 20 + (10*L)
+|cffffcc00Mana cost|r - 5 + (2.5*L)
+
+
+}
+
+STRING 1305
+// Abilities: A00A (Thunder Clap), Ubertip (Tooltip - Normal - Extended)
+{
+Magically slams the ground, dealing <A00A,DataA3,.> damage to nearby enemy land units and slowing their movement and attack rate.
+
+|cff00ffffGreat Rune|r
+}
+
+STRING 1306
+// Abilities: A00A (Thunder Clap), Ubertip (Tooltip - Normal - Extended)
+{
+Magically slams the ground, dealing <A00A,DataA2,.> damage to nearby enemy land units and slowing their movement and attack rate.
+
+|cff00ffffGreat Rune|r
+}
+
+STRING 1307
+// Abilities: A00A (Thunder Clap), Ubertip (Tooltip - Normal - Extended)
+{
+Magically slams the ground, dealing <A00A,DataA1,.> damage to nearby enemy land units and slowing their movement and attack rate.
+
+|cff00ffffGreat Rune|r
+}
+
+STRING 1308
+// Abilities: A00A (Thunder Clap), Ubertip (Tooltip - Normal - Extended)
+{
+Magically slams the ground, dealing <A00A,DataA4,.> damage to nearby enemy land units and slowing their movement and attack rate.
+
+|cff00ffffGreat Rune|r
+}
+
+STRING 1309
+// Abilities: A00A (Thunder Clap), Ubertip (Tooltip - Normal - Extended)
+{
+Magically slams the ground, dealing <A00A,DataA5,.> damage to nearby enemy land units and slowing their movement and attack rate.
+
+|cff00ffffGreat Rune|r
+}
+
+STRING 1310
+// Abilities: A00A (Thunder Clap), Ubertip (Tooltip - Normal - Extended)
+{
+Magically slams the ground, dealing <A00A,DataA6,.> damage to nearby enemy land units and slowing their movement and attack rate.
+
+|cff00ffffGreat Rune|r
+}
+
+STRING 1311
+// Abilities: A00A (Thunder Clap), Ubertip (Tooltip - Normal - Extended)
+{
+Magically slams the ground, dealing <A00A,DataA7,.> damage to nearby enemy land units and slowing their movement and attack rate.
+
+|cff00ffffGreat Rune|r
+}
+
+STRING 1312
+// Abilities: A00A (Thunder Clap), Ubertip (Tooltip - Normal - Extended)
+{
+Magically slams the ground, dealing <A00A,DataA8,.> damage to nearby enemy land units and slowing their movement and attack rate.
+
+|cff00ffffGreat Rune|r
+}
+
+STRING 1313
+// Abilities: A00A (Thunder Clap), Ubertip (Tooltip - Normal - Extended)
+{
+Magically slams the ground, dealing <A00A,DataA9,.> damage to nearby enemy land units and slowing their movement and attack rate.
+
+|cff00ffffGreat Rune|r
+}
+
+STRING 1314
+// Abilities: A00A (Thunder Clap), Ubertip (Tooltip - Normal - Extended)
+{
+Magically slams the ground, dealing <A00A,DataA10,.> damage to nearby enemy land units and slowing their movement and attack rate.
+
+|cff00ffffGreat Rune|r
+}
+
+STRING 1315
+// Abilities: A007 (Shockwave), Ubertip (Tooltip - Normal - Extended)
+{
+A magical wave of force that ripples outward, causing <AOsh,DataA4> damage to land units in a line.
+
+|cff00ffffGreat Rune|r
+}
+
+STRING 1316
+// Abilities: A007 (Shockwave), Ubertip (Tooltip - Normal - Extended)
+{
+A magical wave of force that ripples outward, causing <AOsh,DataA5> damage to land units in a line.
+
+|cff00ffffGreat Rune|r
+}
+
+STRING 1317
+// Abilities: A007 (Shockwave), Ubertip (Tooltip - Normal - Extended)
+{
+A magical wave of force that ripples outward, causing <AOsh,DataA6> damage to land units in a line.
+
+|cff00ffffGreat Rune|r
+}
+
+STRING 1318
+// Abilities: A007 (Shockwave), Ubertip (Tooltip - Normal - Extended)
+{
+A magical wave of force that ripples outward, causing <AOsh,DataA7> damage to land units in a line.
+
+|cff00ffffGreat Rune|r
+}
+
+STRING 1319
+// Abilities: A007 (Shockwave), Ubertip (Tooltip - Normal - Extended)
+{
+A magical wave of force that ripples outward, causing <AOsh,DataA8> damage to land units in a line.
+
+|cff00ffffGreat Rune|r
+}
+
+STRING 1320
+// Abilities: A007 (Shockwave), Ubertip (Tooltip - Normal - Extended)
+{
+A magical wave of force that ripples outward, causing <AOsh,DataA9> damage to land units in a line.
+
+|cff00ffffGreat Rune|r
+}
+
+STRING 1321
+// Abilities: A007 (Shockwave), Ubertip (Tooltip - Normal - Extended)
+{
+A magical wave of force that ripples outward, causing <AOsh,DataA10> damage to land units in a line.
+
+|cff00ffffGreat Rune|r
+}
+
+STRING 1322
+// Abilities: A007 (Shockwave), Ubertip (Tooltip - Normal - Extended)
+{
+A magical wave of force that ripples outward, causing <AOsh,DataA1> damage to land units in a line.
+
+|cff00ffffGreat Rune|r
+}
+
+STRING 1323
+// Abilities: A007 (Shockwave), Ubertip (Tooltip - Normal - Extended)
+{
+A magical wave of force that ripples outward, causing <AOsh,DataA2> damage to land units in a line.
+
+|cff00ffffGreat Rune|r
+}
+
+STRING 1324
+// Abilities: A007 (Shockwave), Ubertip (Tooltip - Normal - Extended)
+{
+A magical wave of force that ripples outward, causing <AOsh,DataA3> damage to land units in a line.
+
+|cff00ffffGreat Rune|r
+}
+
+STRING 1325
+// Abilities: A00A (Thunder Clap), Researchubertip (Tooltip - Learn - Extended)
+{
+Magically slams the ground, dealing damage to and slowing the movement speed and attack rate of nearby enemy land units. 
+
+|cffffcc00Damage|r - 20 + (10*L)
+|cffffcc00Mana cost|r - 10 + (5*L)
+
+|cff00ffffGreat Rune|r
+}
+
+STRING 1326
+// Abilities: A007 (Shockwave), Researchubertip (Tooltip - Learn - Extended)
+{
+A magical wave of force that ripples out from the Hero, causing damage to land units in a line.
+
+|cffffcc00Damage|r - 20 + (10*L)
+|cffffcc00Mana cost|r - 10 + (5*L)
+
+|cff00ffffGreat Rune|r
+}
+
+STRING 1327
+// Units: n00S (Horsie), Name (Name)
+{
+Horsie
+}
+
+STRING 1328
+// Units: n00S (Horsie), Tip (Tooltip - Basic)
+{
+Invoke Horsie
 }
 

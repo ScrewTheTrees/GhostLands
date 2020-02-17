@@ -10,6 +10,7 @@ AttackNotifyRange=2000.0
 BoneDecayTime=30.0
 CallForHelp=2400.0
 CreepCallForHelp=1000.0
+CreepCampPathingCellDistance=36
 DamageBonusChaos=1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00
 DamageBonusHero=1.00,1.00,1.00,0.60,1.00,1.00,0.05,1.00
 DamageBonusMagic=1.25,0.75,2.00,0.50,1.00,0.50,0.05,1.00

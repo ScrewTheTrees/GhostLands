@@ -5,7 +5,6 @@ import {War, WarState} from "./War/War";
 import {MapEvent} from "./Events/MapEvent";
 import {AIManager} from "../AI/AIManager";
 import {InputManager} from "../../TreeLib/InputManager/InputManager";
-import {DummyCaster} from "../../TreeLib/DummyCasting/DummyCaster";
 import {Quick} from "../../TreeLib/Quick";
 import {Logger} from "../../TreeLib/Logger";
 
@@ -33,7 +32,7 @@ export class GlobalGameManager extends Entity {
         this._timerDelay = 1;
         this.aiManager.banditNorthSpawner.stockUpAllGuardPointsInstant();
 
-        InputManager.addKeyboardPressCallback(OSKEY_Q, () => {
+        /*InputManager.addKeyboardPressCallback(OSKEY_Q, () => {
             this.startWar();
         });
 
@@ -59,7 +58,7 @@ export class GlobalGameManager extends Entity {
 
         InputManager.addKeyboardPressCallback(OSKEY_P, () => {
             this.endWar();
-        });
+        });*/
 
 
         InputManager.addKeyboardPressCallback(OSKEY_Z, () => {

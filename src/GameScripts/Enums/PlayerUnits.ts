@@ -6,6 +6,7 @@ export const enum PlayerUnits {
     MELEE_SOLDIER = "h001",
     MELEE_SOLDIER_SKIN1 = "h008",
     MELEE_SOLDIER_SKIN2 = "h009",
+    MELEE_SOLDIER_SKIN3 = "h00A",
 
     //Ranger
     RANGER_ARCHER = "h002",
