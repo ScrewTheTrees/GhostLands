@@ -1,4 +1,4 @@
-import {Quick} from "../Quick";
+import {Quick} from "../../Quick";
 
 export class PriorityQueue<T> {
     public entries: PriorityEntry<T>[] = [];

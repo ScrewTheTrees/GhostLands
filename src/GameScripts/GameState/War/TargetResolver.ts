@@ -2,14 +2,13 @@ import {WarData} from "./WarData";
 import {Warzone, Warzones} from "./Warzones";
 import {Forces} from "../../Enums/Forces";
 import {Occupations} from "../Occupations/Occupations";
-import {Logger} from "../../../TreeLib/Logger";
 import {ChooseOne} from "../../../TreeLib/Misc";
 import {Occupant} from "../Occupations/Occupant";
 import {Army} from "./Army";
 
 export class TargetResolver {
 
-    public static resolveTargets(): WarContainer | null {
+    public static resolveTargets(): WarContainer {
         let container: WarContainer;
 
         let f1 = WarData.getInstance().force1EarlyTargets.pop();
@@ -27,9 +26,6 @@ export class TargetResolver {
             let f2zone = warzones.getWarzoneByForceAndCity(Forces.FORCE_2, f2);
 
             container = new WarContainer(new WarTargets(f1zone, f2zone));
-        } else if (f1 != undefined || f2 != undefined) {
-            Logger.critical("f1 and f2 are not both undefined or both defined, something went horribly horribly wrong, please refer to War.ts");
-            return null;
         } else if ((force1.length == 1 || force2.length == 1) && !(force1.length == 1 && force2.length == 1)) {
             container = TargetResolver.getFinalWarzone(force1);
         } else if (f1bandits.length > 0 || f2bandits.length > 0) {

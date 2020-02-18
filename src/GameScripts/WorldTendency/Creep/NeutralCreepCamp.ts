@@ -1,12 +1,12 @@
-import {NamedRect} from "../RectControl/NamedRect";
-import {Logger} from "../../TreeLib/Logger";
-import {Players} from "../../TreeLib/Structs/Players";
-import {Quick} from "../../TreeLib/Quick";
-import {IsValidUnit} from "../../TreeLib/Misc";
+import {NamedRect} from "../../RectControl/NamedRect";
+import {Logger} from "../../../TreeLib/Logger";
+import {Players} from "../../../TreeLib/Structs/Players";
+import {Quick} from "../../../TreeLib/Quick";
+import {IsValidUnit} from "../../../TreeLib/Misc";
 import {CreepCampTypes} from "./CreepCampTypes";
 import {GetCreepTableByCreepCampType} from "./CreepCampSpawnTable";
-import {RandAngle} from "../../TreeLib/Utility/TreeMath";
-import {CreateUnitHandleSkin} from "../../Skinner";
+import {RandAngle} from "../../../TreeLib/Utility/TreeMath";
+import {CreateUnitHandleSkin} from "../../../Skinner";
 
 export class NeutralCreepCamp {
     public location: NamedRect;

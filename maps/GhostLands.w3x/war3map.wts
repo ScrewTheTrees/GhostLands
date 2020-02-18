@@ -3403,86 +3403,6 @@ Magically slams the ground, dealing <A00A,DataA10,.> damage to nearby enemy land
 |cff00ffffGreat Rune|r
 }
 
-STRING 1315
-// Abilities: A007 (Shockwave), Ubertip (Tooltip - Normal - Extended)
-{
-A magical wave of force that ripples outward, causing <AOsh,DataA4> damage to land units in a line.
-
-|cff00ffffGreat Rune|r
-}
-
-STRING 1316
-// Abilities: A007 (Shockwave), Ubertip (Tooltip - Normal - Extended)
-{
-A magical wave of force that ripples outward, causing <AOsh,DataA5> damage to land units in a line.
-
-|cff00ffffGreat Rune|r
-}
-
-STRING 1317
-// Abilities: A007 (Shockwave), Ubertip (Tooltip - Normal - Extended)
-{
-A magical wave of force that ripples outward, causing <AOsh,DataA6> damage to land units in a line.
-
-|cff00ffffGreat Rune|r
-}
-
-STRING 1318
-// Abilities: A007 (Shockwave), Ubertip (Tooltip - Normal - Extended)
-{
-A magical wave of force that ripples outward, causing <AOsh,DataA7> damage to land units in a line.
-
-|cff00ffffGreat Rune|r
-}
-
-STRING 1319
-// Abilities: A007 (Shockwave), Ubertip (Tooltip - Normal - Extended)
-{
-A magical wave of force that ripples outward, causing <AOsh,DataA8> damage to land units in a line.
-
-|cff00ffffGreat Rune|r
-}
-
-STRING 1320
-// Abilities: A007 (Shockwave), Ubertip (Tooltip - Normal - Extended)
-{
-A magical wave of force that ripples outward, causing <AOsh,DataA9> damage to land units in a line.
-
-|cff00ffffGreat Rune|r
-}
-
-STRING 1321
-// Abilities: A007 (Shockwave), Ubertip (Tooltip - Normal - Extended)
-{
-A magical wave of force that ripples outward, causing <AOsh,DataA10> damage to land units in a line.
-
-|cff00ffffGreat Rune|r
-}
-
-STRING 1322
-// Abilities: A007 (Shockwave), Ubertip (Tooltip - Normal - Extended)
-{
-A magical wave of force that ripples outward, causing <AOsh,DataA1> damage to land units in a line.
-
-|cff00ffffGreat Rune|r
-}
-
-STRING 1323
-// Abilities: A007 (Shockwave), Ubertip (Tooltip - Normal - Extended)
-{
-A magical wave of force that ripples outward, causing <AOsh,DataA2> damage to land units in a line.
-
-|cff00ffffGreat Rune|r
-}
-
-STRING 1324
-// Abilities: A007 (Shockwave), Ubertip (Tooltip - Normal - Extended)
-{
-A magical wave of force that ripples outward, causing <AOsh,DataA3> damage to land units in a line.
-
-|cff00ffffGreat Rune|r
-}
-
 STRING 1325
 // Abilities: A00A (Thunder Clap), Researchubertip (Tooltip - Learn - Extended)
 {
@@ -3515,5 +3435,181 @@ STRING 1328
 // Units: n00S (Horsie), Tip (Tooltip - Basic)
 {
 Invoke Horsie
+}
+
+STRING 1329
+// Abilities: A007 (Shockwave), Ubertip (Tooltip - Normal - Extended)
+{
+A magical wave of force that ripples outward, causing <A007,DataA4> damage to land units in a line.
+
+|cff00ffffGreat Rune|r
+}
+
+STRING 1330
+// Abilities: A007 (Shockwave), Ubertip (Tooltip - Normal - Extended)
+{
+A magical wave of force that ripples outward, causing <A007,DataA5> damage to land units in a line.
+
+|cff00ffffGreat Rune|r
+}
+
+STRING 1331
+// Abilities: A007 (Shockwave), Ubertip (Tooltip - Normal - Extended)
+{
+A magical wave of force that ripples outward, causing <A007,DataA6> damage to land units in a line.
+
+|cff00ffffGreat Rune|r
+}
+
+STRING 1332
+// Abilities: A007 (Shockwave), Ubertip (Tooltip - Normal - Extended)
+{
+A magical wave of force that ripples outward, causing <A007,DataA7> damage to land units in a line.
+
+|cff00ffffGreat Rune|r
+}
+
+STRING 1333
+// Abilities: A007 (Shockwave), Ubertip (Tooltip - Normal - Extended)
+{
+A magical wave of force that ripples outward, causing <A007,DataA8> damage to land units in a line.
+
+|cff00ffffGreat Rune|r
+}
+
+STRING 1334
+// Abilities: A007 (Shockwave), Ubertip (Tooltip - Normal - Extended)
+{
+A magical wave of force that ripples outward, causing <A007,DataA9> damage to land units in a line.
+
+|cff00ffffGreat Rune|r
+}
+
+STRING 1335
+// Abilities: A007 (Shockwave), Ubertip (Tooltip - Normal - Extended)
+{
+A magical wave of force that ripples outward, causing <A007,DataA10> damage to land units in a line.
+
+|cff00ffffGreat Rune|r
+}
+
+STRING 1336
+// Abilities: A007 (Shockwave), Ubertip (Tooltip - Normal - Extended)
+{
+A magical wave of force that ripples outward, causing <A007,DataA1> damage to land units in a line.
+
+|cff00ffffGreat Rune|r
+}
+
+STRING 1337
+// Abilities: A007 (Shockwave), Ubertip (Tooltip - Normal - Extended)
+{
+A magical wave of force that ripples outward, causing <A007,DataA2> damage to land units in a line.
+
+|cff00ffffGreat Rune|r
+}
+
+STRING 1338
+// Abilities: A007 (Shockwave), Ubertip (Tooltip - Normal - Extended)
+{
+A magical wave of force that ripples outward, causing <A007,DataA3> damage to land units in a line.
+
+|cff00ffffGreat Rune|r
+}
+
+STRING 1339
+// Abilities: A005 (Heal), Tip (Tooltip - Normal)
+{
+Heal
+}
+
+STRING 1340
+// Abilities: A005 (Heal), Tip (Tooltip - Normal)
+{
+Heal
+}
+
+STRING 1341
+// Abilities: A005 (Heal), Tip (Tooltip - Normal)
+{
+Heal
+}
+
+STRING 1342
+// Abilities: A005 (Heal), Ubertip (Tooltip - Normal - Extended)
+{
+Heals a target friendly non-mechanical wounded unit slightly.
+}
+
+STRING 1343
+// Abilities: A005 (Heal), Ubertip (Tooltip - Normal - Extended)
+{
+Heals a target friendly non-mechanical wounded unit slightly.
+}
+
+STRING 1344
+// Abilities: A005 (Heal), Ubertip (Tooltip - Normal - Extended)
+{
+Heals a target friendly non-mechanical wounded unit slightly.
+}
+
+STRING 1345
+// Abilities: A005 (Heal), Untip (Tooltip - Turn Off)
+{
+|cffc3dbffRight-click to activate auto-casting.|r
+}
+
+STRING 1346
+// Abilities: A005 (Heal), Untip (Tooltip - Turn Off)
+{
+|cffc3dbffRight-click to activate auto-casting.|r
+}
+
+STRING 1347
+// Abilities: A005 (Heal), Untip (Tooltip - Turn Off)
+{
+|cffc3dbffRight-click to activate auto-casting.|r
+}
+
+STRING 1348
+// Abilities: A005 (Heal), Unubertip (Tooltip - Turn Off - Extended)
+{
+|cffc3dbffRight-click to deactivate auto-casting.|r
+}
+
+STRING 1349
+// Abilities: A005 (Heal), Unubertip (Tooltip - Turn Off - Extended)
+{
+|cffc3dbffRight-click to deactivate auto-casting.|r
+}
+
+STRING 1350
+// Abilities: A005 (Heal), Unubertip (Tooltip - Turn Off - Extended)
+{
+|cffc3dbffRight-click to deactivate auto-casting.|r
+}
+
+STRING 1351
+// Abilities: A005 (Heal), Tip (Tooltip - Normal)
+{
+Heal
+}
+
+STRING 1352
+// Abilities: A005 (Heal), Ubertip (Tooltip - Normal - Extended)
+{
+Heals a target friendly non-mechanical wounded unit slightly.
+}
+
+STRING 1353
+// Abilities: A005 (Heal), Untip (Tooltip - Turn Off)
+{
+|cffc3dbffRight-click to activate auto-casting.|r
+}
+
+STRING 1354
+// Abilities: A005 (Heal), Unubertip (Tooltip - Turn Off - Extended)
+{
+|cffc3dbffRight-click to deactivate auto-casting.|r
 }
 

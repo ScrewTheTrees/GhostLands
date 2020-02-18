@@ -9,7 +9,7 @@ export namespace Quick {
         arr[arr.length] = value;
     }
 
-    export function groupToUnitArray(g: group): unit[] {
+    export function GroupToUnitArray(g: group): unit[] {
         let units = [];
         let val = FirstOfGroup(g);
         while (val != null) {
@@ -18,6 +18,12 @@ export namespace Quick {
             val = FirstOfGroup(g);
         }
 
+        return units;
+    }
+
+    export function GroupToUnitArrayDestroy(g: group): unit[] {
+        let units = GroupToUnitArray(g);
+        DestroyGroup(g);
         return units;
     }
 }

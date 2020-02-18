@@ -46,6 +46,22 @@ export class RGB {
     public static getFull() {
         return new RGB(255, 255, 255);
     }
+
+    public static get red() {
+        return new RGB(255, 0, 0);
+    }
+
+    public static get green() {
+        return new RGB(0, 255, 0);
+    }
+
+    public static get blue() {
+        return new RGB(0, 0, 255);
+    }
+
+    public static get teal() {
+        return new RGB(0, 255, 255);
+    }
 }
 
 export function RGBTextString(color: RGB, ...input: any[]) {

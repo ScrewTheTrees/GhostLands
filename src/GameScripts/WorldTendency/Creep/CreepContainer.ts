@@ -1,4 +1,4 @@
-import {Hooks} from "../../TreeLib/Hooks";
+import {Hooks} from "../../../TreeLib/Hooks";
 import {CreepLoot} from "./Loot/CreepLoot";
 import {CreepCamps} from "./CreepCamps";
 

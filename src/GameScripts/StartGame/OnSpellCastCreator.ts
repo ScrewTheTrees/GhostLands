@@ -23,45 +23,45 @@ export class OnSpellCastCreator {
 
     constructor() {
         let greatRune = [FourCC("A00A"), FourCC("A007")];
-        let largeSpells = [];
+        let largeSpells = [1337];
 
         OnSpellCast.getInstance().addSpell(new OnCastContainer(greatRune,
-            (cont) => this.onGrandSpell(cont),
+            OnSpellCastCreator.onGrandSpell,
         ));
         OnSpellCast.getInstance().addSpell(new OnCastContainer(largeSpells,
-            (cont) => this.onLargeSpell(cont)
+            OnSpellCastCreator.onLargeSpell
         ));
 
     }
 
-    private onGrandSpell(cont: SpellData) {
+    private static onGrandSpell(cont: SpellData) {
         let p = Point.fromWidget(cont.castingUnit);
         let rune = "Doodads\\Cityscape\\Props\\MagicRunes\\MagicRunes" + ChooseOne("0.mdl", "1.mdl", "2.mdl");
         let forcesByPlayer = PlayerManager.getInstance().getForcesByPlayer(GetOwningPlayer(cont.castingUnit));
         let rgb = GetColorByForce(forcesByPlayer);
-        let eff = this.createFadingEffect(rune, p, rgb, 2);
+        let eff = OnSpellCastCreator.createFadingEffect(rune, p, rgb, 2);
 
         TemporaryEffects.getInstance().addEffect(new ColorFadeEffect(eff, 180, rgb, new RGB(32, 32, 32)))
     }
 
-    private onLargeSpell(cont: SpellData) {
+    private static onLargeSpell(cont: SpellData) {
         let p = Point.fromWidget(cont.castingUnit);
         let rune = "Doodads\\Cityscape\\Props\\MagicRunes\\MagicRunes" + ChooseOne("0.mdl", "1.mdl", "2.mdl");
         let forcesByPlayer = PlayerManager.getInstance().getForcesByPlayer(GetOwningPlayer(cont.castingUnit));
         let rgb = GetColorByForce(forcesByPlayer);
-        let eff = this.createFadingEffect(rune, p, rgb, 1.5);
+        let eff = OnSpellCastCreator.createFadingEffect(rune, p, rgb, 1.5);
 
         TemporaryEffects.getInstance().addEffect(new ColorFadeEffect(eff, 60, rgb, new RGB(32, 32, 32)))
     }
 
 
-    private createFadingEffect(modelName: string, p: Point, color: RGB, scale: number) {
+    private static createFadingEffect(modelName: string, p: Point, color: RGB, scale: number) {
         let eff = AddSpecialEffect(modelName, p.x, p.y);
 
+        BlzSetSpecialEffectScale(eff, scale);
         BlzSetSpecialEffectColor(eff, color.red, color.green, color.blue);
         BlzSetSpecialEffectYaw(eff, GetRandomReal(0, 360));
-        BlzSetSpecialEffectZ(eff, GetLocationZ(p.toLocationClean()) - 50);
-        BlzSetSpecialEffectScale(eff, scale);
+        BlzSetSpecialEffectZ(eff, GetLocationZ(p.toLocationClean()) - (50 * scale));
 
         return eff;
     }

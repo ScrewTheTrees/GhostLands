@@ -1,5 +1,5 @@
 export const enum WorldState {
-    NEUTRAL,
-    WAR,
-    EVENT,
+    NEUTRAL = "NEUTRAL",
+    WAR = "WAR",
+    EVENT = "EVENT",
 }

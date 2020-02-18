@@ -1,0 +1,77 @@
+Frame "TEXTBUTTON" "BlankCustomButtonTemplate" {
+    Height 0.9,
+    Width 0.9,
+    ControlStyle "AUTOTRACK",
+    ButtonPushedTextOffset 0f 0f,    
+}
+
+Frame "BACKDROP" "MajorButtonBackdropTemplate" {
+    DecorateFileNames,
+    BackdropBackground          "EscMenuButtonBackground",
+    BackdropCornerFlags         "UL|UR|BL|BR|T|L|B|R",
+    BackdropCornerSize          0.0125,
+    BackdropBackgroundInsets    0.005f 0.005f 0.005f 0.005f,
+    BackdropEdgeFile            "MultiboardBorder",
+}
+
+Frame "BACKDROP" "GenericBackdrop" {
+    DecorateFileNames,
+    BackdropBackground          "EscMenuEditBoxBackground",
+    BackdropCornerFlags         "UL|UR|BL|BR|T|L|B|R",
+    BackdropCornerSize          0.0125,
+    BackdropBackgroundInsets    0.005f 0.005f 0.005f 0.005f,
+    BackdropEdgeFile            "MultiboardBorder",
+}
+
+Frame "GLUETEXTBUTTON" "TestFrame" {
+    ControlStyle "HIGHLIGHTONMOUSEOVER",
+    ControlBackdrop "TestFrameBackdrop",
+    ControlPushedBackdrop "TestFramePushedBackdrop",
+	ControlMouseOverHighlight "TestFrameOverHighlight",
+
+	ButtonText "TestFrameButtonText",
+
+	Frame "TEXT" "TestFrameButtonText" {
+		 Text "OK",
+		 DecorateFileNames,
+         FrameFont "EscMenuTextFont", 0.008, "",
+         FontJustificationH JUSTIFYCENTER,
+         FontJustificationV JUSTIFYMIDDLE,
+         FontJustificationOffset 0.0 -0.002,
+         FontFlags "FIXEDSIZE",
+         FontColor 0.99 0.827 0.0705 1.0,
+         FontHighlightColor 1.0 1.0 1.0 1.0,
+         FontDisabledColor 0.5 0.5 0.5 1.0,
+         FontShadowColor 0.0 0.0 0.0 0.9,
+         FontShadowOffset 0.002 -0.002,
+	}
+
+    Frame "BACKDROP" "TestFrameBackdrop" {
+        DecorateFileNames,
+        BackdropTileBackground,
+        BackdropBackground  "EscMenuButtonBackground",
+        BackdropCornerFlags "UL|UR|BL|BR|T|L|B|R",
+        BackdropCornerSize  0.0125,
+        BackdropBackgroundSize  0.256,
+        BackdropBackgroundInsets 0.005 0.005 0.005 0.005,
+        BackdropEdgeFile  "EscMenuButtonBorder",
+    }
+
+    Frame "BACKDROP" "TestFramePushedBackdrop" {
+        DecorateFileNames,
+        BackdropTileBackground,
+        BackdropBackground  "EscMenuButtonPushedBackground",
+        BackdropCornerFlags "UL|UR|BL|BR|T|L|B|R",
+        BackdropCornerSize  0.0125,
+        BackdropBackgroundSize  0.256,
+        BackdropBackgroundInsets 0.005 0.005 0.005 0.005,
+        BackdropEdgeFile  "EscMenuButtonPushedBorder",
+    }
+
+    Frame "HIGHLIGHT" "TestFrameOverHighlight" {
+         DecorateFileNames,
+         HighlightType "FILETEXTURE",
+         HighlightAlphaFile "EscMenuButtonMouseOverHighlight",
+         HighlightAlphaMode "ADD",
+    }
+}

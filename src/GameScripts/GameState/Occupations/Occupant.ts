@@ -63,4 +63,17 @@ export class Occupant {
         }
     }
 
+    public getGuardPostByUnit(u: unit) {
+        for (let i = 0; i < this.guardPosts.length; i++) {
+            let post = this.guardPosts[i];
+            if (post.occupied) {
+                if (u == post.occupied.guard) {
+                    return post;
+                }
+            }
+        }
+
+        return null;
+    }
+
 }

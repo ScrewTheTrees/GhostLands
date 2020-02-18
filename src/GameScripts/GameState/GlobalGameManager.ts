@@ -21,7 +21,7 @@ export class GlobalGameManager extends Entity {
 
     public worldState: WorldState = WorldState.NEUTRAL;
     public allWars: War[] = [];
-    public currentEvent: MapEvent | null = null;
+    public currentEvents: MapEvent[] = [];
     public guardSpawnCounter: number = 0;
     public timeToWar: number = 120;
     public reset: number = 120;
@@ -95,10 +95,6 @@ export class GlobalGameManager extends Entity {
             if (this.guardSpawnCounter == 50) {
                 this.aiManager.performBanditRelocation();
                 this.aiManager.performAIRelocation();
-            }
-
-            if (Math.round(this.guardSpawnCounter % 10) == 0) {
-                print(this.guardSpawnCounter);
             }
 
             if (this.timeToWar <= 0) {

@@ -19,7 +19,7 @@ import {Songs} from "../../flavor/Songs";
 
 export class War extends Entity {
     public state: WarState = WarState.SETUP;
-    public targets: WarContainer | null;
+    public targets: WarContainer;
 
     public isFinished: boolean = false;
     public countdown: number = 60;
@@ -76,9 +76,6 @@ export class War extends Entity {
                     this.countdown = 5;
                     this.state = WarState.PREPARE_FOR_SIEGE;
                 }
-            }
-            if (math.floor(this.countdown) % 5 == 0) {
-                Logger.generic(this.countdown);
             }
 
         }

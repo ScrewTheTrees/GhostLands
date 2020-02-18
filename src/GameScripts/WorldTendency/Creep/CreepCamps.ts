@@ -1,14 +1,14 @@
-import {Hooks} from "../../TreeLib/Hooks";
-import {Quick} from "../../TreeLib/Quick";
-import {UnitRespawner} from "../../TreeLib/Respawner/UnitRespawner";
-import {Entity} from "../../TreeLib/Entity";
+import {Hooks} from "../../../TreeLib/Hooks";
+import {Quick} from "../../../TreeLib/Quick";
+import {UnitRespawner} from "../../../TreeLib/Respawner/UnitRespawner";
+import {Entity} from "../../../TreeLib/Entity";
 import {NeutralCreepCamp} from "./NeutralCreepCamp";
-import {Players} from "../../TreeLib/Structs/Players";
+import {Players} from "../../../TreeLib/Structs/Players";
 import {CampBuilding} from "./CampBuilding";
-import {Point} from "../../TreeLib/Utility/Point";
-import {NamedRect} from "../RectControl/NamedRect";
+import {Point} from "../../../TreeLib/Utility/Point";
+import {NamedRect} from "../../RectControl/NamedRect";
 import {CreepCampTypes} from "./CreepCampTypes";
-import {PlayerManager} from "../PlayerManager";
+import {PlayerManager} from "../../PlayerManager";
 
 export class CreepCamps extends Entity {
     private static instance: CreepCamps;
@@ -78,7 +78,7 @@ export class CreepCamps extends Entity {
     private spawnCamp(type: string, campType: CreepCampTypes, strength: number) {
         let num = 0;
         let namedRects = [];
-        let group = Quick.groupToUnitArray(GetUnitsOfPlayerAndTypeId(Players.NEUTRAL_HOSTILE, FourCC(type)));
+        let group = Quick.GroupToUnitArray(GetUnitsOfPlayerAndTypeId(Players.NEUTRAL_HOSTILE, FourCC(type)));
         for (let i = 0; i < group.length; i++) {
             let val = group[i];
             let p = Point.fromWidget(val);

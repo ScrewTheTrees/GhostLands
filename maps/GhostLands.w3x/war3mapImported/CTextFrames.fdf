@@ -1,0 +1,47 @@
+Frame "TEXT" "CText_5" {
+	LayerStyle "IGNORETRACKEVENTS",
+	UseActiveContext,
+	DecorateFileNames,
+	FrameFont "MasterFont", 0.005,"",
+	Text "",
+}
+
+Frame "TEXT" "CText_8" {
+	LayerStyle "IGNORETRACKEVENTS",
+	UseActiveContext,
+	DecorateFileNames,
+	FrameFont "MasterFont", 0.008,"",
+	Text "",
+}
+
+Frame "TEXT" "CText_9" {
+	LayerStyle "IGNORETRACKEVENTS",
+	UseActiveContext,
+	DecorateFileNames,
+	FrameFont "MasterFont", 0.009,"",
+	Text "",
+}
+
+Frame "TEXT" "CText_10" {
+	LayerStyle "IGNORETRACKEVENTS",
+	UseActiveContext,
+	DecorateFileNames,
+	FrameFont "MasterFont", 0.010,"",
+	Text "",
+}
+
+Frame "TEXT" "CText_15" {
+	LayerStyle "IGNORETRACKEVENTS",
+	UseActiveContext,
+	DecorateFileNames,
+	FrameFont "MasterFont", 0.015,"",
+	Text "",
+}
+
+Frame "TEXT" "CText_20" {
+	LayerStyle "IGNORETRACKEVENTS",
+	UseActiveContext,
+	DecorateFileNames,
+	FrameFont "MasterFont", 0.020,"",
+	Text "",
+}

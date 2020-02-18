@@ -1,6 +1,6 @@
-import {Quick} from "../../TreeLib/Quick";
+import {Quick} from "../../Quick";
 
-export class SpawnTable {
+export class IndexSpawnTable {
     private values: string[];
 
     constructor(...values: string[]) {

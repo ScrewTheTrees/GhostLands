@@ -1,8 +1,8 @@
-import {Hooks} from "../../../TreeLib/Hooks";
-import {Players} from "../../../TreeLib/Structs/Players";
-import {Point} from "../../../TreeLib/Utility/Point";
+import {Hooks} from "../../../../TreeLib/Hooks";
+import {Players} from "../../../../TreeLib/Structs/Players";
+import {Point} from "../../../../TreeLib/Utility/Point";
 import {CreepLootTable} from "./CreepLootTable";
-import {Logger} from "../../../TreeLib/Logger";
+import {Logger} from "../../../../TreeLib/Logger";
 
 
 export class CreepLoot {
@@ -27,6 +27,14 @@ export class CreepLoot {
         return this.instance;
     }
 
+    public getIndexLootTendency(p: number) {
+        return this.chances[p];
+    }
+
+    public getPlayerLootTendency(p: player) {
+        return this.chances[GetPlayerId(p)];
+    }
+
 
     public onCreepDeath() {
         const dying = GetDyingUnit();
@@ -37,9 +45,9 @@ export class CreepLoot {
         const chance = GetRandomReal(0, 100);
         const modChance = this.chances[p];
 
-        Logger.generic("With a chance of ", chance, " < ", modChance);
+        Logger.verbose("With a chance of ", chance, " < ", modChance);
         if (chance < modChance) {
-            Logger.generic(">   passed the threshold");
+            Logger.verbose(">   passed the threshold");
             CreateItem(CreepLootTable.getTableByLevel(level).getRandomAsId(), position.x, position.y);
             this.chances[p] -= 30;
         } else {

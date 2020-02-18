@@ -1,4 +1,4 @@
-import {SpawnTable} from "../SpawnTable";
+import {IndexSpawnTable} from "../../../../TreeLib/Utility/Data/IndexSpawnTable";
 
 export namespace CreepLootTable {
     export function getTableByLevel(level: number) {
@@ -11,5 +11,5 @@ export namespace CreepLootTable {
         }
     }
 
-    export const TIER_1 = new SpawnTable("I000", "I001", "I002", "I003", "I004");
+    export const TIER_1 = new IndexSpawnTable("I000", "I001", "I002", "I003", "I004");
 }

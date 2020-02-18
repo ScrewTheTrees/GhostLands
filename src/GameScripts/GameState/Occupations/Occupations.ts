@@ -7,20 +7,22 @@ import {PlayerUnits} from "../../Enums/PlayerUnits";
 import {PlayerManager} from "../../PlayerManager";
 import {DamageDetectionSystem} from "../../../TreeLib/DDS/DamageDetectionSystem";
 import {HitCallback} from "../../../TreeLib/DDS/HitCallback";
-import {DDSFilterTargetUnitTypes} from "../../../TreeLib/DDS/Filters/DDSFilterTargetUnitTypes";
 import {Delay} from "../../../TreeLib/Utility/Delay";
 import {DDSFilterIsEnemy} from "../../../TreeLib/DDS/Filters/DDSFilterIsEnemy";
 import {DamageHitContainer} from "../../../TreeLib/DDS/DamageHitContainer";
 import {Quick} from "../../../TreeLib/Quick";
+import {DDSFilterTargetUnitPlayers} from "../../../TreeLib/DDS/Filters/DDSFilterTargetUnitPlayers";
+import {InverseFourCC} from "../../../TreeLib/Misc";
 
 export class Occupations {
     private static instance: Occupations;
 
     constructor() {
+        const mgr = PlayerManager.getInstance();
         this.callToAid = DamageDetectionSystem.getInstance().registerAfterDamageCalculation((hitObject) => {
             this.onCallToAid(hitObject);
         });
-        this.callToAid.addFilter(new DDSFilterTargetUnitTypes(FourCC(PlayerUnits.HALL_FORCE_1), FourCC(PlayerUnits.HALL_FORCE_2), FourCC(PlayerUnits.HALL_FORCE_BANDITS)));
+        this.callToAid.addFilter(new DDSFilterTargetUnitPlayers(mgr.team1Player, mgr.team2Player, mgr.bandit));
         this.callToAid.addFilter(new DDSFilterIsEnemy());
     }
 
@@ -114,6 +116,16 @@ export class Occupations {
         return null;
     }
 
+    getOccupationByGuard(guard: unit): Occupant | null {
+        for (let i = 0; i < this.allOccupants.length; i++) {
+            let occu = this.allOccupants[i];
+            if (occu.getGuardPostByUnit(guard) != null) {
+                return occu;
+            }
+        }
+        return null;
+    }
+
     getHallByForce(force: Forces): number {
         switch (force) {
             case Forces.FORCE_1:
@@ -154,7 +166,13 @@ export class Occupations {
     }
 
     private onCallToAid(hitObject: DamageHitContainer) {
-        let occupation = this.getOccupationByHall(hitObject.targetUnit);
+        let occupation: Occupant | null;
+        if (this.isHall(hitObject.targetUnitType)) {
+            occupation = this.getOccupationByHall(hitObject.targetUnit);
+        } else {
+            occupation = this.getOccupationByGuard(hitObject.targetUnit);
+        }
+
         if (occupation != null) {
             for (let i = 0; i < occupation.guardPosts.length; i++) {
                 let post = occupation.guardPosts[i];
@@ -170,6 +188,14 @@ export class Occupations {
                 }
             }
         }
+    }
+
+    private isHall(unitType: number) {
+        let u = InverseFourCC(unitType);
+        return (u == PlayerUnits.HALL_FORCE_1
+            || u == PlayerUnits.HALL_FORCE_2
+            || u == PlayerUnits.HALL_FORCE_BANDITS
+        );
     }
 
 }
