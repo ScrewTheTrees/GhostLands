@@ -23,12 +23,12 @@ export class OnSpellCastCreator {
 
     constructor() {
         let greatRune = [FourCC("A00A"), FourCC("A007")];
-        let largeSpells = [1337];
+        let largeRunes = [FourCC("A00J")];
 
         OnSpellCast.getInstance().addSpell(new OnCastContainer(greatRune,
             OnSpellCastCreator.onGrandSpell,
         ));
-        OnSpellCast.getInstance().addSpell(new OnCastContainer(largeSpells,
+        OnSpellCast.getInstance().addSpell(new OnCastContainer(largeRunes,
             OnSpellCastCreator.onLargeSpell
         ));
 

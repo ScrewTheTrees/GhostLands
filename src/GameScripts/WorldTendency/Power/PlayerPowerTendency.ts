@@ -64,7 +64,7 @@ export class PlayerPowerTendency extends Entity {
 
         for (let i = 0; i < GetBJMaxPlayers(); i++) {
             const p = Player(i);
-            this.tendencies[i] = this.globalPower / this.playerPower[i];
+            this.tendencies[i] = ((this.globalPower / this.playerPower[i]) + 1) / 2;
             SetPlayerHandicapXP(p, this.getPlayerActualXPTendency(p));
         }
 

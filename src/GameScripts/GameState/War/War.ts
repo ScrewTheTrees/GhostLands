@@ -73,7 +73,7 @@ export class War extends Entity {
                     this.state = WarState.CLASHING;
                 } else {
                     Logger.generic("No deadlock, go to: ", WarState.PREPARE_FOR_SIEGE);
-                    this.countdown = 5;
+                    this.countdown = 1;
                     this.state = WarState.PREPARE_FOR_SIEGE;
                 }
             }
@@ -84,7 +84,7 @@ export class War extends Entity {
             if (this.countdown <= 0) {
                 Logger.generic("Start siege.");
                 this.startSiege(this.targets);
-                this.countdown = 5;
+                this.countdown = 1;
                 this.state = WarState.SIEGE;
             }
         }

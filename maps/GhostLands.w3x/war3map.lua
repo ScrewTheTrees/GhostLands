@@ -555,17 +555,6 @@ gg_trg_Untitled_Trigger_001 = nil
 function InitGlobals()
 end
 
-function CreateUnitsForPlayer0()
-    local p = Player(0)
-    local u
-    local unitID
-    local t
-    local life
-    u = BlzCreateUnitWithSkin(p, FourCC("H000"), -27793.2, 23963.1, 277.180, FourCC("H000"))
-    SetHeroLevel(u, 5, false)
-    SetUnitState(u, UNIT_STATE_MANA, 100)
-end
-
 function CreateUnitsForPlayer16()
     local p = Player(16)
     local u
@@ -927,7 +916,6 @@ function CreatePlayerBuildings()
 end
 
 function CreatePlayerUnits()
-    CreateUnitsForPlayer0()
     CreateUnitsForPlayer16()
     CreateUnitsForPlayer17()
     CreateUnitsForPlayer18()

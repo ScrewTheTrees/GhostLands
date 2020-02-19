@@ -24,7 +24,7 @@ Frame "BACKDROP" "GenericBackdrop" {
 }
 
 Frame "GLUETEXTBUTTON" "TestFrame" {
-    ControlStyle "HIGHLIGHTONMOUSEOVER",
+    ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
     ControlBackdrop "TestFrameBackdrop",
     ControlPushedBackdrop "TestFramePushedBackdrop",
 	ControlMouseOverHighlight "TestFrameOverHighlight",

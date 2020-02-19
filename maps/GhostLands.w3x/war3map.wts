@@ -3613,3 +3613,200 @@ STRING 1354
 |cffc3dbffRight-click to deactivate auto-casting.|r
 }
 
+STRING 1355
+// Abilities: A00I (Undying bravery), Name (Name)
+{
+Undying bravery
+}
+
+STRING 1356
+// Abilities: A00I (Undying bravery), Researchtip (Tooltip - Learn)
+{
+Learn Undying bravery - [|cffffcc00Level %d|r]
+}
+
+STRING 1358
+// Abilities: A00I (Undying bravery), Tip (Tooltip - Normal)
+{
+Undying bravery
+}
+
+STRING 1360
+// Abilities: A00I (Undying bravery), EditorSuffix (Editor Suffix)
+{
+(Armor Aura Tier 1)
+}
+
+STRING 1361
+// Buffs/Effects: B000 (), Bufftip (Tooltip)
+{
+Undying Bravery
+}
+
+STRING 1362
+// Buffs/Effects: B000 (), Buffubertip (Tooltip - Extended)
+{
+This unit is under the effects of Undying Bravery; it has increased armor.
+}
+
+STRING 1363
+// Abilities: A00J (Healing Wave), EditorSuffix (Editor Suffix)
+{
+(R)
+}
+
+STRING 1364
+// Abilities: A00J (Healing Wave), Researchhotkey (Hotkey - Learn)
+{
+R
+}
+
+STRING 1365
+// Abilities: A00J (Healing Wave), Hotkey (Hotkey - Normal)
+{
+R
+}
+
+STRING 1369
+// Abilities: A00J (Healing Wave), Tip (Tooltip - Normal)
+{
+Healing Wave - [|cffffcc00Level 4|r]
+}
+
+STRING 1370
+// Abilities: A00J (Healing Wave), Tip (Tooltip - Normal)
+{
+Healing Wave - [|cffffcc00Level 5|r]
+}
+
+STRING 1371
+// Abilities: A00J (Healing Wave), Tip (Tooltip - Normal)
+{
+Healing Wave - [|cffffcc00Level 6|r]
+}
+
+STRING 1372
+// Abilities: A00J (Healing Wave), Tip (Tooltip - Normal)
+{
+Healing Wave - [|cffffcc00Level 7|r]
+}
+
+STRING 1373
+// Abilities: A00J (Healing Wave), Tip (Tooltip - Normal)
+{
+Healing Wave - [|cffffcc00Level 8|r]
+}
+
+STRING 1374
+// Abilities: A00J (Healing Wave), Tip (Tooltip - Normal)
+{
+Healing Wave - [|cffffcc00Level 9|r]
+}
+
+STRING 1375
+// Abilities: A00J (Healing Wave), Tip (Tooltip - Normal)
+{
+Healing Wave - [|cffffcc00Level 10|r]
+}
+
+STRING 1387
+// Abilities: A00I (Undying bravery), Ubertip (Tooltip - Normal - Extended)
+{
+Gives <A00I,DataA1,.> additional armor to nearby friendly units.
+
+|cffd45e19The general has survived countless battles and his veterancy and vitality can be felt by his very presence.|r
+}
+
+STRING 1388
+// Abilities: A00J (Healing Wave), Researchubertip (Tooltip - Learn - Extended)
+{
+Calls forth a magical wave of energy that heals a target and bounces to nearby friendlies. Each bounce heals less damage.
+
+|cffffcc00Healing|r - 40 + (20*L)
+|cffffcc00Mana cost|r - 10 + (5*L)
+|cffffcc00Bounces|r - 8
+|cffffcc00Reduction Per Bounce|r - 10%
+
+|cff00ffffLarge Rune|r
+}
+
+STRING 1399
+// Abilities: A00J (Healing Wave), Ubertip (Tooltip - Normal - Extended)
+{
+Calls forth a magical wave of healing energy that bounces up to <A00J,DataB1> times, healing <A00J,DataA1> damage on the primary target. Each jump heals less damage.
+
+|cff00ffffLarge Rune|r
+}
+
+STRING 1400
+// Abilities: A00J (Healing Wave), Ubertip (Tooltip - Normal - Extended)
+{
+Calls forth a magical wave of healing energy that bounces up to <A00J,DataB2> times, healing <A00J,DataA2> damage on the primary target. Each jump heals less damage.
+
+|cff00ffffLarge Rune|r
+}
+
+STRING 1401
+// Abilities: A00J (Healing Wave), Ubertip (Tooltip - Normal - Extended)
+{
+Calls forth a magical wave of healing energy that bounces up to <A00J,DataB3> times, healing <A00J,DataA3> damage on the primary target. Each jump heals less damage.
+
+|cff00ffffLarge Rune|r
+}
+
+STRING 1402
+// Abilities: A00J (Healing Wave), Ubertip (Tooltip - Normal - Extended)
+{
+Calls forth a magical wave of healing energy that bounces up to <A00J,DataB4> times, healing <A00J,DataA4> damage on the primary target. Each jump heals less damage.
+
+|cff00ffffLarge Rune|r
+}
+
+STRING 1403
+// Abilities: A00J (Healing Wave), Ubertip (Tooltip - Normal - Extended)
+{
+Calls forth a magical wave of healing energy that bounces up to <A00J,DataB5> times, healing <A00J,DataA5> damage on the primary target. Each jump heals less damage.
+
+|cff00ffffLarge Rune|r
+}
+
+STRING 1404
+// Abilities: A00J (Healing Wave), Ubertip (Tooltip - Normal - Extended)
+{
+Calls forth a magical wave of healing energy that bounces up to <A00J,DataB6> times, healing <A00J,DataA6> damage on the primary target. Each jump heals less damage.
+
+|cff00ffffLarge Rune|r
+}
+
+STRING 1405
+// Abilities: A00J (Healing Wave), Ubertip (Tooltip - Normal - Extended)
+{
+Calls forth a magical wave of healing energy that bounces up to <A00J,DataB7> times, healing <A00J,DataA7> damage on the primary target. Each jump heals less damage.
+
+|cff00ffffLarge Rune|r
+}
+
+STRING 1406
+// Abilities: A00J (Healing Wave), Ubertip (Tooltip - Normal - Extended)
+{
+Calls forth a magical wave of healing energy that bounces up to <A00J,DataB8> times, healing <A00J,DataA8> damage on the primary target. Each jump heals less damage.
+
+|cff00ffffLarge Rune|r
+}
+
+STRING 1407
+// Abilities: A00J (Healing Wave), Ubertip (Tooltip - Normal - Extended)
+{
+Calls forth a magical wave of healing energy that bounces up to <A00J,DataB9> times, healing <A00J,DataA9> damage on the primary target. Each jump heals less damage.
+
+|cff00ffffLarge Rune|r
+}
+
+STRING 1408
+// Abilities: A00J (Healing Wave), Ubertip (Tooltip - Normal - Extended)
+{
+Calls forth a magical wave of healing energy that bounces up to <A00J,DataB10> times, healing <A00J,DataA10> damage on the primary target. Each jump heals less damage.
+
+|cff00ffffLarge Rune|r
+}
+

@@ -1,10 +1,11 @@
 import {Hooks} from "../TreeLib/Hooks";
 import {Entity} from "../TreeLib/Entity";
 import {GlobalGameManager} from "./GameState/GlobalGameManager";
-import {War} from "./GameState/War/War";
+import {War, WarState} from "./GameState/War/War";
 import {RGB, RGBTextString} from "../TreeLib/Utility/RGB";
 import {CreepLoot} from "./WorldTendency/Creep/Loot/CreepLoot";
 import {PlayerPowerTendency} from "./WorldTendency/Power/PlayerPowerTendency";
+import {WorldState} from "./Enums/WorldState";
 
 export class DebugUI extends Entity {
     private static instance: DebugUI;
@@ -23,6 +24,9 @@ export class DebugUI extends Entity {
     private testButtonFrame: framehandle;
     private testButtonFrame2: framehandle;
     private testButtonFrame3: framehandle;
+
+
+    private button1Trig = CreateTrigger();
 
     constructor() {
         super();
@@ -52,20 +56,26 @@ export class DebugUI extends Entity {
         BlzFrameSetAlpha(this.sideBarWarText, 255);
 
         BlzFrameSetSize(this.testButtonFrame, 0.06, 0.025);
-        BlzFrameSetPoint(this.testButtonFrame, FRAMEPOINT_BOTTOMLEFT ,this.sidebar, FRAMEPOINT_BOTTOMLEFT, 0, 0);
+        BlzFrameSetPoint(this.testButtonFrame, FRAMEPOINT_BOTTOMLEFT, this.sidebar, FRAMEPOINT_BOTTOMLEFT, 0, 0);
         BlzFrameSetAlpha(this.testButtonFrame, 255);
+        BlzTriggerRegisterFrameEvent(this.button1Trig, this.testButtonFrame, FRAMEEVENT_CONTROL_CLICK);
+        TriggerAddAction(this.button1Trig, () => this.pressButton1());
 
         BlzFrameSetSize(this.testButtonFrame2, 0.06, 0.025);
-        BlzFrameSetPoint(this.testButtonFrame2, FRAMEPOINT_BOTTOMLEFT ,this.sidebar, FRAMEPOINT_BOTTOMLEFT, 0.06, 0);
+        BlzFrameSetPoint(this.testButtonFrame2, FRAMEPOINT_BOTTOMLEFT, this.sidebar, FRAMEPOINT_BOTTOMLEFT, 0.06, 0);
         BlzFrameSetAlpha(this.testButtonFrame2, 255);
 
         BlzFrameSetSize(this.testButtonFrame3, 0.06, 0.025);
-        BlzFrameSetPoint(this.testButtonFrame3, FRAMEPOINT_BOTTOMLEFT ,this.sidebar, FRAMEPOINT_BOTTOMLEFT, 0.12, 0);
+        BlzFrameSetPoint(this.testButtonFrame3, FRAMEPOINT_BOTTOMLEFT, this.sidebar, FRAMEPOINT_BOTTOMLEFT, 0.12, 0);
         BlzFrameSetAlpha(this.testButtonFrame3, 255);
 
     }
 
     step() {
+        this.reRender();
+    }
+
+    private reRender() {
         let gameManager = GlobalGameManager.getInstance();
         let loot = CreepLoot.getInstance();
         let playerPowerTendency = PlayerPowerTendency.getInstance();
@@ -87,7 +97,7 @@ localPowerLevel: ${RGBTextString(RGB.red, playerPowerTendency.getPlayerPowerLeve
 localXPTendency: ${RGBTextString(RGB.red, playerPowerTendency.getPlayerXPTendency(GetLocalPlayer()))} / ${RGBTextString(RGB.green, playerPowerTendency.getPlayerActualXPTendency(GetLocalPlayer()))}
 `);
 
-        BlzFrameSetText(this.testButtonFrame, "Inhale");
+        BlzFrameSetText(this.testButtonFrame, this.getButton1Text());
         BlzFrameSetText(this.testButtonFrame2, "Dong");
         BlzFrameSetText(this.testButtonFrame3, "Kid");
     }
@@ -114,5 +124,28 @@ siegeTimer: ${RGBTextString(RGB.red, war.siegeTimer)}
 force1 target name: ${RGBTextString(RGB.teal, war.targets.targets.force1.center.name)}
 force2 target name: ${RGBTextString(RGB.teal, war.targets.targets.force2.center.name)}
 selectedBattlefield: ${RGBTextString(RGB.teal, selectedBattlefield)}`;
+    }
+
+    getButton1Text() {
+        let gameManager = GlobalGameManager.getInstance();
+        if (gameManager.worldState == WorldState.NEUTRAL) {
+            return "Start war"
+        } else if (gameManager.allWars.length > 0 && (gameManager.allWars[0].state == WarState.PREPARE_CLASH || gameManager.allWars[0].state == WarState.PREPARE_FOR_SIEGE)) {
+            return "Advance Stage";
+        }
+
+        return "What?";
+    }
+
+    pressButton1() {
+        let gameManager = GlobalGameManager.getInstance();
+        if (gameManager.worldState == WorldState.NEUTRAL) {
+            gameManager.startWar();
+        } else if (gameManager.allWars.length > 0 && (gameManager.allWars[0].state == WarState.PREPARE_CLASH || gameManager.allWars[0].state == WarState.PREPARE_FOR_SIEGE)) {
+            gameManager.allWars.forEach((war) => war.countdown = 1);
+        }
+
+
+        this.reRender();
     }
 }
