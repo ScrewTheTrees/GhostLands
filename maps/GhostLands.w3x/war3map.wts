@@ -341,30 +341,6 @@ STRING 103
 (Tier 1)
 }
 
-STRING 137
-// Units: n00C (Forest Troll Hut), EditorSuffix (Name - Editor Suffix)
-{
-(Size 5)
-}
-
-STRING 138
-// Units: n00D (Murloc Hut), EditorSuffix (Name - Editor Suffix)
-{
-(Size 5)
-}
-
-STRING 139
-// Units: n00G (Forest Troll Hut), EditorSuffix (Name - Editor Suffix)
-{
-(Size 3)
-}
-
-STRING 140
-// Units: n00H (Murloc Hut), EditorSuffix (Name - Editor Suffix)
-{
-(Size 3)
-}
-
 STRING 141
 // Abilities: A003 (Ensnare), EditorSuffix (Editor Suffix)
 {
@@ -425,26 +401,8 @@ STRING 152
 Consumes a nearby corpse to heal <A00G,DataA1> hit points per second.
 }
 
-STRING 153
-// Units: n00I (Egg Sack), EditorSuffix (Name - Editor Suffix)
-{
-(Size 3)
-}
-
 STRING 154
 // Units: n00I (Egg Sack), Name (Name)
-{
-Egg Sack
-}
-
-STRING 155
-// Units: n00J (Egg Sack), EditorSuffix (Name - Editor Suffix)
-{
-(Size 5)
-}
-
-STRING 156
-// Units: n00J (Egg Sack), Name (Name)
 {
 Egg Sack
 }
@@ -549,30 +507,6 @@ STRING 175
 // Abilities: A00G (Cannibalize), EditorSuffix (Editor Suffix)
 {
 (Tier 1)
-}
-
-STRING 176
-// Units: n00O (Egg Sack), EditorSuffix (Name - Editor Suffix)
-{
-(Size 8)
-}
-
-STRING 177
-// Units: n00O (Egg Sack), Name (Name)
-{
-Egg Sack
-}
-
-STRING 178
-// Units: n00P (Forest Troll Hut), EditorSuffix (Name - Editor Suffix)
-{
-(Size 8)
-}
-
-STRING 179
-// Units: n00Q (Murloc Hut), EditorSuffix (Name - Editor Suffix)
-{
-(Size 8)
 }
 
 STRING 180
@@ -3217,21 +3151,9 @@ W
 }
 
 STRING 1257
-// Abilities: A004 (Watch out watch out watch out), EditorSuffix (Editor Suffix)
+// Abilities: A00J (Healing Wave), EditorSuffix (Editor Suffix)
 {
 (E)
-}
-
-STRING 1258
-// Abilities: A004 (Watch out watch out watch out), Researchhotkey (Hotkey - Learn)
-{
-E
-}
-
-STRING 1259
-// Abilities: A004 (Watch out watch out watch out), Hotkey (Hotkey - Normal)
-{
-E
 }
 
 STRING 1260
@@ -3650,19 +3572,19 @@ This unit is under the effects of Undying Bravery; it has increased armor.
 }
 
 STRING 1363
-// Abilities: A00J (Healing Wave), EditorSuffix (Editor Suffix)
+// Abilities: A004 (Watch out watch out watch out), EditorSuffix (Editor Suffix)
 {
 (R)
 }
 
 STRING 1364
-// Abilities: A00J (Healing Wave), Researchhotkey (Hotkey - Learn)
+// Abilities: A004 (Watch out watch out watch out), Researchhotkey (Hotkey - Learn)
 {
 R
 }
 
 STRING 1365
-// Abilities: A00J (Healing Wave), Hotkey (Hotkey - Normal)
+// Abilities: A004 (Watch out watch out watch out), Hotkey (Hotkey - Normal)
 {
 R
 }
@@ -3808,5 +3730,23 @@ STRING 1408
 Calls forth a magical wave of healing energy that bounces up to <A00J,DataB10> times, healing <A00J,DataA10> damage on the primary target. Each jump heals less damage.
 
 |cff00ffffLarge Rune|r
+}
+
+STRING 1409
+// Units: n00G (Forest Troll Hut), EditorSuffix (Name - Editor Suffix)
+{
+(Trolls)
+}
+
+STRING 1410
+// Units: n00H (Murloc Hut), EditorSuffix (Name - Editor Suffix)
+{
+(Murlocs)
+}
+
+STRING 1411
+// Units: n00I (Egg Sack), EditorSuffix (Name - Editor Suffix)
+{
+(Spiders)
 }
 

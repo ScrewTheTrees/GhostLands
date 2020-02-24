@@ -18,15 +18,9 @@ export class CreepCamps extends Entity {
     constructor() {
         super();
         this._timerDelay = 10;
-        this.spawnCamp(CampBuilding.FOREST_TROLL_HUT_SIZE_3, CreepCampTypes.FOREST_TROLL, 3);
-        this.spawnCamp(CampBuilding.FOREST_TROLL_HUT_SIZE_5, CreepCampTypes.FOREST_TROLL, 5);
-        this.spawnCamp(CampBuilding.FOREST_TROLL_HUT_SIZE_8, CreepCampTypes.FOREST_TROLL, 8);
-        this.spawnCamp(CampBuilding.MURLOC_HUT_SIZE_3, CreepCampTypes.MURLOC, 3);
-        this.spawnCamp(CampBuilding.MURLOC_HUT_SIZE_5, CreepCampTypes.MURLOC, 5);
-        this.spawnCamp(CampBuilding.MURLOC_HUT_SIZE_8, CreepCampTypes.MURLOC, 8);
-        this.spawnCamp(CampBuilding.EGG_SACK_SIZE_3, CreepCampTypes.SPIDER, 3);
-        this.spawnCamp(CampBuilding.EGG_SACK_SIZE_5, CreepCampTypes.SPIDER, 5);
-        this.spawnCamp(CampBuilding.EGG_SACK_SIZE_8, CreepCampTypes.SPIDER, 8);
+        this.spawnCamp(CampBuilding.FOREST_TROLL_HUT, CreepCampTypes.FOREST_TROLL);
+        this.spawnCamp(CampBuilding.MURLOC_HUT, CreepCampTypes.MURLOC);
+        this.spawnCamp(CampBuilding.EGG_SACK, CreepCampTypes.SPIDER);
     }
 
     public static getInstance() {
@@ -75,7 +69,7 @@ export class CreepCamps extends Entity {
         return true;
     }
 
-    private spawnCamp(type: string, campType: CreepCampTypes, strength: number) {
+    private spawnCamp(type: string, campType: CreepCampTypes) {
         let num = 0;
         let namedRects = [];
         let group = Quick.GroupToUnitArray(GetUnitsOfPlayerAndTypeId(Players.NEUTRAL_HOSTILE, FourCC(type)));
@@ -90,10 +84,20 @@ export class CreepCamps extends Entity {
 
         for (let i = 0; i < namedRects.length; i++) {
             let value = namedRects[i];
+            let strength = this.resolveStrength(value);
             let camp = new NeutralCreepCamp(value, [], campType, strength);
             Quick.Push(this.camps, camp);
             camp.respawn();
         }
+    }
+
+    private resolveStrength(namedRect: NamedRect) {
+        let map = GetEntireMapRect();
+        let cornerUpLeft = new Point(GetRectMinX(map), GetRectMaxY(map));
+        let cornerDownRight = new Point(GetRectMaxX(map), GetRectMinY(map));
+        let campLoc = namedRect.getCenter();
+        let dist = math.min(campLoc.distanceTo(cornerUpLeft), campLoc.distanceTo(cornerDownRight));
+        return math.ceil(dist / 10000) + 2;
     }
 }
 
