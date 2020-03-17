@@ -46,6 +46,7 @@ export class ActionQueue extends Entity {
         if (this.allQueues.indexOf(queue) < 0) {
             Logger.LogVerbose("Queue is missing, adding");
             Quick.Push(this.allQueues, queue);
+            queue.init();
             return;
         }
         Logger.LogVerbose("Queue is present.");
@@ -55,7 +56,7 @@ export class ActionQueue extends Entity {
         for (let i = 0; i < this.allQueues.length; i++) {
             let queue = this.allQueues[i];
             if (queue.isFinished) {
-                Quick.Splice(this.allQueues, i);
+                Quick.Slice(this.allQueues, i);
                 Logger.LogVerbose("Spliced queue:", this.allQueues.length);
                 i -= 1;
             } else if (!queue.isPaused) {
@@ -129,7 +130,7 @@ export class ActionQueue extends Entity {
         queue.isFinished = true;
         if (index >= 0) {
             Logger.verbose("Queue is present, splicing");
-            Quick.Splice(this.allQueues, index);
+            Quick.Slice(this.allQueues, index);
             return;
         }
         Logger.LogVerbose("Queue is not present, no action required.");

@@ -46,7 +46,7 @@ export class NeutralCreepCamp {
         for (let i = 0; i < this.creeps.length; i++) {
             let value = this.creeps[i];
             if (!IsValidUnit(value)) {
-                Quick.Splice(this.creeps, i);
+                Quick.Slice(this.creeps, i);
                 i -= 1;
             }
         }

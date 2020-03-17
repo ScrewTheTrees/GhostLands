@@ -154,7 +154,7 @@ export class PlayerUnitManager extends Entity {
             if (routeUnit.target == target) {
                 routeUnit.queue.isFinished = true;
                 ActionQueue.disableQueue(routeUnit.queue);
-                Quick.Splice(this.onRouteUnits, i);
+                Quick.Slice(this.onRouteUnits, i);
                 return;
             }
         }

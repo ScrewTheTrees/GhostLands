@@ -117,7 +117,7 @@ export class Army {
             if (!unit.isDead()) {
                 return false;
             } else {
-                Quick.Splice(this.units, i);
+                Quick.Slice(this.units, i);
                 i -= 1;
             }
         }

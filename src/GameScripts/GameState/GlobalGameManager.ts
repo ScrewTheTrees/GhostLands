@@ -120,7 +120,7 @@ export class GlobalGameManager extends Entity {
         for (let i = 0; i < this.allWars.length; i++) {
             let war = this.allWars[i];
             if (war.state == WarState.END) {
-                Quick.Splice(this.allWars, i);
+                Quick.Slice(this.allWars, i);
                 i -= 1;
             }
         }

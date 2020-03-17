@@ -12,7 +12,7 @@ export class SpawnWeight<T> {
     public remove(type: T, amount: number = -1) {
         for (let i = 0; i < this.list.length; i++) {
             if (type == this.list[i]) {
-                Quick.Splice(this.list, i);
+                Quick.Slice(this.list, i);
                 i -= 1;
                 amount -= 1;
                 if (amount == 0) {
