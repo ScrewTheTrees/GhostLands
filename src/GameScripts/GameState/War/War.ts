@@ -14,7 +14,6 @@ import {UnitActionDeath} from "../../../TreeLib/ActionQueue/Actions/UnitActionDe
 import {UnitActionWaypoint} from "../../../TreeLib/ActionQueue/Actions/UnitActionWaypoint";
 import {Delay} from "../../../TreeLib/Utility/Delay";
 import {NamedRect} from "../../RectControl/NamedRect";
-import {GetDelayFromUnit} from "../../Enums/UnitClass";
 import {Songs} from "../../flavor/Songs";
 
 export class War extends Entity {
@@ -56,6 +55,8 @@ export class War extends Entity {
     }
 
     private count = 10;
+    public sentArmies: boolean = false;
+
     step() {
         if (this.targets == null) {
             Logger.critical(`Target is null? U fking wot m8`);
@@ -64,8 +65,13 @@ export class War extends Entity {
         this.count -= 1;
 
 
-        if (this.state == WarState.PREPARE_CLASH || this.state == WarState.BREAK) {
+        if (this.state == WarState.PREPARE_CLASH) {
             this.countdown -= this._timerDelay;
+            if (this.countdown <= 250 && !this.sentArmies) {
+                this.sentArmies = true;
+                this.targets.armies.force1?.sendAllSoldiersToGathering();
+                this.targets.armies.force2?.sendAllSoldiersToGathering();
+            }
             if (this.countdown <= 0) {
                 if (this.targets.deadLock) {
                     Logger.generic("Deadlock, Let there be clash.");
@@ -122,8 +128,8 @@ export class War extends Entity {
                 }
                 if (this.siegeTimer <= 0) {
                     Logger.warning("Siege has been running for longer than 600, might want to check that.");
-                    Logger.warning("Army 1 Len: ", this.targets.armies.force1?.units.length);
-                    Logger.warning("Army 2 Len: ", this.targets.armies.force2?.units.length);
+                    Logger.warning("Army 1 Len: ", this.targets.armies.force1?.platoons.length);
+                    Logger.warning("Army 2 Len: ", this.targets.armies.force2?.platoons.length);
 
                     this.endWar(); // Wtf ending
                 }
@@ -137,23 +143,23 @@ export class War extends Entity {
     }
 
     public sendArmyToRect(army: Army, end: NamedRect) {
-        for (let i = 0; i < army.units.length; i++) {
-            let unit = army.units[i];
+        for (let i = 0; i < army.platoons.length; i++) {
+            let unit = army.platoons[i];
             let atkPoint = end.getRandomPoint();
             unit.currentQueue.isFinished = true;
             ActionQueue.disableQueue(unit.currentQueue);
-            unit.currentQueue = ActionQueue.createSimpleGuardPoint(unit.soldier, atkPoint);
+            unit.currentQueue = ActionQueue.createGroupGuardPoint(unit.getUnitList(), atkPoint);
         }
     }
 
     public sendArmyToRectNoPath(army: Army, end: NamedRect) {
-        for (let i = 0; i < army.units.length; i++) {
-            let unit = army.units[i];
+        for (let i = 0; i < army.platoons.length; i++) {
+            let unit = army.platoons[i];
             Delay.addDelay(() => {
-            }, GetDelayFromUnit(unit.soldier));
+            }, 2);
             unit.currentQueue.isFinished = true;
             ActionQueue.disableQueue(unit.currentQueue);
-            unit.currentQueue = ActionQueue.createSimpleGuardPoint(unit.soldier, end.getRandomPoint());
+            unit.currentQueue = ActionQueue.createGroupGuardPoint(unit.getUnitList(), end.getRandomPoint());
         }
     }
 
@@ -181,14 +187,18 @@ export class War extends Entity {
     }
 
     private disbandArmy(army: Army) {
-        for (let i = 0; i < army.units.length; i++) {
-            let unit = army.units[i];
-            let path = PathManager.getInstance().createPath(Point.fromWidget(unit.soldier), unit.startPoint, unit.force, WaypointOrders.move);
-            let queue = new UnitQueue(unit.soldier, ...path);
-            queue.addAction(new UnitActionWaypoint(unit.startPoint, WaypointOrders.attack));
-            queue.addAction(new UnitActionDeath(true));
-            unit.currentQueue = queue;
-            ActionQueue.enableQueue(queue);
+        for (let i = 0; i < army.platoons.length; i++) {
+            let platoon = army.platoons[i];
+            ActionQueue.disableQueue(platoon.currentQueue);
+            for (let j = 0; j < platoon.soldiers.length; j++) {
+                let unit = platoon.soldiers[j];
+                let path = PathManager.getInstance().createPath(Point.fromWidget(unit.soldier), unit.startPoint, unit.force, WaypointOrders.move);
+                let queue = new UnitQueue(unit.soldier, ...path);
+                queue.addAction(new UnitActionWaypoint(unit.startPoint, WaypointOrders.attack));
+                queue.addAction(new UnitActionDeath(true));
+                unit.currentQueue = queue;
+                ActionQueue.enableQueue(queue);
+            }
         }
     }
 
@@ -274,7 +284,7 @@ export class War extends Entity {
         Delay.addDelay(() => {
             Logger.generic("Send to new gathering.");
             force.sendAllSoldiersToGathering();
-        }, 30);
+        }, 10);
     }
 }
 
@@ -283,7 +293,6 @@ export const enum WarState {
     SETUP = "SETUP",
     PREPARE_CLASH = "PREPARE_CLASH",
     CLASHING = "CLASHING",
-    BREAK = "BREAK",
     PREPARE_FOR_SIEGE = "PREPARE_FOR_SIEGE",
     SIEGE = "SIEGE",
     END = "END",

@@ -3750,3 +3750,9 @@ STRING 1411
 (Spiders)
 }
 
+STRING 1412
+// Units: n00C (Murloc Hut), EditorSuffix (Name - Editor Suffix)
+{
+(Murlocs)
+}
+

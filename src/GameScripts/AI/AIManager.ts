@@ -4,7 +4,7 @@ import {PlayerManager} from "../PlayerManager";
 import {Rectifier} from "../RectControl/Rectifier";
 import {Point} from "../../TreeLib/Utility/Point";
 import {AIGuardSpawner} from "./AIGuardSpawner";
-import {Forces} from "../Enums/Forces";
+import {Forces, GetIDByForce} from "../Enums/Forces";
 import {AIBanditSpawner} from "./Bandits/AIBanditSpawner";
 import {BanditCamp} from "./Bandits/BanditCamp";
 import {Segment} from "../RectControl/Segment";
@@ -38,10 +38,10 @@ export class AIManager {
         let playerManager = PlayerManager.getInstance();
         let b = PlayerManager.getInstance().bandit;
 
-        this.force1Data = new AIForceData(this.getSpawnPoints(1), playerManager.team1Player, playerManager.team1PlayerArmy, playerManager.team1PlayerExtra, Forces.FORCE_1);
-        this.force2Data = new AIForceData(this.getSpawnPoints(2), playerManager.team2Player, playerManager.team2PlayerArmy, playerManager.team2PlayerExtra, Forces.FORCE_2);
-        this.force1Spawner = new AIGuardSpawner(this.force1Data, 1);
-        this.force2Spawner = new AIGuardSpawner(this.force2Data, 2);
+        this.force1Data = new AIForceData(this.getSpawnPoints(GetIDByForce(Forces.FORCE_1)), playerManager.team1Player, playerManager.team1PlayerArmy, playerManager.team1PlayerExtra, Forces.FORCE_1);
+        this.force2Data = new AIForceData(this.getSpawnPoints(GetIDByForce(Forces.FORCE_2)), playerManager.team2Player, playerManager.team2PlayerArmy, playerManager.team2PlayerExtra, Forces.FORCE_2);
+        this.force1Spawner = new AIGuardSpawner(this.force1Data);
+        this.force2Spawner = new AIGuardSpawner(this.force2Data);
 
         this.banditNorthData = new AIForceData(this.getBanditSpawn(BanditCamp.CAMP_NORTH), b, b, b, Forces.FORCE_BANDIT);
         this.banditSouthData = new AIForceData(this.getBanditSpawn(BanditCamp.CAMP_SOUTH), b, b, b, Forces.FORCE_BANDIT);

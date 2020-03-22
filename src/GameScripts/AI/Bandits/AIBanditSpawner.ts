@@ -7,7 +7,7 @@ import {UnitClass} from "../../Enums/UnitClass";
 export class AIBanditSpawner extends AIGuardSpawner {
 
     constructor(forceData: AIForceData, camp: BanditCamp) {
-        super(forceData, 3);
+        super(forceData);
         this.forceData = forceData;
 
         if (camp == BanditCamp.CAMP_NORTH) {

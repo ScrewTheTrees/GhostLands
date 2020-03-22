@@ -5,14 +5,18 @@ import {Point} from "../../../TreeLib/Utility/Point";
 import {UnitQueue} from "../../../TreeLib/ActionQueue/Queues/UnitQueue";
 import {ActionQueue} from "../../../TreeLib/ActionQueue/ActionQueue";
 import {Delay} from "../../../TreeLib/Utility/Delay";
-import {UnitActionExecuteCode} from "../../../TreeLib/ActionQueue/Actions/UnitActionExecuteCode";
 import {PathManager} from "../../PathManager";
 import {UnitClass} from "../../Enums/UnitClass";
 import {Quick} from "../../../TreeLib/Quick";
 import {CreateUnitHandleSkin} from "../../../Skinner";
+import {ArmyPlatoon} from "./ArmyPlatoon";
+import {UnitGroupQueue} from "../../../TreeLib/ActionQueue/Queues/UnitGroupQueue";
+import {UnitGroupActionExecuteCode} from "../../../TreeLib/ActionQueue/Actions/UnitGroupActionExecuteCode";
+import {Rectifier} from "../../RectControl/Rectifier";
+import {GetIDByForce} from "../../Enums/Forces";
 
 export class Army {
-    public units: ArmySoldier[] = [];
+    public platoons: ArmyPlatoon[] = [];
     public forceData: AIForceData;
     public gathering: NamedRect;
     public pathManager: PathManager = PathManager.getInstance();
@@ -35,17 +39,17 @@ export class Army {
         Delay.addDelay(() => {
             Delay.addDelay(() => {
                 this.makeRangedSoldier();
-            }, 2, math.ceil(ranged));
+            }, 1, math.ceil(ranged));
             Delay.addDelay(() => {
                 this.makeCasterSoldier();
-            }, 2, math.ceil(caster));
-        }, 2.5);
+            }, 1, math.ceil(caster));
+        }, 1.30);
 
         Delay.addDelay(() => {
             Delay.addDelay(() => {
                 this.makeCavalrySoldier();
             }, 1, math.ceil(cavalry));
-        }, 4.5)
+        }, 1.60)
     }
 
     public makeMeleeSoldier() {
@@ -75,35 +79,55 @@ export class Army {
 
         let queue = new UnitQueue(u);
         let armySoldier = new ArmySoldier(u, this.forceData.force, queue);
-        Quick.Push(this.units, armySoldier);
+        let platoon = this.getUnsatisfiedPlatoon();
+        Quick.Push(platoon.soldiers, armySoldier);
 
-        this.sendSoldierToGathering(armySoldier);
+        this.sendSoldierToPlaceholder(armySoldier);
 
         return armySoldier;
     }
 
+    private getUnsatisfiedPlatoon() {
+        for (let i = 0; i < this.platoons.length; i++) {
+            let plat = this.platoons[i];
+            if (!plat.isFull()) {
+                return plat;
+            }
+        }
+        //No platoon
+        let plat = new ArmyPlatoon(this.forceData.force, new UnitGroupQueue([]));
+        Quick.Push(this.platoons, plat);
+        return plat;
+    }
+
     public sendAllSoldiersToGathering() {
-        this.units.forEach((unit) => {
-            this.sendSoldierToGathering(unit);
+        this.platoons.forEach((platoon) => {
+            this.sendPlatoonToGathering(platoon);
         });
     }
 
-    public sendSoldierToGathering(recruit: ArmySoldier) {
-        return this.sendSoldierToPoint(recruit, this.gathering.getRandomPoint());
+    public sendPlatoonToGathering(platoon: ArmyPlatoon) {
+        return this.sendPlatoonToPoint(platoon, this.gathering.getRandomPoint());
     }
 
-    public sendSoldierToPoint(armySoldier: ArmySoldier, point: Point, delay: number = 0.01) {
+    public sendSoldierToPlaceholder(soldier: ArmySoldier) {
+        let path = this.pathManager.createPath(Point.fromWidget(soldier.soldier), Rectifier.getInstance().getRectsByForceOfType(GetIDByForce(this.forceData.force), "gathering")[0].getRandomPoint(), this.forceData.force);
+        soldier.currentQueue = new UnitQueue(soldier.soldier, ...path);
+        ActionQueue.enableQueue(soldier.currentQueue);
+    }
+
+    public sendPlatoonToPoint(platoon: ArmyPlatoon, point: Point, delay: number = 0.01) {
         point = point.copy();
-        let path = this.pathManager.createPath(Point.fromWidget(armySoldier.soldier), point, this.forceData.force);
+        let path = this.pathManager.createPathGroup(platoon.getPlatoonPoint(), point, this.forceData.force);
         //Prepare
-        armySoldier.currentQueue = new UnitQueue(armySoldier.soldier, path[0]);
-        ActionQueue.enableQueue(armySoldier.currentQueue);
+        platoon.currentQueue = new UnitGroupQueue(platoon.getUnitList(), path[0]);
+        ActionQueue.enableQueue(platoon.currentQueue);
         //Depart
         Delay.addDelay(() => {
-            let queue = new UnitQueue(armySoldier.soldier, ...path);
-            armySoldier.currentQueue = queue;
-            queue.addAction(new UnitActionExecuteCode((u: unit) => {
-                armySoldier.currentQueue = ActionQueue.createSimpleGuardPoint(u, point);
+            let queue = new UnitGroupQueue(platoon.getUnitList(), ...path);
+            platoon.currentQueue = queue;
+            queue.addAction(new UnitGroupActionExecuteCode((u: unit[]) => {
+                platoon.currentQueue = ActionQueue.createGroupGuardPoint(u, point);
             }));
 
             ActionQueue.enableQueue(queue);
@@ -112,12 +136,12 @@ export class Army {
     }
 
     public isArmyDead(): boolean {
-        for (let i = 0; i < this.units.length; i++) {
-            let unit = this.units[i];
+        for (let i = 0; i < this.platoons.length; i++) {
+            let unit = this.platoons[i];
             if (!unit.isDead()) {
                 return false;
             } else {
-                Quick.Slice(this.units, i);
+                Quick.Slice(this.platoons, i);
                 i -= 1;
             }
         }

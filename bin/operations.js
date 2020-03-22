@@ -56,8 +56,19 @@ switch (operation) {
         break;
 
     case "run":
-        const filename = `${cwd}\\target\\${config.mapFolder}`;
+        const speed = process.argv[3];
+        let filename = "";
 
+        switch (speed) {
+            case "4":
+                filename = `${cwd}\\bin\\WorldEditTestGame4x.wgc`;
+                break;
+            case "8":
+                filename = `${cwd}\\bin\\WorldEditTestGame8x.wgc`;
+                break;
+            default:
+                filename = `${cwd}\\target\\${config.mapFolder}`;
+        }
         console.log(filename);
 
         execFile(config.gameExecutable, ["-loadfile", filename, ...config.launchArgs]);

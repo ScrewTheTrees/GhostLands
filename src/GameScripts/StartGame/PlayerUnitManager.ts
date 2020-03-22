@@ -124,15 +124,16 @@ export class PlayerUnitManager extends Entity {
                 break;
             case GetHandleId(EVENT_PLAYER_UNIT_ISSUED_POINT_ORDER):
                 let onRouteUnit = this.getOnRouteUnit(ordered);
-                if (onRouteUnit != null) {
-                    //Gotta wrap in XP call for safety since typecasting and other things and we dont want it to intercept the rest.
-                    xpcall(() => {
-                        let waypoint: UnitActionWaypoint = <UnitActionWaypoint>onRouteUnit?.queue.allActions[onRouteUnit.queue.currentActionIndex];
+                //Gotta wrap in XP call for safety since typecasting and other things and we dont want it to intercept the rest.
+                xpcall(() => {
+                    if (onRouteUnit != null) {
+                        let waypoint: UnitActionWaypoint = <UnitActionWaypoint>onRouteUnit.queue.allActions[onRouteUnit.queue.currentActionIndex];
                         if (waypoint != null && waypoint.toPoint.distanceTo(Point.fromLocationClean(GetOrderPointLoc())) > 5) {
                             this.removeRouteUnit(ordered);
                         }
-                    }, () => null);
-                }
+                    }
+                }, () => null);
+
                 break;
         }
     }

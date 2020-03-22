@@ -182,6 +182,7 @@ export class Occupations {
                     IssuePointOrder(post.occupied.guard, "attack", loc.x, loc.y);
                     Delay.addDelay(() => {
                         if (post.occupied) {
+                            IssuePointOrder(post.occupied.guard, "move", post.point.x, post.point.y);
                             post.occupied.currentQueue.isPaused = false;
                         }
                     }, 30);

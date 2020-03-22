@@ -13,10 +13,10 @@ import {Guard} from "./Guard";
 import {NamedRect} from "../RectControl/NamedRect";
 import {Quick} from "../../TreeLib/Quick";
 import {CreateUnitHandleSkin} from "../../Skinner";
+import {Forces, GetIDByForce} from "../Enums/Forces";
 
 export class AIGuardSpawner {
     public forceData: AIForceData;
-    public forceId: number;
     public gathering: NamedRect;
 
     public pathManager: PathManager = PathManager.getInstance();
@@ -25,10 +25,9 @@ export class AIGuardSpawner {
 
     public unitsInGather: Guard[] = [];
 
-    constructor(forceData: AIForceData, forceId: number) {
+    constructor(forceData: AIForceData) {
         this.forceData = forceData;
-        this.forceId = forceId;
-        this.gathering = Rectifier.getInstance().getRectsByForceOfType(forceId, "gathering")[0];
+        this.gathering = Rectifier.getInstance().getRectsByForceOfType(GetIDByForce(forceData.force), "gathering")[0];
     }
 
     public performUnitRevival() {

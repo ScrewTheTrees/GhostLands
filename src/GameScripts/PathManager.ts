@@ -8,6 +8,8 @@ import {WaypointOrders} from "../TreeLib/ActionQueue/Actions/WaypointOrders";
 import {UnitAction} from "../TreeLib/ActionQueue/Actions/UnitAction";
 import {Forces} from "./Enums/Forces";
 import {Logger} from "../TreeLib/Logger";
+import {UnitGroupAction} from "../TreeLib/ActionQueue/Actions/UnitGroupAction";
+import {UnitGroupActionWaypoint} from "../TreeLib/ActionQueue/Actions/UnitGroupActionWaypoint";
 
 export class PathManager {
     private static instance: PathManager;
@@ -63,6 +65,22 @@ export class PathManager {
         for (let i = 0; i < newPath.length; i++) {
             let value = newPath[i].polarProject(randomLen, randomAng);
             actions.push(new UnitActionWaypoint(value, type, 128));
+        }
+
+        return actions;
+    }
+
+    public createPathGroup(start: Point, end: Point, force: Forces, type = WaypointOrders.attack): UnitGroupAction[] {
+        let path = this.getPathfinderForForce(force).findPath(start, end);
+        let actions: UnitGroupAction[] = [];
+        let newPath = path.path;
+
+        if (!path.reachedTheEnd) {
+            Logger.warning("Couldnt reach node: ", path.endNode.toString());
+        }
+
+        for (let i = 0; i < newPath.length; i++) {
+            actions.push(new UnitGroupActionWaypoint(newPath[i], type));
         }
 
         return actions;
