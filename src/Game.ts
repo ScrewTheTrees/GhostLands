@@ -1,6 +1,6 @@
 import {Logger} from "./TreeLib/Logger";
 import {StartGameDiag} from "./GameScripts/StartGame/StartGameDiag";
-import {OnSpellCastCreator} from "./GameScripts/StartGame/OnSpellCastCreator";
+import {Runes} from "./GameScripts/StartGame/Runes";
 import {GameContainer} from "./GameScripts/GameContainer";
 import {Rectifier} from "./GameScripts/RectControl/Rectifier";
 import {Point} from "./TreeLib/Utility/Point";
@@ -14,7 +14,7 @@ export class Game {
         this.killPreload();
 
         StartGameDiag.getInstance().runDiagnosis();
-        OnSpellCastCreator.getInstance();
+        Runes.getInstance();
 
         GameContainer.getInstance();
 

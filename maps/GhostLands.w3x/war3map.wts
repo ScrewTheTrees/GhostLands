@@ -150,20 +150,8 @@ STRING 31
 Force 3
 }
 
-STRING 32
-// Units: H000 (Grand General), Name (Name)
-{
-Grand General
-}
-
-STRING 34
-// Units: H000 (Grand General), Ubertip (Tooltip - Extended)
-{
-Warrior Hero.
-}
-
 STRING 35
-// Units: H000 (Grand General), Hotkey (Hotkey)
+// Units: H000 (War Veteran), Hotkey (Hotkey)
 {
 G
 }
@@ -183,12 +171,6 @@ STRING 40
 // Units: e000 (What the fuck), Name (Name)
 {
 What the fuck
-}
-
-STRING 41
-// Abilities: A001 (Frenzy), Ubertip (Tooltip - Normal - Extended)
-{
-Increases the unit's attack rate and movement speed temporarily.
 }
 
 STRING 43
@@ -215,12 +197,6 @@ STRING 46
 Train Forest |cffffcc00T|rroll
 }
 
-STRING 47
-// Units: h003 (Forest Troll), Ubertip (Tooltip - Extended)
-{
-Expert forest trappers throwing axes that deals normal damage instead of piercing. |n|n|cffffcc00Attacks land and air units.|r
-}
-
 STRING 54
 // Abilities: A005 (Heal), Ubertip (Tooltip - Normal - Extended)
 {
@@ -245,12 +221,6 @@ STRING 59
 P
 }
 
-STRING 65
-// Abilities: A006 (Slow), Ubertip (Tooltip - Normal - Extended)
-{
-Slows a target enemy unit's attack rate and movement speed temporarily.
-}
-
 STRING 66
 // Units: h005 (Sorceress), Name (Name)
 {
@@ -269,12 +239,6 @@ STRING 68
 S
 }
 
-STRING 70
-// Units: h005 (Sorceress), Ubertip (Tooltip - Extended)
-{
-Caster that can cast slow. |n|n|cffffcc00Attacks land and air units.|r
-}
-
 STRING 77
 // Units: h006 (Knight), Name (Name)
 {
@@ -291,12 +255,6 @@ STRING 79
 // Units: h006 (Knight), Tip (Tooltip - Basic)
 {
 Train Knight
-}
-
-STRING 80
-// Units: h006 (Knight), Ubertip (Tooltip - Extended)
-{
-Fast and agile cavalry excellent for hit and run attacks. |n|n|cffffcc00Attacks land units.|r
 }
 
 STRING 95
@@ -371,24 +329,6 @@ STRING 145
 (Tier 1)
 }
 
-STRING 147
-// Items: I001 (Lesser Clarity Potion), Ubertip (Tooltip - Extended)
-{
-|cff87ceebNon-Combat Consumable|r|nRegenerates the Hero's mana by <A00Cl,DataB1> over <A00C,Dur1> seconds when used.
-}
-
-STRING 149
-// Items: I003 (Scroll of Regeneration), Ubertip (Tooltip - Extended)
-{
-|cff87ceebNon-Combat Consumable|r|nRegenerates the hit points of all friendly non-mechanical units in an area around your Hero by <A00F,DataA1> over <A00F,Dur1> seconds when used.
-}
-
-STRING 150
-// Items: I004 (Scroll of Healing), Ubertip (Tooltip - Extended)
-{
-Heals <A00D,DataA1> hit points to all friendly non-mechanical units around the Hero when used.
-}
-
 STRING 151
 // Abilities: A00D (Item Area Healing), EditorSuffix (Editor Suffix)
 {
@@ -449,12 +389,6 @@ STRING 164
 Thunder Clap - [|cffffcc00Level 10|r]
 }
 
-STRING 165
-// Abilities: A00H (Abolish Magic), Ubertip (Tooltip - Normal - Extended)
-{
-Dispels positive buffs from enemy units, and negative buffs from friendly units. |n|cffffcc00Deals <A00H,DataB1> damage to summoned units.|r
-}
-
 STRING 167
 // Units: h004 (Priest), Ubertip (Tooltip - Extended)
 {
@@ -507,19 +441,6 @@ STRING 175
 // Abilities: A00G (Cannibalize), EditorSuffix (Editor Suffix)
 {
 (Tier 1)
-}
-
-STRING 180
-// Items: I000 (Healing Salve), Ubertip (Tooltip - Extended)
-{
-|cff87ceebNon-Combat Consumable|r|nRegenerates a target unit's hit points by <A00B,DataA1> over <A00B,Dur1> seconds when used.
-Initially contains <A00B,uses> charges.
-}
-
-STRING 182
-// Items: I002 (Scroll of Speed), Ubertip (Tooltip - Extended)
-{
-Increases the movement speed of the Hero and nearby allied units. |nLasts <A00E,Dur1> seconds.
 }
 
 STRING 187
@@ -3163,7 +3084,7 @@ STRING 1260
 }
 
 STRING 1265
-// Units: H000 (Grand General), Propernames (Proper Names)
+// Units: H000 (War Veteran), Propernames (Proper Names)
 {
 Inhalus Dongus
 }
@@ -3517,12 +3438,6 @@ STRING 1351
 Heal
 }
 
-STRING 1352
-// Abilities: A005 (Heal), Ubertip (Tooltip - Normal - Extended)
-{
-Heals a target friendly non-mechanical wounded unit slightly.
-}
-
 STRING 1353
 // Abilities: A005 (Heal), Untip (Tooltip - Turn Off)
 {
@@ -3639,19 +3554,6 @@ Gives <A00I,DataA1,.> additional armor to nearby friendly units.
 |cffd45e19The general has survived countless battles and his veterancy and vitality can be felt by his very presence.|r
 }
 
-STRING 1388
-// Abilities: A00J (Healing Wave), Researchubertip (Tooltip - Learn - Extended)
-{
-Calls forth a magical wave of energy that heals a target and bounces to nearby friendlies. Each bounce heals less damage.
-
-|cffffcc00Healing|r - 40 + (20*L)
-|cffffcc00Mana cost|r - 10 + (5*L)
-|cffffcc00Bounces|r - 8
-|cffffcc00Reduction Per Bounce|r - 10%
-
-|cff00ffffLarge Rune|r
-}
-
 STRING 1399
 // Abilities: A00J (Healing Wave), Ubertip (Tooltip - Normal - Extended)
 {
@@ -3750,9 +3652,521 @@ STRING 1411
 (Spiders)
 }
 
-STRING 1412
-// Units: n00C (Murloc Hut), EditorSuffix (Name - Editor Suffix)
+STRING 1413
+// Units: n00C (Random Camp), EditorSuffix (Name - Editor Suffix)
 {
-(Murlocs)
+(Generic)
+}
+
+STRING 1414
+// Units: n00C (Random Camp), Name (Name)
+{
+Random Camp
+}
+
+STRING 1415
+// Units: n00D (Ice Troll Berserker), Name (Name)
+{
+Ice Troll Berserker
+}
+
+STRING 1416
+// Units: n00D (Ice Troll Berserker), Tip (Tooltip - Basic)
+{
+Hire Ice Troll Berserker
+}
+
+STRING 1417
+// Units: n00J (Ice Troll High Priest), Name (Name)
+{
+Ice Troll High Priest
+}
+
+STRING 1418
+// Units: n00O (Ice Troll Priest), Name (Name)
+{
+Ice Troll Priest
+}
+
+STRING 1419
+// Units: n00P (Ice Troll Trapper), Name (Name)
+{
+Ice Troll Trapper
+}
+
+STRING 1420
+// Units: n00P (Ice Troll Trapper), Tip (Tooltip - Basic)
+{
+Hire Ice Troll Trapper
+}
+
+STRING 1421
+// Units: n00Q (Ice Troll Warlord), Name (Name)
+{
+Ice Troll Warlord
+}
+
+STRING 1422
+// Units: n00Q (Ice Troll Warlord), Tip (Tooltip - Basic)
+{
+Hire Ice Troll Warlord
+}
+
+STRING 1424
+// Units: n00T (Ice Troll Hut), EditorSuffix (Name - Editor Suffix)
+{
+(Ice Trolls)
+}
+
+STRING 1425
+// Units: n00T (Ice Troll Hut), Name (Name)
+{
+Ice Troll Hut
+}
+
+STRING 1426
+// Units: n00T (Ice Troll Hut), Tip (Tooltip - Basic)
+{
+Build Ice Troll Hut
+}
+
+STRING 1428
+// Units: n00U (Random Camp), Name (Name)
+{
+Random Camp
+}
+
+STRING 1429
+// Units: n00U (Random Camp), EditorSuffix (Name - Editor Suffix)
+{
+(North)
+}
+
+STRING 1430
+// Units: n00C (Random Camp), Tip (Tooltip - Basic)
+{
+Build Random Camp
+}
+
+STRING 1431
+// Units: n00U (Random Camp), Tip (Tooltip - Basic)
+{
+Build Random Camp
+}
+
+STRING 1432
+// Units: n00N (Toxic Spider), Name (Name)
+{
+Toxic Spider
+}
+
+STRING 1433
+// Units: n00N (Toxic Spider), Tip (Tooltip - Basic)
+{
+Summon Toxic Spider
+}
+
+STRING 1436
+// Units: n00V (Dark Troll Berserker), Name (Name)
+{
+Dark Troll Berserker
+}
+
+STRING 1437
+// Units: n00V (Dark Troll Berserker), Tip (Tooltip - Basic)
+{
+Hire Dark Troll Berserker
+}
+
+STRING 1438
+// Units: n00W (Dark Troll High Priest), Name (Name)
+{
+Dark Troll High Priest
+}
+
+STRING 1439
+// Units: n00W (Dark Troll High Priest), Tip (Tooltip - Basic)
+{
+Hire Dark Troll High Priest
+}
+
+STRING 1440
+// Units: n00X (Dark Troll Shadow Priest), Name (Name)
+{
+Dark Troll Shadow Priest
+}
+
+STRING 1441
+// Units: n00X (Dark Troll Shadow Priest), Tip (Tooltip - Basic)
+{
+Hire Dark Troll Shadow Priest
+}
+
+STRING 1442
+// Units: n00Y (Dark Troll Trapper), Name (Name)
+{
+Dark Troll Trapper
+}
+
+STRING 1443
+// Units: n00Y (Dark Troll Trapper), Tip (Tooltip - Basic)
+{
+Hire Dark Troll Trapper
+}
+
+STRING 1444
+// Units: n00Z (Dark Troll Warlord), Name (Name)
+{
+Dark Troll Warlord
+}
+
+STRING 1445
+// Units: n00Z (Dark Troll Warlord), Tip (Tooltip - Basic)
+{
+Hire Dark Troll Warlord
+}
+
+STRING 1446
+// Units: n010 (Dark Troll Hut), EditorSuffix (Name - Editor Suffix)
+{
+(Dark Trolls)
+}
+
+STRING 1447
+// Units: n010 (Dark Troll Hut), Name (Name)
+{
+Dark Troll Hut
+}
+
+STRING 1448
+// Units: n010 (Dark Troll Hut), Tip (Tooltip - Basic)
+{
+Build Dark Troll Hut
+}
+
+STRING 1449
+// Units: n011 (Random Camp), EditorSuffix (Name - Editor Suffix)
+{
+(South)
+}
+
+STRING 1450
+// Units: n011 (Random Camp), Name (Name)
+{
+Random Camp
+}
+
+STRING 1451
+// Units: n011 (Random Camp), Tip (Tooltip - Basic)
+{
+Build Random Camp
+}
+
+STRING 1452
+// Abilities: A00J (Healing Wave), Researchubertip (Tooltip - Learn - Extended)
+{
+Calls forth a magical wave of energy that heals a target and bounces to nearby friendlies. Each bounce heals less damage.
+
+|cffffcc00Healing|r - 40 + (20*L)
+|cffffcc00Mana cost|r - 10 + (5*L)
+|cffffcc00Bounces|r - 6
+|cffffcc00Reduction Per Bounce|r - 20%
+
+|cff00ffffLarge Rune|r
+}
+
+STRING 1453
+// Destructibles: B002 (Grand Ashenvale Tree Wall), Name (Name)
+{
+Grand Ashenvale Tree Wall
+}
+
+STRING 1454
+// Destructibles: B003 (Grand Summer Tree Wall), Name (Name)
+{
+Grand Summer Tree Wall
+}
+
+STRING 1455
+// Destructibles: B004 (Grand Snowy Tree Wall), Name (Name)
+{
+Grand Snowy Tree Wall
+}
+
+STRING 1456
+// Destructibles: B005 (Grand Barrens Tree Wall), Name (Name)
+{
+Grand Barrens Tree Wall
+}
+
+STRING 1459
+// Units: n00L (Mossy Legger), Name (Name)
+{
+Mossy Legger
+}
+
+STRING 1460
+// Units: n00L (Mossy Legger), Tip (Tooltip - Basic)
+{
+Summon Mossy Legger
+}
+
+STRING 1461
+// Destructibles: B006 (Enormous Ashenvale Tree Wall), Name (Name)
+{
+Enormous Ashenvale Tree Wall
+}
+
+STRING 1462
+// Doodads: D001 (Tent 1), Name (Name)
+{
+Tent 1
+}
+
+STRING 1463
+// Doodads: D002 (Tent 2), Name (Name)
+{
+Tent 2
+}
+
+STRING 1466
+// Abilities: A00K (Bash), EditorSuffix (Editor Suffix)
+{
+(Tier 1)
+}
+
+STRING 1467
+// Abilities: A00K (Bash), Ubertip (Tooltip - Normal - Extended)
+{
+Gives a <A00K,DataA1>% chance that an attack will do <A00K,DataC1> bonus damage and stun an opponent for <A00K,Dur1> seconds.
+}
+
+STRING 1468
+// Abilities: A00K (Bash), Tip (Tooltip - Normal)
+{
+Bash
+}
+
+STRING 1469
+// Abilities: A00L (Searing Arrows), Tip (Tooltip - Normal)
+{
+Searing Arrows
+}
+
+STRING 1470
+// Abilities: A00L (Searing Arrows), EditorSuffix (Editor Suffix)
+{
+(Tier 1)
+}
+
+STRING 1473
+// Abilities: A00M (Rejuvenation), EditorSuffix (Editor Suffix)
+{
+(Tier 1)
+}
+
+STRING 1475
+// Abilities: A00N (Unholy Frenzy), EditorSuffix (Editor Suffix)
+{
+(Tier 1)
+}
+
+STRING 1477
+// Units: h005 (Sorceress), Ubertip (Tooltip - Extended)
+{
+Caster that can cast slow and rejuvenation. |n|n|cffffcc00Attacks land and air units.|r
+}
+
+STRING 1478
+// Units: h003 (Forest Troll), Ubertip (Tooltip - Extended)
+{
+Expert forest trappers throwing axes that deals normal damage instead of piercing. 
+Can ensnare.
+ |n|n|cffffcc00Attacks land and air units.|r
+}
+
+STRING 1479
+// Units: h002 (Archer), Ubertip (Tooltip - Extended)
+{
+Basic long-ranged attacker.
+Has searing arrows
+|n|cffffcc00Attacks land and air units.|r
+}
+
+STRING 1480
+// Units: n00R (Archer), Ubertip (Tooltip - Extended)
+{
+Basic long-ranged attacker.
+Has searing arrows
+|n|cffffcc00Attacks land and air units.|r
+}
+
+STRING 1481
+// Units: h006 (Knight), Ubertip (Tooltip - Extended)
+{
+Fast and agile cavalry excellent for hit and run attacks.
+Can use Frenzy.
+|n|cffffcc00Attacks land units.|r
+}
+
+STRING 1482
+// Units: h001 (Imperial Soldier), Ubertip (Tooltip - Extended)
+{
+Versatile foot soldier. 
+Has Defend and Bash. 
+|n|cffffcc00Attacks land units.|r
+}
+
+STRING 1483
+// Units: h008 (Imperial Soldier), Ubertip (Tooltip - Extended)
+{
+Versatile foot soldier. 
+Has Defend and Bash. 
+|n|cffffcc00Attacks land units.|r
+}
+
+STRING 1484
+// Units: h009 (Imperial Soldier), Ubertip (Tooltip - Extended)
+{
+Versatile foot soldier. 
+Has Defend and Bash. 
+|n|cffffcc00Attacks land units.|r
+}
+
+STRING 1485
+// Units: h00A (Imperial Soldier), Ubertip (Tooltip - Extended)
+{
+Versatile foot soldier. 
+Has Defend and Bash. 
+|n|cffffcc00Attacks land units.|r
+}
+
+STRING 1487
+// Abilities: A000 (Defend), Ubertip (Tooltip - Normal - Extended)
+{
+Activate to take only <A000,DataA1,%>% of the damage from Piercing attacks. While Defend is active, movement is reduced by <A000,DataC1,%>% of normal speed.
+}
+
+STRING 1488
+// Units: H000 (War Veteran), Name (Name)
+{
+War Veteran
+}
+
+STRING 1489
+// Units: H000 (War Veteran), Ubertip (Tooltip - Extended)
+{
+Old Warrior Hero of great renounce.
+}
+
+STRING 1491
+// Abilities: A00H (Abolish Magic), Ubertip (Tooltip - Normal - Extended)
+{
+Dispels positive buffs from enemy units, and negative buffs from friendly units. |n|cffffcc00Deals <A00H,DataB1> damage to summoned units.|r
+
+|cff00ffffSmall Rune|r
+}
+
+STRING 1492
+// Abilities: A006 (Slow), Ubertip (Tooltip - Normal - Extended)
+{
+Slows a target enemy unit's attack rate and movement speed temporarily.
+
+|cff00ffffSmall Rune|r
+}
+
+STRING 1493
+// Abilities: A00M (Rejuvenation), Ubertip (Tooltip - Normal - Extended)
+{
+Heals a target friendly unit for <A005,DataA1> hit points over <A005,Dur1> seconds.
+
+|cff00ffffSmall Rune|r
+}
+
+STRING 1494
+// Abilities: A005 (Heal), Ubertip (Tooltip - Normal - Extended)
+{
+Heals a target friendly non-mechanical wounded unit by <A005,DataA1,%>.
+
+|cff00ffffTiny Rune|r
+}
+
+STRING 1495
+// Abilities: A00L (Searing Arrows), Ubertip (Tooltip - Normal - Extended)
+{
+Adds <A00L,DataA1> bonus fire damage to an attack against enemies, but drains mana with each shot fired.
+
+|cff00ffffTiny Rune|r
+}
+
+STRING 1496
+// Abilities: A00N (Unholy Frenzy), Ubertip (Tooltip - Normal - Extended)
+{
+Increases the attack rate of a target unit by <A00N,DataA1,%>%, but drains <A00N,DataB1> hit points per second. |nLasts <A00N,Dur1> seconds.
+
+|cff00ffffSmall Rune|r
+}
+
+STRING 1497
+// Abilities: A008 (Frost Armor), Ubertip (Tooltip - Normal - Extended)
+{
+Creates a shield of frost around a target friendly unit. The shield adds <ACfa,DataB1> armor and slows melee units that attack it for <ACfa,Dur1> seconds. |nLasts <ACfa,DataA1> seconds.
+
+|cff00ffffSmall Rune|r
+}
+
+STRING 1499
+// Abilities: A001 (Frenzy), Ubertip (Tooltip - Normal - Extended)
+{
+Increases the unit's attack rate and movement speed temporarily.
+
+|cff00ffffRune|r
+}
+
+STRING 1503
+// Items: I000 (Healing Salve), Ubertip (Tooltip - Extended)
+{
+|cff87ceebNon-Combat Consumable|r|nRegenerates a target unit's hit points by <A00B,DataA1> over <A00B,Dur1> seconds when used.
+Initially contains <A00B,uses> charges.
+
+Contrary to its appearance, this salve does not rely on runic magic at all.
+}
+
+STRING 1504
+// Items: I001 (Lesser Clarity Potion), Ubertip (Tooltip - Extended)
+{
+|cff87ceebNon-Combat Consumable|r
+Suspicious potion, Regenerates mana by <A00C,DataB1> over <A00C,Dur1> seconds when used.
+
+Originally used by runic assasins a long time ago, allowing regeneration of mana without leaving any trace.
+}
+
+STRING 1505
+// Items: I004 (Scroll of Healing), Ubertip (Tooltip - Extended)
+{
+Forcibly heals <A00D,DataA1> hit points to all friendly non-mechanical units around the Hero when used.
+
+|cff00ffffRune|r
+
+This runic scroll was concieved just recently, soldiers are highly suspicious of its properties but tolerate it just enough to allow its use due to its usability.
+}
+
+STRING 1506
+// Items: I003 (Scroll of Regeneration), Ubertip (Tooltip - Extended)
+{
+|cff87ceebNon-Combat Consumable|r
+Sneaky scroll that regenerates the hit points of all friendly non-mechanical units in an area around your Hero by <A00F,DataA1> over <A00F,Dur1> seconds when used.
+
+Practical scroll, originally made to slowly mend weary travellers on long journeys to make such far more tolerable.
+}
+
+STRING 1507
+// Items: I002 (Scroll of Speed), Ubertip (Tooltip - Extended)
+{
+Fiercly increases the movement speed of the Hero and nearby allied units. |nLasts <A00E,Dur1> seconds.
+
+|cff00ffffBinding Rune|r
+
+A scroll said to call upon the fire elements, leaving smoke in the users wake.
 }
 

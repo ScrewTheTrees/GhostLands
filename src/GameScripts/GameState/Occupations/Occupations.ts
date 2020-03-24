@@ -179,7 +179,9 @@ export class Occupations {
                 let loc = Point.fromWidget(hitObject.targetUnit);
                 if (post.occupied != undefined && !post.occupied.currentQueue.isPaused && Point.fromWidget(post.occupied.guard).distanceTo(loc) < 4000) {
                     post.occupied.currentQueue.isPaused = true;
-                    IssuePointOrder(post.occupied.guard, "attack", loc.x, loc.y);
+                    Delay.addDelay(() => {
+                        if (post.occupied != undefined) IssuePointOrder(post.occupied.guard, "attack", loc.x, loc.y);
+                    }, 5);
                     Delay.addDelay(() => {
                         if (post.occupied) {
                             IssuePointOrder(post.occupied.guard, "move", post.point.x, post.point.y);

@@ -65,6 +65,6 @@ export class ArmyPlatoon {
 
     public isFull(): boolean {
         this.purgeDead(); // Purge
-        return (this.soldiers.length >= 12); // Is full.
+        return (this.soldiers.length >= 6); // Is full.
     }
 }

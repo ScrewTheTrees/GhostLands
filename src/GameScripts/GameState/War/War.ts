@@ -45,7 +45,7 @@ export class War extends Entity {
                 targets.armies.force2 = new Army(mgr.force2Data, targets.targets.force2.force2gather);
             }
 
-            this.countdown = 300;
+            this.countdown = 400;
 
             this.state = WarState.PREPARE_CLASH; //Armies are done, preparatus.
         } else {
@@ -181,7 +181,7 @@ export class War extends Entity {
                     Logger.generic("Disbanded force 2");
                 }
             }
-        }, 180);
+        }, 240);
 
         Songs.getInstance().resetBackgroundOst();
     }
@@ -279,7 +279,7 @@ export class War extends Entity {
                 || (winner == Forces.FORCE_2 && targets.selectedBattlefield.force1Occupant.owner == Forces.FORCE_2))) {
             Logger.generic("Switch battlezone");
             force.gathering = zone;
-            this.countdown = 300;
+            this.countdown = 400;
         }
         Delay.addDelay(() => {
             Logger.generic("Send to new gathering.");

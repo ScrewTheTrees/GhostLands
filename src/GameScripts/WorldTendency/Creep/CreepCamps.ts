@@ -18,7 +18,14 @@ export class CreepCamps extends Entity {
     constructor() {
         super();
         this._timerDelay = 10;
+
+        this.replaceRandomCamps(CampBuilding.GENERIC_RANDOM_CAMP, CampBuilding.GetRandomGenericCamp);
+        this.replaceRandomCamps(CampBuilding.NORTH_RANDOM_CAMP, CampBuilding.GetRandomNorthCamp);
+        this.replaceRandomCamps(CampBuilding.SOUTH_RANDOM_CAMP, CampBuilding.GetRandomSouthCamp);
+
         this.spawnCamp(CampBuilding.FOREST_TROLL_HUT, CreepCampTypes.FOREST_TROLL);
+        this.spawnCamp(CampBuilding.ICE_TROLL_HUT, CreepCampTypes.ICE_TROLLS);
+        this.spawnCamp(CampBuilding.DARK_TROLL_HUT, CreepCampTypes.DARK_TROLLS);
         this.spawnCamp(CampBuilding.MURLOC_HUT, CreepCampTypes.MURLOC);
         this.spawnCamp(CampBuilding.EGG_SACK, CreepCampTypes.SPIDER);
     }
@@ -67,6 +74,17 @@ export class CreepCamps extends Entity {
             u = FirstOfGroup(g);
         }
         return true;
+    }
+
+    private replaceRandomCamps(input: string, getRandomCampFunc: () => string) {
+        let group = Quick.GroupToUnitArray(GetUnitsOfPlayerAndTypeId(Players.NEUTRAL_HOSTILE, FourCC(input)));
+        for (let i = 0; i < group.length; i++) {
+            let val = group[i];
+            let camp = getRandomCampFunc();
+            let pos = Point.fromWidget(val);
+            RemoveUnit(val);
+            CreateUnit(Players.NEUTRAL_HOSTILE, FourCC(camp), pos.x, pos.y, bj_UNIT_FACING);
+        }
     }
 
     private spawnCamp(type: string, campType: CreepCampTypes) {

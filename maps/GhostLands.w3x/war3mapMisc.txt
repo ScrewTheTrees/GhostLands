@@ -36,6 +36,7 @@ HeroAbilityLevelSkip=3
 HeroExpRange=5000.0
 HeroFactorXP=100
 IntManaBonus=5.0
+ItemStackingEnabled=1
 MaxGuardDistance=2000.0
 MaxHeroLevel=10000
 MaxLevelHeroesDrainExp=0

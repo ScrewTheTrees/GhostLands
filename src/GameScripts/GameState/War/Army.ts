@@ -101,8 +101,12 @@ export class Army {
     }
 
     public sendAllSoldiersToGathering() {
+        let i = 0;
         this.platoons.forEach((platoon) => {
-            this.sendPlatoonToGathering(platoon);
+            i += 4;
+            Delay.addDelay(() => {
+                this.sendPlatoonToGathering(platoon);
+            }, i);
         });
     }
 

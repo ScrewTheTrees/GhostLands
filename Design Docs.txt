@@ -2,10 +2,16 @@
 
 |cff00ffffLarge Rune|r
 |cff00ffffGreat Rune|r
+|cff00ffffRune|r
+|cff00ffffSmall Rune|r
+|cff00ffffTiny Rune|r
+
+
+|cff00ffffBinding Rune|r
 
 
 |cffffcc00Damage|r - 20 + (10*L)
 |cffffcc00Mana cost|r - 5 + (2.5*L)
 
 
-|cffd45e19The general has survived countless battles and his veterancy and vitality can be felt by his very presence.|r
+|cffd45e19The veteran has survived countless battles and his veterancy and vitality can be felt by his very presence.|r

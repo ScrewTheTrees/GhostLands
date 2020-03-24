@@ -23,7 +23,7 @@ export class GlobalGameManager extends Entity {
     public allWars: War[] = [];
     public currentEvents: MapEvent[] = [];
     public guardSpawnCounter: number = 0;
-    public timeToWar: number = 120;
+    public timeToWar: number = 300;
     public reset: number = 120;
     private aiManager: AIManager = AIManager.getInstance();
 
@@ -73,7 +73,7 @@ export class GlobalGameManager extends Entity {
     public startWar() {
         this.worldState = WorldState.WAR;
         this.allWars.push(new War());
-        this.timeToWar = 120;
+        this.timeToWar = 300;
     }
 
     public endWar() {
@@ -104,7 +104,7 @@ export class GlobalGameManager extends Entity {
             if (this.allWars.length == 0) {
                 this.worldState = WorldState.NEUTRAL;
                 this.guardSpawnCounter = 0;
-                this.timeToWar = 120;
+                this.timeToWar = 300;
             }
         } else if (this.worldState == WorldState.EVENT) {
             this.worldState = WorldState.EVENT; //NO
