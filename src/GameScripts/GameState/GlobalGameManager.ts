@@ -58,7 +58,7 @@ export class GlobalGameManager extends Entity {
 
         InputManager.addKeyboardPressCallback(OSKEY_P, () => {
             this.endWar();
-        });*/
+        });
 
 
         InputManager.addKeyboardPressCallback(OSKEY_Z, () => {
@@ -67,7 +67,7 @@ export class GlobalGameManager extends Entity {
         InputManager.addKeyboardPressCallback(OSKEY_X, () => {
             this.aiManager.performBanditRelocation();
             this.aiManager.performAIRelocation();
-        });
+        });*/
     }
 
     public startWar() {

@@ -45,7 +45,7 @@ export class PlayerUnitManager extends Entity {
             let minion = this.playerManager.allMinions[i];
             let startX = GetPlayerStartLocationX(minion);
             let startY = GetPlayerStartLocationY(minion);
-            CreateUnitHandleSkin(minion, FourCC(PlayerUnits.HERO_GRAND_GENERAL), startX, startY, 270);
+            CreateUnitHandleSkin(minion, FourCC(PlayerUnits.HERO_WAR_VETERAN), startX, startY, 270);
             SetPlayerState(minion, PLAYER_STATE_RESOURCE_FOOD_CAP, 5);
 
             TriggerRegisterPlayerUnitEvent(this.respawnHeroes, minion, EVENT_PLAYER_UNIT_DEATH, null);

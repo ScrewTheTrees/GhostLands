@@ -3,9 +3,10 @@ import {Entity} from "../TreeLib/Entity";
 import {GlobalGameManager} from "./GameState/GlobalGameManager";
 import {War, WarState} from "./GameState/War/War";
 import {RGB, RGBTextString} from "../TreeLib/Utility/RGB";
-import {CreepLoot} from "./WorldTendency/Creep/Loot/CreepLoot";
+import {CreepLoot} from "./WorldTendency/Loot/CreepLoot";
 import {PlayerPowerTendency} from "./WorldTendency/Power/PlayerPowerTendency";
 import {WorldState} from "./Enums/WorldState";
+import {CreepLootQuality} from "./WorldTendency/Loot/CreepLootQuality";
 
 export class DebugUI extends Entity {
     private static instance: DebugUI;
@@ -91,7 +92,10 @@ ${this.extractAllWarData(gameManager.allWars)}
 currentEventsTotal: ${RGBTextString(RGB.red, gameManager.currentEvents.length)}
 
 --Tendency
-localLootTendency: ${RGBTextString(RGB.red, loot.getPlayerLootTendency(GetLocalPlayer()))}
+localLootTendency[STANDARD]: ${RGBTextString(RGB.red, loot.getPlayerLootTendency(GetLocalPlayer(), CreepLootQuality.STANDARD))}
+localLootTendency[STANDARDS_SLOW]: ${RGBTextString(RGB.red, loot.getPlayerLootTendency(GetLocalPlayer(), CreepLootQuality.STANDARDS_SLOW))}
+localLootTendency[RARE]: ${RGBTextString(RGB.red, loot.getPlayerLootTendency(GetLocalPlayer(), CreepLootQuality.RARE))}
+localLootTendency[EPIC]: ${RGBTextString(RGB.red, loot.getPlayerLootTendency(GetLocalPlayer(), CreepLootQuality.EPIC))}
 globalPower: ${RGBTextString(RGB.red, playerPowerTendency.globalPower)}
 localPowerLevel: ${RGBTextString(RGB.red, playerPowerTendency.getPlayerPowerLevel(GetLocalPlayer()))}
 localXPTendency: ${RGBTextString(RGB.red, playerPowerTendency.getPlayerXPTendency(GetLocalPlayer()))} / ${RGBTextString(RGB.green, playerPowerTendency.getPlayerActualXPTendency(GetLocalPlayer()))}

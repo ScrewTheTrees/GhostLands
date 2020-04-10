@@ -1,6 +1,5 @@
 import {Hooks} from "../../../TreeLib/Hooks";
 import {Quick} from "../../../TreeLib/Quick";
-import {UnitRespawner} from "../../../TreeLib/Respawner/UnitRespawner";
 import {Entity} from "../../../TreeLib/Entity";
 import {NeutralCreepCamp} from "./NeutralCreepCamp";
 import {Players} from "../../../TreeLib/Structs/Players";
@@ -36,10 +35,6 @@ export class CreepCamps extends Entity {
             Hooks.set(this.name, this.instance);
         }
         return this.instance;
-    }
-
-    onCreepRespawn(creep: UnitRespawner) {
-        //TODO: Add replacements and tiering
     }
 
     step() {

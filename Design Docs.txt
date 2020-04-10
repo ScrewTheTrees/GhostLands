@@ -7,7 +7,7 @@
 |cff00ffffTiny Rune|r
 
 
-|cff00ffffBinding Rune|r
+|cff00ffffRune of Binding|r
 
 
 |cffffcc00Damage|r - 20 + (10*L)

@@ -14,8 +14,8 @@ export class NeutralCreepCamp {
     public creeps: unit[];
     public noOfCreeps: number;
 
-    public secondTimer: number = 300;
-    public secondTimerReset: number = 300;
+    public secondTimer: number = 600;
+    public secondTimerReset: number = 600;
 
     constructor(location: NamedRect, creeps: unit[], campType: CreepCampTypes, noOfCreeps: number) {
         this.location = location;
@@ -36,6 +36,7 @@ export class NeutralCreepCamp {
         for (let i = 0; i < num; i++) {
             let point = this.location.getRandomPoint();
             let u = CreateUnitHandleSkin(Players.NEUTRAL_HOSTILE, GetCreepTableByCreepCampType(this.campType).getRandomAsId(), point.x, point.y, RandAngle());
+            SetUnitAcquireRange(u, 200);
             Quick.Push(this.creeps, u);
         }
 

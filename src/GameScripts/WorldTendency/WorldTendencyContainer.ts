@@ -1,6 +1,7 @@
 import {Hooks} from "../../TreeLib/Hooks";
 import {CreepContainer} from "./Creep/CreepContainer";
 import {PlayerPowerTendency} from "./Power/PlayerPowerTendency";
+import {PlayerIncomeTendency} from "./Income/PlayerIncomeTendency";
 
 export class WorldTendencyContainer {
     private static instance: WorldTendencyContainer;
@@ -15,4 +16,5 @@ export class WorldTendencyContainer {
 
     public creepContainer: CreepContainer = CreepContainer.getInstance();
     public playerPowerTendency: PlayerPowerTendency = PlayerPowerTendency.getInstance();
+    public playerIncomeTendency: PlayerIncomeTendency = PlayerIncomeTendency.getInstance();
 }

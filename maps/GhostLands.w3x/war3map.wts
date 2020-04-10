@@ -4160,12 +4160,12 @@ Sneaky scroll that regenerates the hit points of all friendly non-mechanical uni
 Practical scroll, originally made to slowly mend weary travellers on long journeys to make such far more tolerable.
 }
 
-STRING 1507
+STRING 1508
 // Items: I002 (Scroll of Speed), Ubertip (Tooltip - Extended)
 {
 Fiercly increases the movement speed of the Hero and nearby allied units. |nLasts <A00E,Dur1> seconds.
 
-|cff00ffffBinding Rune|r
+|cff00ffffRune of Binding|r
 
 A scroll said to call upon the fire elements, leaving smoke in the users wake.
 }

@@ -1,5 +1,5 @@
 import {Hooks} from "../../../TreeLib/Hooks";
-import {CreepLoot} from "./Loot/CreepLoot";
+import {CreepLoot} from "../Loot/CreepLoot";
 import {CreepCamps} from "./CreepCamps";
 
 export class CreepContainer {
