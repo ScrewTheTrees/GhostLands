@@ -4,7 +4,7 @@ import {Runes} from "./GameScripts/StartGame/Runes";
 import {GameContainer} from "./GameScripts/GameContainer";
 import {Rectifier} from "./GameScripts/RectControl/Rectifier";
 import {Point} from "./TreeLib/Utility/Point";
-import {Skinner} from "./Skinner";
+import {Skinner} from "./GameScripts/flavor/Skinner";
 
 export class Game {
     constructor() {

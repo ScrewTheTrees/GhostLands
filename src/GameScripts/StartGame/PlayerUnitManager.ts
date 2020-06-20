@@ -1,6 +1,6 @@
 import {Hooks} from "../../TreeLib/Hooks";
 import {PlayerManager} from "../PlayerManager";
-import {PlayerUnits} from "../Enums/PlayerUnits";
+import {GameUnits} from "../Enums/GameUnits";
 import {Delay} from "../../TreeLib/Utility/Delay";
 import {AIManager} from "../AI/AIManager";
 import {WaypointOrders} from "../../TreeLib/ActionQueue/Actions/WaypointOrders";
@@ -15,7 +15,7 @@ import {ActionQueue} from "../../TreeLib/ActionQueue/ActionQueue";
 import {Entity} from "../../TreeLib/Entity";
 import {UnitActionWaypoint} from "../../TreeLib/ActionQueue/Actions/UnitActionWaypoint";
 import {Logger} from "../../TreeLib/Logger";
-import {ApplySkinToUnit, CreateUnitHandleSkin} from "../../Skinner";
+import {ApplySkinToUnit, CreateUnitHandleSkin} from "../flavor/Skinner";
 
 export class PlayerUnitManager extends Entity {
     private static instance: PlayerUnitManager;
@@ -45,7 +45,7 @@ export class PlayerUnitManager extends Entity {
             let minion = this.playerManager.allMinions[i];
             let startX = GetPlayerStartLocationX(minion);
             let startY = GetPlayerStartLocationY(minion);
-            CreateUnitHandleSkin(minion, FourCC(PlayerUnits.HERO_WAR_VETERAN), startX, startY, 270);
+            CreateUnitHandleSkin(minion, FourCC(GameUnits.HERO_WAR_VETERAN), startX, startY, 270);
             SetPlayerState(minion, PLAYER_STATE_RESOURCE_FOOD_CAP, 5);
 
             TriggerRegisterPlayerUnitEvent(this.respawnHeroes, minion, EVENT_PLAYER_UNIT_DEATH, null);

@@ -1,4 +1,4 @@
-export const enum PlayerUnits {
+export const enum GameUnits {
     //Heroes
     HERO_WAR_VETERAN = "H000",
 

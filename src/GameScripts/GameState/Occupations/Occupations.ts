@@ -3,7 +3,7 @@ import {Occupant} from "./Occupant";
 import {Forces} from "../../Enums/Forces";
 import {UnitClass} from "../../Enums/UnitClass";
 import {Point} from "../../../TreeLib/Utility/Point";
-import {PlayerUnits} from "../../Enums/PlayerUnits";
+import {GameUnits} from "../../Enums/GameUnits";
 import {PlayerManager} from "../../PlayerManager";
 import {DamageDetectionSystem} from "../../../TreeLib/DDS/DamageDetectionSystem";
 import {HitCallback} from "../../../TreeLib/DDS/HitCallback";
@@ -129,11 +129,11 @@ export class Occupations {
     getHallByForce(force: Forces): number {
         switch (force) {
             case Forces.FORCE_1:
-                return FourCC(PlayerUnits.HALL_FORCE_1);
+                return FourCC(GameUnits.HALL_FORCE_1);
             case Forces.FORCE_2:
-                return FourCC(PlayerUnits.HALL_FORCE_2);
+                return FourCC(GameUnits.HALL_FORCE_2);
             case Forces.FORCE_BANDIT:
-                return FourCC(PlayerUnits.HALL_FORCE_BANDITS);
+                return FourCC(GameUnits.HALL_FORCE_BANDITS);
         }
     }
 
@@ -195,9 +195,9 @@ export class Occupations {
 
     private isHall(unitType: number) {
         let u = InverseFourCC(unitType);
-        return (u == PlayerUnits.HALL_FORCE_1
-            || u == PlayerUnits.HALL_FORCE_2
-            || u == PlayerUnits.HALL_FORCE_BANDITS
+        return (u == GameUnits.HALL_FORCE_1
+            || u == GameUnits.HALL_FORCE_2
+            || u == GameUnits.HALL_FORCE_BANDITS
         );
     }
 

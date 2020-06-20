@@ -1,4 +1,4 @@
-import {PlayerUnits} from "./PlayerUnits";
+import {GameUnits} from "./GameUnits";
 import {InverseFourCC} from "../../TreeLib/Misc";
 
 export const enum UnitClass {
@@ -33,24 +33,24 @@ export function GetUnitClassFromString(type: string): UnitClass {
 export function GetUnitClassFromUnitType(e: number): UnitClass {
     const u = InverseFourCC(e);
     switch (u) {
-        case PlayerUnits.MELEE_SOLDIER:
-        case PlayerUnits.BANDIT_MELEE:
+        case GameUnits.MELEE_SOLDIER:
+        case GameUnits.BANDIT_MELEE:
             return UnitClass.MELEE;
 
-        case PlayerUnits.RANGER_ARCHER:
-        case PlayerUnits.RANGER_FOREST_TROLL:
-        case PlayerUnits.BANDIT_ASSASSIN:
+        case GameUnits.RANGER_ARCHER:
+        case GameUnits.RANGER_FOREST_TROLL:
+        case GameUnits.BANDIT_ASSASSIN:
             return UnitClass.RANGED;
 
-        case PlayerUnits.CASTER_PRIEST:
-        case PlayerUnits.CASTER_SORCERESS:
-        case PlayerUnits.BANDIT_ROUGE_WIZARD:
+        case GameUnits.CASTER_PRIEST:
+        case GameUnits.CASTER_SORCERESS:
+        case GameUnits.BANDIT_ROUGE_WIZARD:
             return UnitClass.CASTER;
 
-        case PlayerUnits.CAVALRY_KNIGHT:
+        case GameUnits.CAVALRY_KNIGHT:
             return UnitClass.CAVALRY;
 
-        case PlayerUnits.ARTILLERY_DEMOLISHER:
+        case GameUnits.ARTILLERY_DEMOLISHER:
             return UnitClass.ARTILLERY;
 
         default:

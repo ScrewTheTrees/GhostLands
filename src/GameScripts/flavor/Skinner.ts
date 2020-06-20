@@ -1,6 +1,6 @@
-import {Hooks} from "./TreeLib/Hooks";
-import {PlayerUnits} from "./GameScripts/Enums/PlayerUnits";
-import {InverseFourCC} from "./TreeLib/Misc";
+import {Hooks} from "../../TreeLib/Hooks";
+import {GameUnits} from "../Enums/GameUnits";
+import {InverseFourCC} from "../../TreeLib/Misc";
 
 export function CreateUnitHandleSkin(id: player, unitid: number, x: number, y: number, face: number): unit {
     let u = CreateUnit(id, unitid, x, y, face);
@@ -26,8 +26,8 @@ export class Skinner {
     public skins: string[][] = [];
 
     constructor() {
-        this.skins[PlayerUnits.RANGER_ARCHER] = [PlayerUnits.RANGER_ARCHER, PlayerUnits.RANGER_ARCHER_SKIN1];
-        this.skins[PlayerUnits.MELEE_SOLDIER] = [PlayerUnits.MELEE_SOLDIER, PlayerUnits.MELEE_SOLDIER_SKIN1, PlayerUnits.MELEE_SOLDIER_SKIN2, PlayerUnits.MELEE_SOLDIER_SKIN3];
+        this.skins[GameUnits.RANGER_ARCHER] = [GameUnits.RANGER_ARCHER, GameUnits.RANGER_ARCHER_SKIN1];
+        this.skins[GameUnits.MELEE_SOLDIER] = [GameUnits.MELEE_SOLDIER, GameUnits.MELEE_SOLDIER_SKIN1, GameUnits.MELEE_SOLDIER_SKIN2, GameUnits.MELEE_SOLDIER_SKIN3];
     }
 
     public getRandomSkinOfUnit(u: unit): number {

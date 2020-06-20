@@ -12,7 +12,7 @@ import {GetDelayFromUnitClass, GetGuardTypeFromUnit, UnitClass} from "../Enums/U
 import {Guard} from "./Guard";
 import {NamedRect} from "../RectControl/NamedRect";
 import {Quick} from "../../TreeLib/Quick";
-import {CreateUnitHandleSkin} from "../../Skinner";
+import {CreateUnitHandleSkin} from "../flavor/Skinner";
 import {Forces, GetIDByForce} from "../Enums/Forces";
 
 export class AIGuardSpawner {

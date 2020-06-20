@@ -12,5 +12,5 @@ export namespace CreepLootTable {
         }
     }
 
-    export const STANDARD_TIER = new IndexSpawnTable("I000", "I001", "I002", "I003", "I004");
+    export const STANDARD_TIER = new IndexSpawnTable("I000", "I001", "I002", "I003", "I004", "I005");
 }

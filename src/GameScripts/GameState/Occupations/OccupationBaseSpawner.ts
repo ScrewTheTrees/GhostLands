@@ -3,7 +3,7 @@ import {Point} from "../../../TreeLib/Utility/Point";
 import {AIManager} from "../../AI/AIManager";
 import {Logger} from "../../../TreeLib/Logger";
 import {Occupations} from "./Occupations";
-import {CreateUnitHandleSkin} from "../../../Skinner";
+import {CreateUnitHandleSkin} from "../../flavor/Skinner";
 
 export class OccupationBaseSpawner {
     private static instance: OccupationBaseSpawner;

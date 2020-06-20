@@ -1,7 +1,7 @@
 import {Point} from "../../TreeLib/Utility/Point";
 import {Forces} from "../Enums/Forces";
 import {SpawnWeight} from "./SpawnWeight";
-import {PlayerUnits} from "../Enums/PlayerUnits";
+import {GameUnits} from "../Enums/GameUnits";
 import {UnitClass} from "../Enums/UnitClass";
 import {Logger} from "../../TreeLib/Logger";
 
@@ -12,11 +12,11 @@ export class AIForceData {
     public aiPlayerExtra: player;
     public force: Forces;
 
-    public meleeUnits = new SpawnWeight<string>(PlayerUnits.MELEE_SOLDIER);
-    public rangedUnits = new SpawnWeight<string>(PlayerUnits.RANGER_ARCHER);
-    public casterUnits = new SpawnWeight<string>(PlayerUnits.CASTER_PRIEST);
-    public cavalryUnits = new SpawnWeight<string>(PlayerUnits.CAVALRY_KNIGHT);
-    public artilleryUnits = new SpawnWeight<string>(PlayerUnits.ARTILLERY_DEMOLISHER);
+    public meleeUnits = new SpawnWeight<string>(GameUnits.MELEE_SOLDIER);
+    public rangedUnits = new SpawnWeight<string>(GameUnits.RANGER_ARCHER);
+    public casterUnits = new SpawnWeight<string>(GameUnits.CASTER_PRIEST);
+    public cavalryUnits = new SpawnWeight<string>(GameUnits.CAVALRY_KNIGHT);
+    public artilleryUnits = new SpawnWeight<string>(GameUnits.ARTILLERY_DEMOLISHER);
 
     public amountOfMelee: number = 14;
     public amountOfRanged: number = 8;

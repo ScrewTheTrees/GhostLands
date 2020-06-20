@@ -6,7 +6,7 @@ import {IsValidUnit} from "../../../TreeLib/Misc";
 import {CreepCampTypes} from "./CreepCampTypes";
 import {GetCreepTableByCreepCampType} from "./CreepCampSpawnTable";
 import {RandAngle} from "../../../TreeLib/Utility/TreeMath";
-import {CreateUnitHandleSkin} from "../../../Skinner";
+import {CreateUnitHandleSkin} from "../../flavor/Skinner";
 
 export class NeutralCreepCamp {
     public location: NamedRect;

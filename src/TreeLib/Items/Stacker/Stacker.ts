@@ -1,4 +1,6 @@
 import {Hooks} from "../../Hooks";
+import {Logger} from "../../Logger";
+import {StackerDto} from "./StackerDto";
 
 
 export class Stacker {
@@ -17,6 +19,10 @@ export class Stacker {
     private itemStackTrigger: trigger = CreateTrigger();
     private itemDropTrigger: trigger = CreateTrigger();
 
+    public onPickupCallback: ((stackerDto: StackerDto) => void)[] = [];
+    public onStackCallback: ((stackerDto: StackerDto) => void)[] = [];
+    public onDropCallback: ((stackerDto: StackerDto) => void)[] = [];
+
     constructor() {
         TriggerRegisterAnyUnitEventBJ(this.itemPickupTrigger, EVENT_PLAYER_UNIT_PICKUP_ITEM);
         TriggerAddAction(this.itemPickupTrigger, () => this.onItemPickup());
@@ -26,22 +32,49 @@ export class Stacker {
         TriggerAddAction(this.itemDropTrigger, () => this.onItemDrop());
     }
 
+    public addPickupEvent(action: (stackerDto: StackerDto) => void) {
+        this.onPickupCallback.push(action);
+    }
+
+    public addStackEvent(action: (stackerDto: StackerDto) => void) {
+        this.onStackCallback.push(action);
+    }
+
+    public addDropEvent(action: (stackerDto: StackerDto) => void) {
+        this.onDropCallback.push(action);
+    }
+
+
     private onItemPickup() {
+
         if (!BlzGetManipulatedItemWasAbsorbed()) {
-            print("ON ITEM PICUP");
-            print("GetManipulatedItemCharges ", GetItemCharges(GetManipulatedItem()));
+            for (let callback of this.onPickupCallback) {
+                xpcall(() => {
+                    callback(new StackerDto(GetManipulatingUnit()));
+                }, Logger.critical);
+            }
+        } else {
+            for (let callback of this.onStackCallback) {
+                xpcall(() => {
+                    callback(new StackerDto(GetManipulatingUnit()));
+                }, Logger.critical);
+            }
         }
     }
 
     private onItemStack() {
-        print("ON ITEM STACK");
-        print("GetSourceItemCharges ", GetItemCharges(BlzGetStackingItemSource()));
-        print("GetStackingItemCharges ", GetItemCharges(BlzGetStackingItemTarget()));
-        print("BlzGetStackingItemTargetPreviousCharges ", BlzGetStackingItemTargetPreviousCharges());
+        /*for (let callback of this.onStackCallback) {
+            xpcall(() => {
+                callback(new StackerDto(GetManipulatingUnit()));
+            }, Logger.critical);
+        }*/
     }
 
     private onItemDrop() {
-        print("ON ITEM DROP");
-        print("GetManipulatedItemCharges ", GetItemCharges(GetManipulatedItem()));
+        for (let callback of this.onDropCallback) {
+            xpcall(() => {
+                callback(new StackerDto(GetManipulatingUnit()));
+            }, Logger.critical);
+        }
     }
 }

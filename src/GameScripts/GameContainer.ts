@@ -4,7 +4,7 @@ import {GlobalGameManager} from "./GameState/GlobalGameManager";
 import {PlayerUnitManager} from "./StartGame/PlayerUnitManager";
 import {DebugUI} from "./DebugUI";
 import {WorldTendencyContainer} from "./WorldTendency/WorldTendencyContainer";
-import {Stacker} from "../TreeLib/Items/Stacker/Stacker";
+import {StackingItems} from "./WorldTendency/Loot/StackingItems";
 
 export class GameContainer {
     private static instance: GameContainer;
@@ -13,7 +13,7 @@ export class GameContainer {
     public playerUnitManager: PlayerUnitManager = PlayerUnitManager.getInstance();
     public worldTendencyContainer: WorldTendencyContainer = WorldTendencyContainer.getInstance();
     public debugUI: DebugUI = DebugUI.getInstance();
-    public stacker: Stacker = Stacker.getInstance();
+    public stackingItems: StackingItems = StackingItems.getInstance();
 
     public static getInstance() {
         if (this.instance == null) {

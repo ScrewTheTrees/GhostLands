@@ -8,7 +8,7 @@ import {Delay} from "../../../TreeLib/Utility/Delay";
 import {PathManager} from "../../PathManager";
 import {UnitClass} from "../../Enums/UnitClass";
 import {Quick} from "../../../TreeLib/Quick";
-import {CreateUnitHandleSkin} from "../../../Skinner";
+import {CreateUnitHandleSkin} from "../../flavor/Skinner";
 import {ArmyPlatoon} from "./ArmyPlatoon";
 import {UnitGroupQueue} from "../../../TreeLib/ActionQueue/Queues/UnitGroupQueue";
 import {UnitGroupActionExecuteCode} from "../../../TreeLib/ActionQueue/Actions/UnitGroupActionExecuteCode";

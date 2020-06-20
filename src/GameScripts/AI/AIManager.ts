@@ -11,7 +11,7 @@ import {Segment} from "../RectControl/Segment";
 import {Logger} from "../../TreeLib/Logger";
 import {Quick} from "../../TreeLib/Quick";
 import {SpawnWeight} from "./SpawnWeight";
-import {PlayerUnits} from "../Enums/PlayerUnits";
+import {GameUnits} from "../Enums/GameUnits";
 
 export class AIManager {
     private static instance: AIManager;
@@ -57,12 +57,12 @@ export class AIManager {
         this.banditNorthData.amountOfArtillery = 0;
         this.banditSouthData.amountOfArtillery = 0;
 
-        this.banditNorthData.meleeUnits = new SpawnWeight<string>(PlayerUnits.BANDIT_MELEE);
-        this.banditSouthData.meleeUnits = new SpawnWeight<string>(PlayerUnits.BANDIT_MELEE);
-        this.banditNorthData.rangedUnits = new SpawnWeight<string>(PlayerUnits.BANDIT_ASSASSIN);
-        this.banditSouthData.rangedUnits = new SpawnWeight<string>(PlayerUnits.BANDIT_ASSASSIN);
-        this.banditNorthData.casterUnits = new SpawnWeight<string>(PlayerUnits.BANDIT_ROUGE_WIZARD);
-        this.banditSouthData.casterUnits = new SpawnWeight<string>(PlayerUnits.BANDIT_ROUGE_WIZARD);
+        this.banditNorthData.meleeUnits = new SpawnWeight<string>(GameUnits.BANDIT_MELEE);
+        this.banditSouthData.meleeUnits = new SpawnWeight<string>(GameUnits.BANDIT_MELEE);
+        this.banditNorthData.rangedUnits = new SpawnWeight<string>(GameUnits.BANDIT_ASSASSIN);
+        this.banditSouthData.rangedUnits = new SpawnWeight<string>(GameUnits.BANDIT_ASSASSIN);
+        this.banditNorthData.casterUnits = new SpawnWeight<string>(GameUnits.BANDIT_ROUGE_WIZARD);
+        this.banditSouthData.casterUnits = new SpawnWeight<string>(GameUnits.BANDIT_ROUGE_WIZARD);
     }
 
     public performAIReinforcements() {
