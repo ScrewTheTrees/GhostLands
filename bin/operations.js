@@ -1,4 +1,5 @@
-const fs = require("fs-extra");
+const fs = require("fs");
+const fsx = require("fs-extra");
 const execFile = require("child_process").execFile;
 const cwd = process.cwd();
 
@@ -9,26 +10,33 @@ try {
 } catch (e) {
     return console.error(e);
 }
+let version = {};
+try {
+    if (fs.existsSync("build.json")) {
+        version = JSON.parse(fs.readFileSync("build.json"))
+    } else {
+        version.major = 1;
+        version.minor = 0;
+        version.build = 0;
+    }
+} catch (e) {
+    return console.error(e);
+}
 
 const operation = process.argv[2];
 
 switch (operation) {
     case "build":
+        version.build += 1;
+        fs.writeFileSync("build.json", JSON.stringify(version));
 
         const tsLua = ".\\target\\tstl_output.lua";
-        const tsLuaMap = ".\\target\\tstl_output.lua.map";
-        let doSourceMap = true;
-
         if (!fs.existsSync(tsLua)) {
             return console.error(`Could not find "${tsLua}"`);
         }
-        if (!fs.existsSync(tsLuaMap)) {
-            doSourceMap = false;
-            console.warn(`Could not find "${tsLuaMap}" No map Trace back to source.`);
-        }
 
         console.log(`Building "${cwd}\\maps\\${config.mapFolder}"...`);
-        fs.copy(`.\\maps\\${config.mapFolder}`, `.\\target/${config.mapFolder}`, function (err) {
+        fsx.copy(`.\\maps\\${config.mapFolder}`, `.\\target/${config.mapFolder}`, function (err) {
             if (err) {
                 console.error(err);
             } else {
@@ -39,12 +47,13 @@ switch (operation) {
                 }
 
                 try {
-                    if (doSourceMap === true) {
-                        const tsLuaMapContents = fs.readFileSync(tsLuaMap);
-                        fs.appendFileSync(mapLua, tsLuaMapContents);
-                    }
-
                     const tsLuaContents = fs.readFileSync(tsLua);
+                    fs.appendFileSync(mapLua, "\nlocal mapVersion = {}");
+                    fs.appendFileSync(mapLua, "\nmapVersion.major = " + version.major);
+                    fs.appendFileSync(mapLua, "\nmapVersion.minor = " + version.minor);
+                    fs.appendFileSync(mapLua, "\nmapVersion.build = " + version.build);
+                    let date = new Date();
+                    fs.appendFileSync(mapLua, `\nmapVersion.date = "${date.getFullYear()}-${date.getMonth()}-${date.getDate()}  ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}"`);
                     fs.appendFileSync(mapLua, tsLuaContents);
                 } catch (err) {
                     return console.error(err);
@@ -73,5 +82,18 @@ switch (operation) {
 
         execFile(config.gameExecutable, ["-loadfile", filename, ...config.launchArgs]);
 
+        break;
+
+    case "incrementMajor":
+        version.major += 1;
+        version.minor = 0;
+        version.build = 0;
+        fs.writeFileSync("build.json", JSON.stringify(version));
+        break;
+
+    case "incrementMinor":
+        version.minor += 1;
+        version.build = 0;
+        fs.writeFileSync("build.json", JSON.stringify(version));
         break;
 }

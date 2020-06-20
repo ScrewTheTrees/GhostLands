@@ -4176,3 +4176,41 @@ STRING 1509
 Fish School Thicc
 }
 
+STRING 1510
+// Abilities: A00O (Adjustable Armor Bonus), Name (Name)
+{
+Adjustable Armor Bonus
+}
+
+STRING 1512
+// Items: I005 (Armor Shards), Ubertip (Tooltip - Extended)
+{
+Increases a target unit's armor by <A00O,DataA1>.
+
+Shards of armor, not pretty but good for staying alive.
+}
+
+STRING 1513
+// Items: I005 (Armor Shards), Description (Description)
+{
+Provides a stacking armor bonus.
+}
+
+STRING 1514
+// Items: I005 (Armor Shards), Name (Name)
+{
+Armor Shards
+}
+
+STRING 1515
+// Items: I005 (Armor Shards), Hotkey (Hotkey)
+{
+S
+}
+
+STRING 1516
+// Items: I005 (Armor Shards), Tip (Tooltip - Basic)
+{
+Purchase Armor Shards
+}
+

@@ -555,6 +555,22 @@ gg_trg_Untitled_Trigger_001 = nil
 function InitGlobals()
 end
 
+function CreateAllItems()
+    local itemID
+    BlzCreateItemWithSkin(FourCC("I005"), -28275.5, 24233.3, FourCC("I005"))
+    BlzCreateItemWithSkin(FourCC("I005"), -28174.7, 24238.5, FourCC("I005"))
+    BlzCreateItemWithSkin(FourCC("I005"), -28072.4, 24241.1, FourCC("I005"))
+    BlzCreateItemWithSkin(FourCC("I005"), -27964.8, 24239.8, FourCC("I005"))
+    BlzCreateItemWithSkin(FourCC("I005"), -28277.1, 24106.0, FourCC("I005"))
+    BlzCreateItemWithSkin(FourCC("I005"), -28176.3, 24111.2, FourCC("I005"))
+    BlzCreateItemWithSkin(FourCC("I005"), -28074.0, 24113.8, FourCC("I005"))
+    BlzCreateItemWithSkin(FourCC("I005"), -27966.4, 24112.5, FourCC("I005"))
+    BlzCreateItemWithSkin(FourCC("I005"), -28272.7, 23984.6, FourCC("I005"))
+    BlzCreateItemWithSkin(FourCC("I005"), -28171.9, 23989.8, FourCC("I005"))
+    BlzCreateItemWithSkin(FourCC("I005"), -28069.6, 23992.4, FourCC("I005"))
+    BlzCreateItemWithSkin(FourCC("I005"), -27961.9, 23991.1, FourCC("I005"))
+end
+
 function CreateUnitsForPlayer16()
     local p = Player(16)
     local u
@@ -2632,6 +2648,7 @@ function main()
     SetAmbientNightSound("DalaranNight")
     SetMapMusic("Music", true, 0)
     CreateRegions()
+    CreateAllItems()
     CreateAllUnits()
     InitBlizzard()
     InitGlobals()
