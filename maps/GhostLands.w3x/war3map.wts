@@ -396,24 +396,18 @@ Basic healer that can consistently heal and cast abolish magic. |n|n|cffffcc00At
 }
 
 STRING 168
-// Abilities: A000 (Defend), EditorSuffix (Editor Suffix)
-{
-(Tier1)
-}
-
-STRING 169
 // Abilities: A005 (Heal), EditorSuffix (Editor Suffix)
 {
 (Tier1)
 }
 
-STRING 170
+STRING 169
 // Abilities: A006 (Slow), EditorSuffix (Editor Suffix)
 {
 (Tier1)
 }
 
-STRING 171
+STRING 170
 // Abilities: A00H (Abolish Magic), EditorSuffix (Editor Suffix)
 {
 (Tier1)
@@ -3635,7 +3629,7 @@ Calls forth a magical wave of healing energy that bounces up to <A00J,DataB10> t
 }
 
 STRING 1409
-// Units: n00G (Forest Troll Hut), EditorSuffix (Name - Editor Suffix)
+// Units: n00G (Troll Hut), EditorSuffix (Name - Editor Suffix)
 {
 (Trolls)
 }
@@ -3664,92 +3658,8 @@ STRING 1414
 Random Camp
 }
 
-STRING 1415
-// Units: n00D (Ice Troll Berserker), Name (Name)
-{
-Ice Troll Berserker
-}
-
-STRING 1416
-// Units: n00D (Ice Troll Berserker), Tip (Tooltip - Basic)
-{
-Hire Ice Troll Berserker
-}
-
-STRING 1417
-// Units: n00J (Ice Troll High Priest), Name (Name)
-{
-Ice Troll High Priest
-}
-
-STRING 1418
-// Units: n00O (Ice Troll Priest), Name (Name)
-{
-Ice Troll Priest
-}
-
-STRING 1419
-// Units: n00P (Ice Troll Trapper), Name (Name)
-{
-Ice Troll Trapper
-}
-
-STRING 1420
-// Units: n00P (Ice Troll Trapper), Tip (Tooltip - Basic)
-{
-Hire Ice Troll Trapper
-}
-
-STRING 1421
-// Units: n00Q (Ice Troll Warlord), Name (Name)
-{
-Ice Troll Warlord
-}
-
-STRING 1422
-// Units: n00Q (Ice Troll Warlord), Tip (Tooltip - Basic)
-{
-Hire Ice Troll Warlord
-}
-
-STRING 1424
-// Units: n00T (Ice Troll Hut), EditorSuffix (Name - Editor Suffix)
-{
-(Ice Trolls)
-}
-
-STRING 1425
-// Units: n00T (Ice Troll Hut), Name (Name)
-{
-Ice Troll Hut
-}
-
-STRING 1426
-// Units: n00T (Ice Troll Hut), Tip (Tooltip - Basic)
-{
-Build Ice Troll Hut
-}
-
-STRING 1428
-// Units: n00U (Random Camp), Name (Name)
-{
-Random Camp
-}
-
-STRING 1429
-// Units: n00U (Random Camp), EditorSuffix (Name - Editor Suffix)
-{
-(North)
-}
-
 STRING 1430
 // Units: n00C (Random Camp), Tip (Tooltip - Basic)
-{
-Build Random Camp
-}
-
-STRING 1431
-// Units: n00U (Random Camp), Tip (Tooltip - Basic)
 {
 Build Random Camp
 }
@@ -3764,102 +3674,6 @@ STRING 1433
 // Units: n00N (Toxic Spider), Tip (Tooltip - Basic)
 {
 Summon Toxic Spider
-}
-
-STRING 1436
-// Units: n00V (Dark Troll Berserker), Name (Name)
-{
-Dark Troll Berserker
-}
-
-STRING 1437
-// Units: n00V (Dark Troll Berserker), Tip (Tooltip - Basic)
-{
-Hire Dark Troll Berserker
-}
-
-STRING 1438
-// Units: n00W (Dark Troll High Priest), Name (Name)
-{
-Dark Troll High Priest
-}
-
-STRING 1439
-// Units: n00W (Dark Troll High Priest), Tip (Tooltip - Basic)
-{
-Hire Dark Troll High Priest
-}
-
-STRING 1440
-// Units: n00X (Dark Troll Shadow Priest), Name (Name)
-{
-Dark Troll Shadow Priest
-}
-
-STRING 1441
-// Units: n00X (Dark Troll Shadow Priest), Tip (Tooltip - Basic)
-{
-Hire Dark Troll Shadow Priest
-}
-
-STRING 1442
-// Units: n00Y (Dark Troll Trapper), Name (Name)
-{
-Dark Troll Trapper
-}
-
-STRING 1443
-// Units: n00Y (Dark Troll Trapper), Tip (Tooltip - Basic)
-{
-Hire Dark Troll Trapper
-}
-
-STRING 1444
-// Units: n00Z (Dark Troll Warlord), Name (Name)
-{
-Dark Troll Warlord
-}
-
-STRING 1445
-// Units: n00Z (Dark Troll Warlord), Tip (Tooltip - Basic)
-{
-Hire Dark Troll Warlord
-}
-
-STRING 1446
-// Units: n010 (Dark Troll Hut), EditorSuffix (Name - Editor Suffix)
-{
-(Dark Trolls)
-}
-
-STRING 1447
-// Units: n010 (Dark Troll Hut), Name (Name)
-{
-Dark Troll Hut
-}
-
-STRING 1448
-// Units: n010 (Dark Troll Hut), Tip (Tooltip - Basic)
-{
-Build Dark Troll Hut
-}
-
-STRING 1449
-// Units: n011 (Random Camp), EditorSuffix (Name - Editor Suffix)
-{
-(South)
-}
-
-STRING 1450
-// Units: n011 (Random Camp), Name (Name)
-{
-Random Camp
-}
-
-STRING 1451
-// Units: n011 (Random Camp), Tip (Tooltip - Basic)
-{
-Build Random Camp
 }
 
 STRING 1452
@@ -4041,12 +3855,6 @@ Has Defend and Bash.
 |n|cffffcc00Attacks land units.|r
 }
 
-STRING 1487
-// Abilities: A000 (Defend), Ubertip (Tooltip - Normal - Extended)
-{
-Activate to take only <A000,DataA1,%>% of the damage from Piercing attacks. While Defend is active, movement is reduced by <A000,DataC1,%>% of normal speed.
-}
-
 STRING 1488
 // Units: H000 (War Veteran), Name (Name)
 {
@@ -4220,5 +4028,65 @@ STRING 1521
 Increases unit's armor by 1 per stack.
 
 Shards of armor, not pretty, but good for staying alive.
+}
+
+STRING 1527
+{
+Each point of armor increases effective health by 1%.
+
+0 armor = 0% damage reduction.
+100 armor = 50% damage reduction.
+}
+
+STRING 1528
+{
+Each point of armor increases effective health by 1%.
+
+0 armor = 0% damage reduction.
+100 armor = 50% damage reduction.
+}
+
+STRING 1529
+{
+Each point of armor increases effective health by 1%.
+
+0 armor = 0% damage reduction.
+100 armor = 50% damage reduction.
+}
+
+STRING 1530
+// Units: n006 (Troll Shadow Priest), Name (Name)
+{
+Troll Shadow Priest
+}
+
+STRING 1531
+// Units: n007 (Troll Trapper), Name (Name)
+{
+Troll Trapper
+}
+
+STRING 1532
+// Units: n005 (Troll Berserker), Name (Name)
+{
+Troll Berserker
+}
+
+STRING 1533
+// Units: n008 (Troll High Priest), Name (Name)
+{
+Troll High Priest
+}
+
+STRING 1534
+// Units: n009 (Troll Warlord), Name (Name)
+{
+Troll Warlord
+}
+
+STRING 1535
+// Units: n00G (Troll Hut), Name (Name)
+{
+Troll Hut
 }
 

@@ -1,9 +1,10 @@
 export class TreeLib {
+    public static version = "1.3.2";
     public static creator = "ScrewTheTrees";
     public static libName = "TreeLib";
 
     public static getIntroductionString() {
-        return this.libName + " " + this.getMapVersion() + " - " + this.creator;
+        return this.libName + " " + this.version + " - " + this.creator;
     }
 
     public static getMapVersion(): MapVersion {

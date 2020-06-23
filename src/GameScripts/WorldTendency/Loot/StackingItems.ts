@@ -1,12 +1,12 @@
 import {Hooks} from "../../../TreeLib/Hooks";
-import {Stacker} from "../../../TreeLib/Items/Stacker/Stacker";
+import {ItemEventTracker} from "../../../TreeLib/Items/ItemEventTracker";
 import {GetAllItemsOfTypeOnUnit, GetTotalItemStacks} from "../../../TreeLib/Utility/ItemFuncs";
 import {GameItems} from "../../Enums/GameItems";
 import {GetOrAddAbility} from "../../../TreeLib/Utility/UnitFuncs";
 import {GameAbilities} from "../../Enums/GameAbilities";
 import {Logger} from "../../../TreeLib/Logger";
 import {Delay} from "../../../TreeLib/Utility/Delay";
-import {StackerDto} from "../../../TreeLib/Items/Stacker/StackerDto";
+import {StackerDto} from "../../../TreeLib/Items/StackerDto";
 
 export class StackingItems {
     private static instance: StackingItems;
@@ -23,28 +23,20 @@ export class StackingItems {
         xpcall(() => {
 
             let armorStack = (eventData: StackerDto) => {
-                let manipulated = eventData.manipulator;
+                let manipulated = eventData.itemOwner;
                 Delay.addDelay(() => {
                     let shards = GetAllItemsOfTypeOnUnit(manipulated, FourCC(GameItems.ARMOR_SHARDS));
                     let stacks = GetTotalItemStacks(shards);
                     let ability = GetOrAddAbility(manipulated, FourCC(GameAbilities.ARMOR_SHARD_ARMOR_BONUS))
                     let oldStacks = BlzGetAbilityRealLevelField(ability, ABILITY_RLF_DEFENSE_BONUS_UTS3, 0);
                     let diffStacks = stacks - oldStacks;
+
                     BlzSetUnitArmor(manipulated, BlzGetUnitArmor(manipulated) + diffStacks);
-
-
                     BlzSetAbilityRealLevelField(ability, ABILITY_RLF_DEFENSE_BONUS_UTS3, 0, stacks);
 
-
-                    print("shards: ", shards.length);
-                    print("Stacks: ", stacks);
-                    print("oldStacks: ", oldStacks);
-                    print("ability", ability);
                 }, 0.01)
             };
-            Stacker.getInstance().addPickupEvent(armorStack);
-            Stacker.getInstance().addStackEvent(armorStack);
-            Stacker.getInstance().addDropEvent(armorStack);
+            ItemEventTracker.getInstance().addAllInventoryEvents(armorStack);
 
         }, Logger.critical);
     }

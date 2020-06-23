@@ -19,12 +19,8 @@ export class CreepCamps extends Entity {
         this._timerDelay = 10;
 
         this.replaceRandomCamps(CampBuilding.GENERIC_RANDOM_CAMP, CampBuilding.GetRandomGenericCamp);
-        this.replaceRandomCamps(CampBuilding.NORTH_RANDOM_CAMP, CampBuilding.GetRandomNorthCamp);
-        this.replaceRandomCamps(CampBuilding.SOUTH_RANDOM_CAMP, CampBuilding.GetRandomSouthCamp);
 
         this.spawnCamp(CampBuilding.FOREST_TROLL_HUT, CreepCampTypes.FOREST_TROLL);
-        this.spawnCamp(CampBuilding.ICE_TROLL_HUT, CreepCampTypes.ICE_TROLLS);
-        this.spawnCamp(CampBuilding.DARK_TROLL_HUT, CreepCampTypes.DARK_TROLLS);
         this.spawnCamp(CampBuilding.MURLOC_HUT, CreepCampTypes.MURLOC);
         this.spawnCamp(CampBuilding.EGG_SACK, CreepCampTypes.SPIDER);
     }

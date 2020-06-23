@@ -1,14 +1,15 @@
-import {Hooks} from "../../Hooks";
-import {Logger} from "../../Logger";
+import {Hooks} from "../Hooks";
+import {Logger} from "../Logger";
 import {StackerDto} from "./StackerDto";
 
 
-export class Stacker {
-    private static instance: Stacker;
+export class ItemEventTracker {
+    private static instance: ItemEventTracker;
+
 
     public static getInstance() {
         if (this.instance == null) {
-            this.instance = new Stacker();
+            this.instance = new ItemEventTracker();
             Hooks.set(this.name, this.instance);
         }
         return this.instance;
@@ -18,10 +19,14 @@ export class Stacker {
     private itemPickupTrigger: trigger = CreateTrigger();
     private itemStackTrigger: trigger = CreateTrigger();
     private itemDropTrigger: trigger = CreateTrigger();
+    private itemSellTrigger: trigger = CreateTrigger();
+    private itemBuyTrigger: trigger = CreateTrigger();
 
     public onPickupCallback: ((stackerDto: StackerDto) => void)[] = [];
     public onStackCallback: ((stackerDto: StackerDto) => void)[] = [];
     public onDropCallback: ((stackerDto: StackerDto) => void)[] = [];
+    public onSellCallback: ((stackerDto: StackerDto) => void)[] = [];
+    public onBuyCallback: ((stackerDto: StackerDto) => void)[] = [];
 
     constructor() {
         TriggerRegisterAnyUnitEventBJ(this.itemPickupTrigger, EVENT_PLAYER_UNIT_PICKUP_ITEM);
@@ -30,6 +35,11 @@ export class Stacker {
         TriggerAddAction(this.itemStackTrigger, () => this.onItemStack());
         TriggerRegisterAnyUnitEventBJ(this.itemDropTrigger, EVENT_PLAYER_UNIT_DROP_ITEM);
         TriggerAddAction(this.itemDropTrigger, () => this.onItemDrop());
+        TriggerRegisterAnyUnitEventBJ(this.itemSellTrigger, EVENT_PLAYER_UNIT_PAWN_ITEM);
+        TriggerAddAction(this.itemSellTrigger, () => this.onItemSell());
+        TriggerRegisterAnyUnitEventBJ(this.itemBuyTrigger, EVENT_PLAYER_UNIT_SELL_ITEM);
+        TriggerAddAction(this.itemBuyTrigger, () => this.onItemBuy());
+
     }
 
     public addPickupEvent(action: (stackerDto: StackerDto) => void) {
@@ -44,6 +54,21 @@ export class Stacker {
         this.onDropCallback.push(action);
     }
 
+    public addSellEvent(action: (stackerDto: StackerDto) => void) {
+        this.onSellCallback.push(action);
+    }
+
+    public addBuyCallback(action: (stackerDto: StackerDto) => void) {
+        this.onBuyCallback.push(action);
+    }
+
+    public addAllInventoryEvents(action: (stackerDto: StackerDto) => void) {
+        this.addPickupEvent(action);
+        this.addStackEvent(action);
+        this.addDropEvent(action);
+        this.addSellEvent(action);
+        this.addBuyCallback(action);
+    }
 
     private onItemPickup() {
 
@@ -74,6 +99,22 @@ export class Stacker {
         for (let callback of this.onDropCallback) {
             xpcall(() => {
                 callback(new StackerDto(GetManipulatingUnit()));
+            }, Logger.critical);
+        }
+    }
+
+    private onItemSell() {
+        for (let callback of this.onSellCallback) {
+            xpcall(() => {
+                callback(new StackerDto(GetManipulatingUnit()));
+            }, Logger.critical);
+        }
+    }
+
+    private onItemBuy() {
+        for (let callback of this.onBuyCallback) {
+            xpcall(() => {
+                callback(new StackerDto(GetBuyingUnit()));
             }, Logger.critical);
         }
     }

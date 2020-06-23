@@ -4,7 +4,9 @@ import {InverseFourCC} from "../../TreeLib/Misc";
 
 export function CreateUnitHandleSkin(id: player, unitid: number, x: number, y: number, face: number): unit {
     let u = CreateUnit(id, unitid, x, y, face);
-    BlzSetUnitSkin(u, Skinner.getInstance().getRandomSkinOfUnit(u));
+    let skinOfUnit = Skinner.getInstance().getRandomSkinOfUnit(u);
+    if (skinOfUnit != null)
+        BlzSetUnitSkin(u, skinOfUnit);
     return u;
 }
 
@@ -40,8 +42,6 @@ export class Skinner {
 
         return type;
     }
-
-
 
 
 }
