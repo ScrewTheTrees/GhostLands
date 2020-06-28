@@ -3676,19 +3676,6 @@ STRING 1433
 Summon Toxic Spider
 }
 
-STRING 1452
-// Abilities: A00J (Healing Wave), Researchubertip (Tooltip - Learn - Extended)
-{
-Calls forth a magical wave of energy that heals a target and bounces to nearby friendlies. Each bounce heals less damage.
-
-|cffffcc00Healing|r - 40 + (20*L)
-|cffffcc00Mana cost|r - 10 + (5*L)
-|cffffcc00Bounces|r - 6
-|cffffcc00Reduction Per Bounce|r - 20%
-
-|cff00ffffLarge Rune|r
-}
-
 STRING 1453
 // Destructibles: B002 (Grand Ashenvale Tree Wall), Name (Name)
 {
@@ -3899,14 +3886,6 @@ Heals a target friendly non-mechanical wounded unit by <A005,DataA1,%>.
 |cff00ffffTiny Rune|r
 }
 
-STRING 1495
-// Abilities: A00L (Searing Arrows), Ubertip (Tooltip - Normal - Extended)
-{
-Adds <A00L,DataA1> bonus fire damage to an attack against enemies, but drains mana with each shot fired.
-
-|cff00ffffTiny Rune|r
-}
-
 STRING 1496
 // Abilities: A00N (Unholy Frenzy), Ubertip (Tooltip - Normal - Extended)
 {
@@ -4088,5 +4067,76 @@ STRING 1535
 // Units: n00G (Troll Hut), Name (Name)
 {
 Troll Hut
+}
+
+STRING 1536
+// Abilities: A00L (Searing Arrows), Ubertip (Tooltip - Normal - Extended)
+{
+Adds <A00L,DataA1> bonus fire damage to an attack against enemies, but drains mana with each shot fired.
+}
+
+STRING 1537
+// Abilities: A00J (Healing Wave), Researchubertip (Tooltip - Learn - Extended)
+{
+Calls forth a magical wave of energy that heals a target and bounces to nearby friendlies. Each bounce heals less damage.
+
+|cffffcc00Healing|r - 30+ (15*L)
+|cffffcc00Mana cost|r - 10 + (5*L)
+|cffffcc00Bounces|r - 6
+|cffffcc00Reduction Per Bounce|r - 20%
+
+|cff00ffffLarge Rune|r
+}
+
+STRING 1538
+// Abilities: A000 (Weapon Part Damage Bonus), Name (Name)
+{
+Weapon Part Damage Bonus
+}
+
+STRING 1539
+// Abilities: A000 (Weapon Part Damage Bonus), Ubertip (Tooltip - Normal - Extended)
+{
+Shards of unknown origin.
+
+Each shard increases your heroes base damage by 1 point.
+}
+
+STRING 1542
+// Items: I006 (Weapon Parts), Name (Name)
+{
+Weapon Parts
+}
+
+STRING 1543
+// Items: I006 (Weapon Parts), Hotkey (Hotkey)
+{
+S
+}
+
+STRING 1545
+// Items: I006 (Weapon Parts), Description (Description)
+{
+Provides a stacking damage bonus.
+}
+
+STRING 1546
+// Items: I006 (Weapon Parts), Tip (Tooltip - Basic)
+{
+Purchase Weapon Parts
+}
+
+STRING 1547
+// Items: I006 (Weapon Parts), Ubertip (Tooltip - Extended)
+{
+Increases unit's damage by 1 per stack.
+
+Interesting pieces and machinery strapped to your gear.
+}
+
+STRING 1548
+// Buffs/Effects: B001 (), Bufftip (Tooltip)
+{
+Magical Speed Bonus
 }
 

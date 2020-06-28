@@ -106,7 +106,7 @@ export class CreepCamps extends Entity {
         let cornerDownRight = new Point(GetRectMaxX(map), GetRectMinY(map));
         let campLoc = namedRect.getCenter();
         let dist = math.min(campLoc.distanceTo(cornerUpLeft), campLoc.distanceTo(cornerDownRight));
-        return math.ceil(dist / 10000) + 2;
+        return math.ceil(dist / 20_000) + 4;
     }
 }
 

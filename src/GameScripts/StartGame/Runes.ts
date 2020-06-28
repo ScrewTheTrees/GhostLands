@@ -9,6 +9,7 @@ import {ChooseOne} from "../../TreeLib/Misc";
 import {TemporaryEffects} from "../../TreeLib/Effects/TemporaryEffects";
 import {ColorFadeEffect} from "../../TreeLib/Effects/StepEffects/ColorFadeEffect";
 import {SpellData} from "../../TreeLib/DummyCasting/SpellData";
+import {GameAbilities} from "../Enums/GameAbilities";
 
 export class Runes {
     private static instance: Runes;
@@ -22,11 +23,27 @@ export class Runes {
     }
 
     constructor() {
-        let greatRune = [FourCC("A00A"), FourCC("A007")];
-        let largeRunes = [FourCC("A00J")];
-        let mediumRunes = [FourCC("A001"), FourCC("A00D")];
-        let smallRunes = [FourCC("A00H"), FourCC("A00M"), FourCC("A006"),FourCC("A008"), FourCC("A00N")];
-        let tinyRunes = [FourCC("A00L"), FourCC("A005")];
+        let greatRune = [
+            FourCC(GameAbilities.HERO_THUNDER_CLAP),
+            FourCC(GameAbilities.HERO_SHOCKWAVE),
+        ];
+        let largeRunes = [
+            FourCC(GameAbilities.HERO_HEALING_WAVE),
+        ];
+        let mediumRunes = [
+            FourCC(GameAbilities.UNIT_FRENZY_TIER_1),
+            FourCC(GameAbilities.ITEM_AREA_HEALING_TIER_1),
+        ];
+        let smallRunes = [
+            FourCC(GameAbilities.UNIT_ABOLISH_MAGIC_TIER_1),
+            FourCC(GameAbilities.UNIT_REJUVENATION_TIER_1),
+            FourCC(GameAbilities.UNIT_SLOW_TIER_1),
+            FourCC(GameAbilities.UNIT_FROST_ARMOR_TIER_1),
+            FourCC(GameAbilities.UNIT_UNHOLY_FRENZY_TIER_1),
+        ];
+        let tinyRunes = [
+            FourCC(GameAbilities.UNIT_HEAL_TIER_1),
+        ];
 
         OnSpellCast.getInstance().addSpell(new OnCastContainer(greatRune,
             Runes.onGrandSpell,

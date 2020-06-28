@@ -3,8 +3,10 @@ import {Logger} from "./Logger";
 import {Quick} from "./Quick";
 
 /**
- * Entities are great for when you need logic executed continuously.
+ * Entities are great for when you need logic executed continuously in some service.
  * Loops in intervals of 0.01 , changeable with timerdelay on an entity level, at any time.
+ * This should not be used for something like individual projectiles as it could overly expensive.
+ * Instead, make a projectile handler class/service that extend this and then track/execute those projectiles there.
  */
 export abstract class Entity {
     private static entities: Entity[] = [];
