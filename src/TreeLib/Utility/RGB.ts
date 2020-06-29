@@ -43,10 +43,6 @@ export class RGB {
         this.blue = blue;
     }
 
-    public static getFull() {
-        return new RGB(255, 255, 255);
-    }
-
     public static get red() {
         return new RGB(255, 0, 0);
     }
@@ -61,6 +57,13 @@ export class RGB {
 
     public static get teal() {
         return new RGB(0, 255, 255);
+    }
+
+    public static get white() {
+        return new RGB(255, 255, 255);
+    }
+    public static get black() {
+        return new RGB(0, 0, 0);
     }
 }
 

@@ -10,8 +10,12 @@ import {TemporaryEffects} from "../../TreeLib/Effects/TemporaryEffects";
 import {ColorFadeEffect} from "../../TreeLib/Effects/StepEffects/ColorFadeEffect";
 import {SpellData} from "../../TreeLib/DummyCasting/SpellData";
 import {GameAbilities} from "../Enums/GameAbilities";
+import {Quick} from "../../TreeLib/Quick";
+import {GameBuffs} from "../Enums/GameBuffs";
+import {Entity} from "../../TreeLib/Entity";
+import {Delay} from "../../TreeLib/Utility/Delay";
 
-export class Runes {
+export class Runes extends Entity {
     private static instance: Runes;
 
     public static getInstance() {
@@ -22,7 +26,11 @@ export class Runes {
         return this.instance;
     }
 
+    public unitsWithMagicalMovespeed: { unit: unit, point: Point }[] = [];
+
     constructor() {
+        super();
+        this._timerDelay = 0.1;
         let greatRune = [
             FourCC(GameAbilities.HERO_THUNDER_CLAP),
             FourCC(GameAbilities.HERO_SHOCKWAVE),
@@ -45,80 +53,127 @@ export class Runes {
             FourCC(GameAbilities.UNIT_HEAL_TIER_1),
         ];
 
+        let movespeedBuffs = [
+            FourCC(GameAbilities.ITEM_SCROLL_OF_HASTE_TIER_1),
+        ]
+
         OnSpellCast.getInstance().addSpell(new OnCastContainer(greatRune,
-            Runes.onGrandSpell,
+            (...args) => this.onGrandSpell(...args)
         ));
         OnSpellCast.getInstance().addSpell(new OnCastContainer(largeRunes,
-            Runes.onLargeSpell
+            (...args) => this.onLargeSpell(...args)
         ));
         OnSpellCast.getInstance().addSpell(new OnCastContainer(mediumRunes,
-            Runes.onMediumSpell
+            (...args) => this.onMediumSpell(...args)
         ));
         OnSpellCast.getInstance().addSpell(new OnCastContainer(smallRunes,
-            Runes.onSmallSpell
+            (...args) => this.onSmallSpell(...args)
         ));
         OnSpellCast.getInstance().addSpell(new OnCastContainer(tinyRunes,
-            Runes.onTinySpell
+            (...args) => this.onTinySpell(...args)
+        ));
+        OnSpellCast.getInstance().addSpell(new OnCastContainer(movespeedBuffs,
+            (...args) => this.onAOESpeedBuff(...args)
         ));
 
     }
 
-    private static getRunePath() {
+    public step(): void {
+        this.updateMagicalMovespeed();
+    }
+
+    private updateMagicalMovespeed() {
+        for (let i = 0; i < this.unitsWithMagicalMovespeed.length; i++) {
+            let u = this.unitsWithMagicalMovespeed[i];
+            if (!UnitHasBuffBJ(u.unit, FourCC(GameBuffs.MAGICAL_SPEED_BONUS))) {
+                Quick.Slice(this.unitsWithMagicalMovespeed, i);
+                i -= 1;
+                continue;
+            }
+            if (Point.fromWidget(u.unit).distanceTo(u.point) > 20) {
+                let p = Point.fromWidget(u.unit);
+                let eff = AddSpecialEffect(this.getSmokePath(), p.x, p.y);
+                BlzSetSpecialEffectScale(eff, 0.75);
+                BlzSetSpecialEffectYaw(eff, GetRandomReal(0, 360));
+                BlzSetSpecialEffectZ(eff, GetLocationZ(p.toLocationClean()));
+
+                TemporaryEffects.getInstance().addEffect(new ColorFadeEffect(eff, 120, RGB.white, RGB.black));
+            }
+            u.point = Point.fromWidget(u.unit);
+        }
+    }
+
+    private getRunePath() {
         return `Doodads\\Cityscape\\Props\\MagicRunes\\MagicRunes${ChooseOne("0.mdl", "1.mdl", "2.mdl")}`;
     }
 
-    private static onGrandSpell(cont: SpellData) {
+    private getSmokePath() {
+        return `Doodads\\LordaeronSummer\\Props\\SmokeSmudge\\SmokeSmudge.mdl`;
+    }
+
+    private onGrandSpell(cont: SpellData) {
         let p = Point.fromWidget(cont.castingUnit);
-        let rune = Runes.getRunePath();
+        let runePath = this.getRunePath();
         let forcesByPlayer = PlayerManager.getInstance().getForcesByPlayer(GetOwningPlayer(cont.castingUnit));
         let rgb = GetColorByForce(forcesByPlayer);
-        let eff = Runes.createFadingEffect(rune, p, rgb, 2);
+        let eff = this.createSimpleEffectRune(runePath, p, rgb, 2);
 
         TemporaryEffects.getInstance().addEffect(new ColorFadeEffect(eff, 180, rgb, new RGB(32, 32, 32)))
     }
 
-    private static onLargeSpell(cont: SpellData) {
+    private onLargeSpell(cont: SpellData) {
         let p = Point.fromWidget(cont.castingUnit);
-        let rune = Runes.getRunePath();
+        let runePath = this.getRunePath();
         let forcesByPlayer = PlayerManager.getInstance().getForcesByPlayer(GetOwningPlayer(cont.castingUnit));
         let rgb = GetColorByForce(forcesByPlayer);
-        let eff = Runes.createFadingEffect(rune, p, rgb, 1.5);
+        let eff = this.createSimpleEffectRune(runePath, p, rgb, 1.5);
 
         TemporaryEffects.getInstance().addEffect(new ColorFadeEffect(eff, 60, rgb, new RGB(32, 32, 32)))
     }
 
-    private static onMediumSpell(cont: SpellData) {
+    private onMediumSpell(cont: SpellData) {
         let p = Point.fromWidget(cont.castingUnit);
-        let rune = Runes.getRunePath();
+        let runePath = this.getRunePath();
         let forcesByPlayer = PlayerManager.getInstance().getForcesByPlayer(GetOwningPlayer(cont.castingUnit));
         let rgb = GetColorByForce(forcesByPlayer);
-        let eff = Runes.createFadingEffect(rune, p, rgb, 1);
+        let eff = this.createSimpleEffectRune(runePath, p, rgb, 1);
 
         TemporaryEffects.getInstance().addEffect(new ColorFadeEffect(eff, 40, rgb, new RGB(32, 32, 32)))
     }
 
-    private static onSmallSpell(cont: SpellData) {
+    private onSmallSpell(cont: SpellData) {
         let p = Point.fromWidget(cont.castingUnit);
-        let rune = Runes.getRunePath();
+        let runePath = this.getRunePath();
         let forcesByPlayer = PlayerManager.getInstance().getForcesByPlayer(GetOwningPlayer(cont.castingUnit));
         let rgb = GetColorByForce(forcesByPlayer);
-        let eff = Runes.createFadingEffect(rune, p, rgb, 0.75);
+        let eff = this.createSimpleEffectRune(runePath, p, rgb, 0.75);
 
         TemporaryEffects.getInstance().addEffect(new ColorFadeEffect(eff, 20, rgb, new RGB(32, 32, 32)))
     }
 
-    private static onTinySpell(cont: SpellData) {
+    private onTinySpell(cont: SpellData) {
         let p = Point.fromWidget(cont.castingUnit);
-        let rune = Runes.getRunePath();
+        let runePath = this.getRunePath();
         let forcesByPlayer = PlayerManager.getInstance().getForcesByPlayer(GetOwningPlayer(cont.castingUnit));
         let rgb = GetColorByForce(forcesByPlayer);
-        let eff = Runes.createFadingEffect(rune, p, rgb, 0.5);
+        let eff = this.createSimpleEffectRune(runePath, p, rgb, 0.5);
 
         TemporaryEffects.getInstance().addEffect(new ColorFadeEffect(eff, 10, rgb, new RGB(32, 32, 32)))
     }
 
+    private onAOESpeedBuff(cont: SpellData) {
+        Delay.addDelay(() => {
+            let p = Point.fromWidget(cont.castingUnit);
+            let units = Quick.GroupToUnitArrayDestroy(GetUnitsInRangeOfLocAll(1800, p.toLocationClean()));
+            for (let u of units) {
+                if (UnitHasBuffBJ(cont.castingUnit, FourCC(GameBuffs.MAGICAL_SPEED_BONUS))) {
+                    this.unitsWithMagicalMovespeed.push({unit: u, point: Point.fromWidget(u)});
+                }
+            }
+        }, 0.5);
+    }
 
-    private static createFadingEffect(modelName: string, p: Point, color: RGB, scale: number) {
+    private createSimpleEffectRune(modelName: string, p: Point, color: RGB, scale: number) {
         let eff = AddSpecialEffect(modelName, p.x, p.y);
 
         BlzSetSpecialEffectScale(eff, scale);

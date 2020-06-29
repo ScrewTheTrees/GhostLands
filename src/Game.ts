@@ -14,7 +14,7 @@ export class Game {
         this.killPreload();
 
         StartGameDiag.getInstance().runDiagnosis();
-        Runes.getInstance();
+
 
         GameContainer.getInstance();
 

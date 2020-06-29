@@ -555,6 +555,44 @@ gg_trg_Untitled_Trigger_001 = nil
 function InitGlobals()
 end
 
+function CreateAllItems()
+    local itemID
+    BlzCreateItemWithSkin(FourCC("I000"), -28358.1, 24051.1, FourCC("I000"))
+    BlzCreateItemWithSkin(FourCC("I000"), -28357.4, 24118.4, FourCC("I000"))
+    BlzCreateItemWithSkin(FourCC("I000"), -28365.9, 23954.5, FourCC("I000"))
+    BlzCreateItemWithSkin(FourCC("I001"), -28186.4, 23954.5, FourCC("I001"))
+    BlzCreateItemWithSkin(FourCC("I001"), -28176.9, 24049.0, FourCC("I001"))
+    BlzCreateItemWithSkin(FourCC("I001"), -28173.6, 24122.9, FourCC("I001"))
+    BlzCreateItemWithSkin(FourCC("I002"), -27662.3, 24080.0, FourCC("I002"))
+    BlzCreateItemWithSkin(FourCC("I002"), -27677.7, 23968.4, FourCC("I002"))
+    BlzCreateItemWithSkin(FourCC("I002"), -27650.7, 24211.0, FourCC("I002"))
+    BlzCreateItemWithSkin(FourCC("I003"), -27829.0, 23971.7, FourCC("I003"))
+    BlzCreateItemWithSkin(FourCC("I003"), -27818.7, 24196.0, FourCC("I003"))
+    BlzCreateItemWithSkin(FourCC("I003"), -27816.1, 24069.6, FourCC("I003"))
+    BlzCreateItemWithSkin(FourCC("I004"), -27987.1, 24051.1, FourCC("I004"))
+    BlzCreateItemWithSkin(FourCC("I004"), -27988.2, 23949.5, FourCC("I004"))
+    BlzCreateItemWithSkin(FourCC("I004"), -27967.0, 24144.6, FourCC("I004"))
+    BlzCreateItemWithSkin(FourCC("I005"), -29033.7, 23932.6, FourCC("I005"))
+    BlzCreateItemWithSkin(FourCC("I005"), -29034.1, 24015.2, FourCC("I005"))
+    BlzCreateItemWithSkin(FourCC("I005"), -29031.1, 24106.4, FourCC("I005"))
+    BlzCreateItemWithSkin(FourCC("I006"), -28892.1, 24114.3, FourCC("I006"))
+    BlzCreateItemWithSkin(FourCC("I006"), -28890.8, 24027.9, FourCC("I006"))
+    BlzCreateItemWithSkin(FourCC("I006"), -28885.6, 23944.5, FourCC("I006"))
+end
+
+function CreateUnitsForPlayer0()
+    local p = Player(0)
+    local u
+    local unitID
+    local t
+    local life
+    u = BlzCreateUnitWithSkin(p, FourCC("h001"), -28775.0, 24372.6, 316.669, FourCC("h001"))
+    u = BlzCreateUnitWithSkin(p, FourCC("h008"), -28684.9, 24364.9, 306.715, FourCC("h008"))
+    u = BlzCreateUnitWithSkin(p, FourCC("h002"), -28553.3, 24334.4, 68.403, FourCC("h002"))
+    u = BlzCreateUnitWithSkin(p, FourCC("h002"), -28487.9, 24339.5, 254.495, FourCC("h002"))
+    u = BlzCreateUnitWithSkin(p, FourCC("h004"), -28639.7, 24254.9, 300.364, FourCC("h004"))
+end
+
 function CreateUnitsForPlayer16()
     local p = Player(16)
     local u
@@ -1174,6 +1212,7 @@ function CreatePlayerBuildings()
 end
 
 function CreatePlayerUnits()
+    CreateUnitsForPlayer0()
     CreateUnitsForPlayer16()
     CreateUnitsForPlayer17()
     CreateUnitsForPlayer18()
@@ -2619,6 +2658,7 @@ function main()
     SetAmbientNightSound("DalaranNight")
     SetMapMusic("Music", true, 0)
     CreateRegions()
+    CreateAllItems()
     CreateAllUnits()
     InitBlizzard()
     InitGlobals()

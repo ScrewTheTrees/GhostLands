@@ -84,7 +84,7 @@ export class DebugUI extends Entity {
         BlzFrameSetText(this.sideBarWarText, `--WORLD STATE
 worldState: ${RGBTextString(RGB.red, gameManager.worldState)}
 timeToWar: ${RGBTextString(RGB.red, gameManager.timeToWar)}
-guardSpawnCounter: ${RGBTextString(RGB.red, gameManager.guardSpawnCounter)} < ${RGBTextString(RGB.green, gameManager.reset)}
+guardSpawnCounter: ${RGBTextString(RGB.red, gameManager.guardSpawnCounter)} < ${RGBTextString(RGB.green, gameManager.guardReset)}
 
 --WAR
 allWarsTotal: ${RGBTextString(RGB.red, gameManager.allWars.length)}

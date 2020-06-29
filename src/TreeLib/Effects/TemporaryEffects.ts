@@ -2,6 +2,7 @@ import {Hooks} from "../Hooks";
 import {Quick} from "../Quick";
 import {Entity} from "../Entity";
 import {StepEffect} from "./StepEffects/StepEffect";
+import {Logger} from "../Logger";
 
 export class TemporaryEffects extends Entity {
     private static instance: TemporaryEffects;
@@ -27,16 +28,18 @@ export class TemporaryEffects extends Entity {
     }
 
     step(): void {
-        for (let i = 0; i < this.runes.length; i++) {
-            let value = this.runes[i];
-            value.currentTime += this._timerDelay;
-            value.step();
-            if (value.currentTime >= value.timer) {
-                value.destroy();
-                Quick.Slice(this.runes, i);
-                i -= 1;
+        xpcall(() => {
+            for (let i = 0; i < this.runes.length; i++) {
+                let value = this.runes[i];
+                value.currentTime += this._timerDelay;
+                value.step();
+                if (value.currentTime >= value.timer) {
+                    value.destroy();
+                    Quick.Slice(this.runes, i);
+                    i -= 1;
+                }
             }
-        }
+        }, Logger.critical)
     }
 }
 

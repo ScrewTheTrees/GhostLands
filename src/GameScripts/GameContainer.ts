@@ -5,6 +5,7 @@ import {PlayerUnitManager} from "./StartGame/PlayerUnitManager";
 import {DebugUI} from "./DebugUI";
 import {WorldTendencyContainer} from "./WorldTendency/WorldTendencyContainer";
 import {StackingItems} from "./WorldTendency/Loot/StackingItems";
+import {Runes} from "./StartGame/Runes";
 
 export class GameContainer {
     private static instance: GameContainer;
@@ -14,6 +15,7 @@ export class GameContainer {
     public worldTendencyContainer: WorldTendencyContainer = WorldTendencyContainer.getInstance();
     public debugUI: DebugUI = DebugUI.getInstance();
     public stackingItems: StackingItems = StackingItems.getInstance();
+    public runes: Runes = Runes.getInstance();
 
     public static getInstance() {
         if (this.instance == null) {

@@ -24,7 +24,7 @@ export class GlobalGameManager extends Entity {
     public currentEvents: MapEvent[] = [];
     public guardSpawnCounter: number = 0;
     public timeToWar: number = 300;
-    public reset: number = 120;
+    public guardReset: number = 60;
     private aiManager: AIManager = AIManager.getInstance();
 
     constructor() {
@@ -89,10 +89,10 @@ export class GlobalGameManager extends Entity {
             this.guardSpawnCounter += this._timerDelay;
             this.timeToWar -= this._timerDelay;
 
-            if (this.guardSpawnCounter == 20) {
+            if (this.guardSpawnCounter == 10) {
                 this.aiManager.performAIReinforcements();
             }
-            if (this.guardSpawnCounter == 50) {
+            if (this.guardSpawnCounter == 40) {
                 this.aiManager.performBanditRelocation();
                 this.aiManager.performAIRelocation();
             }
@@ -111,8 +111,8 @@ export class GlobalGameManager extends Entity {
             Logger.critical("Yeah no no events");
         }
 
-        if (this.guardSpawnCounter > this.reset) {
-            this.guardSpawnCounter -= this.reset;
+        if (this.guardSpawnCounter > this.guardReset) {
+            this.guardSpawnCounter -= this.guardReset;
         }
     }
 
