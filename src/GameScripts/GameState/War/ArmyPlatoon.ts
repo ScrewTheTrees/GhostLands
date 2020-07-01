@@ -28,6 +28,7 @@ export class ArmyPlatoon {
                 ActionQueue.disableQueue(soldier.currentQueue);
             })
         }
+        this._currentQueue.targets = this.getUnitList();
         this._currentQueue = value;
     }
 
@@ -65,6 +66,6 @@ export class ArmyPlatoon {
 
     public isFull(): boolean {
         this.purgeDead(); // Purge
-        return (this.soldiers.length >= 6); // Is full.
+        return (this.soldiers.length >= 10); // Is full.
     }
 }

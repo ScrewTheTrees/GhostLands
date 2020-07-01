@@ -33,7 +33,6 @@ export const enum GameAbilities {
     ITEM_SCROLL_OF_REGENERATION_TIER_1 = "A00F",
 
     ITEM_ARMOR_SHARD_ARMOR_BONUS= "A00P",
-    ITEM_WEAPON_PART_DAMAGE_BONUS= "A000",
 
 
 

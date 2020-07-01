@@ -45,7 +45,7 @@ export class War extends Entity {
                 targets.armies.force2 = new Army(mgr.force2Data, targets.targets.force2.force2gather);
             }
 
-            this.countdown = 400;
+            this.countdown = 300;
 
             this.state = WarState.PREPARE_CLASH; //Armies are done, preparatus.
         } else {

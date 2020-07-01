@@ -1,4 +1,0 @@
-UI\FrameDef\Glue\escmenutemplates.fdf.fdf
-
-war3mapImported\CustomFrames.fdf
-war3mapImported\CTextFrames.fdf

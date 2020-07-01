@@ -5,6 +5,7 @@ import {Occupations} from "../Occupations/Occupations";
 import {ChooseOne} from "../../../TreeLib/Misc";
 import {Occupant} from "../Occupations/Occupant";
 import {Army} from "./Army";
+import {Logger} from "../../../TreeLib/Logger";
 
 export class TargetResolver {
 
@@ -21,7 +22,7 @@ export class TargetResolver {
         let force2 = Occupations.getInstance().getTownsOwnedBy(Forces.FORCE_2);
 
         if (f1 != undefined && f2 != undefined) {
-            print("Predefined war!");
+            Logger.generic("Predefined war!");
             let f1zone = warzones.getWarzoneByForceAndCity(Forces.FORCE_1, f1);
             let f2zone = warzones.getWarzoneByForceAndCity(Forces.FORCE_2, f2);
 
@@ -31,7 +32,7 @@ export class TargetResolver {
         } else if (f1bandits.length > 0 || f2bandits.length > 0) {
             container = TargetResolver.getBanditWarzones(f1bandits, f2bandits);
         } else {
-            print(`Generic war.`);
+            Logger.generic(`Generic war.`);
             container = TargetResolver.getContestedWarzones();
             container.selectedBattlefield = ChooseOne(container.targets.force1, container.targets.force2);
             container.deadLock = true;
@@ -41,14 +42,14 @@ export class TargetResolver {
     }
 
     private static getBanditWarzones(f1bandits: Warzone[], f2bandits: Warzone[]) {
-        print(`Prioritise bandits, force1: ${f1bandits.length}  and force2: ${f2bandits.length}`);
+        Logger.generic(`Prioritise bandits, force1: ${f1bandits.length}  and force2: ${f2bandits.length}`);
         let zones = TargetResolver.getContestedWarzones();
 
         if (f1bandits.length > 0) zones.targets.force1 = f1bandits[GetRandomInt(0, f1bandits.length - 1)];
         if (f2bandits.length > 0) zones.targets.force2 = f2bandits[GetRandomInt(0, f2bandits.length - 1)];
 
         if (f1bandits.length == 0 || f2bandits.length == 0) {
-            print(`Not both players can fight the bandits, so it will be a war instead.`);
+            Logger.generic(`Not both players can fight the bandits, so it will be a war instead.`);
             if (f1bandits.length == 0) zones.selectedBattlefield = zones.targets.force1;
             else zones.selectedBattlefield = zones.targets.force2;
             zones.deadLock = true;

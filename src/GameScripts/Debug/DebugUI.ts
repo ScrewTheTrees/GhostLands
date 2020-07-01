@@ -1,12 +1,14 @@
-import {Hooks} from "../TreeLib/Hooks";
-import {Entity} from "../TreeLib/Entity";
-import {GlobalGameManager} from "./GameState/GlobalGameManager";
-import {War, WarState} from "./GameState/War/War";
-import {RGB, RGBTextString} from "../TreeLib/Utility/RGB";
-import {CreepLoot} from "./WorldTendency/Loot/CreepLoot";
-import {PlayerPowerTendency} from "./WorldTendency/Power/PlayerPowerTendency";
-import {WorldState} from "./Enums/WorldState";
-import {CreepLootQuality} from "./WorldTendency/Loot/CreepLootQuality";
+import {Hooks} from "../../TreeLib/Hooks";
+import {Entity} from "../../TreeLib/Entity";
+import {GlobalGameManager} from "../GameState/GlobalGameManager";
+import {War, WarState} from "../GameState/War/War";
+import {RGB, RGBTextString} from "../../TreeLib/Utility/RGB";
+import {CreepLoot} from "../WorldTendency/Loot/CreepLoot";
+import {PlayerPowerTendency} from "../WorldTendency/Power/PlayerPowerTendency";
+import {WorldState} from "../Enums/WorldState";
+import {CreepLootQuality} from "../WorldTendency/Loot/CreepLootQuality";
+import {Quick} from "../../TreeLib/Quick";
+import {GameAbilities} from "../Enums/GameAbilities";
 
 export class DebugUI extends Entity {
     private static instance: DebugUI;
@@ -20,11 +22,11 @@ export class DebugUI extends Entity {
         return this.instance;
     }
 
+    private fullExpandedFrame: framehandle;
     private sideBarWarText: framehandle;
     private sidebar: framehandle;
     private testButtonFrame: framehandle;
-    private testButtonFrame2: framehandle;
-    private testButtonFrame3: framehandle;
+    private testButtonTextFrame: framehandle;
 
 
     private button1Trig = CreateTrigger();
@@ -33,47 +35,41 @@ export class DebugUI extends Entity {
         super();
         this._timerDelay = 0.25;
 
-        BlzLoadTOCFile("war3mapImported\\Toc.toc");
+        BlzLoadTOCFile("war3mapImported\\TreeFrames\\Toc.toc");
 
 
-        let frameWorld = BlzGetOriginFrame(ORIGIN_FRAME_WORLD_FRAME, 0);
-        this.sidebar = BlzCreateFrame("GenericBackdrop", frameWorld, 1, 0);
-        this.sideBarWarText = BlzCreateFrame("CText_8", this.sidebar, 1, 0);
+        let frameWorld = BlzGetOriginFrame(ORIGIN_FRAME_GAME_UI, 0);
+        this.fullExpandedFrame = BlzCreateSimpleFrame("FullSimpleScreen", frameWorld, 0);
+        BlzFrameClearAllPoints(this.fullExpandedFrame);
+        BlzFrameSetAbsPoint(this.fullExpandedFrame, FRAMEPOINT_BOTTOM, 0.4, 0);
+        BlzFrameSetSize(this.fullExpandedFrame, this.getTotalFrameWidth(), 0.6);
 
+        this.sidebar = BlzCreateSimpleFrame("SimpleGenericBackdrop", this.fullExpandedFrame, 0);
+        this.sideBarWarText = BlzGetFrameByName("SimpleGenericBackdropString", 0);
 
-        this.testButtonFrame = BlzCreateFrame("TestFrame", this.sidebar, 1, 0);
-        this.testButtonFrame2 = BlzCreateFrame("TestFrame", this.sidebar, 1, 0);
-        this.testButtonFrame3 = BlzCreateFrame("TestFrame", this.sidebar, 1, 0);
+        //BlzFrameSetSize(this.sidebar, 0.30, 1);
+        BlzFrameSetPoint(this.sidebar, FRAMEPOINT_TOPLEFT, this.fullExpandedFrame, FRAMEPOINT_TOPRIGHT, -0.25, -0.03);
+        BlzFrameSetPoint(this.sidebar, FRAMEPOINT_BOTTOMRIGHT, this.fullExpandedFrame, FRAMEPOINT_BOTTOMRIGHT, 0, 0.2);
 
+        BlzFrameSetSize(this.sideBarWarText, 1, 1);
+        BlzFrameSetPoint(this.sideBarWarText, FRAMEPOINT_TOPLEFT, this.sidebar, FRAMEPOINT_TOPLEFT, 0, 0);
+        BlzFrameSetPoint(this.sideBarWarText, FRAMEPOINT_BOTTOMRIGHT, this.sidebar, FRAMEPOINT_BOTTOMRIGHT, 0, 0);
 
-        BlzFrameSetSize(this.sidebar, 0.20, 1);
-        BlzFrameSetPoint(this.sidebar, FRAMEPOINT_TOPRIGHT, frameWorld, FRAMEPOINT_TOPRIGHT, 0, -0.03);
-        BlzFrameSetPoint(this.sidebar, FRAMEPOINT_BOTTOMRIGHT, frameWorld, FRAMEPOINT_BOTTOMRIGHT, 0, 0.2);
-        BlzFrameSetAlpha(this.sidebar, 100);
-
-        BlzFrameSetSize(this.sideBarWarText, 0.80, 0.80);
-        BlzFrameSetPoint(this.sideBarWarText, FRAMEPOINT_TOPLEFT, this.sidebar, FRAMEPOINT_TOPLEFT, 0.008, -0.008);
-        BlzFrameSetPoint(this.sideBarWarText, FRAMEPOINT_BOTTOMRIGHT, this.sidebar, FRAMEPOINT_BOTTOMRIGHT, 0.008, -0.008);
-        BlzFrameSetAlpha(this.sideBarWarText, 255);
+        this.testButtonFrame = BlzCreateSimpleFrame("SimpleGenericButton", this.sidebar, 0);
+        this.testButtonTextFrame = BlzGetFrameByName("SimpleGenericButtonString", 0);
 
         BlzFrameSetSize(this.testButtonFrame, 0.06, 0.025);
         BlzFrameSetPoint(this.testButtonFrame, FRAMEPOINT_BOTTOMLEFT, this.sidebar, FRAMEPOINT_BOTTOMLEFT, 0, 0);
-        BlzFrameSetAlpha(this.testButtonFrame, 255);
         BlzTriggerRegisterFrameEvent(this.button1Trig, this.testButtonFrame, FRAMEEVENT_CONTROL_CLICK);
         TriggerAddAction(this.button1Trig, () => this.pressButton1());
-
-        BlzFrameSetSize(this.testButtonFrame2, 0.06, 0.025);
-        BlzFrameSetPoint(this.testButtonFrame2, FRAMEPOINT_BOTTOMLEFT, this.sidebar, FRAMEPOINT_BOTTOMLEFT, 0.06, 0);
-        BlzFrameSetAlpha(this.testButtonFrame2, 255);
-
-        BlzFrameSetSize(this.testButtonFrame3, 0.06, 0.025);
-        BlzFrameSetPoint(this.testButtonFrame3, FRAMEPOINT_BOTTOMLEFT, this.sidebar, FRAMEPOINT_BOTTOMLEFT, 0.12, 0);
-        BlzFrameSetAlpha(this.testButtonFrame3, 255);
-
     }
 
     step() {
         this.reRender();
+    }
+
+    public getTotalFrameWidth() {
+        return 0.6 * (BlzGetLocalClientWidth() / BlzGetLocalClientHeight());
     }
 
     private reRender() {
@@ -81,10 +77,12 @@ export class DebugUI extends Entity {
         let loot = CreepLoot.getInstance();
         let playerPowerTendency = PlayerPowerTendency.getInstance();
 
+        BlzFrameSetSize(this.fullExpandedFrame, this.getTotalFrameWidth(), 0.6);
+
         BlzFrameSetText(this.sideBarWarText, `--WORLD STATE
 worldState: ${RGBTextString(RGB.red, gameManager.worldState)}
 timeToWar: ${RGBTextString(RGB.red, gameManager.timeToWar)}
-guardSpawnCounter: ${RGBTextString(RGB.red, gameManager.guardSpawnCounter)} < ${RGBTextString(RGB.green, gameManager.guardReset)}
+guardSpawnCounter: ${RGBTextString(RGB.red, gameManager.guardSpawnCounter)} < ${RGBTextString(RGB.green, gameManager.guardSpawnCounterDelay)}
 
 --WAR
 allWarsTotal: ${RGBTextString(RGB.red, gameManager.allWars.length)}
@@ -101,9 +99,7 @@ localPowerLevel: ${RGBTextString(RGB.red, playerPowerTendency.getPlayerPowerLeve
 localXPTendency: ${RGBTextString(RGB.red, playerPowerTendency.getPlayerXPTendency(GetLocalPlayer()))} / ${RGBTextString(RGB.green, playerPowerTendency.getPlayerActualXPTendency(GetLocalPlayer()))}
 `);
 
-        BlzFrameSetText(this.testButtonFrame, this.getButton1Text());
-        BlzFrameSetText(this.testButtonFrame2, "Dong");
-        BlzFrameSetText(this.testButtonFrame3, "Kid");
+        BlzFrameSetText(this.testButtonTextFrame, this.getButton1Text());
     }
 
     extractAllWarData(wars: War[]) {

@@ -23,7 +23,7 @@ export class NeutralCreepCamp {
         this.campType = campType;
         this.noOfCreeps = noOfCreeps;
 
-        Logger.generic(`Created creep camp of ${creeps.length} creeps at: ${location.getCenter().toString()} of ${this.campType}`);
+        Logger.verbose(`Created creep camp of ${creeps.length} creeps at: ${location.getCenter().toString()} of ${this.campType}`);
     }
 
     public isCampDead() {
@@ -31,7 +31,7 @@ export class NeutralCreepCamp {
     }
 
     public respawn() {
-        let num = GetRandomInt(this.noOfCreeps, this.noOfCreeps + 1);
+        let num = GetRandomInt(this.noOfCreeps, this.noOfCreeps);
 
         for (let i = 0; i < num; i++) {
             let point = this.location.getRandomPoint();

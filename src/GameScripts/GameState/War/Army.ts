@@ -111,6 +111,7 @@ export class Army {
     }
 
     public sendPlatoonToGathering(platoon: ArmyPlatoon) {
+        platoon.purgeDead();
         return this.sendPlatoonToPoint(platoon, this.gathering.getRandomPoint());
     }
 

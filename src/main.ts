@@ -25,5 +25,5 @@ function NewConfig() {
 }
 
 
-_G.main = Hooks.bind(_G.main, NewMain);
-_G.config = Hooks.bind(_G.config, NewConfig);
+_G.main = Hooks.hookArguments(_G.main, () => NewMain());
+_G.config = Hooks.hookArguments(_G.config, () => NewConfig());

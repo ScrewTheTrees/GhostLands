@@ -90,14 +90,14 @@ export class Runes extends Entity {
                 i -= 1;
                 continue;
             }
-            if (Point.fromWidget(u.unit).distanceTo(u.point) > 20) {
+            if (Point.fromWidget(u.unit).distanceTo(u.point) > 10) {
                 let p = Point.fromWidget(u.unit);
                 let eff = AddSpecialEffect(this.getSmokePath(), p.x, p.y);
-                BlzSetSpecialEffectScale(eff, 0.75);
+                BlzSetSpecialEffectScale(eff, 0.5);
                 BlzSetSpecialEffectYaw(eff, GetRandomReal(0, 360));
                 BlzSetSpecialEffectZ(eff, GetLocationZ(p.toLocationClean()));
 
-                TemporaryEffects.getInstance().addEffect(new ColorFadeEffect(eff, 120, RGB.white, RGB.black));
+                TemporaryEffects.getInstance().addEffect(new ColorFadeEffect(eff, 120, RGB.getFull(), new RGB(0,0,0)));
             }
             u.point = Point.fromWidget(u.unit);
         }

@@ -1,3 +1,4 @@
+/** @noSelfInFile **/
 import {Logger} from "./Logger";
 
 _G.__hooks = {};
@@ -16,11 +17,20 @@ export namespace Hooks {
         Logger.LogDebug("Hooked: " + name)
     }
 
-    export function bind(oldFunc: Function, newFunc: Function) {
-        return () => {
-            oldFunc();
-            newFunc();
+    export function hookArguments(oldFunc: (...args: any) => any, newFunc: (...args: any) => any) {
+        return (...args) => {
+            let val = oldFunc(...args);
+            newFunc(...args);
+            return val;
         };
+    }
+
+    export function hookResult<T>(hookFunc: (...args: any) => T, passFunc: (value: T) => void) {
+        return (...args) => {
+            let value = hookFunc(...args);
+            passFunc(value);
+            return value;
+        }
     }
 }
 

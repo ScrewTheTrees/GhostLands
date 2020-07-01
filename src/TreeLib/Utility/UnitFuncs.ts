@@ -4,5 +4,4 @@ export function GetOrAddAbility(target: unit, abilityType: number): ability {
 
     UnitAddAbility(target, abilityType);
     return BlzGetUnitAbility(target, abilityType);
-
 }

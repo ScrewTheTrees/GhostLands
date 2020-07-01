@@ -181,11 +181,15 @@ export class Occupations {
                     post.occupied.currentQueue.isPaused = true;
                     Delay.addDelay(() => {
                         if (post.occupied != undefined) IssuePointOrder(post.occupied.guard, "attack", loc.x, loc.y);
-                    }, 5);
+                    }, 3);
                     Delay.addDelay(() => {
                         if (post.occupied) {
                             IssuePointOrder(post.occupied.guard, "move", post.point.x, post.point.y);
                             post.occupied.currentQueue.isPaused = false;
+                            Delay.addDelay(() => {
+                                if (post.occupied) IssuePointOrder(post.occupied.guard, "attack", post.point.x, post.point.y);
+                                //Make sure the unit dont run back too far
+                            }, 1)
                         }
                     }, 30);
                 }
