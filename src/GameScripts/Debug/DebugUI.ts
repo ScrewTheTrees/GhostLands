@@ -7,8 +7,10 @@ import {CreepLoot} from "../WorldTendency/Loot/CreepLoot";
 import {PlayerPowerTendency} from "../WorldTendency/Power/PlayerPowerTendency";
 import {WorldState} from "../Enums/WorldState";
 import {CreepLootQuality} from "../WorldTendency/Loot/CreepLootQuality";
-import {Quick} from "../../TreeLib/Quick";
-import {GameAbilities} from "../Enums/GameAbilities";
+import {TreeFrames} from "./TreeFrames";
+import {TreeSimpleFrame} from "./TreeSimpleFrame";
+import {FramePoints} from "./FramePoints";
+import {TreeSimpleButton} from "./TreeSimpleButton";
 
 export class DebugUI extends Entity {
     private static instance: DebugUI;
@@ -23,13 +25,8 @@ export class DebugUI extends Entity {
     }
 
     private fullExpandedFrame: framehandle;
-    private sideBarWarText: framehandle;
-    private sidebar: framehandle;
-    private testButtonFrame: framehandle;
-    private testButtonTextFrame: framehandle;
-
-
-    private button1Trig = CreateTrigger();
+    private sidebar: TreeSimpleFrame;
+    private testButtonFrame: TreeSimpleButton;
 
     constructor() {
         super();
@@ -44,24 +41,15 @@ export class DebugUI extends Entity {
         BlzFrameSetAbsPoint(this.fullExpandedFrame, FRAMEPOINT_BOTTOM, 0.4, 0);
         BlzFrameSetSize(this.fullExpandedFrame, this.getTotalFrameWidth(), 0.6);
 
-        this.sidebar = BlzCreateSimpleFrame("SimpleGenericBackdrop", this.fullExpandedFrame, 0);
-        this.sideBarWarText = BlzGetFrameByName("SimpleGenericBackdropString", 0);
+        this.sidebar = TreeFrames.getInstance().createSimpleFrame()
+            .setPointRelative(FramePoints.TopLeft, FramePoints.TopRight, -0.25, -0.03)
+            .setPointRelative(FramePoints.BottomRight, FramePoints.BottomRight, 0, 0.2);
 
-        //BlzFrameSetSize(this.sidebar, 0.30, 1);
-        BlzFrameSetPoint(this.sidebar, FRAMEPOINT_TOPLEFT, this.fullExpandedFrame, FRAMEPOINT_TOPRIGHT, -0.25, -0.03);
-        BlzFrameSetPoint(this.sidebar, FRAMEPOINT_BOTTOMRIGHT, this.fullExpandedFrame, FRAMEPOINT_BOTTOMRIGHT, 0, 0.2);
+        this.testButtonFrame = TreeFrames.getInstance().createSimpleButton(this.sidebar.mainFrame)
+            .setCallback(() => this.pressButton1())
+            .setPointRelative(FRAMEPOINT_BOTTOMLEFT, FRAMEPOINT_BOTTOMLEFT, 0, 0)
+            .setSize(0.06, 0.025);
 
-        BlzFrameSetSize(this.sideBarWarText, 1, 1);
-        BlzFrameSetPoint(this.sideBarWarText, FRAMEPOINT_TOPLEFT, this.sidebar, FRAMEPOINT_TOPLEFT, 0, 0);
-        BlzFrameSetPoint(this.sideBarWarText, FRAMEPOINT_BOTTOMRIGHT, this.sidebar, FRAMEPOINT_BOTTOMRIGHT, 0, 0);
-
-        this.testButtonFrame = BlzCreateSimpleFrame("SimpleGenericButton", this.sidebar, 0);
-        this.testButtonTextFrame = BlzGetFrameByName("SimpleGenericButtonString", 0);
-
-        BlzFrameSetSize(this.testButtonFrame, 0.06, 0.025);
-        BlzFrameSetPoint(this.testButtonFrame, FRAMEPOINT_BOTTOMLEFT, this.sidebar, FRAMEPOINT_BOTTOMLEFT, 0, 0);
-        BlzTriggerRegisterFrameEvent(this.button1Trig, this.testButtonFrame, FRAMEEVENT_CONTROL_CLICK);
-        TriggerAddAction(this.button1Trig, () => this.pressButton1());
     }
 
     step() {
@@ -79,7 +67,7 @@ export class DebugUI extends Entity {
 
         BlzFrameSetSize(this.fullExpandedFrame, this.getTotalFrameWidth(), 0.6);
 
-        BlzFrameSetText(this.sideBarWarText, `--WORLD STATE
+        this.sidebar.setText(`--WORLD STATE
 worldState: ${RGBTextString(RGB.red, gameManager.worldState)}
 timeToWar: ${RGBTextString(RGB.red, gameManager.timeToWar)}
 guardSpawnCounter: ${RGBTextString(RGB.red, gameManager.guardSpawnCounter)} < ${RGBTextString(RGB.green, gameManager.guardSpawnCounterDelay)}
@@ -99,7 +87,8 @@ localPowerLevel: ${RGBTextString(RGB.red, playerPowerTendency.getPlayerPowerLeve
 localXPTendency: ${RGBTextString(RGB.red, playerPowerTendency.getPlayerXPTendency(GetLocalPlayer()))} / ${RGBTextString(RGB.green, playerPowerTendency.getPlayerActualXPTendency(GetLocalPlayer()))}
 `);
 
-        BlzFrameSetText(this.testButtonTextFrame, this.getButton1Text());
+
+        this.testButtonFrame.setText(this.getButton1Text());
     }
 
     extractAllWarData(wars: War[]) {

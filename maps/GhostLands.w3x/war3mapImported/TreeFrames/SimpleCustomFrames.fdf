@@ -6,8 +6,8 @@ Frame "SIMPLEFRAME" "FullSimpleScreen" {
 
 Frame "SIMPLEFRAME" "SimpleGenericFrame" {
     DecorateFileNames,
-    Width 0.1,
-    Height 0.1,
+    Width 1,
+    Height 1,
     String "SimpleGenericFrameString" {
         Font "InfoPanelTextFont", 0.01,
         FontJustificationH JUSTIFYLEFT,

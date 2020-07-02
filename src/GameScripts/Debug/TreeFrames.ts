@@ -2,6 +2,9 @@ import {Hooks} from "../../TreeLib/Hooks";
 import {TreeSimpleFrame} from "./TreeSimpleFrame";
 import {TreeFrameIDS} from "./TreeFrameIDS";
 import {Entity} from "../../TreeLib/Entity";
+import {Quick} from "../../TreeLib/Quick";
+import {ITreeFrame} from "./ITreeFrame";
+import {TreeSimpleButton} from "./TreeSimpleButton";
 
 export class TreeFrames extends Entity {
     private static instance: TreeFrames;
@@ -17,14 +20,18 @@ export class TreeFrames extends Entity {
     public hasLoaded: boolean = false;
 
     public fullScreenFrame: framehandle;
+    public allFrames: ITreeFrame[] = [];
+
     public currentContext: number = 0;
-    public allSimpleFrames: TreeSimpleFrame[] = [];
+    public onClickButton: trigger = CreateTrigger();
 
     constructor() {
         super();
         this.hasLoaded = BlzLoadTOCFile("war3mapImported\\TreeFrames\\Toc.toc");
-
         this.fullScreenFrame = BlzCreateSimpleFrame(TreeFrameIDS.FullSimpleScreen, BlzGetOriginFrame(ORIGIN_FRAME_GAME_UI, 0), 0);
+
+        TriggerAddAction(this.onClickButton, () => this.onClickButtonAction());
+
         BlzFrameClearAllPoints(this.fullScreenFrame);
         BlzFrameSetAbsPoint(this.fullScreenFrame, FRAMEPOINT_BOTTOM, 0.4, 0);
         BlzFrameSetSize(this.fullScreenFrame, this.getWidescreenFrameMultiplicationValue(), 0.6);
@@ -38,4 +45,42 @@ export class TreeFrames extends Entity {
         return 0.6 * (BlzGetLocalClientWidth() / BlzGetLocalClientHeight());
     }
 
+    public getNewIndex() {
+        this.currentContext += 1;
+        return this.currentContext;
+    }
+
+    public createSimpleFrame(parentFrame: framehandle = this.fullScreenFrame) {
+        let frame = new TreeSimpleFrame(this, this.getNewIndex(), parentFrame);
+        this.allFrames.push(frame);
+        return frame;
+    }
+
+    public createSimpleButton(parentFrame: framehandle = this.fullScreenFrame) {
+        let frame = new TreeSimpleButton(this, this.getNewIndex(), parentFrame);
+
+        this.allFrames.push(frame);
+        return frame;
+    }
+
+    /**
+     * This does not clear up memory, for that, use the "remove" function on the frame.
+     * @param simpleFrame
+     */
+    public disconnectFrame(simpleFrame: ITreeFrame) {
+        let index = this.allFrames.indexOf(simpleFrame);
+        if (index >= 0) {
+            Quick.Slice(this.allFrames, index);
+        }
+    }
+
+    private onClickButtonAction() {
+        let triggerFrame = BlzGetTriggerFrame();
+        for (let i = 0; i < this.allFrames.length; i++) {
+            let frame = this.allFrames[i];
+            if (frame.mainFrame == triggerFrame) {
+                frame.onTrigger();
+            }
+        }
+    }
 }
