@@ -15,7 +15,8 @@ import {ActionQueue} from "../../TreeLib/ActionQueue/ActionQueue";
 import {Entity} from "../../TreeLib/Entity";
 import {UnitActionWaypoint} from "../../TreeLib/ActionQueue/Actions/UnitActionWaypoint";
 import {Logger} from "../../TreeLib/Logger";
-import {ApplySkinToUnit, CreateUnitHandleSkin} from "../flavor/Skinner";
+import {ApplySkinToUnit} from "../flavor/Skinner";
+import {Forces} from "../Enums/Forces";
 
 export class PlayerUnitManager extends Entity {
     private static instance: PlayerUnitManager;
@@ -43,21 +44,15 @@ export class PlayerUnitManager extends Entity {
     public execute() {
         for (let i = 0; i < this.playerManager.allMinions.length; i++) {
             let minion = this.playerManager.allMinions[i];
-            let startX = GetPlayerStartLocationX(minion);
-            let startY = GetPlayerStartLocationY(minion);
-            CreateUnitHandleSkin(minion, FourCC(GameUnits.HERO_WAR_VETERAN), startX, startY, 270);
             SetPlayerState(minion, PLAYER_STATE_RESOURCE_FOOD_CAP, 5);
 
             TriggerRegisterPlayerUnitEvent(this.respawnHeroes, minion, EVENT_PLAYER_UNIT_DEATH, null);
             TriggerRegisterPlayerUnitEvent(this.onRouteOrderedUnits, minion, EVENT_PLAYER_UNIT_ISSUED_ORDER, null);
             TriggerRegisterPlayerUnitEvent(this.onRouteOrderedUnits, minion, EVENT_PLAYER_UNIT_ISSUED_TARGET_ORDER, null);
             TriggerRegisterPlayerUnitEvent(this.onRouteOrderedUnits, minion, EVENT_PLAYER_UNIT_ISSUED_POINT_ORDER, null);
-
         }
 
-        PlayerManager.getInstance().allPlayers.forEach((p) => {
-            TriggerRegisterPlayerUnitEvent(this.hiredUnits, p, EVENT_PLAYER_UNIT_SELL, null);
-        });
+        TriggerRegisterAnyUnitEventBJ(this.hiredUnits, EVENT_PLAYER_UNIT_SELL);
         TriggerAddAction(this.respawnHeroes, () => {
             this.respawnHero();
         });
@@ -92,7 +87,7 @@ export class PlayerUnitManager extends Entity {
         }
     }
 
-    private reviveHero(h: unit, forceData: AIForceData, spawner: AIGuardSpawner) {
+    public reviveHero(h: unit, forceData: AIForceData, spawner: AIGuardSpawner) {
         let point = forceData.getRandomSpawnPoint();
         ReviveHero(h, point.x, point.y, false);
         let gathering = spawner.gathering.getRandomPoint();
@@ -106,10 +101,15 @@ export class PlayerUnitManager extends Entity {
         const forces = PlayerManager.getInstance().getForcesByPlayer(GetOwningPlayer(soldUnit));
         SetUnitPositionLoc(soldUnit, AIManager.getInstance().getDataByForces(forces).getRandomSpawnPoint().toLocationClean());
 
-        const path = PathManager.getInstance().createPath(Point.fromWidget(soldUnit), Point.fromWidget(sellingUnit), forces, WaypointOrders.move);
-        const queue = ActionQueue.createUnitQueue(soldUnit, ...path);
-
         ApplySkinToUnit(soldUnit);
+        this.setUnitPath(soldUnit, Point.fromWidget(sellingUnit), forces);
+    }
+
+    public setUnitPath(soldUnit: unit, target: Point, forces: Forces) {
+        if (this.getOnRouteUnit(soldUnit) != null) this.removeRouteUnit(soldUnit);
+
+        const path = PathManager.getInstance().createPath(Point.fromWidget(soldUnit), target, forces, WaypointOrders.move);
+        const queue = ActionQueue.createUnitQueue(soldUnit, ...path);
 
         Quick.Push(this.onRouteUnits, new OnRouteUnit(soldUnit, queue));
     }

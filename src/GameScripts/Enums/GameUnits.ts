@@ -32,4 +32,9 @@ export const enum GameUnits {
     HALL_FORCE_1 = "e000",
     HALL_FORCE_2 = "e000",
     HALL_FORCE_BANDITS = "e000",
+
+    //Special
+    HERO_PICKER = "e001",
+    TAVERN_1 = "n00D",
+    PATHING_BLOCKER_MAP_START = "n00J",
 }

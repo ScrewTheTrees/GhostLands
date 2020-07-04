@@ -14,7 +14,12 @@ export namespace Hooks {
 
     export function set(name: string, value: any) {
         _G.__hooks[name] = value;
-        Logger.LogDebug("Hooked: " + name)
+        Logger.generic("Hooked: " + name)
+    }
+
+    export function remove(name: string) {
+        delete _G.__hooks[name];
+        Logger.generic("Removed hook: " + name)
     }
 
     export function hookArguments(oldFunc: (...args: any) => any, newFunc: (...args: any) => any) {

@@ -4126,3 +4126,15 @@ STRING 1548
 Magical Speed Bonus
 }
 
+STRING 1549
+// Units: e001 (Basic Hero Picker Because I am too lazy to make custom UI), Name (Name)
+{
+Basic Hero Picker Because I am too lazy to make custom UI
+}
+
+STRING 1550
+// Units: n00J (Pathing Blocker On Game Start), Name (Name)
+{
+Pathing Blocker On Game Start
+}
+

@@ -2,6 +2,8 @@ import {Hooks} from "../TreeLib/Hooks";
 import {Players} from "../TreeLib/Structs/Players";
 import {Quick} from "../TreeLib/Quick";
 import {Forces} from "./Enums/Forces";
+import {UnitArrays} from "../TreeLib/Utility/Extended Functionality/UnitArrayFunc";
+import ArrayUnitsOfPlayer = UnitArrays.ArrayUnitsOfPlayer;
 
 export class PlayerManager {
     private static instance: PlayerManager;
@@ -53,6 +55,8 @@ export class PlayerManager {
         for (let i = 0; i < GetPlayerNeutralAggressive(); i++) {
             this.allPlayers.push(Player(i));
             TriggerRegisterPlayerEventLeave(this.playerLeavesTrigger, Player(i));
+
+            SetPlayerMaxHeroesAllowed(1, Player(i));
         }
 
         TriggerAddAction(this.playerLeavesTrigger, () => this.onPlayerLeave());
@@ -110,5 +114,7 @@ export class PlayerManager {
         if (index >= 0) {
             this.allPlayers.splice(index, 1);
         }
+
+        ArrayUnitsOfPlayer(p).forEach((leaver) => RemoveUnit(leaver));
     }
 }

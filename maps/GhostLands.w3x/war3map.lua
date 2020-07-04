@@ -552,6 +552,9 @@ gg_rct_city5unitarea = nil
 gg_rct_force2base1unitarea = nil
 gg_rct_preloadRegion = nil
 gg_trg_Untitled_Trigger_001 = nil
+gg_rct_pickHeroRegion = nil
+gg_rct_force1WispSpawn = nil
+gg_rct_force2WispSpawn = nil
 function InitGlobals()
 end
 
@@ -586,11 +589,11 @@ function CreateUnitsForPlayer0()
     local unitID
     local t
     local life
-    u = BlzCreateUnitWithSkin(p, FourCC("h001"), -28775.0, 24372.6, 316.669, FourCC("h001"))
-    u = BlzCreateUnitWithSkin(p, FourCC("h008"), -28684.9, 24364.9, 306.715, FourCC("h008"))
-    u = BlzCreateUnitWithSkin(p, FourCC("h002"), -28553.3, 24334.4, 68.403, FourCC("h002"))
-    u = BlzCreateUnitWithSkin(p, FourCC("h002"), -28487.9, 24339.5, 254.495, FourCC("h002"))
-    u = BlzCreateUnitWithSkin(p, FourCC("h004"), -28639.7, 24254.9, 300.364, FourCC("h004"))
+    u = BlzCreateUnitWithSkin(p, FourCC("h001"), -28775.0, 24372.6, -70.981, FourCC("h001"))
+    u = BlzCreateUnitWithSkin(p, FourCC("h001"), -28670.0, 24371.7, -82.756, FourCC("h001"))
+    u = BlzCreateUnitWithSkin(p, FourCC("h002"), -28557.9, 24372.4, 262.862, FourCC("h002"))
+    u = BlzCreateUnitWithSkin(p, FourCC("h002"), -28465.4, 24379.6, 254.905, FourCC("h002"))
+    u = BlzCreateUnitWithSkin(p, FourCC("h004"), -28614.3, 24286.5, -85.159, FourCC("h004"))
 end
 
 function CreateUnitsForPlayer16()
@@ -1194,6 +1197,26 @@ function CreateNeutralHostileBuildings()
     u = BlzCreateUnitWithSkin(p, FourCC("n00C"), -11904.0, -17664.0, 270.000, FourCC("n00C"))
 end
 
+function CreateNeutralPassiveBuildings()
+    local p = Player(PLAYER_NEUTRAL_PASSIVE)
+    local u
+    local unitID
+    local t
+    local life
+    u = BlzCreateUnitWithSkin(p, FourCC("n00D"), -29696.0, -29952.0, 270.000, FourCC("n00D"))
+    SetUnitColor(u, ConvertPlayerColor(0))
+    u = BlzCreateUnitWithSkin(p, FourCC("n00D"), -27392.0, -29952.0, 270.000, FourCC("n00D"))
+    SetUnitColor(u, ConvertPlayerColor(0))
+    u = BlzCreateUnitWithSkin(p, FourCC("n00J"), -26080.0, 26336.0, 270.000, FourCC("n00J"))
+    SetUnitColor(u, ConvertPlayerColor(0))
+    u = BlzCreateUnitWithSkin(p, FourCC("n00J"), -26208.0, 26016.0, 270.000, FourCC("n00J"))
+    SetUnitColor(u, ConvertPlayerColor(0))
+    u = BlzCreateUnitWithSkin(p, FourCC("n00J"), 26208.0, -26528.0, 270.000, FourCC("n00J"))
+    SetUnitColor(u, ConvertPlayerColor(0))
+    u = BlzCreateUnitWithSkin(p, FourCC("n00J"), 25888.0, -26656.0, 270.000, FourCC("n00J"))
+    SetUnitColor(u, ConvertPlayerColor(0))
+end
+
 function CreateNeutralPassive()
     local p = Player(PLAYER_NEUTRAL_PASSIVE)
     local u
@@ -1221,6 +1244,7 @@ end
 
 function CreateAllUnits()
     CreateNeutralHostileBuildings()
+    CreateNeutralPassiveBuildings()
     CreatePlayerBuildings()
     CreateNeutralPassive()
     CreatePlayerUnits()
@@ -1781,6 +1805,9 @@ function CreateRegions()
     gg_rct_city5unitarea = Rect(24224.0, 24416.0, 29632.0, 29696.0)
     gg_rct_force2base1unitarea = Rect(24704.0, -30400.0, 30112.0, -25120.0)
     gg_rct_preloadRegion = Rect(7392.0, 28608.0, 9952.0, 29888.0)
+    gg_rct_pickHeroRegion = Rect(-30208.0, -30496.0, -26944.0, -28288.0)
+    gg_rct_force1WispSpawn = Rect(-29472.0, -29472.0, -29056.0, -29152.0)
+    gg_rct_force2WispSpawn = Rect(-28096.0, -29536.0, -27680.0, -29216.0)
 end
 
 function Trig_Untitled_Trigger_001_Actions()

@@ -1,10 +1,9 @@
 import {Logger} from "./TreeLib/Logger";
 import {StartGameDiag} from "./GameScripts/StartGame/StartGameDiag";
-import {Runes} from "./GameScripts/StartGame/Runes";
-import {GameContainer} from "./GameScripts/GameContainer";
 import {Rectifier} from "./GameScripts/RectControl/Rectifier";
 import {Point} from "./TreeLib/Utility/Point";
 import {Skinner} from "./GameScripts/flavor/Skinner";
+import {GameConfigContainer} from "./GameScripts/GameConfigContainer";
 
 export class Game {
     constructor() {
@@ -16,7 +15,7 @@ export class Game {
         StartGameDiag.getInstance().runDiagnosis();
 
 
-        GameContainer.getInstance();
+        GameConfigContainer.getInstance().start();
 
         this.skin();
     }
@@ -31,7 +30,7 @@ export class Game {
     }
 
     public skin() {
-        let units = GetUnitsInRangeOfLocAll(9999999, new Point(0,0).toLocationClean());
+        let units = GetUnitsInRangeOfLocAll(9999999, new Point(0, 0).toLocationClean());
         ForGroup(units, () => {
             let u = GetEnumUnit();
             BlzSetUnitSkin(u, Skinner.getInstance().getRandomSkinOfUnit(u));

@@ -4,7 +4,6 @@ import {WorldState} from "../Enums/WorldState";
 import {War, WarState} from "./War/War";
 import {MapEvent} from "./Events/MapEvent";
 import {AIManager} from "../AI/AIManager";
-import {InputManager} from "../../TreeLib/InputManager/InputManager";
 import {Quick} from "../../TreeLib/Quick";
 import {Logger} from "../../TreeLib/Logger";
 
