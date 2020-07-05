@@ -1,8 +1,8 @@
 
 
-|cff00ffffLarge Rune|r
 |cff00ffffGreat Rune|r
-|cff00ffffRune|r
+|cff00ffffLarge Rune|r
+|cff00ffffNeutral Rune|r
 |cff00ffffSmall Rune|r
 |cff00ffffTiny Rune|r
 

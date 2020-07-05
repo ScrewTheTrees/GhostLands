@@ -205,7 +205,7 @@ export class War extends Entity {
     private resolveSiegeTarget(targets: WarContainer, target: Warzone, force: Forces) {
         if (targets.selectedBattlefield != null) {
             if (targets.selectedBattlefield.force2Occupant.owner != force) {
-                return targets.selectedBattlefield;
+                //return targets.selectedBattlefield; //Causes issues.
             }
         }
         return target;
@@ -274,12 +274,20 @@ export class War extends Entity {
 
     private sendUnitsToSiege(force: Army, targets: WarContainer, winner: Forces, zone: NamedRect) {
         this.sendArmyToRectNoPath(force, force.gathering);
-        if (targets.selectedBattlefield &&
-            ((winner == Forces.FORCE_1 && targets.selectedBattlefield.force2Occupant.owner == Forces.FORCE_1)
-                || (winner == Forces.FORCE_2 && targets.selectedBattlefield.force1Occupant.owner == Forces.FORCE_2))) {
-            Logger.generic("Switch battlezone");
-            force.gathering = zone;
-            this.countdown = 400;
+
+        if (targets.selectedBattlefield) {
+
+            /*if ((winner == Forces.FORCE_1 && targets.selectedBattlefield.force2Occupant.owner == Forces.FORCE_1)
+                    || (winner == Forces.FORCE_2 && targets.selectedBattlefield.force1Occupant.owner == Forces.FORCE_2)
+            ) {*/
+            if (
+                (winner == Forces.FORCE_1 && targets.selectedBattlefield.force1gather != targets.targets.force1.force1gather)
+                || (winner == Forces.FORCE_2 && targets.selectedBattlefield.force2gather != targets.targets.force2.force2gather)
+            ) {
+                Logger.generic("Switch battlezone");
+                force.gathering = zone;
+                this.countdown = 400;
+            }
         }
         Delay.addDelay(() => {
             Logger.generic("Send to new gathering.");

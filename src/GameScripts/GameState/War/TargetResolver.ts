@@ -78,15 +78,15 @@ export class TargetResolver {
 
     private static getFinalWarzone(force1: Occupant[]): WarContainer {
         //If there is only 1 city left for every player we will set the warzone to the one outside for final standoff.
-        print(`Its the final showdown.`);
+        Logger.generic(`Its the final showdown.`);
         let cont = TargetResolver.getContestedWarzones();
         if (force1.length == 1) {
-            print(`At player 1.`);
+            Logger.generic(`At player 1.`);
             let zone = Warzones.getInstance().getWarzoneByForceAndCity(Forces.FORCE_2, Occupations.getInstance().FORCE_1_BASE);
             cont.targets.force1 = zone;
             cont.selectedBattlefield = zone;
         } else {
-            print(`At player 2.`);
+            Logger.generic(`At player 2.`);
             let zone = Warzones.getInstance().getWarzoneByForceAndCity(Forces.FORCE_1, Occupations.getInstance().FORCE_2_BASE);
             cont.targets.force2 = zone;
             cont.selectedBattlefield = zone;

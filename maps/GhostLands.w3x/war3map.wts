@@ -3077,12 +3077,6 @@ STRING 1260
 (Q)
 }
 
-STRING 1265
-// Units: H000 (War Veteran), Propernames (Proper Names)
-{
-Inhalus Dongus
-}
-
 STRING 1266
 // Units: h008 (Imperial Soldier), EditorSuffix (Name - Editor Suffix)
 {
@@ -3460,12 +3454,6 @@ STRING 1358
 // Abilities: A00I (Undying bravery), Tip (Tooltip - Normal)
 {
 Undying bravery
-}
-
-STRING 1360
-// Abilities: A00I (Undying bravery), EditorSuffix (Editor Suffix)
-{
-(Armor Aura Tier 1)
 }
 
 STRING 1361
@@ -3848,12 +3836,6 @@ STRING 1488
 War Veteran
 }
 
-STRING 1489
-// Units: H000 (War Veteran), Ubertip (Tooltip - Extended)
-{
-Old Warrior Hero of great renounce.
-}
-
 STRING 1491
 // Abilities: A00H (Abolish Magic), Ubertip (Tooltip - Normal - Extended)
 {
@@ -3902,14 +3884,6 @@ Creates a shield of frost around a target friendly unit. The shield adds <ACfa,D
 |cff00ffffSmall Rune|r
 }
 
-STRING 1499
-// Abilities: A001 (Frenzy), Ubertip (Tooltip - Normal - Extended)
-{
-Increases the unit's attack rate and movement speed temporarily.
-
-|cff00ffffRune|r
-}
-
 STRING 1503
 // Items: I000 (Healing Salve), Ubertip (Tooltip - Extended)
 {
@@ -3926,16 +3900,6 @@ STRING 1504
 Suspicious potion, Regenerates mana by <A00C,DataB1> over <A00C,Dur1> seconds when used.
 
 Originally used by runic assasins a long time ago, allowing regeneration of mana without leaving any trace.
-}
-
-STRING 1505
-// Items: I004 (Scroll of Healing), Ubertip (Tooltip - Extended)
-{
-Forcibly heals <A00D,DataA1> hit points to all friendly non-mechanical units around the Hero when used.
-
-|cff00ffffRune|r
-
-This runic scroll was concieved just recently, soldiers are highly suspicious of its properties but tolerate it just enough to allow its use due to its usability.
 }
 
 STRING 1506
@@ -4136,5 +4100,1783 @@ STRING 1550
 // Units: n00J (Pathing Blocker On Game Start), Name (Name)
 {
 Pathing Blocker On Game Start
+}
+
+STRING 1552
+// Units: H00B (Ranger General), Name (Name)
+{
+Ranger General
+}
+
+STRING 1554
+// Units: H00B (Ranger General), Hotkey (Hotkey)
+{
+G
+}
+
+STRING 1556
+// Abilities: A000 (Trueshot Aura), Tip (Tooltip - Normal)
+{
+Trueshot Aura
+}
+
+STRING 1557
+// Abilities: A000 (Trueshot Aura), Ubertip (Tooltip - Normal - Extended)
+{
+An aura that gives friendly nearby units a <A000,DataA1,%>% bonus damage to their ranged attacks.
+}
+
+STRING 1559
+// Abilities: A00Q (Shadow Strike), Researchhotkey (Hotkey - Learn)
+{
+Q
+}
+
+STRING 1560
+// Abilities: A00Q (Shadow Strike), Hotkey (Hotkey - Normal)
+{
+Q
+}
+
+STRING 1561
+// Abilities: A00Q (Shadow Strike), EditorSuffix (Editor Suffix)
+{
+(Q)
+}
+
+STRING 1563
+// Abilities: A00O (Holy Light), Tip (Tooltip - Normal)
+{
+Holy Light - [|cffffcc00Level 4|r]
+}
+
+STRING 1564
+// Abilities: A00O (Holy Light), Tip (Tooltip - Normal)
+{
+Holy Light - [|cffffcc00Level 5|r]
+}
+
+STRING 1565
+// Abilities: A00O (Holy Light), Tip (Tooltip - Normal)
+{
+Holy Light - [|cffffcc00Level 6|r]
+}
+
+STRING 1566
+// Abilities: A00O (Holy Light), Tip (Tooltip - Normal)
+{
+Holy Light - [|cffffcc00Level 7|r]
+}
+
+STRING 1567
+// Abilities: A00O (Holy Light), Tip (Tooltip - Normal)
+{
+Holy Light - [|cffffcc00Level 8|r]
+}
+
+STRING 1568
+// Abilities: A00O (Holy Light), Tip (Tooltip - Normal)
+{
+Holy Light - [|cffffcc00Level 9|r]
+}
+
+STRING 1569
+// Abilities: A00O (Holy Light), Tip (Tooltip - Normal)
+{
+Holy Light - [|cffffcc00Level 10|r]
+}
+
+STRING 1580
+// Abilities: A00O (Holy Light), Researchhotkey (Hotkey - Learn)
+{
+E
+}
+
+STRING 1581
+// Abilities: A00O (Holy Light), Hotkey (Hotkey - Normal)
+{
+E
+}
+
+STRING 1582
+// Abilities: A00O (Holy Light), EditorSuffix (Editor Suffix)
+{
+(E)
+}
+
+STRING 1583
+// Abilities: A00O (Holy Light), Ubertip (Tooltip - Normal - Extended)
+{
+A holy light that can heal a friendly living unit for <A00O,DataA1> or deal half damage to an enemy Undead unit.
+
+|cff00ffffNeutral Rune|r
+}
+
+STRING 1584
+// Abilities: A00O (Holy Light), Ubertip (Tooltip - Normal - Extended)
+{
+A holy light that can heal a friendly living unit for <A00O,DataA2> or deal half damage to an enemy Undead unit.
+
+|cff00ffffNeutral Rune|r
+}
+
+STRING 1585
+// Abilities: A00O (Holy Light), Ubertip (Tooltip - Normal - Extended)
+{
+A holy light that can heal a friendly living unit for <A00O,DataA3> or deal half damage to an enemy Undead unit.
+
+|cff00ffffNeutral Rune|r
+}
+
+STRING 1586
+// Abilities: A00O (Holy Light), Ubertip (Tooltip - Normal - Extended)
+{
+A holy light that can heal a friendly living unit for <A00O,DataA4> or deal half damage to an enemy Undead unit.
+
+|cff00ffffNeutral Rune|r
+}
+
+STRING 1587
+// Abilities: A00O (Holy Light), Ubertip (Tooltip - Normal - Extended)
+{
+A holy light that can heal a friendly living unit for <A00O,DataA5> or deal half damage to an enemy Undead unit.
+
+|cff00ffffNeutral Rune|r
+}
+
+STRING 1588
+// Abilities: A00O (Holy Light), Ubertip (Tooltip - Normal - Extended)
+{
+A holy light that can heal a friendly living unit for <A00O,DataA6> or deal half damage to an enemy Undead unit.
+
+|cff00ffffNeutral Rune|r
+}
+
+STRING 1589
+// Abilities: A00O (Holy Light), Ubertip (Tooltip - Normal - Extended)
+{
+A holy light that can heal a friendly living unit for <A00O,DataA7> or deal half damage to an enemy Undead unit.
+
+|cff00ffffNeutral Rune|r
+}
+
+STRING 1590
+// Abilities: A00O (Holy Light), Ubertip (Tooltip - Normal - Extended)
+{
+A holy light that can heal a friendly living unit for <A00O,DataA8> or deal half damage to an enemy Undead unit.
+
+|cff00ffffNeutral Rune|r
+}
+
+STRING 1591
+// Abilities: A00O (Holy Light), Ubertip (Tooltip - Normal - Extended)
+{
+A holy light that can heal a friendly living unit for <A00O,DataA9> or deal half damage to an enemy Undead unit.
+
+|cff00ffffNeutral Rune|r
+}
+
+STRING 1592
+// Abilities: A00O (Holy Light), Ubertip (Tooltip - Normal - Extended)
+{
+A holy light that can heal a friendly living unit for <A00O,DataA10> or deal half damage to an enemy Undead unit.
+
+|cff00ffffNeutral Rune|r
+}
+
+STRING 1593
+// Abilities: A001 (Frenzy), Ubertip (Tooltip - Normal - Extended)
+{
+Increases the unit's attack rate and movement speed temporarily.
+
+|cff00ffffNeutral Rune|r
+}
+
+STRING 1594
+// Items: I004 (Scroll of Healing), Ubertip (Tooltip - Extended)
+{
+Forcibly heals <A00D,DataA1> hit points to all friendly non-mechanical units around the Hero when used.
+
+|cff00ffffNeutral Rune|r
+
+This runic scroll was concieved just recently, soldiers are highly suspicious of its properties but tolerate it just enough to allow its use due to its usability.
+}
+
+STRING 1795
+// Upgrades: R002 (Animal War Training), effect1 (Effect 1)
+{
+rarm
+}
+
+STRING 1796
+// Upgrades: R002 (Animal War Training), Name (Name)
+{
+Unit Armor Upgrade
+}
+
+STRING 1797
+// Upgrades: R002 (Animal War Training), Name (Name)
+{
+Unit Armor Upgrade
+}
+
+STRING 1798
+// Upgrades: R002 (Animal War Training), Name (Name)
+{
+Unit Armor Upgrade
+}
+
+STRING 1799
+// Upgrades: R002 (Animal War Training), Name (Name)
+{
+Unit Armor Upgrade
+}
+
+STRING 1800
+// Upgrades: R002 (Animal War Training), Name (Name)
+{
+Unit Armor Upgrade
+}
+
+STRING 1801
+// Upgrades: R002 (Animal War Training), Name (Name)
+{
+Unit Armor Upgrade
+}
+
+STRING 1802
+// Upgrades: R002 (Animal War Training), Name (Name)
+{
+Unit Armor Upgrade
+}
+
+STRING 1803
+// Upgrades: R002 (Animal War Training), Name (Name)
+{
+Unit Armor Upgrade
+}
+
+STRING 1804
+// Upgrades: R002 (Animal War Training), Name (Name)
+{
+Unit Armor Upgrade
+}
+
+STRING 1805
+// Upgrades: R002 (Animal War Training), Name (Name)
+{
+Unit Armor Upgrade
+}
+
+STRING 1806
+// Upgrades: R002 (Animal War Training), Name (Name)
+{
+Unit Armor Upgrade
+}
+
+STRING 1807
+// Upgrades: R002 (Animal War Training), Name (Name)
+{
+Unit Armor Upgrade
+}
+
+STRING 1808
+// Upgrades: R002 (Animal War Training), Name (Name)
+{
+Unit Armor Upgrade
+}
+
+STRING 1809
+// Upgrades: R002 (Animal War Training), Name (Name)
+{
+Unit Armor Upgrade
+}
+
+STRING 1810
+// Upgrades: R002 (Animal War Training), Name (Name)
+{
+Unit Armor Upgrade
+}
+
+STRING 1811
+// Upgrades: R002 (Animal War Training), Name (Name)
+{
+Unit Armor Upgrade
+}
+
+STRING 1812
+// Upgrades: R002 (Animal War Training), Name (Name)
+{
+Unit Armor Upgrade
+}
+
+STRING 1813
+// Upgrades: R002 (Animal War Training), Name (Name)
+{
+Unit Armor Upgrade
+}
+
+STRING 1814
+// Upgrades: R002 (Animal War Training), Name (Name)
+{
+Unit Armor Upgrade
+}
+
+STRING 1815
+// Upgrades: R002 (Animal War Training), Name (Name)
+{
+Unit Armor Upgrade
+}
+
+STRING 1816
+// Upgrades: R002 (Animal War Training), Name (Name)
+{
+Unit Armor Upgrade
+}
+
+STRING 1817
+// Upgrades: R002 (Animal War Training), Name (Name)
+{
+Unit Armor Upgrade
+}
+
+STRING 1818
+// Upgrades: R002 (Animal War Training), Name (Name)
+{
+Unit Armor Upgrade
+}
+
+STRING 1819
+// Upgrades: R002 (Animal War Training), Name (Name)
+{
+Unit Armor Upgrade
+}
+
+STRING 1820
+// Upgrades: R002 (Animal War Training), Name (Name)
+{
+Unit Armor Upgrade
+}
+
+STRING 1821
+// Upgrades: R002 (Animal War Training), Name (Name)
+{
+Unit Armor Upgrade
+}
+
+STRING 1822
+// Upgrades: R002 (Animal War Training), Name (Name)
+{
+Unit Armor Upgrade
+}
+
+STRING 1823
+// Upgrades: R002 (Animal War Training), Name (Name)
+{
+Unit Armor Upgrade
+}
+
+STRING 1824
+// Upgrades: R002 (Animal War Training), Name (Name)
+{
+Unit Armor Upgrade
+}
+
+STRING 1825
+// Upgrades: R002 (Animal War Training), Name (Name)
+{
+Unit Armor Upgrade
+}
+
+STRING 1826
+// Upgrades: R002 (Animal War Training), Name (Name)
+{
+Unit Armor Upgrade
+}
+
+STRING 1827
+// Upgrades: R002 (Animal War Training), Name (Name)
+{
+Unit Armor Upgrade
+}
+
+STRING 1828
+// Upgrades: R002 (Animal War Training), Name (Name)
+{
+Unit Armor Upgrade
+}
+
+STRING 1829
+// Upgrades: R002 (Animal War Training), Name (Name)
+{
+Unit Armor Upgrade
+}
+
+STRING 1830
+// Upgrades: R002 (Animal War Training), Name (Name)
+{
+Unit Armor Upgrade
+}
+
+STRING 1831
+// Upgrades: R002 (Animal War Training), Name (Name)
+{
+Unit Armor Upgrade
+}
+
+STRING 1832
+// Upgrades: R002 (Animal War Training), Name (Name)
+{
+Unit Armor Upgrade
+}
+
+STRING 1833
+// Upgrades: R002 (Animal War Training), Name (Name)
+{
+Unit Armor Upgrade
+}
+
+STRING 1834
+// Upgrades: R002 (Animal War Training), Name (Name)
+{
+Unit Armor Upgrade
+}
+
+STRING 1835
+// Upgrades: R002 (Animal War Training), Name (Name)
+{
+Unit Armor Upgrade
+}
+
+STRING 1836
+// Upgrades: R002 (Animal War Training), Name (Name)
+{
+Unit Armor Upgrade
+}
+
+STRING 1837
+// Upgrades: R002 (Animal War Training), Name (Name)
+{
+Unit Armor Upgrade
+}
+
+STRING 1838
+// Upgrades: R002 (Animal War Training), Name (Name)
+{
+Unit Armor Upgrade
+}
+
+STRING 1839
+// Upgrades: R002 (Animal War Training), Name (Name)
+{
+Unit Armor Upgrade
+}
+
+STRING 1840
+// Upgrades: R002 (Animal War Training), Name (Name)
+{
+Unit Armor Upgrade
+}
+
+STRING 1841
+// Upgrades: R002 (Animal War Training), Name (Name)
+{
+Unit Armor Upgrade
+}
+
+STRING 1842
+// Upgrades: R002 (Animal War Training), Name (Name)
+{
+Unit Armor Upgrade
+}
+
+STRING 1843
+// Upgrades: R002 (Animal War Training), Name (Name)
+{
+Unit Armor Upgrade
+}
+
+STRING 1844
+// Upgrades: R002 (Animal War Training), Name (Name)
+{
+Unit Armor Upgrade
+}
+
+STRING 1845
+// Upgrades: R002 (Animal War Training), Name (Name)
+{
+Unit Armor Upgrade
+}
+
+STRING 1846
+// Upgrades: R002 (Animal War Training), Name (Name)
+{
+Unit Armor Upgrade
+}
+
+STRING 1847
+// Upgrades: R002 (Animal War Training), Name (Name)
+{
+Unit Armor Upgrade
+}
+
+STRING 1848
+// Upgrades: R002 (Animal War Training), Name (Name)
+{
+Unit Armor Upgrade
+}
+
+STRING 1849
+// Upgrades: R002 (Animal War Training), Name (Name)
+{
+Unit Armor Upgrade
+}
+
+STRING 1850
+// Upgrades: R002 (Animal War Training), Name (Name)
+{
+Unit Armor Upgrade
+}
+
+STRING 1851
+// Upgrades: R002 (Animal War Training), Name (Name)
+{
+Unit Armor Upgrade
+}
+
+STRING 1852
+// Upgrades: R002 (Animal War Training), Name (Name)
+{
+Unit Armor Upgrade
+}
+
+STRING 1853
+// Upgrades: R002 (Animal War Training), Name (Name)
+{
+Unit Armor Upgrade
+}
+
+STRING 1854
+// Upgrades: R002 (Animal War Training), Name (Name)
+{
+Unit Armor Upgrade
+}
+
+STRING 1855
+// Upgrades: R002 (Animal War Training), Name (Name)
+{
+Unit Armor Upgrade
+}
+
+STRING 1856
+// Upgrades: R002 (Animal War Training), Name (Name)
+{
+Unit Armor Upgrade
+}
+
+STRING 1857
+// Upgrades: R002 (Animal War Training), Name (Name)
+{
+Unit Armor Upgrade
+}
+
+STRING 1858
+// Upgrades: R002 (Animal War Training), Name (Name)
+{
+Unit Armor Upgrade
+}
+
+STRING 1859
+// Upgrades: R002 (Animal War Training), Name (Name)
+{
+Unit Armor Upgrade
+}
+
+STRING 1860
+// Upgrades: R002 (Animal War Training), Name (Name)
+{
+Unit Armor Upgrade
+}
+
+STRING 1861
+// Upgrades: R002 (Animal War Training), Name (Name)
+{
+Unit Armor Upgrade
+}
+
+STRING 1862
+// Upgrades: R002 (Animal War Training), Name (Name)
+{
+Unit Armor Upgrade
+}
+
+STRING 1863
+// Upgrades: R002 (Animal War Training), Name (Name)
+{
+Unit Armor Upgrade
+}
+
+STRING 1864
+// Upgrades: R002 (Animal War Training), Name (Name)
+{
+Unit Armor Upgrade
+}
+
+STRING 1865
+// Upgrades: R002 (Animal War Training), Name (Name)
+{
+Unit Armor Upgrade
+}
+
+STRING 1866
+// Upgrades: R002 (Animal War Training), Name (Name)
+{
+Unit Armor Upgrade
+}
+
+STRING 1867
+// Upgrades: R002 (Animal War Training), Name (Name)
+{
+Unit Armor Upgrade
+}
+
+STRING 1868
+// Upgrades: R002 (Animal War Training), Name (Name)
+{
+Unit Armor Upgrade
+}
+
+STRING 1869
+// Upgrades: R002 (Animal War Training), Name (Name)
+{
+Unit Armor Upgrade
+}
+
+STRING 1870
+// Upgrades: R002 (Animal War Training), Name (Name)
+{
+Unit Armor Upgrade
+}
+
+STRING 1871
+// Upgrades: R002 (Animal War Training), Name (Name)
+{
+Unit Armor Upgrade
+}
+
+STRING 1872
+// Upgrades: R002 (Animal War Training), Name (Name)
+{
+Unit Armor Upgrade
+}
+
+STRING 1873
+// Upgrades: R002 (Animal War Training), Name (Name)
+{
+Unit Armor Upgrade
+}
+
+STRING 1874
+// Upgrades: R002 (Animal War Training), Name (Name)
+{
+Unit Armor Upgrade
+}
+
+STRING 1875
+// Upgrades: R002 (Animal War Training), Name (Name)
+{
+Unit Armor Upgrade
+}
+
+STRING 1876
+// Upgrades: R002 (Animal War Training), Name (Name)
+{
+Unit Armor Upgrade
+}
+
+STRING 1877
+// Upgrades: R002 (Animal War Training), Name (Name)
+{
+Unit Armor Upgrade
+}
+
+STRING 1878
+// Upgrades: R002 (Animal War Training), Name (Name)
+{
+Unit Armor Upgrade
+}
+
+STRING 1879
+// Upgrades: R002 (Animal War Training), Name (Name)
+{
+Unit Armor Upgrade
+}
+
+STRING 1880
+// Upgrades: R002 (Animal War Training), Name (Name)
+{
+Unit Armor Upgrade
+}
+
+STRING 1881
+// Upgrades: R002 (Animal War Training), Name (Name)
+{
+Unit Armor Upgrade
+}
+
+STRING 1882
+// Upgrades: R002 (Animal War Training), Name (Name)
+{
+Unit Armor Upgrade
+}
+
+STRING 1883
+// Upgrades: R002 (Animal War Training), Name (Name)
+{
+Unit Armor Upgrade
+}
+
+STRING 1884
+// Upgrades: R002 (Animal War Training), Name (Name)
+{
+Unit Armor Upgrade
+}
+
+STRING 1885
+// Upgrades: R002 (Animal War Training), Name (Name)
+{
+Unit Armor Upgrade
+}
+
+STRING 1886
+// Upgrades: R002 (Animal War Training), Name (Name)
+{
+Unit Armor Upgrade
+}
+
+STRING 1887
+// Upgrades: R002 (Animal War Training), Name (Name)
+{
+Unit Armor Upgrade
+}
+
+STRING 1888
+// Upgrades: R002 (Animal War Training), Name (Name)
+{
+Unit Armor Upgrade
+}
+
+STRING 1889
+// Upgrades: R002 (Animal War Training), Name (Name)
+{
+Unit Armor Upgrade
+}
+
+STRING 1890
+// Upgrades: R002 (Animal War Training), Name (Name)
+{
+Unit Armor Upgrade
+}
+
+STRING 1891
+// Upgrades: R002 (Animal War Training), Name (Name)
+{
+Unit Armor Upgrade
+}
+
+STRING 1892
+// Upgrades: R002 (Animal War Training), Name (Name)
+{
+Unit Armor Upgrade
+}
+
+STRING 1893
+// Upgrades: R002 (Animal War Training), Name (Name)
+{
+Unit Armor Upgrade
+}
+
+STRING 1894
+// Upgrades: R002 (Animal War Training), Name (Name)
+{
+Unit Armor Upgrade
+}
+
+STRING 1895
+// Upgrades: R002 (Animal War Training), Name (Name)
+{
+Unit Armor Upgrade
+}
+
+STRING 1896
+// Upgrades: R002 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base armor of Units.
+}
+
+STRING 1897
+// Upgrades: R002 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base armor of Units.
+}
+
+STRING 1898
+// Upgrades: R002 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base armor of Units.
+}
+
+STRING 1899
+// Upgrades: R002 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base armor of Units.
+}
+
+STRING 1900
+// Upgrades: R002 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base armor of Units.
+}
+
+STRING 1901
+// Upgrades: R002 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base armor of Units.
+}
+
+STRING 1902
+// Upgrades: R002 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base armor of Units.
+}
+
+STRING 1903
+// Upgrades: R002 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base armor of Units.
+}
+
+STRING 1904
+// Upgrades: R002 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base armor of Units.
+}
+
+STRING 1905
+// Upgrades: R002 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base armor of Units.
+}
+
+STRING 1906
+// Upgrades: R002 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base armor of Units.
+}
+
+STRING 1907
+// Upgrades: R002 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base armor of Units.
+}
+
+STRING 1908
+// Upgrades: R002 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base armor of Units.
+}
+
+STRING 1909
+// Upgrades: R002 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base armor of Units.
+}
+
+STRING 1910
+// Upgrades: R002 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base armor of Units.
+}
+
+STRING 1911
+// Upgrades: R002 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base armor of Units.
+}
+
+STRING 1912
+// Upgrades: R002 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base armor of Units.
+}
+
+STRING 1913
+// Upgrades: R002 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base armor of Units.
+}
+
+STRING 1914
+// Upgrades: R002 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base armor of Units.
+}
+
+STRING 1915
+// Upgrades: R002 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base armor of Units.
+}
+
+STRING 1916
+// Upgrades: R002 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base armor of Units.
+}
+
+STRING 1917
+// Upgrades: R002 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base armor of Units.
+}
+
+STRING 1918
+// Upgrades: R002 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base armor of Units.
+}
+
+STRING 1919
+// Upgrades: R002 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base armor of Units.
+}
+
+STRING 1920
+// Upgrades: R002 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base armor of Units.
+}
+
+STRING 1921
+// Upgrades: R002 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base armor of Units.
+}
+
+STRING 1922
+// Upgrades: R002 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base armor of Units.
+}
+
+STRING 1923
+// Upgrades: R002 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base armor of Units.
+}
+
+STRING 1924
+// Upgrades: R002 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base armor of Units.
+}
+
+STRING 1925
+// Upgrades: R002 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base armor of Units.
+}
+
+STRING 1926
+// Upgrades: R002 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base armor of Units.
+}
+
+STRING 1927
+// Upgrades: R002 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base armor of Units.
+}
+
+STRING 1928
+// Upgrades: R002 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base armor of Units.
+}
+
+STRING 1929
+// Upgrades: R002 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base armor of Units.
+}
+
+STRING 1930
+// Upgrades: R002 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base armor of Units.
+}
+
+STRING 1931
+// Upgrades: R002 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base armor of Units.
+}
+
+STRING 1932
+// Upgrades: R002 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base armor of Units.
+}
+
+STRING 1933
+// Upgrades: R002 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base armor of Units.
+}
+
+STRING 1934
+// Upgrades: R002 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base armor of Units.
+}
+
+STRING 1935
+// Upgrades: R002 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base armor of Units.
+}
+
+STRING 1936
+// Upgrades: R002 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base armor of Units.
+}
+
+STRING 1937
+// Upgrades: R002 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base armor of Units.
+}
+
+STRING 1938
+// Upgrades: R002 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base armor of Units.
+}
+
+STRING 1939
+// Upgrades: R002 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base armor of Units.
+}
+
+STRING 1940
+// Upgrades: R002 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base armor of Units.
+}
+
+STRING 1941
+// Upgrades: R002 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base armor of Units.
+}
+
+STRING 1942
+// Upgrades: R002 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base armor of Units.
+}
+
+STRING 1943
+// Upgrades: R002 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base armor of Units.
+}
+
+STRING 1944
+// Upgrades: R002 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base armor of Units.
+}
+
+STRING 1945
+// Upgrades: R002 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base armor of Units.
+}
+
+STRING 1946
+// Upgrades: R002 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base armor of Units.
+}
+
+STRING 1947
+// Upgrades: R002 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base armor of Units.
+}
+
+STRING 1948
+// Upgrades: R002 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base armor of Units.
+}
+
+STRING 1949
+// Upgrades: R002 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base armor of Units.
+}
+
+STRING 1950
+// Upgrades: R002 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base armor of Units.
+}
+
+STRING 1951
+// Upgrades: R002 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base armor of Units.
+}
+
+STRING 1952
+// Upgrades: R002 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base armor of Units.
+}
+
+STRING 1953
+// Upgrades: R002 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base armor of Units.
+}
+
+STRING 1954
+// Upgrades: R002 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base armor of Units.
+}
+
+STRING 1955
+// Upgrades: R002 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base armor of Units.
+}
+
+STRING 1956
+// Upgrades: R002 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base armor of Units.
+}
+
+STRING 1957
+// Upgrades: R002 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base armor of Units.
+}
+
+STRING 1958
+// Upgrades: R002 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base armor of Units.
+}
+
+STRING 1959
+// Upgrades: R002 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base armor of Units.
+}
+
+STRING 1960
+// Upgrades: R002 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base armor of Units.
+}
+
+STRING 1961
+// Upgrades: R002 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base armor of Units.
+}
+
+STRING 1962
+// Upgrades: R002 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base armor of Units.
+}
+
+STRING 1963
+// Upgrades: R002 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base armor of Units.
+}
+
+STRING 1964
+// Upgrades: R002 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base armor of Units.
+}
+
+STRING 1965
+// Upgrades: R002 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base armor of Units.
+}
+
+STRING 1966
+// Upgrades: R002 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base armor of Units.
+}
+
+STRING 1967
+// Upgrades: R002 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base armor of Units.
+}
+
+STRING 1968
+// Upgrades: R002 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base armor of Units.
+}
+
+STRING 1969
+// Upgrades: R002 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base armor of Units.
+}
+
+STRING 1970
+// Upgrades: R002 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base armor of Units.
+}
+
+STRING 1971
+// Upgrades: R002 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base armor of Units.
+}
+
+STRING 1972
+// Upgrades: R002 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base armor of Units.
+}
+
+STRING 1973
+// Upgrades: R002 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base armor of Units.
+}
+
+STRING 1974
+// Upgrades: R002 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base armor of Units.
+}
+
+STRING 1975
+// Upgrades: R002 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base armor of Units.
+}
+
+STRING 1976
+// Upgrades: R002 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base armor of Units.
+}
+
+STRING 1977
+// Upgrades: R002 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base armor of Units.
+}
+
+STRING 1978
+// Upgrades: R002 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base armor of Units.
+}
+
+STRING 1979
+// Upgrades: R002 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base armor of Units.
+}
+
+STRING 1980
+// Upgrades: R002 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base armor of Units.
+}
+
+STRING 1981
+// Upgrades: R002 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base armor of Units.
+}
+
+STRING 1982
+// Upgrades: R002 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base armor of Units.
+}
+
+STRING 1983
+// Upgrades: R002 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base armor of Units.
+}
+
+STRING 1984
+// Upgrades: R002 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base armor of Units.
+}
+
+STRING 1985
+// Upgrades: R002 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base armor of Units.
+}
+
+STRING 1986
+// Upgrades: R002 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base armor of Units.
+}
+
+STRING 1987
+// Upgrades: R002 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base armor of Units.
+}
+
+STRING 1988
+// Upgrades: R002 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base armor of Units.
+}
+
+STRING 1989
+// Upgrades: R002 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base armor of Units.
+}
+
+STRING 1990
+// Upgrades: R002 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base armor of Units.
+}
+
+STRING 1991
+// Upgrades: R002 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base armor of Units.
+}
+
+STRING 1992
+// Upgrades: R002 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base armor of Units.
+}
+
+STRING 1993
+// Upgrades: R002 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base armor of Units.
+}
+
+STRING 1994
+// Upgrades: R002 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base armor of Units.
+}
+
+STRING 1995
+// Upgrades: R002 (Animal War Training), Ubertip (Tooltip - Extended)
+{
+Increases the base armor of Units.
+}
+
+STRING 1996
+// Units: H000 (War Veteran), Awakentip (Tooltip - Awaken)
+{
+Awaken War Veteran
+}
+
+STRING 1998
+// Units: H00B (Ranger General), Awakentip (Tooltip - Awaken)
+{
+Awaken Ranger General
+}
+
+STRING 1999
+// Units: H00B (Ranger General), Ubertip (Tooltip - Extended)
+{
+General unmatched in ranged warfare, singling out and destroying opponents from afar.
+}
+
+STRING 2000
+// Units: H000 (War Veteran), Ubertip (Tooltip - Extended)
+{
+Old Warrior Hero of great renounce. Providing great survivability to all his soldiers and excels in close quarters combat.
+}
+
+STRING 2001
+// Units: H000 (War Veteran), Revivetip (Tooltip - Revive)
+{
+Old Warrior Hero of great renounce. Providing great survivability to all his soldiers and excels in close quarters combat.
+}
+
+STRING 2002
+// Units: H00B (Ranger General), Revivetip (Tooltip - Revive)
+{
+General unmatched in ranged warfare, singling out and destroying opponents from afar.
+}
+
+STRING 2005
+// Units: H00B (Ranger General), Propernames (Proper Names)
+{
+Anus sniper
+}
+
+STRING 2006
+// Units: H000 (War Veteran), Propernames (Proper Names)
+{
+Precision buttsmasher
+}
+
+STRING 2008
+// Units: n00J (Pathing Blocker On Game Start), Description (Description)
+{
+Allows you to simp players.
+}
+
+STRING 2009
+// Abilities: A00R (Rain of arrows), Researchhotkey (Hotkey - Learn)
+{
+W
+}
+
+STRING 2010
+// Abilities: A00R (Rain of arrows), Hotkey (Hotkey - Normal)
+{
+W
+}
+
+STRING 2011
+// Abilities: A00R (Rain of arrows), EditorSuffix (Editor Suffix)
+{
+(W)
+}
+
+STRING 2012
+// Abilities: A00R (Rain of arrows), Tip (Tooltip - Normal)
+{
+Rain of arrows - [|cffffcc00Level 1|r]
+}
+
+STRING 2013
+// Abilities: A00R (Rain of arrows), Tip (Tooltip - Normal)
+{
+Rain of arrows - [|cffffcc00Level 2|r]
+}
+
+STRING 2014
+// Abilities: A00R (Rain of arrows), Tip (Tooltip - Normal)
+{
+Rain of arrows - [|cffffcc00Level 3|r]
+}
+
+STRING 2015
+// Abilities: A00R (Rain of arrows), Tip (Tooltip - Normal)
+{
+Rain of arrows - [|cffffcc00Level 4|r]
+}
+
+STRING 2016
+// Abilities: A00R (Rain of arrows), Tip (Tooltip - Normal)
+{
+Rain of arrows - [|cffffcc00Level 5|r]
+}
+
+STRING 2017
+// Abilities: A00R (Rain of arrows), Tip (Tooltip - Normal)
+{
+Rain of arrows - [|cffffcc00Level 6|r]
+}
+
+STRING 2018
+// Abilities: A00R (Rain of arrows), Tip (Tooltip - Normal)
+{
+Rain of arrows - [|cffffcc00Level 7|r]
+}
+
+STRING 2019
+// Abilities: A00R (Rain of arrows), Tip (Tooltip - Normal)
+{
+Rain of arrows - [|cffffcc00Level 8|r]
+}
+
+STRING 2020
+// Abilities: A00R (Rain of arrows), Tip (Tooltip - Normal)
+{
+Rain of arrows - [|cffffcc00Level 9|r]
+}
+
+STRING 2021
+// Abilities: A00R (Rain of arrows), Tip (Tooltip - Normal)
+{
+Rain of arrows - [|cffffcc00Level 10|r]
+}
+
+STRING 2032
+// Abilities: A00R (Rain of arrows), Researchubertip (Tooltip - Learn - Extended)
+{
+Bombards an area with arrows, stunning enemy land units for <A00R,Dur1> second and damaging nearby enemy units.
+
+|cffffcc00Damage|r - 20 + (10*L)
+|cffffcc00Mana cost|r - 5 + (2.5*L)
+}
+
+STRING 2033
+// Abilities: A00R (Rain of arrows), Name (Name)
+{
+Rain of arrows
+}
+
+STRING 2034
+// Abilities: A00R (Rain of arrows), Researchtip (Tooltip - Learn)
+{
+Learn Rain of arrows - [|cffffcc00Level %d|r]
+}
+
+STRING 2035
+// Units: H00B (Ranger General), Tip (Tooltip - Basic)
+{
+Awaken Ranger General
+}
+
+STRING 2036
+// Units: H000 (War Veteran), Tip (Tooltip - Basic)
+{
+Awaken War Veteran
+}
+
+STRING 2047
+// Abilities: A00R (Rain of arrows), Ubertip (Tooltip - Normal - Extended)
+{
+Bombards an area with arrows, dealing up to <A00R,DataA1> damage to nearby enemy land units and stunning them for <A00R,Dur1> second.
+}
+
+STRING 2048
+// Abilities: A00R (Rain of arrows), Ubertip (Tooltip - Normal - Extended)
+{
+Bombards an area with arrows, dealing up to <A00R,DataA2> damage to nearby enemy land units and stunning them for <A00R,Dur2> second.
+}
+
+STRING 2049
+// Abilities: A00R (Rain of arrows), Ubertip (Tooltip - Normal - Extended)
+{
+Bombards an area with arrows, dealing up to <A00R,DataA3> damage to nearby enemy land units and stunning them for <A00R,Dur3> second.
+}
+
+STRING 2050
+// Abilities: A00R (Rain of arrows), Ubertip (Tooltip - Normal - Extended)
+{
+Bombards an area with arrows, dealing up to <A00R,DataA4> damage to nearby enemy land units and stunning them for <A00R,Dur4> second.
+}
+
+STRING 2051
+// Abilities: A00R (Rain of arrows), Ubertip (Tooltip - Normal - Extended)
+{
+Bombards an area with arrows, dealing up to <A00R,DataA5> damage to nearby enemy land units and stunning them for <A00R,Dur5> second.
+}
+
+STRING 2052
+// Abilities: A00R (Rain of arrows), Ubertip (Tooltip - Normal - Extended)
+{
+Bombards an area with arrows, dealing up to <A00R,DataA6> damage to nearby enemy land units and stunning them for <A00R,Dur6> second.
+}
+
+STRING 2053
+// Abilities: A00R (Rain of arrows), Ubertip (Tooltip - Normal - Extended)
+{
+Bombards an area with arrows, dealing up to <A00R,DataA7> damage to nearby enemy land units and stunning them for <A00R,Dur7> second.
+}
+
+STRING 2054
+// Abilities: A00R (Rain of arrows), Ubertip (Tooltip - Normal - Extended)
+{
+Bombards an area with arrows, dealing up to <A00R,DataA8> damage to nearby enemy land units and stunning them for <A00R,Dur8> second.
+}
+
+STRING 2055
+// Abilities: A00R (Rain of arrows), Ubertip (Tooltip - Normal - Extended)
+{
+Bombards an area with arrows, dealing up to <A00R,DataA9> damage to nearby enemy land units and stunning them for <A00R,Dur9> second.
+}
+
+STRING 2056
+// Abilities: A00R (Rain of arrows), Ubertip (Tooltip - Normal - Extended)
+{
+Bombards an area with arrows, dealing up to <A00R,DataA10> damage to nearby enemy land units and stunning them for <A00R,Dur10> second.
+}
+
+STRING 2058
+// Abilities: A00Q (Shadow Strike), Tip (Tooltip - Normal)
+{
+Shadow Strike - [|cffffcc00Level 4|r]
+}
+
+STRING 2059
+// Abilities: A00Q (Shadow Strike), Tip (Tooltip - Normal)
+{
+Shadow Strike - [|cffffcc00Level 5|r]
+}
+
+STRING 2060
+// Abilities: A00Q (Shadow Strike), Tip (Tooltip - Normal)
+{
+Shadow Strike - [|cffffcc00Level 6|r]
+}
+
+STRING 2061
+// Abilities: A00Q (Shadow Strike), Tip (Tooltip - Normal)
+{
+Shadow Strike - [|cffffcc00Level 7|r]
+}
+
+STRING 2062
+// Abilities: A00Q (Shadow Strike), Tip (Tooltip - Normal)
+{
+Shadow Strike - [|cffffcc00Level 8|r]
+}
+
+STRING 2063
+// Abilities: A00Q (Shadow Strike), Tip (Tooltip - Normal)
+{
+Shadow Strike - [|cffffcc00Level 9|r]
+}
+
+STRING 2064
+// Abilities: A00Q (Shadow Strike), Tip (Tooltip - Normal)
+{
+Shadow Strike - [|cffffcc00Level 10|r]
+}
+
+STRING 2065
+// Abilities: A00Q (Shadow Strike), Ubertip (Tooltip - Normal - Extended)
+{
+Hurls a poisoned dagger at a target enemy unit, dealing <A00Q,DataE1> initial damage, and <A00Q,DataA1> damage every <A00Q,Cast1> seconds for <A00Q,Dur1> seconds. The poison slows the movement speed of the targeted unit for a short duration.
+}
+
+STRING 2066
+// Abilities: A00Q (Shadow Strike), Ubertip (Tooltip - Normal - Extended)
+{
+Hurls a poisoned dagger at a target enemy unit, dealing <A00Q,DataE2> initial damage, and <A00Q,DataA2> damage every <A00Q,Cast2> seconds for <A00Q,Dur2> seconds. The poison slows the movement speed of the targeted unit for a short duration.
+}
+
+STRING 2067
+// Abilities: A00Q (Shadow Strike), Ubertip (Tooltip - Normal - Extended)
+{
+Hurls a poisoned dagger at a target enemy unit, dealing <A00Q,DataE3> initial damage, and <A00Q,DataA3> damage every <A00Q,Cast3> seconds for <A00Q,Dur3> seconds. The poison slows the movement speed of the targeted unit for a short duration.
+}
+
+STRING 2068
+// Abilities: A00Q (Shadow Strike), Ubertip (Tooltip - Normal - Extended)
+{
+Hurls a poisoned dagger at a target enemy unit, dealing <A00Q,DataE4> initial damage, and <A00Q,DataA4> damage every <A00Q,Cast4> seconds for <A00Q,Dur4> seconds. The poison slows the movement speed of the targeted unit for a short duration.
+}
+
+STRING 2069
+// Abilities: A00Q (Shadow Strike), Ubertip (Tooltip - Normal - Extended)
+{
+Hurls a poisoned dagger at a target enemy unit, dealing <A00Q,DataE5> initial damage, and <A00Q,DataA5> damage every <A00Q,Cast5> seconds for <A00Q,Dur5> seconds. The poison slows the movement speed of the targeted unit for a short duration.
+}
+
+STRING 2070
+// Abilities: A00Q (Shadow Strike), Ubertip (Tooltip - Normal - Extended)
+{
+Hurls a poisoned dagger at a target enemy unit, dealing <A00Q,DataE6> initial damage, and <A00Q,DataA6> damage every <A00Q,Cast6> seconds for <A00Q,Dur6> seconds. The poison slows the movement speed of the targeted unit for a short duration.
+}
+
+STRING 2071
+// Abilities: A00Q (Shadow Strike), Ubertip (Tooltip - Normal - Extended)
+{
+Hurls a poisoned dagger at a target enemy unit, dealing <A00Q,DataE7> initial damage, and <A00Q,DataA7> damage every <A00Q,Cast7> seconds for <A00Q,Dur7> seconds. The poison slows the movement speed of the targeted unit for a short duration.
+}
+
+STRING 2072
+// Abilities: A00Q (Shadow Strike), Ubertip (Tooltip - Normal - Extended)
+{
+Hurls a poisoned dagger at a target enemy unit, dealing <A00Q,DataE8> initial damage, and <A00Q,DataA8> damage every <A00Q,Cast8> seconds for <A00Q,Dur8> seconds. The poison slows the movement speed of the targeted unit for a short duration.
+}
+
+STRING 2073
+// Abilities: A00Q (Shadow Strike), Ubertip (Tooltip - Normal - Extended)
+{
+Hurls a poisoned dagger at a target enemy unit, dealing <A00Q,DataE9> initial damage, and <A00Q,DataA9> damage every <A00Q,Cast9> seconds for <A00Q,Dur9> seconds. The poison slows the movement speed of the targeted unit for a short duration.
+}
+
+STRING 2074
+// Abilities: A00Q (Shadow Strike), Ubertip (Tooltip - Normal - Extended)
+{
+Hurls a poisoned dagger at a target enemy unit, dealing <A00Q,DataE10> initial damage, and <A00Q,DataA10> damage every <A00Q,Cast10> seconds for <A00Q,Dur10> seconds. The poison slows the movement speed of the targeted unit for a short duration.
+}
+
+STRING 2076
+// Abilities: A00Q (Shadow Strike), Researchubertip (Tooltip - Learn - Extended)
+{
+Hurls a poisoned dagger which deals large initial damage, and then deals damage over time. The poisoned unit has its movement speed slowed for a short duration.
+
+|cffffcc00Damage|r - 20 + (10*L)
+|cffffcc00Damage Over Time|r - 5 + (2.5*L)
+|cffffcc00Mana cost|r - 5 + (2.5*L)
+}
+
+STRING 2077
+// Abilities: A00O (Holy Light), Researchubertip (Tooltip - Learn - Extended)
+{
+A holy light that can heal a friendly living unit or damage an enemy Undead unit.
+
+|cffffcc00Healing|r - 50 + (25*L)
+|cffffcc00Mana cost|r - 5 + (3*L)
+
+|cff00ffffNeutral Rune|r
+}
+
+STRING 2078
+// Abilities: A00I (Undying bravery), Hotkey (Hotkey - Normal)
+{
+D
+}
+
+STRING 2079
+// Abilities: A000 (Trueshot Aura), Hotkey (Hotkey - Normal)
+{
+D
+}
+
+STRING 2080
+// Abilities: A00I (Undying bravery), EditorSuffix (Editor Suffix)
+{
+(D)
+}
+
+STRING 2081
+// Abilities: A000 (Trueshot Aura), EditorSuffix (Editor Suffix)
+{
+(D)
 }
 

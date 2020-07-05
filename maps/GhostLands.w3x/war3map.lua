@@ -551,10 +551,10 @@ gg_rct_city4unitarea = nil
 gg_rct_city5unitarea = nil
 gg_rct_force2base1unitarea = nil
 gg_rct_preloadRegion = nil
-gg_trg_Untitled_Trigger_001 = nil
 gg_rct_pickHeroRegion = nil
 gg_rct_force1WispSpawn = nil
 gg_rct_force2WispSpawn = nil
+gg_trg_Untitled_Trigger_001 = nil
 function InitGlobals()
 end
 
@@ -589,11 +589,11 @@ function CreateUnitsForPlayer0()
     local unitID
     local t
     local life
-    u = BlzCreateUnitWithSkin(p, FourCC("h001"), -28775.0, 24372.6, -70.981, FourCC("h001"))
-    u = BlzCreateUnitWithSkin(p, FourCC("h001"), -28670.0, 24371.7, -82.756, FourCC("h001"))
+    u = BlzCreateUnitWithSkin(p, FourCC("h001"), -28775.0, 24372.6, 289.019, FourCC("h001"))
+    u = BlzCreateUnitWithSkin(p, FourCC("h001"), -28670.0, 24371.7, 277.244, FourCC("h001"))
     u = BlzCreateUnitWithSkin(p, FourCC("h002"), -28557.9, 24372.4, 262.862, FourCC("h002"))
     u = BlzCreateUnitWithSkin(p, FourCC("h002"), -28465.4, 24379.6, 254.905, FourCC("h002"))
-    u = BlzCreateUnitWithSkin(p, FourCC("h004"), -28614.3, 24286.5, -85.159, FourCC("h004"))
+    u = BlzCreateUnitWithSkin(p, FourCC("h004"), -28614.3, 24286.5, 274.841, FourCC("h004"))
 end
 
 function CreateUnitsForPlayer16()
@@ -1785,8 +1785,8 @@ function CreateRegions()
     gg_rct_warzone2force2 = Rect(22656.0, -24736.0, 24032.0, -23424.0)
     gg_rct_warzone3force1 = Rect(-7104.0, 7744.0, -5696.0, 9280.0)
     gg_rct_warzone3force2 = Rect(-2336.0, 1184.0, -1120.0, 2528.0)
-    gg_rct_warzone4force1 = Rect(992.0, -8384.0, 2144.0, -7136.0)
-    gg_rct_warzone4force2 = Rect(4832.0, -8544.0, 6048.0, -7264.0)
+    gg_rct_warzone4force1 = Rect(256.0, -8384.0, 1408.0, -7136.0)
+    gg_rct_warzone4force2 = Rect(5504.0, -8576.0, 6720.0, -7296.0)
     gg_rct_warzone5force1 = Rect(13888.0, 18048.0, 15264.0, 19488.0)
     gg_rct_warzone5force2 = Rect(22752.0, 13312.0, 24096.0, 14592.0)
     gg_rct_warzone6force1 = Rect(-23840.0, -15648.0, -22368.0, -14144.0)

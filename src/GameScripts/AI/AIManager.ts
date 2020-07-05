@@ -66,7 +66,7 @@ export class AIManager {
     }
 
     public performAIReinforcements() {
-        Logger.warning("Ai Wave.");
+        Logger.generic("Ai Wave.");
         this.force1Spawner.performUnitRevival();
         this.force2Spawner.performUnitRevival();
         this.banditNorthSpawner.performUnitRevival();
@@ -87,13 +87,13 @@ export class AIManager {
     }
 
     public performAIRelocation() {
-        Logger.warning("Force Relocate.");
+        Logger.generic("Force Relocate.");
         this.force1Spawner.replenishTroopsInAllCities();
         this.force2Spawner.replenishTroopsInAllCities();
     }
 
     public performBanditRelocation() {
-        Logger.warning("Bandit Relocate.");
+        Logger.generic("Bandit Relocate.");
         this.banditNorthSpawner.replenishTroopsInAllCities();
         this.banditSouthSpawner.replenishTroopsInAllCities();
     }

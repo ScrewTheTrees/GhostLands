@@ -21,6 +21,9 @@ export const enum GameAbilities {
     HERO_SHOCKWAVE = "A007",
     HERO_THUNDER_CLAP = "A00A",
     HERO_WAR_VETERAN_A4 = "A004",
+    HERO_SHADOW_STRIKE = "A00Q",
+    HERO_HOLY_LIGHT = "A00O",
+    HERO_RAIN_OF_ARROWS = "A00R",
 
 
     TEST_BERSERK = "A002",

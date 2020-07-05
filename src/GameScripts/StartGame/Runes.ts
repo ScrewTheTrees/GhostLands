@@ -41,6 +41,8 @@ export class Runes extends Entity {
         let mediumRunes = [
             FourCC(GameAbilities.UNIT_FRENZY_TIER_1),
             FourCC(GameAbilities.ITEM_AREA_HEALING_TIER_1),
+            FourCC(GameAbilities.HERO_SHADOW_STRIKE),
+            FourCC(GameAbilities.HERO_HOLY_LIGHT),
         ];
         let smallRunes = [
             FourCC(GameAbilities.UNIT_ABOLISH_MAGIC_TIER_1),

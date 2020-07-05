@@ -152,4 +152,13 @@ export class Army {
         }
         return true;
     }
+
+    public getUnitsAlive(): number {
+        let num = 0;
+        for (let i = 0; i < this.platoons.length; i++) {
+            let unit = this.platoons[i];
+            num += unit.getNum();
+        }
+        return num;
+    }
 }

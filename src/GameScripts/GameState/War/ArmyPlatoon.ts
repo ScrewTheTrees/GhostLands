@@ -64,6 +64,11 @@ export class ArmyPlatoon {
         return (this.soldiers.length == 0);
     }
 
+    public getNum(): number {
+        this.purgeDead();
+        return this.soldiers.length;
+    }
+
     public isFull(): boolean {
         this.purgeDead(); // Purge
         return (this.soldiers.length >= 10); // Is full.

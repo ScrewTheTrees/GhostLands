@@ -1,6 +1,7 @@
 export const enum GameUnits {
     //Heroes
     HERO_WAR_VETERAN = "H000",
+    HERO_RANGER_GENERAL = "H00B",
 
     //Melee
     MELEE_SOLDIER = "h001",

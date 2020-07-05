@@ -76,7 +76,7 @@ export class Occupations {
     }
 
     public getAllOccupants(): Occupant[] {
-        return this.allOccupants;
+        return [...this.allOccupants];
     }
 
     public getNeededGuardsByForce(force: Forces, guardType: UnitClass): number {

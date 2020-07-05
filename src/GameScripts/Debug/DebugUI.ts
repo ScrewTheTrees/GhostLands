@@ -11,6 +11,8 @@ import {TreeFrames} from "./TreeFrames";
 import {TreeSimpleFrame} from "./TreeSimpleFrame";
 import {FramePoints} from "./FramePoints";
 import {TreeSimpleButton} from "./TreeSimpleButton";
+import {Occupations} from "../GameState/Occupations/Occupations";
+import {Warzones} from "../GameState/War/Warzones";
 
 export class DebugUI extends Entity {
     private static instance: DebugUI;
@@ -49,6 +51,28 @@ export class DebugUI extends Entity {
             .setCallback(() => this.pressButton1())
             .setPointRelative(FRAMEPOINT_BOTTOMLEFT, FRAMEPOINT_BOTTOMLEFT, 0, 0)
             .setSize(0.06, 0.025);
+
+        for (let occu of Occupations.getInstance().getAllOccupants()) {
+            let tag = CreateTextTag();
+            SetTextTagPos(tag, occu.primaryRect.getCenter().x, occu.primaryRect.getCenter().y, 16);
+            SetTextTagText(tag, occu.primaryRect.name, 0.024);
+            SetTextTagVisibility(tag, true);
+        }
+
+        for (let zone of Warzones.getInstance().allWarzones) {
+            let tag = CreateTextTag();
+            SetTextTagPos(tag, zone.center.getCenter().x, zone.center.getCenter().y, 16);
+            SetTextTagText(tag, zone.center.name, 0.024);
+            SetTextTagVisibility(tag, true);
+            tag = CreateTextTag();
+            SetTextTagPos(tag, zone.force1gather.getCenter().x, zone.force1gather.getCenter().y, 16);
+            SetTextTagText(tag, zone.force1gather.name, 0.024);
+            SetTextTagVisibility(tag, true);
+            tag = CreateTextTag();
+            SetTextTagPos(tag, zone.force2gather.getCenter().x, zone.force2gather.getCenter().y, 16);
+            SetTextTagText(tag, zone.force2gather.name, 0.024);
+            SetTextTagVisibility(tag, true);
+        }
 
     }
 
@@ -106,13 +130,23 @@ localXPTendency: ${RGBTextString(RGB.red, playerPowerTendency.getPlayerXPTendenc
             selectedBattlefield = war.targets.selectedBattlefield.center.name;
         }
 
-        return `-> War ${index}
+        let str = `-> War ${index}
 state: ${RGBTextString(RGB.red, war.state)}
 countdown: ${RGBTextString(RGB.red, war.countdown)}
 siegeTimer: ${RGBTextString(RGB.red, war.siegeTimer)}
-force1 target name: ${RGBTextString(RGB.teal, war.targets.targets.force1.center.name)}
-force2 target name: ${RGBTextString(RGB.teal, war.targets.targets.force2.center.name)}
-selectedBattlefield: ${RGBTextString(RGB.teal, selectedBattlefield)}`;
+force1 target name: ${RGBTextString(RGB.teal, war.targets.targets.force1.force1gather.name)}
+force2 target name: ${RGBTextString(RGB.teal, war.targets.targets.force2.force2gather.name)}
+selectedBattlefield: ${RGBTextString(RGB.teal, selectedBattlefield)}
+force1 units: ${war.targets.armies.force1?.getUnitsAlive()}
+force2 units: ${war.targets.armies.force2?.getUnitsAlive()}
+`;
+
+        if (war.targets.selectedBattlefield)
+            str += `force1 gather: : ${RGBTextString(RGB.teal, war.targets.selectedBattlefield.force1gather.name)}
+force2 gather: : ${RGBTextString(RGB.teal, war.targets.selectedBattlefield.force2gather.name)}
+            `;
+
+        return str;
     }
 
     getButton1Text() {
