@@ -6,6 +6,7 @@ import {MapEvent} from "./Events/MapEvent";
 import {AIManager} from "../AI/AIManager";
 import {Quick} from "../../TreeLib/Quick";
 import {Logger} from "../../TreeLib/Logger";
+import {AsyncEvent} from "./Events/AsyncEvent";
 
 export class GlobalGameManager extends Entity {
     private static instance: GlobalGameManager;
@@ -20,7 +21,8 @@ export class GlobalGameManager extends Entity {
 
     public worldState: WorldState = WorldState.NEUTRAL;
     public allWars: War[] = [];
-    public currentEvents: MapEvent[] = [];
+    public currentMapEvent?: MapEvent;
+    public asyncEvents: AsyncEvent[] = [];
     public guardSpawnCounterDelay: number = 60;
     public guardSpawnCounter: number = 0;
 
@@ -39,6 +41,17 @@ export class GlobalGameManager extends Entity {
         this.worldState = WorldState.WAR;
         this.allWars.push(new War());
         this.timeToWar = 300;
+    }
+
+    public startWorldEvent(event: MapEvent) {
+        this.worldState = WorldState.EVENT;
+        this.currentMapEvent = event;
+        event.start();
+    }
+
+    public startAsyncEvent(event: AsyncEvent) {
+        this.asyncEvents.push(event);
+        event.start();
     }
 
     public endWar() {

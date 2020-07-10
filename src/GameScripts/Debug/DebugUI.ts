@@ -13,6 +13,7 @@ import {FramePoints} from "./FramePoints";
 import {TreeSimpleButton} from "./TreeSimpleButton";
 import {Occupations} from "../GameState/Occupations/Occupations";
 import {Warzones} from "../GameState/War/Warzones";
+import {AsyncEvent} from "../GameState/Events/AsyncEvent";
 
 export class DebugUI extends Entity {
     private static instance: DebugUI;
@@ -26,7 +27,6 @@ export class DebugUI extends Entity {
         return this.instance;
     }
 
-    private fullExpandedFrame: framehandle;
     private sidebar: TreeSimpleFrame;
     private testButtonFrame: TreeSimpleButton;
 
@@ -35,13 +35,6 @@ export class DebugUI extends Entity {
         this._timerDelay = 0.25;
 
         BlzLoadTOCFile("war3mapImported\\TreeFrames\\Toc.toc");
-
-
-        let frameWorld = BlzGetOriginFrame(ORIGIN_FRAME_GAME_UI, 0);
-        this.fullExpandedFrame = BlzCreateSimpleFrame("FullSimpleScreen", frameWorld, 0);
-        BlzFrameClearAllPoints(this.fullExpandedFrame);
-        BlzFrameSetAbsPoint(this.fullExpandedFrame, FRAMEPOINT_BOTTOM, 0.4, 0);
-        BlzFrameSetSize(this.fullExpandedFrame, this.getTotalFrameWidth(), 0.6);
 
         this.sidebar = TreeFrames.getInstance().createSimpleFrame()
             .setPointRelative(FramePoints.TopLeft, FramePoints.TopRight, -0.25, -0.03)
@@ -89,29 +82,32 @@ export class DebugUI extends Entity {
         let loot = CreepLoot.getInstance();
         let playerPowerTendency = PlayerPowerTendency.getInstance();
 
-        BlzFrameSetSize(this.fullExpandedFrame, this.getTotalFrameWidth(), 0.6);
+        let text = `--WORLD STATE\n`;
+        text += `worldState: ${RGBTextString(RGB.red, gameManager.worldState)}\n`;
+        text += `timeToWar: ${RGBTextString(RGB.red, gameManager.timeToWar)}\n`;
+        text += `guardSpawnCounter: ${RGBTextString(RGB.red, gameManager.guardSpawnCounter)} < ${RGBTextString(RGB.green, gameManager.guardSpawnCounterDelay)}\n`;
+        text += `\n`;
+        text += `--WAR\n`;
+        text += `allWarsTotal: ${RGBTextString(RGB.red, gameManager.allWars.length)}\n`
+        text += `${this.extractAllWarData(gameManager.allWars)}\n`;
+        text += `\n`;
+        text += `--Events\n`;
+        text += `current World Event: ${RGBTextString(RGB.red, gameManager.currentMapEvent)}\n`;
+        text += `currentAsyncEvents: ${RGBTextString(RGB.red, gameManager.asyncEvents.length)}\n`;
+        text += `${this.extractAllEventData(gameManager.asyncEvents)}\n`;
+        text += `\n`;
+        text += `--Tendency\n`;
+        text += `localLootTendency[STANDARD]: ${RGBTextString(RGB.red, loot.getPlayerLootTendency(GetLocalPlayer(), CreepLootQuality.STANDARD))}\n`;
+        text += `localLootTendency[STANDARDS_SLOW]: ${RGBTextString(RGB.red, loot.getPlayerLootTendency(GetLocalPlayer(), CreepLootQuality.STANDARDS_SLOW))}\n`;
+        text += `localLootTendency[RARE]: ${RGBTextString(RGB.red, loot.getPlayerLootTendency(GetLocalPlayer(), CreepLootQuality.RARE))}\n`;
+        text += `localLootTendency[EPIC]: ${RGBTextString(RGB.red, loot.getPlayerLootTendency(GetLocalPlayer(), CreepLootQuality.EPIC))}\n`;
+        text += `globalPower: ${RGBTextString(RGB.red, playerPowerTendency.globalPower)}\n`;
+        text += `localPowerLevel: ${RGBTextString(RGB.red, playerPowerTendency.getPlayerPowerLevel(GetLocalPlayer()))}\n`;
+        text += `localXPTendency: ${RGBTextString(RGB.red, playerPowerTendency.getPlayerXPTendency(GetLocalPlayer()))} / `;
+        text += `${RGBTextString(RGB.green, playerPowerTendency.getPlayerActualXPTendency(GetLocalPlayer()))}\n`;
 
-        this.sidebar.setText(`--WORLD STATE
-worldState: ${RGBTextString(RGB.red, gameManager.worldState)}
-timeToWar: ${RGBTextString(RGB.red, gameManager.timeToWar)}
-guardSpawnCounter: ${RGBTextString(RGB.red, gameManager.guardSpawnCounter)} < ${RGBTextString(RGB.green, gameManager.guardSpawnCounterDelay)}
 
---WAR
-allWarsTotal: ${RGBTextString(RGB.red, gameManager.allWars.length)}
-${this.extractAllWarData(gameManager.allWars)}
-currentEventsTotal: ${RGBTextString(RGB.red, gameManager.currentEvents.length)}
-
---Tendency
-localLootTendency[STANDARD]: ${RGBTextString(RGB.red, loot.getPlayerLootTendency(GetLocalPlayer(), CreepLootQuality.STANDARD))}
-localLootTendency[STANDARDS_SLOW]: ${RGBTextString(RGB.red, loot.getPlayerLootTendency(GetLocalPlayer(), CreepLootQuality.STANDARDS_SLOW))}
-localLootTendency[RARE]: ${RGBTextString(RGB.red, loot.getPlayerLootTendency(GetLocalPlayer(), CreepLootQuality.RARE))}
-localLootTendency[EPIC]: ${RGBTextString(RGB.red, loot.getPlayerLootTendency(GetLocalPlayer(), CreepLootQuality.EPIC))}
-globalPower: ${RGBTextString(RGB.red, playerPowerTendency.globalPower)}
-localPowerLevel: ${RGBTextString(RGB.red, playerPowerTendency.getPlayerPowerLevel(GetLocalPlayer()))}
-localXPTendency: ${RGBTextString(RGB.red, playerPowerTendency.getPlayerXPTendency(GetLocalPlayer()))} / ${RGBTextString(RGB.green, playerPowerTendency.getPlayerActualXPTendency(GetLocalPlayer()))}
-`);
-
-
+        this.sidebar.setText(text)
         this.testButtonFrame.setText(this.getButton1Text());
     }
 
@@ -149,6 +145,24 @@ force2 gather: : ${RGBTextString(RGB.teal, war.targets.selectedBattlefield.force
         return str;
     }
 
+    extractAllEventData(events: AsyncEvent[]) {
+        let build = "";
+        for (let i = 0; i < events.length; i++) {
+            let war = events[i];
+            build += this.extractEventData(war, i) + "\n";
+        }
+        return build;
+    }
+
+
+    private extractEventData(event: AsyncEvent, index: number) {
+        let str = `-> Event ${index}
+state: ${RGBTextString(RGB.red, event.name)}
+`;
+
+        return str;
+    }
+
     getButton1Text() {
         let gameManager = GlobalGameManager.getInstance();
         if (gameManager.worldState == WorldState.NEUTRAL) {
@@ -171,4 +185,5 @@ force2 gather: : ${RGBTextString(RGB.teal, war.targets.selectedBattlefield.force
 
         this.reRender();
     }
+
 }
