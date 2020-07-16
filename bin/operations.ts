@@ -1,4 +1,4 @@
-import {buildConfig, getFilesInsideDir, incrementMajor, incrementMinor, logger} from "./Utils";
+import {buildConfig, getFilesInsideDir, incrementMajor, incrementMinor, buildLogger} from "./Utils";
 import {buildEntireMap} from "./Build";
 
 const fs = require("fs");
@@ -27,7 +27,7 @@ switch (operation) {
             default:
                 filename = `${cwd}\\target\\${config.mapFolder}`;
         }
-        console.log(filename);
+        buildLogger.debug(filename);
 
         execFile(config.gameExecutable, ["-loadfile", filename, ...config.launchArgs]);
 

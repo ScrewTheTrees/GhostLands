@@ -6,9 +6,9 @@
   "scripts": {
     "fullRecompileAndRun": "npm run clean && npm run compileTypescript && npm run compileAndRunMap",
     "fullRecompile": "npm run clean && npm run compileTypescript && npm run compileMap",
-    "run": "node bin/operations run 1",
-    "run4X": "node bin/operations run 4",
-    "run8X": "node bin/operations run 8",
+    "run": "ts-node bin/operations run 1",
+    "run4X": "ts-node bin/operations run 4",
+    "run8X": "ts-node bin/operations run 8",
     "clean": "rimraf target/*",
     "compileTypescript": "tstl -p tsconfig.json",
     "compileAndRunMap": "npm run compileMap && ts-node bin/operations run",

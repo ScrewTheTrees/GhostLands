@@ -1,4 +1,4 @@
-import {buildConfig, buildVersion, incrementBuild, logger} from "./Utils";
+import {buildConfig, buildVersion, incrementBuild, buildLogger} from "./Utils";
 import * as fs from "fs-extra";
 
 const cwd = process.cwd();
@@ -11,20 +11,20 @@ export function buildEntireMap() {
 
     const tsLua = ".\\target\\tstl_output.lua";
     if (!fs.existsSync(tsLua)) {
-        logger.error(`Could not find "${tsLua}"`);
+        buildLogger.error(`Could not find "${tsLua}"`);
     }
     let mapFolder = `${cwd}\\maps\\${config.mapFolder}`;
     let targetFolder = `${cwd}\\target\\${config.mapFolder}`;
 
-    logger.debug(`Building "${mapFolder}"...`);
+    buildLogger.debug(`Building "${mapFolder}"...`);
     fs.copy(mapFolder, targetFolder, (err) => {
         if (err) {
-            logger.error(err);
+            buildLogger.error(err);
         } else {
             const mapLua = `.\\target\\${config.mapFolder}\\war3map.lua`;
 
             if (!fs.existsSync(mapLua)) {
-                return logger.error(`Could not find "${mapLua}"`);
+                return buildLogger.error(`Could not find "${mapLua}"`);
             }
 
             try {
@@ -37,9 +37,9 @@ export function buildEntireMap() {
                 fs.appendFileSync(mapLua, `\nmapVersion.date = "${date.getFullYear()}-${date.getMonth()}-${date.getDate()}  ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}"`);
                 fs.appendFileSync(mapLua, tsLuaContents);
             } catch (err) {
-                return logger.error(err);
+                return buildLogger.error(err);
             }
-            logger.debug(`Completed!`);
+            buildLogger.debug(`Completed!`);
         }
     });
 }
