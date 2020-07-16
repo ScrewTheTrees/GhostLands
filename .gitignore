@@ -1,10 +1,9 @@
 .idea/*
 target/*
 node_modules/*
-package.lock.json
-
-maps/Output/*
-maps/Build/*
 
 package-lock.json
+project.log
+config.json
+war3.log
 *.iml
