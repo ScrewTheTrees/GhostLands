@@ -80,7 +80,7 @@ export class HeroPicker {
         ArrayUnitsOfType(FourCC(GameUnits.TAVERN_1)).forEach((u) => RemoveUnit(u));
         DestroyTrigger(this.onHeroPick);
         delete HeroPicker.instance;
-        Hooks.remove(HeroPicker.name);
+        Hooks.set(HeroPicker.name, null);
     }
 
 }

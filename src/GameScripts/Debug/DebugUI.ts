@@ -34,8 +34,6 @@ export class DebugUI extends Entity {
         super();
         this._timerDelay = 0.25;
 
-        BlzLoadTOCFile("war3mapImported\\TreeFrames\\Toc.toc");
-
         this.sidebar = TreeFrames.getInstance().createSimpleFrame()
             .setPointRelative(FramePoints.TopLeft, FramePoints.TopRight, -0.25, -0.03)
             .setPointRelative(FramePoints.BottomRight, FramePoints.BottomRight, 0, 0.2);

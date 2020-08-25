@@ -14,24 +14,29 @@ export namespace Hooks {
 
     export function set(name: string, value: any) {
         _G.__hooks[name] = value;
-        Logger.generic("Hooked: " + name)
+        Logger.LogDebug("Hooked: " + name)
     }
 
-    export function remove(name: string) {
-        delete _G.__hooks[name];
-        Logger.generic("Removed hook: " + name)
-    }
-
-    export function hookArguments(oldFunc: (...args: any) => any, newFunc: (...args: any) => any) {
-        return (...args) => {
+    /**  Hook a function with your own logic that will execute after the original function. */
+    export function hookArguments<Args  extends any[], T>(oldFunc: (...args: Args) => T, newFunc: (...args: Args) => void) {
+        return (...args: Args) => {
             let val = oldFunc(...args);
             newFunc(...args);
             return val;
         };
     }
 
-    export function hookResult<T>(hookFunc: (...args: any) => T, passFunc: (value: T) => void) {
-        return (...args) => {
+    /**  Hook a function with your own logic that will execute before the original function. */
+    export function hookArgumentsBefore<Args  extends any[], T>(oldFunc: (...args: Args) => T, newFunc: (...args: Args) => void) {
+        return (...args: Args) => {
+            newFunc(...args);
+            return oldFunc(...args);
+        };
+    }
+
+    /**  Hook a function that will execute your own function and passes the result of the original to the new function. */
+    export function hookResult<Args  extends any[], T>(hookFunc: (...args: Args) => T, passFunc: (value: T) => void) {
+        return (...args: Args) => {
             let value = hookFunc(...args);
             passFunc(value);
             return value;
