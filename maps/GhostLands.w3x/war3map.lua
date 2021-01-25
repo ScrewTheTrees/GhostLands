@@ -547,7 +547,6 @@ gg_rct_force1base1unitarea = nil
 gg_rct_city1unitarea = nil
 gg_rct_city2unitarea = nil
 gg_rct_city3unitarea = nil
-gg_rct_city4unitarea = nil
 gg_rct_city5unitarea = nil
 gg_rct_force2base1unitarea = nil
 gg_rct_preloadRegion = nil
@@ -555,6 +554,7 @@ gg_rct_pickHeroRegion = nil
 gg_rct_force1WispSpawn = nil
 gg_rct_force2WispSpawn = nil
 gg_trg_Untitled_Trigger_001 = nil
+gg_rct_city4unitarea = nil
 function InitGlobals()
 end
 
@@ -945,7 +945,7 @@ function CreateNeutralHostileBuildings()
     u = BlzCreateUnitWithSkin(p, FourCC("n00C"), -896.0, 5440.0, 270.000, FourCC("n00C"))
     u = BlzCreateUnitWithSkin(p, FourCC("n00C"), 2432.0, -4608.0, 270.000, FourCC("n00C"))
     u = BlzCreateUnitWithSkin(p, FourCC("n00C"), 8192.0, 4160.0, 270.000, FourCC("n00C"))
-    u = BlzCreateUnitWithSkin(p, FourCC("n00H"), 1536.0, -10112.0, 270.000, FourCC("n00H"))
+    u = BlzCreateUnitWithSkin(p, FourCC("n00H"), 1792.0, -10368.0, 270.000, FourCC("n00H"))
     u = BlzCreateUnitWithSkin(p, FourCC("n00H"), 5632.0, -11584.0, 270.000, FourCC("n00H"))
     u = BlzCreateUnitWithSkin(p, FourCC("n00C"), 11648.0, 1280.0, 270.000, FourCC("n00C"))
     u = BlzCreateUnitWithSkin(p, FourCC("n00C"), 2368.0, 10048.0, 270.000, FourCC("n00C"))
@@ -1779,35 +1779,35 @@ function CreateRegions()
     gg_rct_forestpath1waypoint61 = Rect(11936.0, 28032.0, 12256.0, 28352.0)
     gg_rct_forestpath2waypoint66 = Rect(16416.0, -4096.0, 16736.0, -3776.0)
     gg_rct_path2waypoint22 = Rect(10240.0, -10752.0, 10560.0, -10432.0)
-    gg_rct_warzone1force1 = Rect(-23136.0, 21696.0, -21792.0, 23136.0)
-    gg_rct_warzone1force2 = Rect(-17440.0, 18272.0, -16128.0, 19520.0)
-    gg_rct_warzone2force1 = Rect(15264.0, -17056.0, 16736.0, -15456.0)
-    gg_rct_warzone2force2 = Rect(22656.0, -24736.0, 24032.0, -23424.0)
-    gg_rct_warzone3force1 = Rect(-7104.0, 7744.0, -5696.0, 9280.0)
-    gg_rct_warzone3force2 = Rect(-2336.0, 1184.0, -1120.0, 2528.0)
-    gg_rct_warzone4force1 = Rect(256.0, -8384.0, 1408.0, -7136.0)
-    gg_rct_warzone4force2 = Rect(5504.0, -8576.0, 6720.0, -7296.0)
-    gg_rct_warzone5force1 = Rect(13888.0, 18048.0, 15264.0, 19488.0)
-    gg_rct_warzone5force2 = Rect(22752.0, 13312.0, 24096.0, 14592.0)
-    gg_rct_warzone6force1 = Rect(-23840.0, -15648.0, -22368.0, -14144.0)
-    gg_rct_warzone6force2 = Rect(-14784.0, -22624.0, -13408.0, -21312.0)
+    gg_rct_warzone1force1 = Rect(-23136.0, 22112.0, -22176.0, 23136.0)
+    gg_rct_warzone1force2 = Rect(-17312.0, 18112.0, -16352.0, 19136.0)
+    gg_rct_warzone2force1 = Rect(15488.0, -16800.0, 16512.0, -15680.0)
+    gg_rct_warzone2force2 = Rect(22656.0, -24352.0, 23648.0, -23424.0)
+    gg_rct_warzone3force1 = Rect(-6816.0, 7936.0, -5856.0, 9024.0)
+    gg_rct_warzone3force2 = Rect(-2336.0, 1632.0, -1440.0, 2528.0)
+    gg_rct_warzone4force1 = Rect(544.0, -8064.0, 1408.0, -7136.0)
+    gg_rct_warzone4force2 = Rect(5472.0, -8384.0, 6336.0, -7456.0)
+    gg_rct_warzone5force1 = Rect(13888.0, 18560.0, 14784.0, 19488.0)
+    gg_rct_warzone5force2 = Rect(22944.0, 13568.0, 23808.0, 14432.0)
+    gg_rct_warzone6force1 = Rect(-23840.0, -15040.0, -22848.0, -14144.0)
+    gg_rct_warzone6force2 = Rect(-14400.0, -22624.0, -13408.0, -21664.0)
     gg_rct_warzone6center = Rect(-18976.0, -19296.0, -17664.0, -17920.0)
     gg_rct_warzone2center = Rect(19200.0, -21152.0, 20544.0, -19808.0)
     gg_rct_warzone1center = Rect(-20064.0, 19872.0, -18912.0, 20928.0)
     gg_rct_warzone3center = Rect(-4544.0, 4512.0, -3392.0, 5728.0)
     gg_rct_warzone4center = Rect(2816.0, -8544.0, 4160.0, -7200.0)
     gg_rct_warzone5center = Rect(18400.0, 15488.0, 19744.0, 16832.0)
-    gg_rct_force1base1unitarea = Rect(-30176.0, 24640.0, -24768.0, 29920.0)
+    gg_rct_force1base1unitarea = Rect(-30048.0, 24352.0, -24640.0, 29632.0)
     gg_rct_city1unitarea = Rect(-12640.0, 10752.0, -7232.0, 16032.0)
     gg_rct_city2unitarea = Rect(7008.0, -12608.0, 12416.0, -7328.0)
     gg_rct_city3unitarea = Rect(-2400.0, -3040.0, 3008.0, 2240.0)
-    gg_rct_city4unitarea = Rect(-29184.0, -28928.0, -23776.0, -23648.0)
     gg_rct_city5unitarea = Rect(24224.0, 24416.0, 29632.0, 29696.0)
     gg_rct_force2base1unitarea = Rect(24704.0, -30400.0, 30112.0, -25120.0)
     gg_rct_preloadRegion = Rect(7392.0, 28608.0, 9952.0, 29888.0)
     gg_rct_pickHeroRegion = Rect(-30208.0, -30496.0, -26944.0, -28288.0)
-    gg_rct_force1WispSpawn = Rect(-29472.0, -29472.0, -29056.0, -29152.0)
-    gg_rct_force2WispSpawn = Rect(-28096.0, -29536.0, -27680.0, -29216.0)
+    gg_rct_force1WispSpawn = Rect(-29472.0, -29888.0, -29056.0, -29568.0)
+    gg_rct_force2WispSpawn = Rect(-28064.0, -29888.0, -27648.0, -29568.0)
+    gg_rct_city4unitarea = Rect(-29184.0, -28928.0, -23776.0, -23648.0)
 end
 
 function Trig_Untitled_Trigger_001_Actions()

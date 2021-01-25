@@ -8,9 +8,9 @@ import {PlayerPowerTendency} from "../WorldTendency/Power/PlayerPowerTendency";
 import {WorldState} from "../Enums/WorldState";
 import {CreepLootQuality} from "../WorldTendency/Loot/CreepLootQuality";
 import {TreeFrames} from "./TreeFrames";
-import {TreeSimpleFrame} from "./TreeSimpleFrame";
+import {TreeSimpleFrame} from "./Frames/TreeSimpleFrame";
 import {FramePoints} from "./FramePoints";
-import {TreeSimpleButton} from "./TreeSimpleButton";
+import {TreeSimpleButton} from "./Frames/TreeSimpleButton";
 import {Occupations} from "../GameState/Occupations/Occupations";
 import {Warzones} from "../GameState/War/Warzones";
 import {AsyncEvent} from "../GameState/Events/AsyncEvent";
@@ -68,19 +68,20 @@ export class DebugUI extends Entity {
     }
 
     step() {
-        this.reRender();
+        this.render();
     }
 
     public getTotalFrameWidth() {
         return 0.6 * (BlzGetLocalClientWidth() / BlzGetLocalClientHeight());
     }
 
-    private reRender() {
+    private render() {
         let gameManager = GlobalGameManager.getInstance();
         let loot = CreepLoot.getInstance();
         let playerPowerTendency = PlayerPowerTendency.getInstance();
 
-        let text = `--WORLD STATE\n`;
+        let text = GetPlayerName(GetLocalPlayer()) + "\n\n";
+        text += `--WORLD STATE\n`;
         text += `worldState: ${RGBTextString(RGB.red, gameManager.worldState)}\n`;
         text += `timeToWar: ${RGBTextString(RGB.red, gameManager.timeToWar)}\n`;
         text += `guardSpawnCounter: ${RGBTextString(RGB.red, gameManager.guardSpawnCounter)} < ${RGBTextString(RGB.green, gameManager.guardSpawnCounterDelay)}\n`;
@@ -181,7 +182,7 @@ state: ${RGBTextString(RGB.red, event.name)}
         }
 
 
-        this.reRender();
+        this.render();
     }
 
 }

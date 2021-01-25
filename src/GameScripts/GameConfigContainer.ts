@@ -3,7 +3,7 @@ import {PlayerUnitManager} from "./StartGame/PlayerUnitManager";
 import {StackingItems} from "./WorldTendency/Loot/StackingItems";
 import {Runes} from "./StartGame/Runes";
 import { HeroPicker } from "./StartGame/HeroPicker";
-
+import {DamageDetectionSystem} from "../TreeLib/DDS/DamageDetectionSystem";
 
 
 export class GameConfigContainer {
@@ -26,5 +26,11 @@ export class GameConfigContainer {
         this.stackingItems = StackingItems.getInstance()
         this.runes = Runes.getInstance();
         this.heroPicker = HeroPicker.getInstance();
+
+        DamageDetectionSystem.registerBeforeDamageCalculation((hit) => {
+            if (BlzGetEventIsAttack()) {
+                hit.eventDamage = math.max(1, hit.eventDamage - BlzGetUnitArmor(hit.targetUnit));
+            }
+        });
     }
 }

@@ -27,16 +27,28 @@ export class StackingItems {
                 Delay.addDelay(() => {
                     let shards = GetAllItemsOfTypeOnUnit(manipulated, FourCC(GameItems.ARMOR_SHARDS));
                     let stacks = GetTotalItemStacks(shards);
-                    let ability = GetOrAddAbility(manipulated, FourCC(GameAbilities.ITEM_ARMOR_SHARD_ARMOR_BONUS))
-                    let oldStacks = BlzGetAbilityRealLevelField(ability, ABILITY_RLF_DEFENSE_BONUS_UTS3, 0);
-                    let diffStacks = stacks - oldStacks;
+                    GetOrAddAbility(manipulated, FourCC(GameAbilities.ITEM_ARMOR_SHARD_ARMOR_BONUS));
 
-                    BlzSetUnitArmor(manipulated, BlzGetUnitArmor(manipulated) + diffStacks);
-                    BlzSetAbilityRealLevelField(ability, ABILITY_RLF_DEFENSE_BONUS_UTS3, 0, stacks);
+                    if (stacks == 0) UnitRemoveAbility(manipulated, FourCC(GameAbilities.ITEM_ARMOR_SHARD_ARMOR_BONUS));
+                    else SetUnitAbilityLevel(manipulated, FourCC(GameAbilities.ITEM_ARMOR_SHARD_ARMOR_BONUS), stacks);
 
                 }, 0.01)
             };
+            let weaponStack = (eventData: StackerDto) => {
+                let manipulated = eventData.itemOwner;
+                Delay.addDelay(() => {
+                    let shards = GetAllItemsOfTypeOnUnit(manipulated, FourCC(GameItems.WEAPON_PARTS));
+                    let stacks = GetTotalItemStacks(shards);
+                    GetOrAddAbility(manipulated, FourCC(GameAbilities.ITEM_WEAPON_PARTS_BONUS));
+
+                    if (stacks == 0) UnitRemoveAbility(manipulated, FourCC(GameAbilities.ITEM_WEAPON_PARTS_BONUS));
+                    else SetUnitAbilityLevel(manipulated, FourCC(GameAbilities.ITEM_WEAPON_PARTS_BONUS), stacks);
+
+                }, 0.01)
+            };
+
             ItemEventTracker.getInstance().addAllInventoryEvents(armorStack);
+            ItemEventTracker.getInstance().addAllInventoryEvents(weaponStack);
 
         }, Logger.critical);
     }

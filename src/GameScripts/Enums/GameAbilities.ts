@@ -15,6 +15,7 @@ export const enum GameAbilities {
     UNIT_REJUVENATION_TIER_1 = "A00M",
     UNIT_SLOW_TIER_1 = "A006",
     UNIT_UNHOLY_FRENZY_TIER_1 = "A00N",
+    UNIT_VITAL_STRIKE_TIER_1 = "A00T",
 
 
     HERO_HEALING_WAVE = "A00J",
@@ -36,6 +37,7 @@ export const enum GameAbilities {
     ITEM_SCROLL_OF_REGENERATION_TIER_1 = "A00F",
 
     ITEM_ARMOR_SHARD_ARMOR_BONUS= "A00P",
+    ITEM_WEAPON_PARTS_BONUS= "A00S",
 
 
 

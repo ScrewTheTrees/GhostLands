@@ -15,13 +15,14 @@ import {UnitActionWaypoint} from "../../../TreeLib/ActionQueue/Actions/UnitActio
 import {Delay} from "../../../TreeLib/Utility/Delay";
 import {NamedRect} from "../../RectControl/NamedRect";
 import {Songs} from "../../flavor/Songs";
+import {MinimapIconHandler} from "../MinimapIconHandler";
 
 export class War extends Entity {
     public state: WarState = WarState.SETUP;
     public targets: WarContainer;
 
     public isFinished: boolean = false;
-    public countdown: number = 60;
+    public countdown: number = 20;
     public siegeTimer = 600;
 
     constructor() {
@@ -45,9 +46,8 @@ export class War extends Entity {
                 targets.armies.force2 = new Army(mgr.force2Data, targets.targets.force2.force2gather);
             }
 
-            this.countdown = 300;
-
-            this.state = WarState.PREPARE_CLASH; //Armies are done, preparatus.
+            this.countdown = 10;
+            this.state = WarState.SETUP; //Time to spawn soldiers.
         } else {
             this.endWar();
             Logger.critical(`Cannot resolve targets... something went horribly wrong :(`);
@@ -65,33 +65,53 @@ export class War extends Entity {
         this.count -= 1;
 
 
-        if (this.state == WarState.PREPARE_CLASH) {
-            this.countdown -= this._timerDelay;
-            if (this.countdown <= 250 && !this.sentArmies) {
-                this.sentArmies = true;
-                this.targets.armies.force1?.sendAllSoldiersToGathering();
-                this.targets.armies.force2?.sendAllSoldiersToGathering();
-            }
-            if (this.countdown <= 0) {
-                if (this.targets.deadLock) {
-                    Logger.generic("Deadlock, Let there be clash.");
-                    this.startClash(this.targets);
-                    this.state = WarState.CLASHING;
-                } else {
-                    Logger.generic("No deadlock, go to: ", WarState.PREPARE_FOR_SIEGE);
-                    this.countdown = 1;
-                    this.state = WarState.PREPARE_FOR_SIEGE;
+        if (this.state == WarState.SETUP) {
+            if (this.targets.armies.force1.isArmyInRect(this.targets.armies.force1.baseGathering)
+                && this.targets.armies.force2.isArmyInRect(this.targets.armies.force2.baseGathering)
+            ) {
+                this.countdown -= this._timerDelay;
+                if (!this.sentArmies && this.countdown <= 0) {
+                    this.sentArmies = true;
+                    this.countdown = 10;
+                    this.state = WarState.PREPARE_CLASH;
+                    this.targets.armies.force1.sendAllSoldiersToGathering();
+                    this.targets.armies.force2.sendAllSoldiersToGathering();
+
+                    MinimapIconHandler.getInstance().redObjective = this.targets.armies.force1.armyGathering.getCenter();
+                    MinimapIconHandler.getInstance().blueObjective = this.targets.armies.force2.armyGathering.getCenter();
                 }
             }
-
         }
-        if (this.state == WarState.PREPARE_FOR_SIEGE) {
-            this.countdown -= this._timerDelay;
-            if (this.countdown <= 0) {
-                Logger.generic("Start siege.");
-                this.startSiege(this.targets);
-                this.countdown = 1;
-                this.state = WarState.SIEGE;
+        if (this.state == WarState.PREPARE_CLASH) {
+            if (this.targets.armies.force1.isArmyInRect(this.targets.armies.force1.armyGathering)
+                && this.targets.armies.force2.isArmyInRect(this.targets.armies.force2.armyGathering)) {
+                this.countdown -= this._timerDelay;
+
+                if (this.countdown <= 0) {
+                    if (this.targets.deadLock) {
+
+                        Logger.generic("Deadlock, Let there be clash.");
+                        this.startClash(this.targets);
+                        this.state = WarState.CLASHING;
+
+                        if (this.targets.selectedBattlefield) {
+                            MinimapIconHandler.getInstance().redObjective = this.targets.selectedBattlefield.center.getCenter();
+                            MinimapIconHandler.getInstance().blueObjective = this.targets.selectedBattlefield.center.getCenter();
+                        }
+
+                    } else {
+                        Logger.generic("No deadlock, go to: ", WarState.PREPARE_FOR_SIEGE);
+                        this.countdown = 10;
+                        this.state = WarState.PREPARE_FOR_SIEGE;
+
+                        if (this.targets.selectedBattlefield) {
+                            if (!this.targets.armies.force1.isArmyDead())
+                                MinimapIconHandler.getInstance().redObjective = this.targets.selectedBattlefield.force1gather.getCenter();
+                            if (!this.targets.armies.force2.isArmyDead())
+                                MinimapIconHandler.getInstance().blueObjective = this.targets.selectedBattlefield.force2gather.getCenter();
+                        }
+                    }
+                }
             }
         }
         if (this.state == WarState.CLASHING) {
@@ -102,6 +122,23 @@ export class War extends Entity {
                     this.finishClash(this.targets, Forces.FORCE_2);
                 } else if (force2.isArmyDead()) {
                     this.finishClash(this.targets, Forces.FORCE_1);
+                }
+            }
+        }
+        if (this.state == WarState.PREPARE_FOR_SIEGE) {
+            if ((this.targets.armies.force1.isArmyDead() || this.targets.armies.force1.isArmyInRect(this.targets.targets.force1.force1gather))
+                && (this.targets.armies.force2.isArmyDead() || this.targets.armies.force2.isArmyInRect(this.targets.targets.force2.force2gather))) {
+
+                this.countdown -= this._timerDelay;
+                if (this.countdown <= 0) {
+                    Logger.generic("Start siege.");
+                    this.startSiege(this.targets);
+                    this.countdown = 1;
+                    this.state = WarState.SIEGE;
+                    if (!this.targets.armies.force1.isArmyDead())
+                        MinimapIconHandler.getInstance().redObjective = this.targets.targets.force1.force2Occupant.primaryRect.getCenter();
+                    if (!this.targets.armies.force2.isArmyDead())
+                        MinimapIconHandler.getInstance().blueObjective = this.targets.targets.force2.force1Occupant.primaryRect.getCenter();
                 }
             }
         }
@@ -257,7 +294,7 @@ export class War extends Entity {
 
         Logger.generic("Finish the clash, winner is: ", winner);
         if (force1 && force2) {
-            this.countdown = 120;
+            this.countdown = 10;
             if (winner == Forces.FORCE_1) {
                 /*if (Occupations.getInstance().CITY_1.owner != Forces.FORCE_1) {
                     targets.targets.force1 = Warzones.getInstance().getWarzoneByForceAndCity(Forces.FORCE_1, Occupations.getInstance().CITY_1);
@@ -273,7 +310,7 @@ export class War extends Entity {
     }
 
     private sendUnitsToSiege(force: Army, targets: WarContainer, winner: Forces, zone: NamedRect) {
-        this.sendArmyToRectNoPath(force, force.gathering);
+        this.sendArmyToRectNoPath(force, force.armyGathering);
 
         if (targets.selectedBattlefield) {
 
@@ -285,8 +322,8 @@ export class War extends Entity {
                 || (winner == Forces.FORCE_2 && targets.selectedBattlefield.force2gather != targets.targets.force2.force2gather)
             ) {
                 Logger.generic("Switch battlezone");
-                force.gathering = zone;
-                this.countdown = 400;
+                force.armyGathering = zone;
+                this.countdown = 10;
             }
         }
         Delay.addDelay(() => {

@@ -18,12 +18,14 @@ import {GetIDByForce} from "../../Enums/Forces";
 export class Army {
     public platoons: ArmyPlatoon[] = [];
     public forceData: AIForceData;
-    public gathering: NamedRect;
+    public armyGathering: NamedRect;
+    public baseGathering: NamedRect;
     public pathManager: PathManager = PathManager.getInstance();
 
     constructor(forceData: AIForceData, gathering: NamedRect) {
         this.forceData = forceData;
-        this.gathering = gathering;
+        this.armyGathering = gathering;
+        this.baseGathering = Rectifier.getInstance().getRectsByForceOfType(GetIDByForce(this.forceData.force), "gathering")[0];
 
         this.performRevival(this.forceData.amountOfMelee, this.forceData.amountOfRanged, this.forceData.amountOfCasters, this.forceData.amountOfCavalry, this.forceData.amountOfArtillery);
     }
@@ -112,11 +114,11 @@ export class Army {
 
     public sendPlatoonToGathering(platoon: ArmyPlatoon) {
         platoon.purgeDead();
-        return this.sendPlatoonToPoint(platoon, this.gathering.getRandomPoint());
+        return this.sendPlatoonToPoint(platoon, this.armyGathering.getRandomPoint());
     }
 
     public sendSoldierToPlaceholder(soldier: ArmySoldier) {
-        let path = this.pathManager.createPath(Point.fromWidget(soldier.soldier), Rectifier.getInstance().getRectsByForceOfType(GetIDByForce(this.forceData.force), "gathering")[0].getRandomPoint(), this.forceData.force);
+        let path = this.pathManager.createPath(Point.fromWidget(soldier.soldier), this.baseGathering.getRandomPoint(), this.forceData.force);
         soldier.currentQueue = new UnitQueue(soldier.soldier, ...path);
         ActionQueue.enableQueue(soldier.currentQueue);
     }
@@ -151,6 +153,32 @@ export class Army {
             }
         }
         return true;
+    }
+
+    public isArmyInRect(isInRect: NamedRect): boolean {
+        if (this.getUnitsAlive() <= 0) return false;
+
+        if (this.countUnitsInRect(isInRect) >= this.getUnitsAlive()) return true;
+        return false;
+    }
+
+    public countUnitsInRect(isInRect: NamedRect): number {
+        let count = 0;
+        for (let i = 0; i < this.platoons.length; i++) {
+            const platoon = this.platoons[i];
+            for (let j = 0; j < platoon.soldiers.length; j++) {
+                const soldier = platoon.soldiers[j];
+                if (this.unitInRect(soldier, isInRect)) count += 1;
+                //if (RectContainsUnit(isInRect.value, soldier.soldier)) count += 1;
+            }
+        }
+        return count;
+    }
+
+    private unitInRect(soldier: ArmySoldier, rect: NamedRect) {
+        const deadzone = 1024;
+        return (GetRectMinX(rect.value) - deadzone <= soldier.x) && (soldier.x <= GetRectMaxX(rect.value) + deadzone)
+            && (GetRectMinY(rect.value) - deadzone <= soldier.y) && (soldier.y <= GetRectMaxY(rect.value) + deadzone);
     }
 
     public getUnitsAlive(): number {

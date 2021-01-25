@@ -1,10 +1,10 @@
 import {Hooks} from "../../TreeLib/Hooks";
-import {TreeSimpleFrame} from "./TreeSimpleFrame";
+import {TreeSimpleFrame} from "./Frames/TreeSimpleFrame";
 import {TreeFrameIDS} from "./TreeFrameIDS";
 import {Entity} from "../../TreeLib/Entity";
 import {Quick} from "../../TreeLib/Quick";
-import {ITreeFrame} from "./ITreeFrame";
-import {TreeSimpleButton} from "./TreeSimpleButton";
+import {ITreeFrame} from "./Frames/ITreeFrame";
+import {TreeSimpleButton} from "./Frames/TreeSimpleButton";
 
 export class TreeFrames extends Entity {
     private static instance: TreeFrames;
@@ -20,16 +20,17 @@ export class TreeFrames extends Entity {
     public hasLoaded: boolean = false;
 
     public fullScreenFrame: framehandle;
+    private normalFrame: framehandle;
     public allFrames: ITreeFrame[] = [];
 
-    public currentContext: number = 0;
+    public currentContext: number = 11;
     public onClickButton: trigger = CreateTrigger();
 
     constructor() {
         super();
         this.hasLoaded = BlzLoadTOCFile("war3mapImported\\TreeFrames\\Toc.toc");
-        this.fullScreenFrame = BlzCreateSimpleFrame(TreeFrameIDS.FullSimpleScreen, BlzGetOriginFrame(ORIGIN_FRAME_GAME_UI, 0), 0);
-
+        this.fullScreenFrame = BlzCreateSimpleFrame(TreeFrameIDS.FullSimpleScreen, BlzGetOriginFrame(ORIGIN_FRAME_GAME_UI, 0), 10);
+        this.normalFrame = BlzGetOriginFrame(ORIGIN_FRAME_GAME_UI, 0);
         TriggerAddAction(this.onClickButton, () => this.onClickButtonAction());
 
         BlzFrameClearAllPoints(this.fullScreenFrame);

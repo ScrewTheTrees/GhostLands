@@ -11,4 +11,12 @@ export class NamedRect {
     getRandomPoint(): Point {
         return Point.fromLocationClean(GetRandomLocInRect(this.value));
     }
+
+    isPointInRect(pos: Point): boolean {
+        return RectContainsCoords(this.value, pos.x, pos.y);
+    }
+
+    isUnitInRect(u: unit): boolean {
+        return RectContainsCoords(this.value, GetWidgetX(u), GetWidgetY(u));
+    }
 }

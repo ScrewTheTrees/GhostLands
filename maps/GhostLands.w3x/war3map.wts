@@ -294,43 +294,31 @@ Assassin
 }
 
 STRING 103
-// Abilities: A001 (Frenzy), EditorSuffix (Editor Suffix)
-{
-(Tier 1)
-}
-
-STRING 141
-// Abilities: A003 (Ensnare), EditorSuffix (Editor Suffix)
-{
-(Tier 1)
-}
-
-STRING 142
-// Abilities: A008 (Frost Armor), EditorSuffix (Editor Suffix)
-{
-(Tier 1)
-}
-
-STRING 143
-// Abilities: A009 (Envenomed Weapons), EditorSuffix (Editor Suffix)
-{
-(Tier 1)
-}
-
-STRING 144
 // Abilities: A00B (Healing Salve), EditorSuffix (Editor Suffix)
 {
 (Tier 1)
 }
 
-STRING 145
+STRING 141
 // Abilities: A00C (Lesser Clarity Potion), EditorSuffix (Editor Suffix)
 {
 (Tier 1)
 }
 
-STRING 151
+STRING 142
 // Abilities: A00D (Item Area Healing), EditorSuffix (Editor Suffix)
+{
+(Tier 1)
+}
+
+STRING 143
+// Abilities: A00E (Scroll of Haste), EditorSuffix (Editor Suffix)
+{
+(Tier 1)
+}
+
+STRING 144
+// Abilities: A00F (Scroll of Regeneration), EditorSuffix (Editor Suffix)
 {
 (Tier 1)
 }
@@ -395,46 +383,10 @@ STRING 167
 Basic healer that can consistently heal and cast abolish magic. |n|n|cffffcc00Attacks land and air units.|r
 }
 
-STRING 168
-// Abilities: A005 (Heal), EditorSuffix (Editor Suffix)
-{
-(Tier1)
-}
-
-STRING 169
-// Abilities: A006 (Slow), EditorSuffix (Editor Suffix)
-{
-(Tier1)
-}
-
-STRING 170
-// Abilities: A00H (Abolish Magic), EditorSuffix (Editor Suffix)
-{
-(Tier1)
-}
-
 STRING 172
 // Abilities: A002 (Berserk), EditorSuffix (Editor Suffix)
 {
 (TESTING)
-}
-
-STRING 173
-// Abilities: A00E (Scroll of Haste), EditorSuffix (Editor Suffix)
-{
-(Tier 1)
-}
-
-STRING 174
-// Abilities: A00F (Scroll of Regeneration), EditorSuffix (Editor Suffix)
-{
-(Tier 1)
-}
-
-STRING 175
-// Abilities: A00G (Cannibalize), EditorSuffix (Editor Suffix)
-{
-(Tier 1)
 }
 
 STRING 187
@@ -3143,17 +3095,6 @@ STRING 1277
 (Skin 3)
 }
 
-STRING 1283
-// Abilities: A004 (Watch out watch out watch out), Researchubertip (Tooltip - Learn - Extended)
-{
-Physically slams target causing a temporary interruption and dealing damage.
-
-|cffffcc00Damage|r - 20 + (10*L)
-|cffffcc00Mana cost|r - 5 + (2.5*L)
-
-
-}
-
 STRING 1305
 // Abilities: A00A (Thunder Clap), Ubertip (Tooltip - Normal - Extended)
 {
@@ -3230,28 +3171,6 @@ STRING 1314
 // Abilities: A00A (Thunder Clap), Ubertip (Tooltip - Normal - Extended)
 {
 Magically slams the ground, dealing <A00A,DataA10,.> damage to nearby enemy land units and slowing their movement and attack rate.
-
-|cff00ffffGreat Rune|r
-}
-
-STRING 1325
-// Abilities: A00A (Thunder Clap), Researchubertip (Tooltip - Learn - Extended)
-{
-Magically slams the ground, dealing damage to and slowing the movement speed and attack rate of nearby enemy land units. 
-
-|cffffcc00Damage|r - 20 + (10*L)
-|cffffcc00Mana cost|r - 10 + (5*L)
-
-|cff00ffffGreat Rune|r
-}
-
-STRING 1326
-// Abilities: A007 (Shockwave), Researchubertip (Tooltip - Learn - Extended)
-{
-A magical wave of force that ripples out from the Hero, causing damage to land units in a line.
-
-|cffffcc00Damage|r - 20 + (10*L)
-|cffffcc00Mana cost|r - 10 + (5*L)
 
 |cff00ffffGreat Rune|r
 }
@@ -3718,12 +3637,6 @@ STRING 1463
 Tent 2
 }
 
-STRING 1466
-// Abilities: A00K (Bash), EditorSuffix (Editor Suffix)
-{
-(Tier 1)
-}
-
 STRING 1467
 // Abilities: A00K (Bash), Ubertip (Tooltip - Normal - Extended)
 {
@@ -3742,24 +3655,6 @@ STRING 1469
 Searing Arrows
 }
 
-STRING 1470
-// Abilities: A00L (Searing Arrows), EditorSuffix (Editor Suffix)
-{
-(Tier 1)
-}
-
-STRING 1473
-// Abilities: A00M (Rejuvenation), EditorSuffix (Editor Suffix)
-{
-(Tier 1)
-}
-
-STRING 1475
-// Abilities: A00N (Unholy Frenzy), EditorSuffix (Editor Suffix)
-{
-(Tier 1)
-}
-
 STRING 1477
 // Units: h005 (Sorceress), Ubertip (Tooltip - Extended)
 {
@@ -3775,14 +3670,6 @@ Can ensnare.
 }
 
 STRING 1479
-// Units: h002 (Archer), Ubertip (Tooltip - Extended)
-{
-Basic long-ranged attacker.
-Has searing arrows
-|n|cffffcc00Attacks land and air units.|r
-}
-
-STRING 1480
 // Units: n00R (Archer), Ubertip (Tooltip - Extended)
 {
 Basic long-ranged attacker.
@@ -3799,14 +3686,6 @@ Can use Frenzy.
 }
 
 STRING 1482
-// Units: h001 (Imperial Soldier), Ubertip (Tooltip - Extended)
-{
-Versatile foot soldier. 
-Has Defend and Bash. 
-|n|cffffcc00Attacks land units.|r
-}
-
-STRING 1483
 // Units: h008 (Imperial Soldier), Ubertip (Tooltip - Extended)
 {
 Versatile foot soldier. 
@@ -3814,7 +3693,7 @@ Has Defend and Bash.
 |n|cffffcc00Attacks land units.|r
 }
 
-STRING 1484
+STRING 1483
 // Units: h009 (Imperial Soldier), Ubertip (Tooltip - Extended)
 {
 Versatile foot soldier. 
@@ -3822,7 +3701,7 @@ Has Defend and Bash.
 |n|cffffcc00Attacks land units.|r
 }
 
-STRING 1485
+STRING 1484
 // Units: h00A (Imperial Soldier), Ubertip (Tooltip - Extended)
 {
 Versatile foot soldier. 
@@ -3858,14 +3737,6 @@ STRING 1493
 Heals a target friendly unit for <A005,DataA1> hit points over <A005,Dur1> seconds.
 
 |cff00ffffSmall Rune|r
-}
-
-STRING 1494
-// Abilities: A005 (Heal), Ubertip (Tooltip - Normal - Extended)
-{
-Heals a target friendly non-mechanical wounded unit by <A005,DataA1,%>.
-
-|cff00ffffTiny Rune|r
 }
 
 STRING 1496
@@ -3957,44 +3828,12 @@ STRING 1518
 Armor Shard Armor Bonus
 }
 
-STRING 1520
-// Abilities: A00P (Armor Shard Armor Bonus), Ubertip (Tooltip - Normal - Extended)
-{
-Shards of armor, strapped to your body.
-
-Each shard increases your heroes base armor by 1 point.
-}
-
 STRING 1521
 // Items: I005 (Armor Shards), Ubertip (Tooltip - Extended)
 {
 Increases unit's armor by 1 per stack.
 
 Shards of armor, not pretty, but good for staying alive.
-}
-
-STRING 1527
-{
-Each point of armor increases effective health by 1%.
-
-0 armor = 0% damage reduction.
-100 armor = 50% damage reduction.
-}
-
-STRING 1528
-{
-Each point of armor increases effective health by 1%.
-
-0 armor = 0% damage reduction.
-100 armor = 50% damage reduction.
-}
-
-STRING 1529
-{
-Each point of armor increases effective health by 1%.
-
-0 armor = 0% damage reduction.
-100 armor = 50% damage reduction.
 }
 
 STRING 1530
@@ -4037,19 +3876,6 @@ STRING 1536
 // Abilities: A00L (Searing Arrows), Ubertip (Tooltip - Normal - Extended)
 {
 Adds <A00L,DataA1> bonus fire damage to an attack against enemies, but drains mana with each shot fired.
-}
-
-STRING 1537
-// Abilities: A00J (Healing Wave), Researchubertip (Tooltip - Learn - Extended)
-{
-Calls forth a magical wave of energy that heals a target and bounces to nearby friendlies. Each bounce heals less damage.
-
-|cffffcc00Healing|r - 30+ (15*L)
-|cffffcc00Mana cost|r - 10 + (5*L)
-|cffffcc00Bounces|r - 6
-|cffffcc00Reduction Per Bounce|r - 20%
-
-|cff00ffffLarge Rune|r
 }
 
 STRING 1542
@@ -5520,12 +5346,6 @@ STRING 1998
 Awaken Ranger General
 }
 
-STRING 1999
-// Units: H00B (Ranger General), Ubertip (Tooltip - Extended)
-{
-General unmatched in ranged warfare, singling out and destroying opponents from afar.
-}
-
 STRING 2000
 // Units: H000 (War Veteran), Ubertip (Tooltip - Extended)
 {
@@ -5536,12 +5356,6 @@ STRING 2001
 // Units: H000 (War Veteran), Revivetip (Tooltip - Revive)
 {
 Old Warrior Hero of great renounce. Providing great survivability to all his soldiers and excels in close quarters combat.
-}
-
-STRING 2002
-// Units: H00B (Ranger General), Revivetip (Tooltip - Revive)
-{
-General unmatched in ranged warfare, singling out and destroying opponents from afar.
 }
 
 STRING 2005
@@ -5638,15 +5452,6 @@ STRING 2021
 // Abilities: A00R (Rain of arrows), Tip (Tooltip - Normal)
 {
 Rain of arrows - [|cffffcc00Level 10|r]
-}
-
-STRING 2032
-// Abilities: A00R (Rain of arrows), Researchubertip (Tooltip - Learn - Extended)
-{
-Bombards an area with arrows, stunning enemy land units for <A00R,Dur1> second and damaging nearby enemy units.
-
-|cffffcc00Damage|r - 20 + (10*L)
-|cffffcc00Mana cost|r - 5 + (2.5*L)
 }
 
 STRING 2033
@@ -5835,27 +5640,6 @@ STRING 2074
 Hurls a poisoned dagger at a target enemy unit, dealing <A00Q,DataE10> initial damage, and <A00Q,DataA10> damage every <A00Q,Cast10> seconds for <A00Q,Dur10> seconds. The poison slows the movement speed of the targeted unit for a short duration.
 }
 
-STRING 2076
-// Abilities: A00Q (Shadow Strike), Researchubertip (Tooltip - Learn - Extended)
-{
-Hurls a poisoned dagger which deals large initial damage, and then deals damage over time. The poisoned unit has its movement speed slowed for a short duration.
-
-|cffffcc00Damage|r - 20 + (10*L)
-|cffffcc00Damage Over Time|r - 5 + (2.5*L)
-|cffffcc00Mana cost|r - 5 + (2.5*L)
-}
-
-STRING 2077
-// Abilities: A00O (Holy Light), Researchubertip (Tooltip - Learn - Extended)
-{
-A holy light that can heal a friendly living unit or damage an enemy Undead unit.
-
-|cffffcc00Healing|r - 50 + (25*L)
-|cffffcc00Mana cost|r - 5 + (3*L)
-
-|cff00ffffNeutral Rune|r
-}
-
 STRING 2078
 // Abilities: A00I (Undying bravery), Hotkey (Hotkey - Normal)
 {
@@ -5878,5 +5662,424 @@ STRING 2081
 // Abilities: A000 (Trueshot Aura), EditorSuffix (Editor Suffix)
 {
 (D)
+}
+
+STRING 2082
+{
+Each point of armor increases effective health by 2% and reduces damage taken by 1.
+}
+
+STRING 2083
+{
+Each point of armor increases effective health by 2% and reduces damage taken by 1.
+}
+
+STRING 2084
+{
+Each point of armor increases effective health by 2% and reduces damage taken by 1.
+}
+
+STRING 2199
+// Abilities: A00S (Weapon Parts), Name (Name)
+{
+Weapon Parts
+}
+
+STRING 2200
+// Abilities: A00P (Armor Shard Armor Bonus), Ubertip (Tooltip - Normal - Extended)
+{
+Weapon parts
+}
+
+STRING 2201
+// Abilities: A005 (Heal), Ubertip (Tooltip - Normal - Extended)
+{
+Heals a target friendly non-mechanical wounded unit by <A005,DataA1>.
+
+|cff00ffffTiny Rune|r
+}
+
+STRING 2202
+// Abilities: A001 (Frenzy), EditorSuffix (Editor Suffix)
+{
+(Custom)
+}
+
+STRING 2203
+// Abilities: A003 (Ensnare), EditorSuffix (Editor Suffix)
+{
+(Custom)
+}
+
+STRING 2204
+// Abilities: A005 (Heal), EditorSuffix (Editor Suffix)
+{
+(Custom)
+}
+
+STRING 2205
+// Abilities: A006 (Slow), EditorSuffix (Editor Suffix)
+{
+(Custom)
+}
+
+STRING 2206
+// Abilities: A008 (Frost Armor), EditorSuffix (Editor Suffix)
+{
+(Custom)
+}
+
+STRING 2207
+// Abilities: A009 (Envenomed Weapons), EditorSuffix (Editor Suffix)
+{
+(Custom)
+}
+
+STRING 2208
+// Abilities: A00G (Cannibalize), EditorSuffix (Editor Suffix)
+{
+(Custom)
+}
+
+STRING 2209
+// Abilities: A00H (Abolish Magic), EditorSuffix (Editor Suffix)
+{
+(Custom)
+}
+
+STRING 2210
+// Abilities: A00K (Bash), EditorSuffix (Editor Suffix)
+{
+(Custom)
+}
+
+STRING 2211
+// Abilities: A00L (Searing Arrows), EditorSuffix (Editor Suffix)
+{
+(Custom)
+}
+
+STRING 2212
+// Abilities: A00M (Rejuvenation), EditorSuffix (Editor Suffix)
+{
+(Custom)
+}
+
+STRING 2213
+// Abilities: A00N (Unholy Frenzy), EditorSuffix (Editor Suffix)
+{
+(Custom)
+}
+
+STRING 2216
+// Abilities: A00T (Wide Strikes), EditorSuffix (Editor Suffix)
+{
+(Custom)
+}
+
+STRING 2219
+// Abilities: A00T (Wide Strikes), Ubertip (Tooltip - Normal - Extended)
+{
+Deals <A00T,DataB1> damage to nearby units.
+}
+
+STRING 2220
+// Abilities: A00T (Wide Strikes), Name (Name)
+{
+Wide Strikes
+}
+
+STRING 2221
+// Abilities: A00T (Wide Strikes), Tip (Tooltip - Normal)
+{
+Wide Strikes
+}
+
+STRING 2222
+// Units: h001 (Imperial Soldier), Ubertip (Tooltip - Extended)
+{
+Versatile foot soldier. 
+Has wide strikes ability which causes damage in an area.
+|n|cffffcc00Attacks land units.|r
+}
+
+STRING 2223
+// Units: h002 (Archer), Ubertip (Tooltip - Extended)
+{
+Basic long-ranged attacker.
+Has searing arrows.
+|n|cffffcc00Attacks land and air units.|r
+}
+
+STRING 2225
+// Abilities: A00O (Holy Light), Researchubertip (Tooltip - Learn - Extended)
+{
+A holy light that can heal a friendly living unit or damage an enemy Undead unit.
+
+|cffffcc00Healing|r - 50 + (25*L)
+|cffffcc00Mana cost|r - 5 + (3*L)
+|cffffcc00Cooldown|r - 5s
+
+|cff00ffffNeutral Rune|r
+}
+
+STRING 2228
+// Abilities: A00A (Thunder Clap), Researchubertip (Tooltip - Learn - Extended)
+{
+Magically slams the ground, dealing damage to and slowing the movement speed and attack rate of nearby enemy land units. 
+
+|cffffcc00Damage|r - 20 + (10*L)
+|cffffcc00Mana cost|r - 10 + (5*L)
+|cffffcc00Cooldown|r - 20s
+
+|cff00ffffGreat Rune|r
+}
+
+STRING 2229
+// Abilities: A007 (Shockwave), Researchubertip (Tooltip - Learn - Extended)
+{
+A magical wave of force that ripples out from the Hero, causing damage to land units in a line.
+
+|cffffcc00Damage|r - 20 + (10*L)
+|cffffcc00Mana cost|r - 10 + (5*L)
+|cffffcc00Cooldown|r - 20s
+
+|cff00ffffGreat Rune|r
+}
+
+STRING 2230
+// Abilities: A00Q (Shadow Strike), Researchubertip (Tooltip - Learn - Extended)
+{
+Hurls a poisoned dagger which deals large initial damage, and then deals damage over time. The poisoned unit has its movement speed slowed for a short duration.
+
+|cffffcc00Damage|r - 20 + (10*L)
+|cffffcc00Damage Over Time|r - 5 + (2.5*L)
+|cffffcc00Mana cost|r - 5 + (2.5*L)
+|cffffcc00Cooldown|r - 10s
+}
+
+STRING 2231
+// Abilities: A00R (Rain of arrows), Researchubertip (Tooltip - Learn - Extended)
+{
+Bombards an area with arrows, stunning enemy land units for <A00R,Dur1> second and damaging nearby enemy units.
+
+|cffffcc00Damage|r - 20 + (10*L)
+|cffffcc00Mana cost|r - 10 + (2.5*L)
+|cffffcc00Cooldown|r - 20s
+}
+
+STRING 2232
+// Abilities: A004 (Watch out watch out watch out), Researchubertip (Tooltip - Learn - Extended)
+{
+Physically slams target causing a temporary interruption and dealing damage.
+
+|cffffcc00Damage|r - 20 + (10*L)
+|cffffcc00Mana cost|r - 5 + (2.5*L)
+|cffffcc00Cooldown|r - 5s
+
+}
+
+STRING 2233
+// Units: e002 (DUMMY THICC), Name (Name)
+{
+DUMMY THICC
+}
+
+STRING 2234
+// Abilities: A00J (Healing Wave), Researchubertip (Tooltip - Learn - Extended)
+{
+Calls forth a magical wave of energy that heals a target and bounces to nearby friendlies. Each bounce heals less damage.
+
+|cffffcc00Healing|r - 30+ (15*L)
+|cffffcc00Mana cost|r - 10 + (5*L)
+|cffffcc00Bounces|r - 6
+|cffffcc00Reduction Per Bounce|r - 20%
+|cffffcc00Cooldown|r - 10s
+
+|cff00ffffLarge Rune|r
+}
+
+STRING 2235
+// Abilities: A00U (Sweet Whispers), Name (Name)
+{
+Sweet Whispers
+}
+
+STRING 2237
+// Abilities: A00U (Sweet Whispers), Researchtip (Tooltip - Learn)
+{
+Learn Sweet Whispers - [|cffffcc00Level %d|r]
+}
+
+STRING 2238
+// Abilities: A00U (Sweet Whispers), Tip (Tooltip - Normal)
+{
+Sweet Whispers- [|cffffcc00Level 1|r]
+}
+
+STRING 2242
+// Abilities: A00U (Sweet Whispers), EditorSuffix (Editor Suffix)
+{
+(R)
+}
+
+STRING 2243
+// Abilities: A00U (Sweet Whispers), Researchhotkey (Hotkey - Learn)
+{
+R
+}
+
+STRING 2244
+// Abilities: A00U (Sweet Whispers), Hotkey (Hotkey - Normal)
+{
+R
+}
+
+STRING 2245
+// Abilities: A00U (Sweet Whispers), Ubertip (Tooltip - Normal - Extended)
+{
+Puts a target enemy unit to sleep for <A00U,Dur1> seconds. A sleeping unit can be awoken by attacking it.
+Heroes are only minorly affected by this spell.
+}
+
+STRING 2247
+// Abilities: A00U (Sweet Whispers), Tip (Tooltip - Normal)
+{
+Sweet Whispers- [|cffffcc00Level 2|r]
+}
+
+STRING 2248
+// Abilities: A00U (Sweet Whispers), Tip (Tooltip - Normal)
+{
+Sweet Whispers- [|cffffcc00Level 3|r]
+}
+
+STRING 2249
+// Abilities: A00U (Sweet Whispers), Tip (Tooltip - Normal)
+{
+Sweet Whispers- [|cffffcc00Level 4|r]
+}
+
+STRING 2250
+// Abilities: A00U (Sweet Whispers), Tip (Tooltip - Normal)
+{
+Sweet Whispers- [|cffffcc00Level 5|r]
+}
+
+STRING 2251
+// Abilities: A00U (Sweet Whispers), Tip (Tooltip - Normal)
+{
+Sweet Whispers- [|cffffcc00Level 6|r]
+}
+
+STRING 2252
+// Abilities: A00U (Sweet Whispers), Tip (Tooltip - Normal)
+{
+Sweet Whispers- [|cffffcc00Level 7|r]
+}
+
+STRING 2253
+// Abilities: A00U (Sweet Whispers), Tip (Tooltip - Normal)
+{
+Sweet Whispers- [|cffffcc00Level 8|r]
+}
+
+STRING 2254
+// Abilities: A00U (Sweet Whispers), Tip (Tooltip - Normal)
+{
+Sweet Whispers- [|cffffcc00Level 9|r]
+}
+
+STRING 2255
+// Abilities: A00U (Sweet Whispers), Tip (Tooltip - Normal)
+{
+Sweet Whispers- [|cffffcc00Level 10|r]
+}
+
+STRING 2256
+// Abilities: A00U (Sweet Whispers), Ubertip (Tooltip - Normal - Extended)
+{
+Puts a target enemy unit to sleep for <A00U,Dur2> seconds. A sleeping unit can be awoken by attacking it.
+Heroes are only minorly affected by this spell.
+}
+
+STRING 2257
+// Abilities: A00U (Sweet Whispers), Ubertip (Tooltip - Normal - Extended)
+{
+Puts a target enemy unit to sleep for <A00U,Dur3> seconds. A sleeping unit can be awoken by attacking it.
+Heroes are only minorly affected by this spell.
+}
+
+STRING 2258
+// Abilities: A00U (Sweet Whispers), Ubertip (Tooltip - Normal - Extended)
+{
+Puts a target enemy unit to sleep for <A00U,Dur4> seconds. A sleeping unit can be awoken by attacking it.
+Heroes are only minorly affected by this spell.
+}
+
+STRING 2259
+// Abilities: A00U (Sweet Whispers), Ubertip (Tooltip - Normal - Extended)
+{
+Puts a target enemy unit to sleep for <A00U,Dur5> seconds. A sleeping unit can be awoken by attacking it.
+Heroes are only minorly affected by this spell.
+}
+
+STRING 2260
+// Abilities: A00U (Sweet Whispers), Ubertip (Tooltip - Normal - Extended)
+{
+Puts a target enemy unit to sleep for <A00U,Dur6> seconds. A sleeping unit can be awoken by attacking it.
+Heroes are only minorly affected by this spell.
+}
+
+STRING 2261
+// Abilities: A00U (Sweet Whispers), Ubertip (Tooltip - Normal - Extended)
+{
+Puts a target enemy unit to sleep for <A00U,Dur7> seconds. A sleeping unit can be awoken by attacking it.
+Heroes are only minorly affected by this spell.
+}
+
+STRING 2262
+// Abilities: A00U (Sweet Whispers), Ubertip (Tooltip - Normal - Extended)
+{
+Puts a target enemy unit to sleep for <A00U,Dur8> seconds. A sleeping unit can be awoken by attacking it.
+Heroes are only minorly affected by this spell.
+}
+
+STRING 2263
+// Abilities: A00U (Sweet Whispers), Ubertip (Tooltip - Normal - Extended)
+{
+Puts a target enemy unit to sleep for <A00U,Dur9> seconds. A sleeping unit can be awoken by attacking it.
+Heroes are only minorly affected by this spell.
+}
+
+STRING 2264
+// Abilities: A00U (Sweet Whispers), Ubertip (Tooltip - Normal - Extended)
+{
+Puts a target enemy unit to sleep for <A00U,Dur10> seconds. A sleeping unit can be awoken by attacking it.
+Heroes are only minorly affected by this spell.
+}
+
+STRING 2265
+// Abilities: A00U (Sweet Whispers), Researchubertip (Tooltip - Learn - Extended)
+{
+Puts a target enemy unit to sleep. A sleeping unit can be awoken by attacking it.
+Heroes are only minorly affected by this spell.
+
+|cffffcc00Duration(Unit)|r - 4 + (1*L)
+|cffffcc00Duration(Hero)|r - 1.15 + (0.15*L)
+|cffffcc00Mana cost|r - 20 + (5*L)
+|cffffcc00Cooldown|r - 5s
+}
+
+STRING 2266
+// Units: H00B (Ranger General), Ubertip (Tooltip - Extended)
+{
+General unmatched in ranged warfare, singling out and destroying opponents.
+}
+
+STRING 2267
+// Units: H00B (Ranger General), Revivetip (Tooltip - Revive)
+{
+General unmatched in ranged warfare, singling out and destroying opponents.
 }
 

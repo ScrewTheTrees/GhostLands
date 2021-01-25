@@ -1,5 +1,5 @@
-import {TreeFrameIDS} from "./TreeFrameIDS";
-import {TreeFrames} from "./TreeFrames";
+import {TreeFrameIDS} from "../TreeFrameIDS";
+import {TreeFrames} from "../TreeFrames";
 import {ITreeFrame} from "./ITreeFrame";
 
 export class TreeSimpleButton implements ITreeFrame {

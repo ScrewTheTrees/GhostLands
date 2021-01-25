@@ -38,4 +38,5 @@ export const enum GameUnits {
     HERO_PICKER = "e001",
     TAVERN_1 = "n00D",
     PATHING_BLOCKER_MAP_START = "n00J",
+    DUMMY_UNIT = "e002",
 }

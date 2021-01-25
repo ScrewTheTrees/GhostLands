@@ -44,11 +44,10 @@ export class NeutralCreepCamp {
     }
 
     public update(_timerDelay: number) {
-        for (let i = 0; i < this.creeps.length; i++) {
+        for (let i = this.creeps.length -  1; i >= 0; i--) {
             let value = this.creeps[i];
             if (!IsValidUnit(value)) {
                 Quick.Slice(this.creeps, i);
-                i -= 1;
             }
         }
         if (this.isCampDead()) {

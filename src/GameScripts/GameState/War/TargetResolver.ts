@@ -113,6 +113,6 @@ export class WarTargets {
 }
 
 export class Armies {
-    public force1: Army | null = null;
-    public force2: Army | null = null;
+    public force1!: Army;
+    public force2!: Army;
 }

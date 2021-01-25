@@ -17,6 +17,13 @@ export class ArmySoldier {
         this.startPoint = Point.fromWidget(soldier);
     }
 
+    public get x() {
+        return GetWidgetX(this.soldier);
+    }
+    public get y() {
+        return GetWidgetY(this.soldier);
+    }
+
     get currentQueue(): UnitQueue {
         return this._currentQueue;
     }
