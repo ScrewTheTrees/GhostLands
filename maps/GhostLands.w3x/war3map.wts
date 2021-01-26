@@ -5911,12 +5911,6 @@ STRING 2237
 Learn Sweet Whispers - [|cffffcc00Level %d|r]
 }
 
-STRING 2238
-// Abilities: A00U (Sweet Whispers), Tip (Tooltip - Normal)
-{
-Sweet Whispers- [|cffffcc00Level 1|r]
-}
-
 STRING 2242
 // Abilities: A00U (Sweet Whispers), EditorSuffix (Editor Suffix)
 {
@@ -5940,60 +5934,6 @@ STRING 2245
 {
 Puts a target enemy unit to sleep for <A00U,Dur1> seconds. A sleeping unit can be awoken by attacking it.
 Heroes are only minorly affected by this spell.
-}
-
-STRING 2247
-// Abilities: A00U (Sweet Whispers), Tip (Tooltip - Normal)
-{
-Sweet Whispers- [|cffffcc00Level 2|r]
-}
-
-STRING 2248
-// Abilities: A00U (Sweet Whispers), Tip (Tooltip - Normal)
-{
-Sweet Whispers- [|cffffcc00Level 3|r]
-}
-
-STRING 2249
-// Abilities: A00U (Sweet Whispers), Tip (Tooltip - Normal)
-{
-Sweet Whispers- [|cffffcc00Level 4|r]
-}
-
-STRING 2250
-// Abilities: A00U (Sweet Whispers), Tip (Tooltip - Normal)
-{
-Sweet Whispers- [|cffffcc00Level 5|r]
-}
-
-STRING 2251
-// Abilities: A00U (Sweet Whispers), Tip (Tooltip - Normal)
-{
-Sweet Whispers- [|cffffcc00Level 6|r]
-}
-
-STRING 2252
-// Abilities: A00U (Sweet Whispers), Tip (Tooltip - Normal)
-{
-Sweet Whispers- [|cffffcc00Level 7|r]
-}
-
-STRING 2253
-// Abilities: A00U (Sweet Whispers), Tip (Tooltip - Normal)
-{
-Sweet Whispers- [|cffffcc00Level 8|r]
-}
-
-STRING 2254
-// Abilities: A00U (Sweet Whispers), Tip (Tooltip - Normal)
-{
-Sweet Whispers- [|cffffcc00Level 9|r]
-}
-
-STRING 2255
-// Abilities: A00U (Sweet Whispers), Tip (Tooltip - Normal)
-{
-Sweet Whispers- [|cffffcc00Level 10|r]
 }
 
 STRING 2256
@@ -6081,5 +6021,65 @@ STRING 2267
 // Units: H00B (Ranger General), Revivetip (Tooltip - Revive)
 {
 General unmatched in ranged warfare, singling out and destroying opponents.
+}
+
+STRING 2268
+// Abilities: A00U (Sweet Whispers), Tip (Tooltip - Normal)
+{
+Sweet Whispers [|cffffcc00Level 1|r]
+}
+
+STRING 2269
+// Abilities: A00U (Sweet Whispers), Tip (Tooltip - Normal)
+{
+Sweet Whispers [|cffffcc00Level 2|r]
+}
+
+STRING 2270
+// Abilities: A00U (Sweet Whispers), Tip (Tooltip - Normal)
+{
+Sweet Whispers [|cffffcc00Level 3|r]
+}
+
+STRING 2271
+// Abilities: A00U (Sweet Whispers), Tip (Tooltip - Normal)
+{
+Sweet Whispers [|cffffcc00Level 4|r]
+}
+
+STRING 2272
+// Abilities: A00U (Sweet Whispers), Tip (Tooltip - Normal)
+{
+Sweet Whispers [|cffffcc00Level 5|r]
+}
+
+STRING 2273
+// Abilities: A00U (Sweet Whispers), Tip (Tooltip - Normal)
+{
+Sweet Whispers [|cffffcc00Level 6|r]
+}
+
+STRING 2274
+// Abilities: A00U (Sweet Whispers), Tip (Tooltip - Normal)
+{
+Sweet Whispers [|cffffcc00Level 7|r]
+}
+
+STRING 2275
+// Abilities: A00U (Sweet Whispers), Tip (Tooltip - Normal)
+{
+Sweet Whispers [|cffffcc00Level 8|r]
+}
+
+STRING 2276
+// Abilities: A00U (Sweet Whispers), Tip (Tooltip - Normal)
+{
+Sweet Whispers [|cffffcc00Level 9|r]
+}
+
+STRING 2277
+// Abilities: A00U (Sweet Whispers), Tip (Tooltip - Normal)
+{
+Sweet Whispers [|cffffcc00Level 10|r]
 }
 

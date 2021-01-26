@@ -80,7 +80,6 @@ export class Warzones {
                 }
             }
         }
-        print("Bandit warzones by force: ", force, "  -  : ", entries.length);
         return entries;
     }
 

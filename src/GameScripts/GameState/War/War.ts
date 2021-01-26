@@ -63,7 +63,7 @@ export class War extends Entity {
             return;
         }
         this.count -= 1;
-
+        const iconHandler = MinimapIconHandler.getInstance();
 
         if (this.state == WarState.SETUP) {
             if (this.targets.armies.force1.isArmyInRect(this.targets.armies.force1.baseGathering)
@@ -77,8 +77,8 @@ export class War extends Entity {
                     this.targets.armies.force1.sendAllSoldiersToGathering();
                     this.targets.armies.force2.sendAllSoldiersToGathering();
 
-                    MinimapIconHandler.getInstance().redObjective = this.targets.armies.force1.armyGathering.getCenter();
-                    MinimapIconHandler.getInstance().blueObjective = this.targets.armies.force2.armyGathering.getCenter();
+                    iconHandler.redObjective = this.targets.armies.force1.armyGathering.getCenter();
+                    iconHandler.blueObjective = this.targets.armies.force2.armyGathering.getCenter();
                 }
             }
         }
@@ -95,8 +95,8 @@ export class War extends Entity {
                         this.state = WarState.CLASHING;
 
                         if (this.targets.selectedBattlefield) {
-                            MinimapIconHandler.getInstance().redObjective = this.targets.selectedBattlefield.center.getCenter();
-                            MinimapIconHandler.getInstance().blueObjective = this.targets.selectedBattlefield.center.getCenter();
+                            iconHandler.redObjective = this.targets.selectedBattlefield.center.getCenter();
+                            iconHandler.blueObjective = this.targets.selectedBattlefield.center.getCenter();
                         }
 
                     } else {
@@ -106,9 +106,9 @@ export class War extends Entity {
 
                         if (this.targets.selectedBattlefield) {
                             if (!this.targets.armies.force1.isArmyDead())
-                                MinimapIconHandler.getInstance().redObjective = this.targets.selectedBattlefield.force1gather.getCenter();
+                                iconHandler.redObjective = this.targets.selectedBattlefield.force1gather.getCenter();
                             if (!this.targets.armies.force2.isArmyDead())
-                                MinimapIconHandler.getInstance().blueObjective = this.targets.selectedBattlefield.force2gather.getCenter();
+                                iconHandler.blueObjective = this.targets.selectedBattlefield.force2gather.getCenter();
                         }
                     }
                 }
@@ -136,9 +136,9 @@ export class War extends Entity {
                     this.countdown = 1;
                     this.state = WarState.SIEGE;
                     if (!this.targets.armies.force1.isArmyDead())
-                        MinimapIconHandler.getInstance().redObjective = this.targets.targets.force1.force2Occupant.primaryRect.getCenter();
+                        iconHandler.redObjective = this.targets.targets.force1.force2Occupant.primaryRect.getCenter();
                     if (!this.targets.armies.force2.isArmyDead())
-                        MinimapIconHandler.getInstance().blueObjective = this.targets.targets.force2.force1Occupant.primaryRect.getCenter();
+                        iconHandler.blueObjective = this.targets.targets.force2.force1Occupant.primaryRect.getCenter();
                 }
             }
         }
@@ -165,8 +165,8 @@ export class War extends Entity {
                 }
                 if (this.siegeTimer <= 0) {
                     Logger.warning("Siege has been running for longer than 600, might want to check that.");
-                    Logger.warning("Army 1 Len: ", this.targets.armies.force1?.platoons.length);
-                    Logger.warning("Army 2 Len: ", this.targets.armies.force2?.platoons.length);
+                    Logger.warning("Army 1 Len: ", this.targets.armies.force1.platoons.length);
+                    Logger.warning("Army 2 Len: ", this.targets.armies.force2.platoons.length);
 
                     this.endWar(); // Wtf ending
                 }
